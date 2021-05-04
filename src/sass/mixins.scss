@@ -120,13 +120,12 @@
 }
 
 %button {
-    display: block;
     box-sizing: border-box;
     
-    height: 3.875rem;
-    width: 14.625rem;
+    min-height: 3.875rem;
+    min-width: 14.625rem;
 
-    padding: 1.25rem 2.1875rem;
+    padding: 1.25rem;
     border-radius: 31px;
 
     background-color: $accent;
@@ -154,10 +153,10 @@
     &-small {
         @extend %button;
 
-        height: 2.875rem;
-        width: 10.9375rem;
+        min-height: 2.875rem;
+        min-width: 10.9375rem;
 
-        padding: .9375rem 3.0625rem;
+        padding: .9375rem;
         border-radius: 23px;
 
         font-size: .875rem;

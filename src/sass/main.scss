@@ -36,6 +36,11 @@ ul {
     width: calc(100% - 30px);
     margin: 0 auto;
     max-width: 1440px;
+
+    &--header {
+        width: calc(100% - 250px);
+        max-width: 1500px;
+    }
 }
 
 a {
@@ -127,5 +132,152 @@ input {
     // Кнопка закрытия
     &__close{
         @extend %close-btn;
+    }
+}
+
+.header {
+    &__container {
+        position: relative;
+        box-sizing: border-box;
+
+        padding-top: 1rem;
+    }
+
+    &__controls {
+        @extend %flexbox;
+
+        position: absolute;
+        right: 0;
+
+        margin-bottom: 1.5625rem;
+    }
+
+    &__search-btn {
+        position: relative;
+        top: 2px;
+    }
+
+    &__box {
+        @extend %flexbox;
+        justify-content: space-between;
+
+        height: 6.875rem;
+    }
+
+    &__logo-box {
+        @extend %flexbox;
+
+        height: 2.6875rem;
+        width: 14.375rem;
+    }
+
+    &__logo {
+        box-sizing: border-box;
+
+        padding-right: 1.375rem;
+        border-right: 1px solid $gray-darken;
+        margin-right: 1.375rem;
+    }
+
+    &__name {
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: $font-accent;
+        color: $gray-darken;
+    }
+
+    &__nav-item {
+        position: relative;
+        box-sizing: border-box;
+
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: $text;
+
+        &:not(:last-child) {
+            margin-right: 3.125rem;
+        }
+
+        &--has-subnav {
+            padding-right: 1rem;
+
+            &::before, &::after {
+                content: '';
+
+                position: absolute;
+                top: 50%;
+
+                height: 6px;
+                width: 1.3px;
+                border-radius: 5px;
+
+                background-color: $text;
+
+                transition: transform .2s linear;
+            }
+
+            &::before {
+                right: calc(.5rem - 4.5px);
+                transform: rotate(55deg);
+            }
+
+            &::after {
+                right: .5rem;
+                transform: rotate(-55deg);
+            }
+
+            &:hover::before {
+                transform: rotate(110deg);
+            }
+
+            &:hover::after {
+                transform: rotate(-110deg);
+            }
+        }
+    }
+
+    &__menu {
+        margin-right: 2.0625rem; 
+    }
+
+    &__menu-item {
+        font-size: .75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $gray-darken;
+
+        &:not(:last-child):after {
+            content: "";
+            
+            display: inline-block;
+            position: relative;
+            top: -2px;
+
+            width: 4px;
+            height: 4px;
+            
+            margin: 0 .6875rem;
+    
+            border-radius: 50%;
+            background-color: $gray-darken;
+        }
+    }
+
+    &__profile-auth {
+        font-size: 1rem;
+        font-weight: 700;
+        color: $accent;
+
+        margin-right: 1.875rem;
+
+        transition: color .2s linear;
+
+        &:hover {
+            color: $accent-lighten;
+        }
+    }
+
+    &__profile-signup {
+        @extend %button-small;
     }
 }
