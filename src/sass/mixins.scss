@@ -1,0 +1,165 @@
+@import 'root';
+
+%flexbox {
+    display: flex;
+    align-items: center;
+    align-self: center;
+}
+
+// Стилизация скролбра
+%scrollbar::-webkit-scrollbar {
+    width: .5%;
+    min-width: 8px;
+}
+
+%scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+%scrollbar::-webkit-scrollbar-thumb {
+    border-left: 1px solid #F2F2F2;
+    background: $accent;
+}
+
+// Крестик для кнопки закрытия
+%close-btn {
+    position: absolute;
+    right: 5%;
+    top: 3%;
+    height: 20px;
+    width: 20px;
+    background: $accent;
+
+    &::after,
+    &::before {
+        transition: background-color .3s;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: $gen;
+        position: absolute;
+        top: 50%;
+        right: calc(50% - 10px);
+    }
+
+    &::after {
+        transform: rotate(45deg);
+    }
+
+    &::before {
+        transform: rotate(135deg);
+    }
+
+    &:hover::after,
+    &:hover::before {
+        background-color: $accent;
+
+    }
+}
+
+/*Кнопка меню*/
+/*В разметке обязательно должна иметь внутренний span */
+/*<button class="burger"><span></span></button>*/
+%burger {
+    overflow: visible;
+
+    &>span {
+        position: relative;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        display: block;
+        width: 22px;
+
+        &,
+        &::after,
+        &::before {
+            background-color: $gen;
+            height: 1px;
+            transition: background-color .3s, transform .3s;
+        }
+
+        &::after,
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 5px;
+            width: 100%;
+        }
+
+        &::before {
+            top: -5px;
+        }
+    }
+
+    &:hover span {
+
+        &,
+        &::after,
+        &::before {
+            background-color: $accent;
+        }
+    }
+
+    &.active {
+        &>span {
+            background-color: transparent;
+            transition: none;
+
+            &::after {
+                top: 0;
+                transform: rotate(-135deg);
+            }
+
+            &::before {
+                top: 0;
+                transform: rotate(135deg);
+            }
+        }
+    }
+}
+
+%button {
+    display: block;
+    box-sizing: border-box;
+    
+    height: 3.875rem;
+    width: 14.625rem;
+
+    padding: 1.25rem 2.1875rem;
+    border-radius: 31px;
+
+    background-color: $accent;
+
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ffffff;
+
+    transition: background-color .2s linear;
+
+    &:hover {
+        background-color: $accent-lighten;
+    }
+
+    &-disabled {
+        @extend %button;
+
+        background-color: $gray;
+
+        &:hover {
+            background-color: $gray;
+        }
+    }
+
+    &-small {
+        @extend %button;
+
+        height: 2.875rem;
+        width: 10.9375rem;
+
+        padding: .9375rem 3.0625rem;
+        border-radius: 23px;
+
+        font-size: .875rem;
+    }
+}

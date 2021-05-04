@@ -1,0 +1,131 @@
+@import 'root';
+@import 'media';
+@import 'keyframes';
+@import 'mixins';
+
+html {
+    font-size: 16px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: $font-gen;
+    cursor: default;
+    background-color: #fff;
+    color: $gen;
+    @extend %scrollbar;
+}
+
+section {
+    position: relative;
+}
+
+p {
+    color: $text;
+}
+
+ul {
+    list-style: none;
+}
+
+.wrapper {
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+a {
+    color: $accent;
+    display: inline-block;
+    text-decoration: none;
+}
+
+svg {
+    min-height: 1rem;
+    height: 1rem;
+}
+
+textarea,
+button,
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: $font-gen;
+    border: none;
+    background: none;
+    outline: none;
+
+    &[disabled] {
+        cursor: default;
+        opacity: .7;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+// убирает цвет автокомплита у инпута
+input {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+        font-size: 1rem;
+        -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+}
+
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    background-color: purple;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    transition: all .3s;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 2rem);
+        left: calc(50% - 2rem);
+        height: 4rem;
+        width: 4rem;
+    }
+}
+
+// Шаблон для модального окна
+// .modal Обязательный класс для всех модальных окон, для попапов используем класс .popup который экстендит(@extend) класс modal или описываем свой.
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    @extend %flexbox;
+    justify-content: center;
+
+    //Вложенное окно с контентом, необходимо задать фиксированные размерыж
+    &__box{
+        padding: 2rem 3rem;
+        box-sizing: border-box;
+        position: relative;
+        background-color: $bgc;
+        overflow: auto;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    // Кнопка закрытия
+    &__close{
+        @extend %close-btn;
+    }
+}
