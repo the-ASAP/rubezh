@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    font-family: $font-gen;
+    font-family: $raleway;
     cursor: default;
     background-color: #fff;
     color: $gen;
@@ -33,12 +33,11 @@ ul {
 }
 
 .wrapper {
-    width: calc(100% - 30px);
+    width: calc(100% - 250px);
     margin: 0 auto;
     max-width: 1440px;
 
-    &--header {
-        width: calc(100% - 250px);
+    &--wide {
         max-width: 1500px;
     }
 }
@@ -60,7 +59,7 @@ input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    font-family: $font-gen;
+    font-family: $raleway;
     border: none;
     background: none;
     outline: none;
@@ -139,80 +138,126 @@ input {
     &__container {
         position: relative;
         box-sizing: border-box;
-
         padding-top: 1rem;
     }
 
     &__controls {
         @extend %flexbox;
-
         position: absolute;
         right: 0;
-
         margin-bottom: 1.5625rem;
     }
 
     &__search-btn {
         position: relative;
         top: 2px;
+
+        & > svg > path {
+            transition: fill .2s linear;
+        }
+
+        &:hover > svg > path {
+            fill: $accent-lighten;
+        }
     }
 
-    &__box {
+    &__row {
         @extend %flexbox;
         justify-content: space-between;
-
         height: 6.875rem;
     }
 
-    &__logo-box {
-        @extend %flexbox;
-
-        height: 2.6875rem;
-        width: 14.375rem;
+    &__menu {
+        margin-right: 2.0625rem; 
     }
 
-    &__logo {
-        box-sizing: border-box;
+    &__menu-item {
+        font-size: .75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $gray-darken;
 
+        &:not(:last-child):after {
+            content: '';
+            display: inline-block;
+            position: relative;
+            top: -2px;
+            width: 4px;
+            height: 4px;
+            margin: 0 .6875rem;
+            border-radius: 50%;
+            background-color: $gray-darken;
+        }
+    }
+
+    &__profile-auth {
+        font-weight: 700;
+        color: $accent;
+        margin-right: 1.875rem;
+        transition: color .2s linear;
+
+        &:hover {
+            color: $accent-lighten;
+        }
+    }
+
+    &__profile-signup {
+        @extend %button-small;
+    }
+}
+
+.logo {
+    @extend %flexbox;
+    height: 2.6875rem;
+    width: 14.375rem;
+
+    &__img {
+        box-sizing: border-box;
         padding-right: 1.375rem;
         border-right: 1px solid $gray-darken;
         margin-right: 1.375rem;
+
+        &--white {
+            border-color: #ffffff;
+        }
     }
 
     &__name {
-        font-size: 1rem;
-        font-weight: 400;
-        font-family: $font-accent;
+        font-family: $exo;
         color: $gray-darken;
-    }
 
-    &__nav-item {
+        &--white {
+            color: #ffffff;
+        }
+    }
+}
+
+.nav {
+    &__item {
+        display: inline-block;
         position: relative;
         box-sizing: border-box;
-
-        font-size: 1.125rem;
-        font-weight: 500;
-        color: $text;
 
         &:not(:last-child) {
             margin-right: 3.125rem;
         }
 
-        &--has-subnav {
+        &--subnav {
             padding-right: 1rem;
+
+            &:hover > .subnav {
+                visibility: visible;
+                opacity: 1;
+            }
 
             &::before, &::after {
                 content: '';
-
                 position: absolute;
                 top: 50%;
-
                 height: 6px;
                 width: 1.3px;
                 border-radius: 5px;
-
                 background-color: $text;
-
                 transition: transform .2s linear;
             }
 
@@ -236,48 +281,82 @@ input {
         }
     }
 
-    &__menu {
-        margin-right: 2.0625rem; 
+    &__link {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: $text;
     }
+}
 
-    &__menu-item {
-        font-size: .75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: $gray-darken;
+.subnav {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    box-sizing: border-box;
+    padding-top: 1.875rem;
+    transition: opacity .2s linear;
 
-        &:not(:last-child):after {
-            content: "";
-            
-            display: inline-block;
-            position: relative;
-            top: -2px;
+    &__box {
+        position: relative;
+        box-sizing: border-box;
+        padding: 3.125rem 1.875rem;
+        background-color: #ffffff;
+        box-shadow: -1px 9px 20px rgba(116, 116, 188, 0.25);
 
-            width: 4px;
-            height: 4px;
-            
-            margin: 0 .6875rem;
-    
-            border-radius: 50%;
-            background-color: $gray-darken;
+        &::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            transform: rotate(45deg);
+            height: 16px;
+            width: 16px;
+            background-color: inherit;
         }
     }
 
-    &__profile-auth {
-        font-size: 1rem;
-        font-weight: 700;
-        color: $accent;
-
-        margin-right: 1.875rem;
-
-        transition: color .2s linear;
-
-        &:hover {
-            color: $accent-lighten;
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 1.875rem;
         }
     }
 
-    &__profile-signup {
-        @extend %button-small;
+    &__link {
+        width: 100%;
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: $text;
+    }
+}
+
+.footer {
+    box-sizing: border-box;
+    padding: 4.4375rem 0;
+    background-color: $gen;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__phone {
+        color: #ffffff;
+        font-family: $exo;
+        font-size: 1.25rem;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+
+        &:not(:last-child) {
+            margin-right: 4.625rem;
+        }
     }
 }
