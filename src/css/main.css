@@ -2,6 +2,7 @@
 
 .modal,
 .header__controls,
+.header__search,
 .header__row,
 .logo,
 .subnav__link,
@@ -93,6 +94,7 @@ body::-webkit-scrollbar-thumb {
 
 .modal,
 .header__controls,
+.header__search,
 .header__row,
 .logo,
 .subnav__link,
@@ -305,13 +307,18 @@ input:-webkit-autofill:focus {
 .header__container {
   position: relative;
   box-sizing: border-box;
-  padding-top: 1rem;
+  height: 6.875rem;
+  padding-top: .6875rem;
 }
 
 .header__controls {
-  position: absolute;
-  right: 0;
-  margin-bottom: 1.5625rem;
+  justify-content: flex-end;
+  margin-bottom: 1.0625rem;
+}
+
+.header__search {
+  position: relative;
+  height: 1.875rem;
 }
 
 .header__search-btn {
@@ -327,9 +334,38 @@ input:-webkit-autofill:focus {
   fill: #8CD23A;
 }
 
+.header__search-input {
+  width: 0;
+  opacity: 0;
+  box-sizing: border-box;
+  padding: 0;
+  color: #34353E;
+  font-family: "Exo 2", sans-serif;
+  font-size: .875rem;
+  font-weight: 300;
+  transition: width .2s linear, opacity .2s linear, padding .2s linear;
+}
+
+.header__search-input::placeholder {
+  color: #6B7785;
+}
+
+.header__search.active > button {
+  position: absolute;
+  top: .5rem;
+  left: .8125rem;
+}
+
+.header__search.active > input {
+  width: 28.125rem;
+  opacity: 1;
+  padding: .375rem .8125rem .375rem 2.625rem;
+  border: 1px solid #6B7785;
+  border-radius: 15px;
+}
+
 .header__row {
   justify-content: space-between;
-  height: 6.875rem;
 }
 
 .header__menu {
@@ -369,26 +405,22 @@ input:-webkit-autofill:focus {
 .logo {
   height: 2.6875rem;
   width: 14.375rem;
+  border-color: #6B7785;
+  color: #6B7785;
+  font-family: "Exo 2", sans-serif;
+}
+
+.logo--white {
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .logo__img {
   box-sizing: border-box;
   padding-right: 1.375rem;
-  border-right: 1px solid #6B7785;
+  border-right: 1px solid;
+  border-color: inherit;
   margin-right: 1.375rem;
-}
-
-.logo__img--white {
-  border-color: #ffffff;
-}
-
-.logo__name {
-  color: #6B7785;
-  font-family: "Exo 2", sans-serif;
-}
-
-.logo__name--white {
-  color: #ffffff;
 }
 
 .nav__item {
@@ -548,7 +580,7 @@ input:-webkit-autofill:focus {
 .footer__link {
   margin-bottom: .9375rem;
   color: #ffffff;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
 
