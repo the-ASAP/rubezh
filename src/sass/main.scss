@@ -172,10 +172,10 @@ input {
     }
 
     &__menu-item {
+        color: $gray-darken;
         font-size: .75rem;
         font-weight: 700;
         text-transform: uppercase;
-        color: $gray-darken;
 
         &:not(:last-child):after {
             content: '';
@@ -191,8 +191,8 @@ input {
     }
 
     &__profile-auth {
-        font-weight: 700;
         color: $accent;
+        font-weight: 700;
         margin-right: 1.875rem;
         transition: color .2s linear;
 
@@ -223,8 +223,8 @@ input {
     }
 
     &__name {
-        font-family: $exo;
         color: $gray-darken;
+        font-family: $exo;
 
         &--white {
             color: #ffffff;
@@ -262,29 +262,29 @@ input {
             }
 
             &::before {
-                right: calc(.5rem - 4.5px);
-                transform: rotate(55deg);
+                right: calc(.5rem - 3.7px);
+                transform: rotate(45deg);
             }
 
             &::after {
                 right: .5rem;
-                transform: rotate(-55deg);
+                transform: rotate(-45deg);
             }
 
             &:hover::before {
-                transform: rotate(110deg);
+                transform: rotate(135deg);
             }
 
             &:hover::after {
-                transform: rotate(-110deg);
+                transform: rotate(-135deg);
             }
         }
     }
 
     &__link {
+        color: $text;
         font-size: 1.125rem;
         font-weight: 500;
-        color: $text;
     }
 }
 
@@ -305,7 +305,7 @@ input {
         box-sizing: border-box;
         padding: 3.125rem 1.875rem;
         background-color: #ffffff;
-        box-shadow: -1px 9px 20px rgba(116, 116, 188, 0.25);
+        box-shadow: -1px 9px 20px rgba(116, 116, 188, .25);
 
         &::after {
             content: '';
@@ -318,19 +318,30 @@ input {
             width: 16px;
             background-color: inherit;
         }
+
+        &--grid {
+            display: grid;
+            grid-template-columns: repeat(3, 17rem);
+            gap: 3.0625rem;
+        }
     }
 
-    &__item {
+    &__link, &__item {
+        @extend %flexbox;
+        width: 100%;
+        color: $text;
+        font-size: 1.125rem;
+        font-weight: 500;
+    }
+
+    &__link {
         &:not(:last-child) {
             margin-bottom: 1.875rem;
         }
     }
 
-    &__link {
-        width: 100%;
-        font-size: 1.125rem;
-        font-weight: 500;
-        color: $text;
+    &__icon {
+        margin-right: 1.25rem;
     }
 }
 
@@ -339,24 +350,67 @@ input {
     padding: 4.4375rem 0;
     background-color: $gen;
 
-    &__container {
+    &__flex {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        margin-bottom: 7.8125rem;
+    }
+
+    &__column {
+        flex-grow: 1;
+        margin-right: 7.875rem;
+    }
+
+    &__contacts {
+        width: max-content;
+        margin-top: 4.4375rem;
     }
 
     &__phone {
         color: #ffffff;
         font-family: $exo;
         font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    &__social {
+        @extend %flexbox;
+        justify-content: space-between;
+        width: 100%;
     }
 
     &__nav {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
 
         &:not(:last-child) {
-            margin-right: 4.625rem;
+            margin-right: 1.625rem;
         }
+    }
+
+    &__link {
+        margin-bottom: .9375rem;
+        color: #ffffff;
+        font-family: "Roboto";
+        font-weight: 300;
+
+        &--title {
+            font-weight: 500;
+            margin-bottom: 1.0625rem;
+        }
+    }
+
+    &__company, &__policy {
+        color:#ffffff;
+        font-size: .875rem;
+    }
+
+    &__company {
+        margin-right: 7.3125rem;
+    }
+
+    &__policy {
+        text-decoration: underline;
     }
 }
