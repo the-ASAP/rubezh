@@ -51,9 +51,30 @@ function freeScroll(item='body') {
     $(item).attr("style", '');
 }
 
+const openSearch = (btn) => {
+    let submitBtn = btn.clone().prop("type", "submit");
+
+    btn.parent().addClass("active");
+    btn.replaceWith(submitBtn);
+    submitBtn.hide();
+    submitBtn.fadeIn(200);
+    submitBtn.siblings("input").focus();
+}
+
+const closeSearch = (btn) => {
+    btn.parent().removeClass("active");
+    btn.siblings("button").prop("type", "button");
+}
+
 $().ready(() => {
-    contentFadeInOnReady()
+    $(document).on("click", ".header__search-btn", function () {
+        openSearch($(this));
+    });
+
+    $(".header__search-closeBtn").on("click", function() {
+        closeSearch($(this));
+    });
+
+    contentFadeInOnReady();
     bindModalListeners([]);
 });
-
-

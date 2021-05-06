@@ -2,8 +2,12 @@
 
 .modal,
 .header__controls,
+.header__search,
 .header__row,
-.logo {
+.logo,
+.subnav__link,
+.subnav__item,
+.footer__social {
   display: flex;
   align-items: center;
   align-self: center;
@@ -23,38 +27,42 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
-.modal__close {
+.modal__close,
+.header__search.active > .header__search-closeBtn {
   position: absolute;
-  right: 5%;
-  top: 3%;
   height: 20px;
   width: 20px;
-  background: #7BB933;
 }
 
 .modal__close::after,
-.modal__close::before {
-  transition: background-color .3s;
+.header__search.active > .header__search-closeBtn::after,
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   content: '';
-  width: 100%;
-  height: 1px;
-  background-color: #34353E;
   position: absolute;
   top: 50%;
   right: calc(50% - 10px);
+  height: 2px;
+  width: 100%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
 }
 
-.modal__close::after {
+.modal__close::after,
+.header__search.active > .header__search-closeBtn::after {
   transform: rotate(45deg);
 }
 
-.modal__close::before {
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
-.modal__close:hover::before {
-  background-color: #7BB933;
+.header__search.active > .header__search-closeBtn:hover::after,
+.modal__close:hover::before,
+.header__search.active > .header__search-closeBtn:hover::before {
+  background-color: #8CD23A;
 }
 
 /*Кнопка меню*/
@@ -90,8 +98,12 @@ body::-webkit-scrollbar-thumb {
 
 .modal,
 .header__controls,
+.header__search,
 .header__row,
-.logo {
+.logo,
+.subnav__link,
+.subnav__item,
+.footer__social {
   display: flex;
   align-items: center;
   align-self: center;
@@ -111,38 +123,42 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
-.modal__close {
+.modal__close,
+.header__search.active > .header__search-closeBtn {
   position: absolute;
-  right: 5%;
-  top: 3%;
   height: 20px;
   width: 20px;
-  background: #7BB933;
 }
 
 .modal__close::after,
-.modal__close::before {
-  transition: background-color .3s;
+.header__search.active > .header__search-closeBtn::after,
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   content: '';
-  width: 100%;
-  height: 1px;
-  background-color: #34353E;
   position: absolute;
   top: 50%;
   right: calc(50% - 10px);
+  height: 2px;
+  width: 100%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
 }
 
-.modal__close::after {
+.modal__close::after,
+.header__search.active > .header__search-closeBtn::after {
   transform: rotate(45deg);
 }
 
-.modal__close::before {
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
-.modal__close:hover::before {
-  background-color: #7BB933;
+.header__search.active > .header__search-closeBtn:hover::after,
+.modal__close:hover::before,
+.header__search.active > .header__search-closeBtn:hover::before {
+  background-color: #8CD23A;
 }
 
 /*Кнопка меню*/
@@ -222,7 +238,6 @@ a {
 
 svg {
   min-height: 1rem;
-  height: 1rem;
 }
 
 textarea,
@@ -299,13 +314,18 @@ input:-webkit-autofill:focus {
 .header__container {
   position: relative;
   box-sizing: border-box;
-  padding-top: 1rem;
+  height: 6.875rem;
+  padding-top: .6875rem;
 }
 
 .header__controls {
-  position: absolute;
-  right: 0;
-  margin-bottom: 1.5625rem;
+  justify-content: flex-end;
+  margin-bottom: 1.0625rem;
+}
+
+.header__search {
+  position: relative;
+  height: 1.875rem;
 }
 
 .header__search-btn {
@@ -321,9 +341,51 @@ input:-webkit-autofill:focus {
   fill: #8CD23A;
 }
 
+.header__search-input {
+  width: 0;
+  opacity: 0;
+  box-sizing: border-box;
+  padding: 0;
+  color: #34353E;
+  font-family: "Exo 2", sans-serif;
+  font-size: .875rem;
+  font-weight: 300;
+  transition: width .2s linear, opacity .2s linear, padding .2s linear;
+}
+
+.header__search-input::placeholder {
+  color: #6B7785;
+}
+
+.header__search-closeBtn {
+  opacity: 0;
+  transition: opacity .2s linear;
+}
+
+.header__search.active > .header__search-btn {
+  position: absolute;
+  top: calc(50% + 2px);
+  left: .8125rem;
+  transform: translateY(-50%);
+}
+
+.header__search.active > input {
+  width: 28.125rem;
+  opacity: 1;
+  padding: .375rem 2.625rem;
+  border: 1px solid #6B7785;
+  border-radius: 15px;
+}
+
+.header__search.active > .header__search-closeBtn {
+  top: 50%;
+  right: .76375rem;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
 .header__row {
   justify-content: space-between;
-  height: 6.875rem;
 }
 
 .header__menu {
@@ -331,10 +393,10 @@ input:-webkit-autofill:focus {
 }
 
 .header__menu-item {
+  color: #6B7785;
   font-size: .75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #6B7785;
 }
 
 .header__menu-item:not(:last-child):after {
@@ -350,8 +412,8 @@ input:-webkit-autofill:focus {
 }
 
 .header__profile-auth {
-  font-weight: 700;
   color: #7BB933;
+  font-weight: 700;
   margin-right: 1.875rem;
   transition: color .2s linear;
 }
@@ -363,26 +425,22 @@ input:-webkit-autofill:focus {
 .logo {
   height: 2.6875rem;
   width: 14.375rem;
+  border-color: #6B7785;
+  color: #6B7785;
+  font-family: "Exo 2", sans-serif;
+}
+
+.logo--white {
+  border-color: #ffffff;
+  color: #ffffff;
 }
 
 .logo__img {
   box-sizing: border-box;
   padding-right: 1.375rem;
-  border-right: 1px solid #6B7785;
+  border-right: 1px solid;
+  border-color: inherit;
   margin-right: 1.375rem;
-}
-
-.logo__img--white {
-  border-color: #ffffff;
-}
-
-.logo__name {
-  font-family: "Exo 2", sans-serif;
-  color: #6B7785;
-}
-
-.logo__name--white {
-  color: #ffffff;
 }
 
 .nav__item {
@@ -417,27 +475,27 @@ input:-webkit-autofill:focus {
 }
 
 .nav__item--subnav::before {
-  right: calc(.5rem - 4.5px);
-  transform: rotate(55deg);
+  right: calc(.5rem - 3.7px);
+  transform: rotate(45deg);
 }
 
 .nav__item--subnav::after {
   right: .5rem;
-  transform: rotate(-55deg);
+  transform: rotate(-45deg);
 }
 
 .nav__item--subnav:hover::before {
-  transform: rotate(110deg);
+  transform: rotate(135deg);
 }
 
 .nav__item--subnav:hover::after {
-  transform: rotate(-110deg);
+  transform: rotate(-135deg);
 }
 
 .nav__link {
+  color: #34353E;
   font-size: 1.125rem;
   font-weight: 500;
-  color: #34353E;
 }
 
 .subnav {
@@ -473,15 +531,26 @@ input:-webkit-autofill:focus {
   background-color: inherit;
 }
 
-.subnav__item:not(:last-child) {
+.subnav__box--grid {
+  display: grid;
+  grid-template-columns: repeat(3, 17rem);
+  gap: 3.0625rem;
+}
+
+.subnav__link,
+.subnav__item {
+  width: 100%;
+  color: #34353E;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.subnav__link:not(:last-child) {
   margin-bottom: 1.875rem;
 }
 
-.subnav__link {
-  width: 100%;
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #34353E;
+.subnav__icon {
+  margin-right: 1.25rem;
 }
 
 .footer {
@@ -490,25 +559,68 @@ input:-webkit-autofill:focus {
   background-color: #34353E;
 }
 
-.footer__container {
+.footer__flex {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  margin-bottom: 7.8125rem;
+}
+
+.footer__column {
+  flex-grow: 1;
+  margin-right: 7.875rem;
+}
+
+.footer__contacts {
+  width: max-content;
+  margin-top: 4.4375rem;
 }
 
 .footer__phone {
   color: #ffffff;
   font-family: "Exo 2", sans-serif;
   font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer__social {
+  justify-content: space-between;
+  width: 100%;
 }
 
 .footer__nav {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .footer__nav:not(:last-child) {
-  margin-right: 4.625rem;
+  margin-right: 1.625rem;
+}
+
+.footer__link {
+  margin-bottom: .9375rem;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.footer__link--title {
+  font-weight: 500;
+  margin-bottom: 1.0625rem;
+}
+
+.footer__company,
+.footer__policy {
+  color: #ffffff;
+  font-size: .875rem;
+}
+
+.footer__company {
+  margin-right: 7.3125rem;
+}
+
+.footer__policy {
+  text-decoration: underline;
 }
 
 @media (max-width: 1600px) {
