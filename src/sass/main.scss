@@ -50,7 +50,6 @@ a {
 
 svg {
     min-height: 1rem;
-    height: 1rem;
 }
 
 textarea,
@@ -118,7 +117,7 @@ input {
     justify-content: center;
 
     //Вложенное окно с контентом, необходимо задать фиксированные размерыж
-    &__box{
+    &__box {
         padding: 2rem 3rem;
         box-sizing: border-box;
         position: relative;
@@ -129,7 +128,7 @@ input {
     }
 
     // Кнопка закрытия
-    &__close{
+    &__close {
         @extend %close-btn;
     }
 }
@@ -182,19 +181,33 @@ input {
             }
         }
 
+        &-closeBtn {
+            opacity: 0;
+            transition: opacity .2s linear;
+        }
+
         &.active {
-            & > button {
+            & > .header__search-btn {
                 position: absolute;
-                top: .5rem;
+                top: calc(50% + 2px);
                 left: .8125rem;
+                transform: translateY(-50%);
             }
 
             & > input {
                 width: 28.125rem;
                 opacity: 1;
-                padding: .375rem .8125rem .375rem 2.625rem;
+                padding: .375rem 2.625rem;
                 border: 1px solid $gray-darken;
                 border-radius: 15px;
+            }
+
+            & > .header__search-closeBtn {
+                @extend %close-btn;
+                top: 50%;
+                right: .76375rem;
+                transform: translateY(-50%);
+                opacity: 1;
             }
         }
     }
@@ -283,7 +296,8 @@ input {
                 opacity: 1;
             }
 
-            &::before, &::after {
+            &::before, 
+            &::after {
                 content: '';
                 position: absolute;
                 top: 50%;
@@ -359,7 +373,8 @@ input {
         }
     }
 
-    &__link, &__item {
+    &__link, 
+    &__item {
         @extend %flexbox;
         width: 100%;
         color: $text;
@@ -434,7 +449,8 @@ input {
         }
     }
 
-    &__company, &__policy {
+    &__company, 
+    &__policy {
         color:#ffffff;
         font-size: .875rem;
     }

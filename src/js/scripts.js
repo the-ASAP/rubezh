@@ -52,20 +52,27 @@ function freeScroll(item='body') {
 }
 
 const openSearch = (btn) => {
-    let form = btn.parent();
-    let input = btn.siblings("input");
     let submitBtn = btn.clone().prop("type", "submit");
 
-    form.addClass("active");
+    btn.parent().addClass("active");
     btn.replaceWith(submitBtn);
     submitBtn.hide();
     submitBtn.fadeIn(200);
-    input.focus();
+    submitBtn.siblings("input").focus();
+}
+
+const closeSearch = (btn) => {
+    btn.parent().removeClass("active");
+    btn.siblings("button").prop("type", "button");
 }
 
 $().ready(() => {
-    $(".header__search-btn").on("click", function() {
+    $(document).on("click", ".header__search-btn", function () {
         openSearch($(this));
+    });
+
+    $(".header__search-closeBtn").on("click", function() {
+        closeSearch($(this));
     });
 
     contentFadeInOnReady();

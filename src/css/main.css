@@ -27,38 +27,42 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
-.modal__close {
+.modal__close,
+.header__search.active > .header__search-closeBtn {
   position: absolute;
-  right: 5%;
-  top: 3%;
   height: 20px;
   width: 20px;
-  background: #7BB933;
 }
 
 .modal__close::after,
-.modal__close::before {
-  transition: background-color .3s;
+.header__search.active > .header__search-closeBtn::after,
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   content: '';
-  width: 100%;
-  height: 1px;
-  background-color: #34353E;
   position: absolute;
   top: 50%;
   right: calc(50% - 10px);
+  height: 2px;
+  width: 100%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
 }
 
-.modal__close::after {
+.modal__close::after,
+.header__search.active > .header__search-closeBtn::after {
   transform: rotate(45deg);
 }
 
-.modal__close::before {
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
-.modal__close:hover::before {
-  background-color: #7BB933;
+.header__search.active > .header__search-closeBtn:hover::after,
+.modal__close:hover::before,
+.header__search.active > .header__search-closeBtn:hover::before {
+  background-color: #8CD23A;
 }
 
 /*Кнопка меню*/
@@ -119,38 +123,42 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
-.modal__close {
+.modal__close,
+.header__search.active > .header__search-closeBtn {
   position: absolute;
-  right: 5%;
-  top: 3%;
   height: 20px;
   width: 20px;
-  background: #7BB933;
 }
 
 .modal__close::after,
-.modal__close::before {
-  transition: background-color .3s;
+.header__search.active > .header__search-closeBtn::after,
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   content: '';
-  width: 100%;
-  height: 1px;
-  background-color: #34353E;
   position: absolute;
   top: 50%;
   right: calc(50% - 10px);
+  height: 2px;
+  width: 100%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
 }
 
-.modal__close::after {
+.modal__close::after,
+.header__search.active > .header__search-closeBtn::after {
   transform: rotate(45deg);
 }
 
-.modal__close::before {
+.modal__close::before,
+.header__search.active > .header__search-closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
-.modal__close:hover::before {
-  background-color: #7BB933;
+.header__search.active > .header__search-closeBtn:hover::after,
+.modal__close:hover::before,
+.header__search.active > .header__search-closeBtn:hover::before {
+  background-color: #8CD23A;
 }
 
 /*Кнопка меню*/
@@ -230,7 +238,6 @@ a {
 
 svg {
   min-height: 1rem;
-  height: 1rem;
 }
 
 textarea,
@@ -350,18 +357,31 @@ input:-webkit-autofill:focus {
   color: #6B7785;
 }
 
-.header__search.active > button {
+.header__search-closeBtn {
+  opacity: 0;
+  transition: opacity .2s linear;
+}
+
+.header__search.active > .header__search-btn {
   position: absolute;
-  top: .5rem;
+  top: calc(50% + 2px);
   left: .8125rem;
+  transform: translateY(-50%);
 }
 
 .header__search.active > input {
   width: 28.125rem;
   opacity: 1;
-  padding: .375rem .8125rem .375rem 2.625rem;
+  padding: .375rem 2.625rem;
   border: 1px solid #6B7785;
   border-radius: 15px;
+}
+
+.header__search.active > .header__search-closeBtn {
+  top: 50%;
+  right: .76375rem;
+  transform: translateY(-50%);
+  opacity: 1;
 }
 
 .header__row {
