@@ -32,6 +32,11 @@ ul {
     list-style: none;
 }
 
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+}
+
 .wrapper {
     width: calc(100% - 250px);
     margin: 0 auto;
@@ -39,6 +44,11 @@ ul {
 
     &--wide {
         max-width: 1500px;
+    }
+
+    &--short {
+        width: calc(100% - 720px);
+        max-width: 1200px;
     }
 }
 
@@ -167,14 +177,15 @@ input {
 
         &-input {
             width: 0;
+            visibility: hidden;
             opacity: 0;
             box-sizing: border-box;
-            padding: 0;
+            padding: .375rem 0;
             color: $text;
             font-family: $exo;
             font-size: .875rem;
             font-weight: 300;
-            transition: width .2s linear, opacity .2s linear, padding .2s linear;
+            transition: width .2s linear, visibility .2s linear, opacity .2s linear, padding .2s linear;
 
             &::placeholder {
                 color: $gray-darken;
@@ -196,6 +207,7 @@ input {
 
             & > input {
                 width: 28.125rem;
+                visibility: visible;
                 opacity: 1;
                 padding: .375rem 2.625rem;
                 border: 1px solid $gray-darken;
@@ -289,6 +301,7 @@ input {
         }
 
         &--subnav {
+            z-index: 100;
             padding-right: 1rem;
 
             &:hover > .subnav {

@@ -58,7 +58,6 @@ const openSearch = (btn) => {
     btn.replaceWith(submitBtn);
     submitBtn.hide();
     submitBtn.fadeIn(200);
-    submitBtn.siblings("input").focus();
 }
 
 const closeSearch = (btn) => {
@@ -68,7 +67,9 @@ const closeSearch = (btn) => {
 
 $().ready(() => {
     $(document).on("click", ".header__search-btn", function () {
-        openSearch($(this));
+        if (!$(this).parent().hasClass("active")) {
+            openSearch($(this));
+        }
     });
 
     $(".header__search-closeBtn").on("click", function() {
