@@ -120,6 +120,7 @@
     padding: 1.25rem 2.25rem;
     border-radius: 31px;
     background-color: $accent;
+    text-align: center;
     color: #ffffff;
     font-size: 1.25rem;
     font-weight: 500;
@@ -141,7 +142,6 @@
 
     &-small {
         @extend %button;
-        min-height: 2.875rem;
         min-width: 10.9375rem;
         padding: .9375rem;
         border-radius: 23px;

@@ -76,6 +76,7 @@ body::-webkit-scrollbar-thumb {
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
   background-color: #7BB933;
+  text-align: center;
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 500;
@@ -88,7 +89,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header__profile-signup {
-  min-height: 2.875rem;
   min-width: 10.9375rem;
   padding: .9375rem;
   border-radius: 23px;
@@ -171,6 +171,7 @@ body::-webkit-scrollbar-thumb {
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
   background-color: #7BB933;
+  text-align: center;
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 500;
@@ -183,7 +184,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header__profile-signup {
-  min-height: 2.875rem;
   min-width: 10.9375rem;
   padding: .9375rem;
   border-radius: 23px;
@@ -223,24 +223,33 @@ h1 {
   font-weight: 800;
 }
 
+h2 {
+  font-size: 2.625rem;
+  font-weight: 700;
+}
+
+h5 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .wrapper {
-  width: calc(100% - 720px);
+  width: calc(100% - 250px);
   margin: 0 auto;
   max-width: 1200px;
 }
 
 .wrapper--wide {
-  width: calc(100% - 250px);
   max-width: 1670px;
 }
 
 .wrapper--middle {
-  width: calc(100% - 520px);
   max-width: 1400px;
 }
 
 a {
-  color: #7BB933;
+  color: #34353E;
   display: inline-block;
   text-decoration: none;
 }

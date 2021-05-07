@@ -37,24 +37,33 @@ h1 {
     font-weight: 800;
 }
 
+h2 {
+    font-size: 2.625rem;
+    font-weight: 700;
+}
+
+h5 {
+    font-family: $exo;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
 .wrapper {
-    width: calc(100% - 720px);
+    width: calc(100% - 250px);
     margin: 0 auto;
     max-width: 1200px;
 
     &--wide {
-        width: calc(100% - 250px);
         max-width: 1670px;
     }
 
     &--middle {
-        width: calc(100% - 520px);
         max-width: 1400px;
     }
 }
 
 a {
-    color: $accent;
+    color: $gen;
     display: inline-block;
     text-decoration: none;
 }
