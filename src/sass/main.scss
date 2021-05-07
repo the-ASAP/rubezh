@@ -32,13 +32,24 @@ ul {
     list-style: none;
 }
 
+h1 {
+    font-size: 4rem;
+    font-weight: 800;
+}
+
 .wrapper {
-    width: calc(100% - 250px);
+    width: calc(100% - 720px);
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 1200px;
 
     &--wide {
-        max-width: 1500px;
+        width: calc(100% - 250px);
+        max-width: 1670px;
+    }
+
+    &--middle {
+        width: calc(100% - 520px);
+        max-width: 1400px;
     }
 }
 
@@ -153,8 +164,10 @@ input {
         height: 1.875rem;
 
         &-btn {
-            position: relative;
-            top: 2px;
+            position: absolute;
+            top: calc(50% + 2px);
+            right: 0;
+            transform: translateY(-50%);
 
             & > svg > path {
                 transition: fill .2s linear;
@@ -166,15 +179,15 @@ input {
         }
 
         &-input {
+            height: 100%;
             width: 0;
+            visibility: hidden;
             opacity: 0;
-            box-sizing: border-box;
-            padding: 0;
             color: $text;
             font-family: $exo;
             font-size: .875rem;
             font-weight: 300;
-            transition: width .2s linear, opacity .2s linear, padding .2s linear;
+            transition: width .2s linear, visibility .2s linear, opacity .2s linear, padding .2s linear;
 
             &::placeholder {
                 color: $gray-darken;
@@ -188,16 +201,15 @@ input {
 
         &.active {
             & > .header__search-btn {
-                position: absolute;
-                top: calc(50% + 2px);
                 left: .8125rem;
-                transform: translateY(-50%);
             }
 
             & > input {
                 width: 28.125rem;
+                visibility: visible;
                 opacity: 1;
-                padding: .375rem 2.625rem;
+                box-sizing: border-box;
+                padding: 0 2.625rem;
                 border: 1px solid $gray-darken;
                 border-radius: 15px;
             }
@@ -218,7 +230,7 @@ input {
     }
 
     &__menu {
-        margin-right: 2.0625rem; 
+        margin-right: 3.1875rem;
     }
 
     &__menu-item {
@@ -289,6 +301,7 @@ input {
         }
 
         &--subnav {
+            z-index: 100;
             padding-right: 1rem;
 
             &:hover > .subnav {

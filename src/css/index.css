@@ -7,7 +7,9 @@
 .logo,
 .subnav__link,
 .subnav__item,
-.footer__social {
+.footer__social,
+.welcome__box,
+.companies__box {
   display: flex;
   align-items: center;
   align-self: center;
@@ -71,7 +73,8 @@ body::-webkit-scrollbar-thumb {
 
 /*<button class="burger"><span></span></button>*/
 
-.header__profile-signup {
+.header__profile-signup,
+.welcome__btn {
   box-sizing: border-box;
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
@@ -83,7 +86,8 @@ body::-webkit-scrollbar-thumb {
   transition: background-color .2s linear;
 }
 
-.header__profile-signup:hover {
+.header__profile-signup:hover,
+.welcome__btn:hover {
   background-color: #8CD23A;
 }
 
@@ -102,7 +106,9 @@ body::-webkit-scrollbar-thumb {
 .logo,
 .subnav__link,
 .subnav__item,
-.footer__social {
+.footer__social,
+.welcome__box,
+.companies__box {
   display: flex;
   align-items: center;
   align-self: center;
@@ -166,7 +172,8 @@ body::-webkit-scrollbar-thumb {
 
 /*<button class="burger"><span></span></button>*/
 
-.header__profile-signup {
+.header__profile-signup,
+.welcome__btn {
   box-sizing: border-box;
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
@@ -178,7 +185,8 @@ body::-webkit-scrollbar-thumb {
   transition: background-color .2s linear;
 }
 
-.header__profile-signup:hover {
+.header__profile-signup:hover,
+.welcome__btn:hover {
   background-color: #8CD23A;
 }
 
@@ -632,6 +640,39 @@ input:-webkit-autofill:focus {
 
 .footer__policy {
   text-decoration: underline;
+}
+
+.welcome {
+  box-sizing: border-box;
+  padding-top: 4.0625rem;
+  padding-bottom: 6.25rem;
+}
+
+.welcome__column {
+  width: 50%;
+}
+
+.welcome__title {
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.welcome__text {
+  margin-bottom: 3.75rem;
+}
+
+.welcome__img {
+  width: 50%;
+}
+
+.companies {
+  box-sizing: border-box;
+  padding: 2.875rem 0;
+  background-color: #EFEFF1;
+}
+
+.companies__box {
+  justify-content: space-between;
 }
 
 @media (max-width: 1600px) {

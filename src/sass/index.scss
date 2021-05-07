@@ -1,0 +1,43 @@
+@import "main";
+
+.welcome {
+    box-sizing: border-box;
+    padding-top: 4.0625rem;
+    padding-bottom: 6.25rem;
+
+    &__box {
+        @extend %flexbox;
+    }
+
+    &__column {
+        width: 50%;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+    }
+
+    &__text {
+        margin-bottom: 3.75rem;
+    }
+
+    &__btn {
+        @extend %button;
+    }
+
+    &__img {
+        width: 50%;
+    }
+}
+
+.companies {
+    box-sizing: border-box;
+    padding: 2.875rem 0;
+    background-color: $bgc;
+
+    &__box {
+        @extend %flexbox;
+        justify-content: space-between;
+    }
+}
