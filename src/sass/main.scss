@@ -163,8 +163,10 @@ input {
         height: 1.875rem;
 
         &-btn {
-            position: relative;
-            top: 2px;
+            position: absolute;
+            top: calc(50% + 2px);
+            right: 0;
+            transform: translateY(-50%);
 
             & > svg > path {
                 transition: fill .2s linear;
@@ -176,11 +178,10 @@ input {
         }
 
         &-input {
+            height: 100%;
             width: 0;
             visibility: hidden;
             opacity: 0;
-            box-sizing: border-box;
-            padding: .375rem 0;
             color: $text;
             font-family: $exo;
             font-size: .875rem;
@@ -199,17 +200,15 @@ input {
 
         &.active {
             & > .header__search-btn {
-                position: absolute;
-                top: calc(50% + 2px);
                 left: .8125rem;
-                transform: translateY(-50%);
             }
 
             & > input {
                 width: 28.125rem;
                 visibility: visible;
                 opacity: 1;
-                padding: .375rem 2.625rem;
+                box-sizing: border-box;
+                padding: 0 2.625rem;
                 border: 1px solid $gray-darken;
                 border-radius: 15px;
             }
@@ -230,7 +229,7 @@ input {
     }
 
     &__menu {
-        margin-right: 2.0625rem; 
+        margin-right: 3.1875rem;
     }
 
     &__menu-item {

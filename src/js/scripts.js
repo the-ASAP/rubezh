@@ -66,10 +66,8 @@ const closeSearch = (btn) => {
 }
 
 $().ready(() => {
-    $(document).on("click", ".header__search-btn", function () {
-        if (!$(this).parent().hasClass("active")) {
-            openSearch($(this));
-        }
+    $(document).on("click", ".header__search-btn[type='button']", function () {
+        openSearch($(this));
     });
 
     $(".header__search-closeBtn").on("click", function() {

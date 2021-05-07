@@ -38,12 +38,6 @@
 
     &__box {
         @extend %flexbox;
-        justify-content: space-around;
-    }
-
-    &__item {
-        &:not(:last-child) {
-            margin-right: 10.125rem;
-        }
+        justify-content: space-between;
     }
 }
