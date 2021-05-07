@@ -224,18 +224,19 @@ h1 {
 }
 
 .wrapper {
-  width: calc(100% - 250px);
+  width: calc(100% - 720px);
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1200px;
 }
 
 .wrapper--wide {
-  max-width: 1500px;
+  width: calc(100% - 250px);
+  max-width: 1670px;
 }
 
-.wrapper--short {
-  width: calc(100% - 720px);
-  max-width: 1200px;
+.wrapper--middle {
+  width: calc(100% - 520px);
+  max-width: 1400px;
 }
 
 a {
