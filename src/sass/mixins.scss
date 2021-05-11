@@ -148,3 +148,23 @@
         font-size: .875rem;
     }
 }
+
+%owl-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: $accent;
+    transition: background-color .2s linear;
+
+    & > svg {
+        height: 19px;
+        width: 8px;
+    }
+
+    &:hover {
+        background-color: $accent-lighten;
+    }
+}

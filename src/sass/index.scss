@@ -73,7 +73,6 @@
 .promo {
     box-sizing: border-box;
     padding-top: 9.375rem;
-    padding-bottom: 4.3125rem;
 
     &__container {
         @extend %flexbox;
@@ -81,16 +80,61 @@
     }
 
     &__title {
-        margin-bottom: 4.125rem;
+        margin-bottom: 3.625rem;
     }
 
     &__slider {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 4rem;
+
+        &Box {
+            box-sizing: border-box;
+            padding: .5rem 1.25rem 9.375rem;
+            overflow: hidden;
+
+            & > .owl-stage-outer {
+                overflow: visible;
+            }
+        }
+
         &Item {
+            height: 26.1875rem;
             width: 100%;
             @extend %flexbox;
             flex-direction: column;
             box-sizing: border-box;
-            padding: 3.125rem 1.9375rem;
+            padding: 3.125rem 1.875rem;
+            border-radius: 8px;
+            box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                background: url(../img/index/slider-item-bg.svg) top right no-repeat / 58%;
+            }
+
+            &:hover {
+                position: absolute;
+                height: auto;
+                padding-bottom: 5.9375rem;
+                
+                & > .promo__sliderLink {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &Img {
+            z-index: 100;
+            height: 8.9375rem;
+            width: 100%;
         }
 
         &Title,
@@ -113,6 +157,21 @@
 
         &Link {
             @extend %button-small;
+            position: absolute;
+            right: 50%;
+            bottom: 3.125rem;
+            transform: translateX(50%);
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .2s linear;
+        }
+
+        &Nav {
+            position: absolute;
+            top: calc(50% - 6.4375rem);
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
         }
     }
 }

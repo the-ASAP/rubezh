@@ -95,6 +95,29 @@ body::-webkit-scrollbar-thumb {
   font-size: .875rem;
 }
 
+.owl-prev,
+.owl-next {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
+}
+
+.owl-prev > svg,
+.owl-next > svg {
+  height: 19px;
+  width: 8px;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: #8CD23A;
+}
+
 .modal,
 .header__controls,
 .header__search,
@@ -188,6 +211,29 @@ body::-webkit-scrollbar-thumb {
   padding: .9375rem;
   border-radius: 23px;
   font-size: .875rem;
+}
+
+.owl-prev,
+.owl-next {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
+}
+
+.owl-prev > svg,
+.owl-next > svg {
+  height: 19px;
+  width: 8px;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: #8CD23A;
 }
 
 html {
@@ -473,7 +519,7 @@ input:-webkit-autofill:focus {
 }
 
 .nav__item--subnav {
-  z-index: 100;
+  z-index: 1000;
   padding-right: 1rem;
 }
 
@@ -571,6 +617,19 @@ input:-webkit-autofill:focus {
 
 .subnav__icon {
   margin-right: 1.25rem;
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+}
+
+.owl-prev {
+  left: 0;
+}
+
+.owl-next {
+  right: 0;
 }
 
 .footer {

@@ -310,7 +310,7 @@ input {
         }
 
         &--subnav {
-            z-index: 100;
+            z-index: 1000;
             padding-right: 1rem;
 
             &:hover > .subnav {
@@ -412,6 +412,22 @@ input {
 
     &__icon {
         margin-right: 1.25rem;
+    }
+}
+
+.owl {
+    &-prev,
+    &-next {
+        @extend %owl-btn;
+        position: absolute;
+    }
+
+    &-prev {
+        left: 0;
+    }
+
+    &-next {
+        right: 0;
     }
 }
 
