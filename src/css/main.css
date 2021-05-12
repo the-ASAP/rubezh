@@ -280,6 +280,12 @@ h5 {
   font-weight: 700;
 }
 
+h6 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
 .wrapper {
   width: calc(100% - 250px);
   margin: 0 auto;
@@ -519,7 +525,7 @@ input:-webkit-autofill:focus {
 }
 
 .nav__item--subnav {
-  z-index: 1000;
+  z-index: 2;
   padding-right: 1rem;
 }
 
@@ -619,6 +625,18 @@ input:-webkit-autofill:focus {
   margin-right: 1.25rem;
 }
 
+.main {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 4.5rem;
+  padding-bottom: 9.375rem;
+  overflow: hidden;
+}
+
+.main--p0 {
+  padding: 0;
+}
+
 .owl-prev,
 .owl-next {
   position: absolute;
@@ -629,6 +647,20 @@ input:-webkit-autofill:focus {
 }
 
 .owl-next {
+  right: 0;
+}
+
+.bg-points {
+  position: absolute;
+}
+
+.bg-points:nth-child(odd) {
+  top: 45%;
+  left: 0;
+}
+
+.bg-points:nth-child(even) {
+  top: 68%;
   right: 0;
 }
 
