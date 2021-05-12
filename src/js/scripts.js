@@ -36,7 +36,7 @@ const bindModalListeners = modalArr => {
             }
         });
     });
-}
+};
 
 // Запрещаем скролл для body 
 function stopScroll(item='body') {
@@ -51,6 +51,25 @@ function freeScroll(item='body') {
     $(item).attr("style", '');
 }
 
+const owlGallery = (selector, params) => {
+    if (params == undefined) params = "";
+    const owl = $(selector);
+        owl.each((i, el) => {
+            $(el)
+            .addClass("owl-carousel owl-theme")
+            .owlCarousel(
+                Object.assign(params, {
+                    smartSpeed: 1000,
+                    navText: [
+                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30057 1.12305L1.41016 10.553L9.30057 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.69943 1.12305L9.58984 10.553L1.69943 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                    ]
+                })
+            );
+        })
+        .trigger("refresh.owl.carousel");
+};
+
 const openSearch = (btn) => {
     let submitBtn = btn.clone().prop("type", "submit");
 
@@ -58,12 +77,12 @@ const openSearch = (btn) => {
     btn.replaceWith(submitBtn);
     submitBtn.hide();
     submitBtn.fadeIn(200);
-}
+};
 
 const closeSearch = (btn) => {
     btn.parent().removeClass("active");
     btn.siblings("button").prop("type", "button");
-}
+};
 
 $().ready(() => {
     $(document).on("click", ".header__search-btn[type='button']", function () {
@@ -72,6 +91,19 @@ $().ready(() => {
 
     $(".header__search-closeBtn").on("click", function() {
         closeSearch($(this));
+    });
+
+    owlGallery(".promo__sliderBox", {
+        loop: true,
+        nav: true,
+        dots: false,
+        navContainer: ".promo__sliderNav",
+        responsive: {
+            0: {
+                items: 3,
+                margin: 40
+            }
+        }
     });
 
     contentFadeInOnReady();

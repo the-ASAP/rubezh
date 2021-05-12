@@ -76,6 +76,7 @@ body::-webkit-scrollbar-thumb {
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
   background-color: #7BB933;
+  text-align: center;
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 500;
@@ -88,11 +89,33 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header__profile-signup {
-  min-height: 2.875rem;
   min-width: 10.9375rem;
   padding: .9375rem;
   border-radius: 23px;
   font-size: .875rem;
+}
+
+.owl-prev,
+.owl-next {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
+}
+
+.owl-prev > svg,
+.owl-next > svg {
+  height: 19px;
+  width: 8px;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: #8CD23A;
 }
 
 .modal,
@@ -171,6 +194,7 @@ body::-webkit-scrollbar-thumb {
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
   background-color: #7BB933;
+  text-align: center;
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 500;
@@ -183,11 +207,33 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header__profile-signup {
-  min-height: 2.875rem;
   min-width: 10.9375rem;
   padding: .9375rem;
   border-radius: 23px;
   font-size: .875rem;
+}
+
+.owl-prev,
+.owl-next {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: #7BB933;
+  transition: background-color .2s linear;
+}
+
+.owl-prev > svg,
+.owl-next > svg {
+  height: 19px;
+  width: 8px;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: #8CD23A;
 }
 
 html {
@@ -223,24 +269,33 @@ h1 {
   font-weight: 800;
 }
 
+h2 {
+  font-size: 2.625rem;
+  font-weight: 700;
+}
+
+h5 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .wrapper {
-  width: calc(100% - 720px);
+  width: calc(100% - 250px);
   margin: 0 auto;
   max-width: 1200px;
 }
 
 .wrapper--wide {
-  width: calc(100% - 250px);
   max-width: 1670px;
 }
 
 .wrapper--middle {
-  width: calc(100% - 520px);
   max-width: 1400px;
 }
 
 a {
-  color: #7BB933;
+  color: #34353E;
   display: inline-block;
   text-decoration: none;
 }
@@ -464,7 +519,7 @@ input:-webkit-autofill:focus {
 }
 
 .nav__item--subnav {
-  z-index: 100;
+  z-index: 1000;
   padding-right: 1rem;
 }
 
@@ -562,6 +617,19 @@ input:-webkit-autofill:focus {
 
 .subnav__icon {
   margin-right: 1.25rem;
+}
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+}
+
+.owl-prev {
+  left: 0;
+}
+
+.owl-next {
+  right: 0;
 }
 
 .footer {
