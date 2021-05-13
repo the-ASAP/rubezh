@@ -433,6 +433,77 @@ input {
     }
 }
 
+.postItem {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    height: 18.75rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3.125rem;
+    box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+    
+    &:not(:last-child) {
+        margin-bottom: 3.125rem;
+    }
+
+    &__link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        &:hover ~ .postItem__description > .postItem__title {
+            color: $text;
+        }
+    }
+
+    &__img {
+        height: 100%;
+        width: 21.25rem;
+        object-fit: cover;
+        margin-right: 5rem;
+    }
+
+    &__status {
+        position: relative;
+        @extend %button-status;
+        margin-bottom: 1.875rem;
+    }
+
+    &__title, 
+    &__text {
+        color: $gray-darken;
+    }
+
+    &__title {
+        margin-bottom: 1.25rem;
+        transition: color .2s linear;
+    }
+
+    &__text {
+        @extend %exo-text;
+    }
+}
+
+.more {
+    @extend %flexbox;
+    flex-direction: column;
+    margin-top: 3.75rem;
+
+    &__btn {
+        @extend %button-more;
+        margin-bottom: 1.875rem;
+    }
+
+    &__text {
+        color: #000000;
+        @extend %exo-text;
+        font-size: .875rem;
+    }
+}
+
 .owl {
     &-prev,
     &-next {
