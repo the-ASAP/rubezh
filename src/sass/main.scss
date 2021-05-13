@@ -48,6 +48,12 @@ h5 {
     font-weight: 700;
 }
 
+h6 {
+    font-family: $exo;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
 .wrapper {
     width: calc(100% - 250px);
     margin: 0 auto;
@@ -310,7 +316,7 @@ input {
         }
 
         &--subnav {
-            z-index: 1000;
+            z-index: 2;
             padding-right: 1rem;
 
             &:hover > .subnav {
@@ -415,6 +421,18 @@ input {
     }
 }
 
+.main {
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 4.5rem;
+    padding-bottom: 9.375rem; 
+    overflow: hidden;
+
+    &--p0 {
+        padding: 0;
+    }
+}
+
 .owl {
     &-prev,
     &-next {
@@ -427,6 +445,20 @@ input {
     }
 
     &-next {
+        right: 0;
+    }
+}
+
+.bg-points {
+    position: absolute;
+
+    &:nth-child(odd) {
+        top: 45%;
+        left: 0;
+    }
+
+    &:nth-child(even) {
+        top: 68%;
         right: 0;
     }
 }

@@ -22,9 +22,8 @@
 
     &__text {
         width: 80%;
-        font-family: $exo;
+        @extend %exo-text;
         font-size: 1.5rem;
-        font-weight: 300;
         line-height: 1.3;
         margin-bottom: 3.75rem;
     }
@@ -116,13 +115,13 @@
                 right: 0;
                 height: 100%;
                 width: 100%;
-                background: url(../img/index/slider-item-bg.svg) top right no-repeat / 58%;
+                background: url(../img/index/slider-item-bg.svg) top right no-repeat;
+                background-size: 58%;
             }
 
             &:hover {
                 position: absolute;
                 height: auto;
-                padding-bottom: 5.9375rem;
                 
                 & > .promo__sliderLink {
                     visibility: visible;
@@ -132,7 +131,7 @@
         }
 
         &Img {
-            z-index: 100;
+            z-index: 1;
             height: 8.9375rem;
             width: 100%;
         }
@@ -149,18 +148,14 @@
         }
 
         &Text {
-            font-family: $exo;
+            @extend %exo-text;
             font-size: 1.125rem;
-            font-weight: 300;
             margin-bottom: 1.875rem;
         }
 
         &Link {
+            z-index: 1;
             @extend %button-small;
-            position: absolute;
-            right: 50%;
-            bottom: 3.125rem;
-            transform: translateX(50%);
             visibility: hidden;
             opacity: 0;
             transition: opacity .2s linear;
@@ -195,9 +190,8 @@
     }
 
     &__text {
-        font-family: $exo;
+        @extend %exo-text;
         font-size: 1.5rem;
-        font-weight: 300;
         line-height: 1.3;
         margin-bottom: 3.1875rem;
     }
@@ -215,6 +209,11 @@
 .articles {
     box-sizing: border-box;
     padding: 9.375rem 0;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
 
     &__title {
         margin-bottom: 1.875rem;
@@ -256,15 +255,12 @@
         }
 
         &Text {
-            font-family: $exo;
-            font-weight: 300;
+            @extend %exo-text;
         }
     }
 
     &__more {
         @extend %button-small;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        align-self: center;
     }
 }
