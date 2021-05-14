@@ -80,6 +80,7 @@ body::-webkit-scrollbar-thumb {
 
 .postItem__status,
 .postItem__text,
+.videoItem__text,
 .more__text,
 .welcome__text,
 .promo__sliderText,
@@ -91,6 +92,7 @@ body::-webkit-scrollbar-thumb {
 
 .more__btn,
 .header__profile-signup,
+.videoItem__btn,
 .promo__sliderLink,
 .articles__more,
 .welcome__btn,
@@ -108,6 +110,7 @@ body::-webkit-scrollbar-thumb {
 
 .more__btn:hover,
 .header__profile-signup:hover,
+.videoItem__btn:hover,
 .promo__sliderLink:hover,
 .articles__more:hover,
 .welcome__btn:hover,
@@ -117,6 +120,7 @@ body::-webkit-scrollbar-thumb {
 
 .more__btn,
 .header__profile-signup,
+.videoItem__btn,
 .promo__sliderLink,
 .articles__more {
   min-width: 10.9375rem;
@@ -286,6 +290,7 @@ body::-webkit-scrollbar-thumb {
 
 .postItem__status,
 .postItem__text,
+.videoItem__text,
 .more__text,
 .welcome__text,
 .promo__sliderText,
@@ -297,6 +302,7 @@ body::-webkit-scrollbar-thumb {
 
 .more__btn,
 .header__profile-signup,
+.videoItem__btn,
 .promo__sliderLink,
 .articles__more,
 .welcome__btn,
@@ -314,6 +320,7 @@ body::-webkit-scrollbar-thumb {
 
 .more__btn:hover,
 .header__profile-signup:hover,
+.videoItem__btn:hover,
 .promo__sliderLink:hover,
 .articles__more:hover,
 .welcome__btn:hover,
@@ -323,6 +330,7 @@ body::-webkit-scrollbar-thumb {
 
 .more__btn,
 .header__profile-signup,
+.videoItem__btn,
 .promo__sliderLink,
 .articles__more {
   min-width: 10.9375rem;
@@ -438,6 +446,10 @@ p {
 
 ul {
   list-style: none;
+}
+
+li {
+  list-style-position: inside;
 }
 
 h1 {
@@ -862,6 +874,79 @@ input:-webkit-autofill:focus {
   transition: color .2s linear;
 }
 
+.videoItem {
+  height: 33.5625rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.875rem;
+  border-radius: 8px;
+  box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+}
+
+.videoItem:hover {
+  height: auto;
+}
+
+.videoItem:hover .videoItem__content {
+  height: auto;
+  width: 100%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.videoItem__img {
+  height: 18.4375rem;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1.875rem;
+}
+
+.videoItem__tags {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.videoItem__tags-item {
+  margin-right: 1rem;
+  margin-bottom: .75rem;
+  color: #7BB933;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 500;
+}
+
+.videoItem__title {
+  font-size: 1.375rem;
+  margin-bottom: 1.25rem;
+}
+
+.videoItem__content {
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .2s linear;
+}
+
+.videoItem__text {
+  color: #000000;
+  line-height: 1.3;
+  margin-bottom: 1.875rem;
+}
+
+.videoItem__btn {
+  align-self: center;
+  margin-bottom: 1.875rem;
+}
+
+.videoItem__date {
+  color: #35363f;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 500;
+}
+
 .more {
   flex-direction: column;
   margin-top: 3.75rem;
@@ -882,14 +967,15 @@ input:-webkit-autofill:focus {
 }
 
 .owl-prev {
-  left: 0;
+  left: -4rem;
 }
 
 .owl-next {
-  right: 0;
+  right: -4rem;
 }
 
 .bg-points {
+  z-index: -1;
   position: absolute;
 }
 
@@ -1019,6 +1105,9 @@ input:-webkit-autofill:focus {
   display: block;
   height: 100%;
   width: calc(73% / 4);
+}
+
+.companies__item:not(:last-child) {
   margin-right: 9%;
 }
 
@@ -1050,9 +1139,7 @@ input:-webkit-autofill:focus {
 
 .promo__slider {
   position: relative;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 4rem;
+  width: calc(100% + 2.5rem);
 }
 
 .promo__sliderBox {
@@ -1076,6 +1163,7 @@ input:-webkit-autofill:focus {
 }
 
 .promo__sliderItem::before {
+  z-index: -1;
   content: '';
   position: absolute;
   top: 0;
@@ -1083,7 +1171,7 @@ input:-webkit-autofill:focus {
   height: 100%;
   width: 100%;
   background: url(../img/index/slider-item-bg.svg) top right no-repeat;
-  background-size: 58%;
+  background-size: 60%;
 }
 
 .promo__sliderItem:hover {
@@ -1097,7 +1185,6 @@ input:-webkit-autofill:focus {
 }
 
 .promo__sliderImg {
-  z-index: 1;
   height: 8.9375rem;
   width: 100%;
 }
@@ -1108,7 +1195,6 @@ input:-webkit-autofill:focus {
 }
 
 .promo__sliderTitle {
-  font-family: "Raleway", sans-serif;
   font-weight: 600;
   margin-bottom: 1.25rem;
 }
@@ -1179,6 +1265,9 @@ input:-webkit-autofill:focus {
 
 .articles__item {
   width: calc(95% / 3);
+}
+
+.articles__item:not(:nth-child(3n)) {
   margin-right: 2.5%;
 }
 

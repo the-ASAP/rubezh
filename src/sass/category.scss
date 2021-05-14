@@ -62,3 +62,111 @@
         }
     }
 }
+
+.events {
+    @extend %flexbox;
+    flex-direction: column;
+
+    &__title {
+        align-self: flex-start;
+        margin-bottom: 3.125rem;
+    }
+
+    &__slider {
+        position: relative;
+        width: calc(100% + 2.5rem);
+
+        &Box {
+            box-sizing: border-box;
+            padding: .5rem 1.25rem 3.125rem;
+            overflow: hidden;
+
+            & > .owl-stage-outer {
+                overflow: visible;
+            }
+        }
+
+        &Item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24.5625rem;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 3.125rem 1.875rem;
+            border-radius: 8px;
+            box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+
+            &::before {
+                z-index: -1;
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 100%;
+                background: url(../img/index/slider-item-bg.svg) top right no-repeat;
+                background-size: 60%;
+            }
+        }
+
+        &Status {
+            @extend %button-status;
+            margin-bottom: 1.5625rem;
+        }
+
+        &Title {
+            font-family: $exo;
+            font-weight: 600;
+        }
+
+        &Date {
+            color: $gray-darken;
+            font-family: $exo;
+        }
+
+        &Nav {
+            position: absolute;
+            top: calc(50% - .1875rem);
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+        }
+    }
+
+    &__more {
+        @extend %button-small;
+    }
+}
+
+.videos {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        margin-bottom: 1.5625rem;
+    }
+
+    &__text {
+        width: 70%;
+        @extend %exo-text;
+        font-size: 1.5rem;
+        margin-bottom: 3.125rem;
+    }
+
+    &__box {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+
+        &--promo {
+            margin-bottom: 3.125rem;
+        }
+    }
+
+    &__more {
+        @extend %button-small;
+        align-self: center;
+    }
+}

@@ -106,6 +106,19 @@ $().ready(() => {
         }
     });
 
+    owlGallery(".events__sliderBox", {
+        loop: true,
+        nav: true,
+        dots: false,
+        navContainer: ".events__sliderNav",
+        responsive: {
+            0: {
+                items: 3,
+                margin: 40
+            }
+        }
+    });
+
     contentFadeInOnReady();
     bindModalListeners([]);
 });

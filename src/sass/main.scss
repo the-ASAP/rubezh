@@ -32,6 +32,10 @@ ul {
     list-style: none;
 }
 
+li {
+    list-style-position: inside;
+}
+
 h1 {
     font-size: 4rem;
     font-weight: 800;
@@ -472,7 +476,7 @@ input {
         margin-bottom: 1.875rem;
     }
 
-    &__title, 
+    &__title,
     &__text {
         color: $gray-darken;
     }
@@ -484,6 +488,81 @@ input {
 
     &__text {
         @extend %exo-text;
+    }
+}
+
+.videoItem {
+    height: 33.5625rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1.875rem;
+    border-radius: 8px;
+    box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+
+    &:hover {
+        height: auto;
+
+        .videoItem__content {
+            height: auto;
+            width: 100%;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &__img {
+        height: 18.4375rem;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 1.875rem;
+    }
+
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        &-item {
+            margin-right: 1rem;
+            margin-bottom: .75rem;
+            color: $accent;
+            font-family: $exo;
+            font-weight: 500;
+        }
+    }
+
+    &__title {
+        font-size: 1.375rem;
+        margin-bottom: 1.25rem;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        height: 0;
+        width: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .2s linear;
+    }
+
+    &__text {
+        color: #000000;
+        @extend %exo-text;
+        line-height: 1.3;
+        margin-bottom: 1.875rem;
+    }
+
+    &__btn {
+        @extend %button-small;
+        align-self: center;
+        margin-bottom: 1.875rem;
+    }
+
+    &__date {
+        color: lighten($gen, .5);
+        font-family: $exo;
+        font-weight: 500;
     }
 }
 
@@ -512,15 +591,16 @@ input {
     }
 
     &-prev {
-        left: 0;
+        left: -4rem;
     }
 
     &-next {
-        right: 0;
+        right: -4rem;
     }
 }
 
 .bg-points {
+    z-index: -1;
     position: absolute;
 
     &:nth-child(odd) {
