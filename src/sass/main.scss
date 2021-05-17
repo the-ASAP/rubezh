@@ -15,7 +15,7 @@ html {
 
 body {
     font-family: $raleway;
-    cursor: default;
+    // cursor: default;
     background-color: #fff;
     color: $gen;
     @extend %scrollbar;
