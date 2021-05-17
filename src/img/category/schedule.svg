@@ -1,0 +1,16 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="6.5" y="27.5" width="67" height="43" stroke="#34353E" stroke-width="3"/>
+<rect x="28" y="36" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="42" y="36" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="56" y="36" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="14" y="46" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="27" y="45" width="12" height="7" fill="#34353E"/>
+<rect x="42" y="46" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="56" y="46" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="14" y="56" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="28" y="56" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="42" y="56" width="10" height="5" stroke="#34353E" stroke-width="2"/>
+<rect x="15" y="8" width="4" height="13" rx="2" fill="#34353E"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M59 15H21V19C21 21.2091 19.2091 23 17 23C14.7909 23 13 21.2091 13 19V15H5V26H75V15H67V19C67 21.2091 65.2091 23 63 23C60.7909 23 59 21.2091 59 19V15Z" fill="#34353E"/>
+<rect x="61" y="8" width="4" height="13" rx="2" fill="#34353E"/>
+</svg>

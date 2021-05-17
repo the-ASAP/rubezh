@@ -118,6 +118,28 @@ $().ready(() => {
         }
     });
 
+    owlGallery(".events__sliderBox", {
+        loop: true,
+        nav: true,
+        dots: false,
+        navContainer: ".events__sliderNav",
+        responsive: {
+            0: {
+                items: 3,
+                margin: 40
+            }
+        }
+    });
+
+    owlGallery(".community__sliderBox", {
+        items: 1,
+        margin: 40,
+        loop: true,
+        nav: true,
+        navContainer: ".community__sliderNav",
+        dotsContainer: ".community__sliderDots"
+    });
+
     contentFadeInOnReady();
 
     // детальные страницы

@@ -52,7 +52,10 @@
         display: block;
         height: 100%;;
         width: calc(73% / 4);
-        margin-right: 9%;
+
+        &:not(:last-child) {
+            margin-right: 9%;
+        }
 
         & > svg {
             height: 100%;
@@ -84,9 +87,7 @@
 
     &__slider {
         position: relative;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 4rem;
+        width: calc(100% + 2.5rem);
 
         &Box {
             box-sizing: border-box;
@@ -109,6 +110,7 @@
             box-shadow: -1px 9px 20px rgba($gray-darken, .25);
 
             &::before {
+                z-index: -1;
                 content: '';
                 position: absolute;
                 top: 0;
@@ -116,7 +118,7 @@
                 height: 100%;
                 width: 100%;
                 background: url(../img/index/slider-item-bg.svg) top right no-repeat;
-                background-size: 58%;
+                background-size: 60%;
             }
 
             &:hover {
@@ -131,7 +133,6 @@
         }
 
         &Img {
-            z-index: 1;
             height: 8.9375rem;
             width: 100%;
         }
@@ -142,7 +143,6 @@
         }
 
         &Title {
-            font-family: $raleway;
             font-weight: 600;
             margin-bottom: 1.25rem;
         }
@@ -172,6 +172,7 @@
 }
 
 .project {
+    z-index: -1;
     box-sizing: border-box;
     padding-top: 4.5rem;
     padding-bottom: 3.5625rem;
@@ -226,7 +227,10 @@
 
     &__item {
         width: calc(95% / 3);
-        margin-right: 2.5%;
+
+        &:not(:nth-child(3n)) {
+            margin-right: 2.5%;
+        }
 
         &Link {
             &:hover > .articles__itemTitle {
