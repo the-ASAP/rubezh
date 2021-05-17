@@ -59,7 +59,7 @@
 %burger {
     overflow: visible;
 
-    &>span {
+    & > span {
         position: relative;
         margin-top: 7px;
         margin-bottom: 7px;
@@ -98,7 +98,7 @@
     }
 
     &.active {
-        &>span {
+        & > span {
             background-color: transparent;
             transition: none;
 
@@ -115,6 +115,11 @@
     }
 }
 
+%exo-text {
+    font-family: $exo;
+    font-weight: 300;
+}
+
 %button {
     box-sizing: border-box;
     padding: 1.25rem 2.25rem;
@@ -124,7 +129,6 @@
     color: #ffffff;
     font-size: 1.25rem;
     font-weight: 500;
-    line-height: 1;
     transition: background-color .2s linear;
 
     &:hover {
@@ -147,24 +151,149 @@
         border-radius: 23px;
         font-size: .875rem;
     }
+
+    &-more {
+        @extend %button-small;
+        min-width: 11.25rem;
+        padding: .875rem;
+        border: 1px solid $accent;
+        background-color: #ffffff;
+        color: $accent;
+        font-size: 1rem;
+        line-height: 1.15;
+        transition: background-color .2s linear, color .2s linear;
+
+        &:hover {
+            background-color: $accent;
+            color: #ffffff;
+        }
+    }
+
+    &-checkbox {
+        min-width: 10.875rem;
+        box-sizing: border-box;
+        padding: .5625rem 1.875rem;
+        border-radius: 20px;
+        border: 1px solid $gen;
+        background-color: #ffffff;
+        text-align: center;
+        @extend %exo-text;
+        font-size: 1.125rem;
+        line-height: 1.15;
+        transition: border-color .2s linear, background-color .2s linear, color .2s linear;
+
+        &:hover {
+            border-color: $accent;
+            background-color: $accent;
+            color: #ffffff;
+        }
+
+        &.active {
+            border-color: $blue;
+            background-color: $blue;
+            color: #ffffff;
+            
+            &:hover {
+                background-color: $blue;
+            }
+        }
+    }
+
+    &-status {
+        @extend %button-checkbox;
+        min-width: unset;
+        padding: .3125rem 1.1875rem;
+        border-color: $blue;
+        background-color: $blue;
+        line-height: 1;
+        color: #ffffff;
+        
+        &:hover {
+            background-color: $blue;
+        }
+    }
 }
 
-%owl-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    background-color: $accent;
-    transition: background-color .2s linear;
+%owl {
+    &-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        background-color: $accent;
+        transition: background-color .2s linear;
 
-    & > svg {
-        height: 19px;
-        width: 8px;
+        & > svg {
+            height: 19px;
+            width: 8px;
+        }
+
+        &:hover {
+            background-color: $accent-lighten;
+        }
+    }
+
+    &-dot {
+        position: relative;
+        height: 1rem;
+        width: 1rem;
+
+        &:not(:last-child) {
+            margin-right: .75rem;
+        }
+
+        & > span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            height: .75rem;
+            width: .75rem;
+            border-radius: 50%;
+            background-color: $bgc;
+            transition: height .2s linear, width .2s linear, background-color .2s linear;
+        }
+
+        &.active > span {
+            height: 100%;
+            width: 100%;
+            background-color: $gray-darken;
+        }
+    }
+}
+
+%nav-card {
+    height: 15.125rem;
+    @extend %flexbox;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2.5rem 1.6875rem;
+    border-radius: 8px;
+    box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+    transition: background-color .2s ease-in-out;
+
+    & > img {
+        transition: filter .2s ease-in-out;
+    }
+
+    & > h6 {
+        text-align: center;
+        transition: color .2s ease-in-out;
     }
 
     &:hover {
-        background-color: $accent-lighten;
+        background-color: $accent;
+
+        & > img {
+            filter: invert(0) sepia(0) saturate(1) hue-rotate(0deg) brightness(5);
+        }
+
+        & > h6 {
+            color: #ffffff;
+        }
     }
 }
