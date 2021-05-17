@@ -1,6 +1,6 @@
 // удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
-    $('.preloader').fadeOut(150, ()=>{
+    $('.preloader').fadeOut(150, () => {
         $('.preloader').remove();
     });
 };
@@ -11,21 +11,21 @@ const bindModalListeners = modalArr => {
         let jQTrigger = $(obj.trigger);
         let jQModal = $(obj.modal);
 
-        jQTrigger.on('click', function() {
+        jQTrigger.on('click', function () {
             stopScroll('body');
             jQModal.addClass('active');
         });
 
-        jQModal.on('click', function(e) {
+        jQModal.on('click', function (e) {
             if ($(e.target).hasClass('modal')) {
                 $(this).removeClass('active');
                 freeScroll();
             }
         });
 
-        jQModal.find('.modal__close').on('click', function() {
+        jQModal.find('.modal__close').on('click', function () {
             jQModal.removeClass('active');
-           freeScroll();
+            freeScroll();
         });
 
         $(document).keydown((e) => {
@@ -39,7 +39,7 @@ const bindModalListeners = modalArr => {
 };
 
 // Запрещаем скролл для body 
-function stopScroll(item='body') {
+function stopScroll(item = 'body') {
     let documentWidth = parseInt(document.documentElement.clientWidth),
         windowsWidth = parseInt(window.innerWidth),
         scrollbarWidth = windowsWidth - documentWidth;
@@ -47,25 +47,25 @@ function stopScroll(item='body') {
 }
 
 // возвращаем скролл для body
-function freeScroll(item='body') {
+function freeScroll(item = 'body') {
     $(item).attr("style", '');
 }
 
 const owlGallery = (selector, params) => {
     if (params == undefined) params = "";
     const owl = $(selector);
-        owl.each((i, el) => {
+    owl.each((i, el) => {
             $(el)
-            .addClass("owl-carousel owl-theme")
-            .owlCarousel(
-                Object.assign(params, {
-                    smartSpeed: 1000,
-                    navText: [
-                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30057 1.12305L1.41016 10.553L9.30057 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.69943 1.12305L9.58984 10.553L1.69943 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-                    ]
-                })
-            );
+                .addClass("owl-carousel owl-theme")
+                .owlCarousel(
+                    Object.assign(params, {
+                        smartSpeed: 1000,
+                        navText: [
+                            '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30057 1.12305L1.41016 10.553L9.30057 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                            '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.69943 1.12305L9.58984 10.553L1.69943 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                        ]
+                    })
+                );
         })
         .trigger("refresh.owl.carousel");
 };
@@ -84,12 +84,24 @@ const closeSearch = (btn) => {
     btn.siblings("button").prop("type", "button");
 };
 
+
+// детальные страницы
+
+
+const buttonScroll = (mainTarget, appearTarget) => {
+    if ($(window).scrollTop() > $(mainTarget).offset().top) {
+        $(appearTarget).addClass('visible')
+    } else {
+        $(appearTarget).removeClass('visible');
+    }
+}
+
 $().ready(() => {
     $(document).on("click", ".header__search-btn[type='button']", function () {
         openSearch($(this));
     });
 
-    $(".header__search-closeBtn").on("click", function() {
+    $(".header__search-closeBtn").on("click", function () {
         closeSearch($(this));
     });
 
@@ -129,5 +141,42 @@ $().ready(() => {
     });
 
     contentFadeInOnReady();
-    bindModalListeners([]);
+
+    // детальные страницы
+
+
+    //обертка для fancybox 
+    $('.detail img').each((i, el) => {
+        $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
+    })
+
+
+    //fancybox
+    $('a[data-fancybox]').fancybox({
+        buttons: [
+            "zoom",
+            "download",
+            "close",
+        ],
+        // clickContent: function (current, event) {
+        //     return "zoom";
+        // },
+        // dblclickContent: function (current, event) {
+        //     return "zoom";
+        // },
+    })
+
+    //появелние кнопки при скролле 
+    if ($('.appears').length) {
+        $(window).on('scroll', e => {
+            buttonScroll('.detail__button--scroll', '.appears');
+        })
+    }
+
+    bindModalListeners([
+        {
+            trigger: '.detail__button--scroll',
+            modal: '.modal--load'
+        }
+    ])
 });

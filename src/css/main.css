@@ -445,6 +445,7 @@ html {
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -509,6 +510,10 @@ h6 {
 
 .wrapper--middle {
   max-width: 1400px;
+}
+
+.wrapper--detail {
+  max-width: 850px;
 }
 
 a {
@@ -580,6 +585,13 @@ input:-webkit-autofill:focus {
   height: 100vh;
   overflow: hidden;
   justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal__box {
