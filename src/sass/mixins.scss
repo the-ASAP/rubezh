@@ -201,7 +201,7 @@
 
     &-status {
         @extend %button-checkbox;
-        min-width: auto;
+        min-width: unset;
         padding: .3125rem 1.1875rem;
         border-color: $blue;
         background-color: $blue;
@@ -214,23 +214,54 @@
     }
 }
 
-%owl-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    background-color: $accent;
-    transition: background-color .2s linear;
+%owl {
+    &-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        background-color: $accent;
+        transition: background-color .2s linear;
 
-    & > svg {
-        height: 19px;
-        width: 8px;
+        & > svg {
+            height: 19px;
+            width: 8px;
+        }
+
+        &:hover {
+            background-color: $accent-lighten;
+        }
     }
 
-    &:hover {
-        background-color: $accent-lighten;
+    &-dot {
+        position: relative;
+        height: 1rem;
+        width: 1rem;
+
+        &:not(:last-child) {
+            margin-right: .75rem;
+        }
+
+        & > span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            height: .75rem;
+            width: .75rem;
+            border-radius: 50%;
+            background-color: $bgc;
+            transition: height .2s linear, width .2s linear, background-color .2s linear;
+        }
+
+        &.active > span {
+            height: 100%;
+            width: 100%;
+            background-color: $gray-darken;
+        }
     }
 }
 

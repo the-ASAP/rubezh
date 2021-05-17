@@ -175,7 +175,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .postItem__status {
-  min-width: auto;
+  min-width: unset;
   padding: .3125rem 1.1875rem;
   border-color: #165AA2;
   background-color: #165AA2;
@@ -208,6 +208,35 @@ body::-webkit-scrollbar-thumb {
 .owl-prev:hover,
 .owl-next:hover {
   background-color: #8CD23A;
+}
+
+.owl-dot {
+  position: relative;
+  height: 1rem;
+  width: 1rem;
+}
+
+.owl-dot:not(:last-child) {
+  margin-right: .75rem;
+}
+
+.owl-dot > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  height: .75rem;
+  width: .75rem;
+  border-radius: 50%;
+  background-color: #EFEFF1;
+  transition: height .2s linear, width .2s linear, background-color .2s linear;
+}
+
+.active.owl-dot > span {
+  height: 100%;
+  width: 100%;
+  background-color: #6B7785;
 }
 
 .modal,
@@ -385,7 +414,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .postItem__status {
-  min-width: auto;
+  min-width: unset;
   padding: .3125rem 1.1875rem;
   border-color: #165AA2;
   background-color: #165AA2;
@@ -418,6 +447,35 @@ body::-webkit-scrollbar-thumb {
 .owl-prev:hover,
 .owl-next:hover {
   background-color: #8CD23A;
+}
+
+.owl-dot {
+  position: relative;
+  height: 1rem;
+  width: 1rem;
+}
+
+.owl-dot:not(:last-child) {
+  margin-right: .75rem;
+}
+
+.owl-dot > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  height: .75rem;
+  width: .75rem;
+  border-radius: 50%;
+  background-color: #EFEFF1;
+  transition: height .2s linear, width .2s linear, background-color .2s linear;
+}
+
+.active.owl-dot > span {
+  height: 100%;
+  width: 100%;
+  background-color: #6B7785;
 }
 
 html {
@@ -459,6 +517,11 @@ h1 {
 
 h2 {
   font-size: 2.625rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.25rem;
   font-weight: 700;
 }
 
@@ -1220,6 +1283,7 @@ input:-webkit-autofill:focus {
 }
 
 .project {
+  z-index: -1;
   box-sizing: border-box;
   padding-top: 4.5rem;
   padding-bottom: 3.5625rem;

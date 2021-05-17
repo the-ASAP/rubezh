@@ -50,6 +50,26 @@
         &:not(:last-child) {
             margin-bottom: 7.5rem;
         }
+
+        &Desc {
+            margin-bottom: 3.125rem;
+        }
+
+        &Title,
+        &Text {
+            width: 70%;
+        }
+
+        &Title {
+            &:not(:last-child) {
+                margin-bottom: 3.125rem;
+            }
+        }
+
+        &Text {
+            @extend %exo-text;
+            font-size: 1.5rem;
+        }
     }
 
     &__nav {
@@ -66,11 +86,6 @@
 .events {
     @extend %flexbox;
     flex-direction: column;
-
-    &__title {
-        align-self: flex-start;
-        margin-bottom: 3.125rem;
-    }
 
     &__slider {
         position: relative;
@@ -127,32 +142,21 @@
 
         &Nav {
             position: absolute;
-            top: calc(50% - .1875rem);
+            top: calc(50% - 2.5625rem);
             left: 0;
             transform: translateY(-50%);
             width: 100%;
         }
     }
 
-    &__more {
+    &__link {
         @extend %button-small;
     }
 }
 
 .videos {
-    display: flex;
+    @extend %flexbox;
     flex-direction: column;
-
-    &__title {
-        margin-bottom: 1.5625rem;
-    }
-
-    &__text {
-        width: 70%;
-        @extend %exo-text;
-        font-size: 1.5rem;
-        margin-bottom: 3.125rem;
-    }
 
     &__box {
         position: relative;
@@ -165,8 +169,92 @@
         }
     }
 
-    &__more {
+    &__link {
         @extend %button-small;
-        align-self: center;
+    }
+}
+
+.community {
+    @extend %flexbox;
+    flex-direction: column;
+    
+    &__slider {
+        position: relative;
+        width: calc(100% + 2.5rem);
+
+        &Box {
+            box-sizing: border-box;
+            padding: .5rem 1.25rem 3.5rem;
+            overflow: hidden;
+
+            & > .owl-stage-outer {
+                overflow: visible;
+            }
+
+            .owl-item img {
+                width: unset;
+            }
+        }
+
+        &Item {
+            display: flex;
+            height: 27.5rem;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 3.125rem;
+            border-radius: 8px;
+            box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+        }
+
+        &Img,
+        &Content {
+            width: 48%;
+        }
+
+        &Img {
+            height: 100%;
+            object-fit: cover;
+            margin-right: 4%;
+        }
+
+        &Content {
+            position: relative;
+        }
+
+        &Title {
+            font-family: $exo;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        &Text {
+            @extend %exo-text;
+            font-size: 1.125rem;
+            line-height: 1.625;
+        }
+
+        &Link {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            @extend %button-small;
+        }
+
+        &Nav {
+            position: absolute;
+            top: calc(50% - 2.75rem);
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+        }
+
+        &Dots {
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            @extend %flexbox;
+        }
     }
 }

@@ -119,6 +119,15 @@ $().ready(() => {
         }
     });
 
+    owlGallery(".community__sliderBox", {
+        items: 1,
+        margin: 40,
+        loop: true,
+        nav: true,
+        navContainer: ".community__sliderNav",
+        dotsContainer: ".community__sliderDots"
+    });
+
     contentFadeInOnReady();
     bindModalListeners([]);
 });
