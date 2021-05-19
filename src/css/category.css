@@ -1202,10 +1202,6 @@ input:-webkit-autofill:focus {
   margin-right: 7.3125rem;
 }
 
-.footer__policy {
-  text-decoration: underline;
-}
-
 .category__header {
   position: relative;
   height: 25.0625rem;

@@ -1090,10 +1090,6 @@ input:-webkit-autofill:focus {
   margin-right: 7.3125rem;
 }
 
-.footer__policy {
-  text-decoration: underline;
-}
-
 .contacts * {
   font-family: "Exo 2", sans-serif;
 }

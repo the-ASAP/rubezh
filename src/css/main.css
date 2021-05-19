@@ -1090,10 +1090,6 @@ input:-webkit-autofill:focus {
   margin-right: 7.3125rem;
 }
 
-.footer__policy {
-  text-decoration: underline;
-}
-
 @media (max-width: 1600px) {
   html {
     font-size: 16px;

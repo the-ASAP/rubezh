@@ -1130,10 +1130,6 @@ input:-webkit-autofill:focus {
   margin-right: 7.3125rem;
 }
 
-.footer__policy {
-  text-decoration: underline;
-}
-
 .welcome {
   box-sizing: border-box;
   padding-top: 4.0625rem;
