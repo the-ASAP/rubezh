@@ -922,7 +922,7 @@ input:-webkit-autofill:focus {
   height: auto;
 }
 
-.videoItem:hover .videoItem__content {
+.videoItem:hover > .videoItem__content {
   height: auto;
   width: 100%;
   visibility: visible;

@@ -254,6 +254,8 @@
             position: absolute;
             left: 50%;
             bottom: 0;
+            box-sizing: border-box;
+            padding: .125rem;
             @extend %flexbox;
         }
     }

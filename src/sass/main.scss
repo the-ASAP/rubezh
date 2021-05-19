@@ -14,7 +14,7 @@ html {
 }
 
 body {
-    font-family: $exo;
+    font-family: $raleway;
     cursor: default;
     background-color: #fff;
     color: $gen;
@@ -76,6 +76,7 @@ h6 {
     &--middle {
         max-width: 1400px;
     }
+    
     &--detail {
         max-width: 850px;
     }
@@ -516,7 +517,7 @@ input {
     &:hover {
         height: auto;
 
-        .videoItem__content {
+        & > .videoItem__content {
             height: auto;
             width: 100%;
             visibility: visible;

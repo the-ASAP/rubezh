@@ -1034,7 +1034,7 @@ input:-webkit-autofill:focus {
   height: auto;
 }
 
-.videoItem:hover .videoItem__content {
+.videoItem:hover > .videoItem__content {
   height: auto;
   width: 100%;
   visibility: visible;
@@ -1437,6 +1437,8 @@ input:-webkit-autofill:focus {
   position: absolute;
   left: 50%;
   bottom: 0;
+  box-sizing: border-box;
+  padding: .125rem;
 }
 
 @media (max-width: 1600px) {
