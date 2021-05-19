@@ -1,0 +1,59 @@
+@import "main";
+
+.profile {
+    &__header {
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba(52, 53, 62, 0.5);
+    }
+    &__options {
+        margin-top: 40px;
+    }
+    &__button {
+        @extend %button-status;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &.active {
+            pointer-events: none;
+        }
+        &:not(.active) {
+            background-color: #fff;
+            color: $blue;
+            &:hover {
+                background-color: $blue;
+                border-color: $blue;
+                color: #fff;
+            }
+        }
+        &:not(:last-child) {
+            margin-right: 30px;
+        }
+    }
+    &__form {
+        margin-top: 50px;
+        & * {
+            font-family: $exo;
+        }
+    }
+    &__subtitle {
+        font-size: 36px;
+        color: $blue;
+    }
+    &__field {
+        margin-top: 30px;
+    }
+    &__label {
+        font-weight: 400;
+    }
+    &__input {
+        @extend %input;
+        margin-top: 10px;
+    }
+    &__submit {
+        @extend %button;
+        margin-top: 50px;
+        padding: 15px 26px;
+        font-size: 14px;
+        font-family: $raleway;
+        font-weight: 500;
+    }
+}

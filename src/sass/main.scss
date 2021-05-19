@@ -327,7 +327,7 @@ input {
                 & .header__profile-name {
                     color: $accent-lighten;
                 }
-                & .profile {
+                & .account {
                     opacity: 1;
                     visibility: visible;
                 }
@@ -772,7 +772,7 @@ input {
     }
 }
 
-.profile {
+.account {
     position: absolute;
     top: 130%;
     left: -100%;

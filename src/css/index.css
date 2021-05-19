@@ -802,7 +802,7 @@ input:-webkit-autofill:focus {
   color: #8CD23A;
 }
 
-.header__profile--logged:hover .profile {
+.header__profile--logged:hover .account {
   opacity: 1;
   visibility: visible;
 }
@@ -1217,7 +1217,7 @@ input:-webkit-autofill:focus {
   text-decoration: underline;
 }
 
-.profile {
+.account {
   position: absolute;
   top: 130%;
   left: -100%;
@@ -1232,7 +1232,7 @@ input:-webkit-autofill:focus {
   z-index: 3;
 }
 
-.profile::before {
+.account::before {
   content: '';
   position: absolute;
   top: -20px;
@@ -1241,15 +1241,15 @@ input:-webkit-autofill:focus {
   border-bottom: 10px solid #fff;
 }
 
-.profile__link {
+.account__link {
   transition: color .3s;
 }
 
-.profile__link:not(:first-child) {
+.account__link:not(:first-child) {
   margin-top: 30px;
 }
 
-.profile__link:hover {
+.account__link:hover {
   color: #7BB933;
 }
 
