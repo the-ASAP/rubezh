@@ -156,24 +156,55 @@ input {
     justify-content: center;
     opacity: 0;
     visibility: hidden;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
     &.active {
         opacity: 1;
         visibility: visible;
     }
     //Вложенное окно с контентом, необходимо задать фиксированные размерыж
     &__box {
-        padding: 2rem 3rem;
-        box-sizing: border-box;
         position: relative;
-        background-color: $bgc;
         overflow: auto;
         max-height: 100%;
         max-width: 100%;
+        padding: 4.625rem 3.125rem 3.125rem 3.125rem;
+        border-radius: 8px;
+        box-shadow: -1px 9px 20px rgba(116, 116, 188, 0.25);
+        background-color: #FFFFFF;
+        text-align: center;
     }
-
     // Кнопка закрытия
     &__close {
         @extend %close-btn;
+        top: 1.5rem;
+        right: 2rem;
+    }
+    &__title {
+        display: block;
+        max-width: 25rem;
+        font-family: $exo;
+        font-size: 1.125rem;
+        line-height: 1.4;
+    }
+
+    &__button {
+        @extend %button-small;
+        display: block;
+        width: fit-content;
+        margin: 1.875rem auto 0 auto;
+    }
+
+    &__already {
+        display: block;
+        margin-top: 1.25rem;
+    }
+
+    &__login {
+        color: $accent;
+        font-weight: 500;
+        text-decoration: underline;
     }
 }
 
@@ -284,7 +315,45 @@ input {
             background-color: $gray-darken;
         }
     }
-
+    &__profile {
+        @extend %flexbox;
+        &--logged {
+            position: relative;
+            cursor: default;
+            &:hover {
+                & .header__profile-pic {
+                    background-color: $accent-lighten;
+                }
+                & .header__profile-name {
+                    color: $accent-lighten;
+                }
+                & .profile {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        &-pic {
+            @extend %flexbox;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            margin-right: 1rem;
+            background-color: $accent;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            transition: background-color .3s;
+        }
+        &-name {
+            color: $accent;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: color .3s;
+        }
+    }
     &__profile-auth {
         color: $accent;
         font-weight: 700;
@@ -700,5 +769,37 @@ input {
 
     &__policy {
         text-decoration: underline;
+    }
+}
+
+.profile {
+    position: absolute;
+    top: 130%;
+    left: -100%;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 264px;
+    padding: 50px 30px;
+    border-radius: 4px;
+    box-shadow: -1px 9px 20px rgba(116, 116, 188, 0.25);
+    background-color: #fff;
+    transition: opacity .3s, visibility .3s;
+    z-index: 3;
+    &::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        right: 54px;
+        border: 10px solid transparent;
+        border-bottom: 10px solid #fff;
+    }
+    &__link {
+        transition: color .3s;
+        &:not(:first-child) {
+            margin-top: 30px;
+        }
+        &:hover {
+            color: $accent;
+        }
     }
 }

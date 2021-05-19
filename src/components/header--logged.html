@@ -12,26 +12,34 @@
                     <input class="header__search-input" type="text" placeholder="Поиск по сайту">
                     <button class="header__search-btn" type="button">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0012 12.502V11.708L10.7272 11.432C9.59019 12.407 8.11619 13 6.50119 13C2.91119 13 0.00118828 10.09 0.00118828 6.5C0.00118828 2.91 2.91119 0 6.50119 0C10.0912 0 13.0012 2.91 13.0012 6.5C13.0012 8.115 12.4092 9.588 11.4352 10.725L11.7092 11.001H12.5012L17.4922 15.999L16.0012 17.49L11.0012 12.502ZM11.0012 6.5C11.0012 4.014 8.98719 2 6.50119 2C4.01619 2 2.00119 4.014 2.00119 6.5C2.00119 8.985 4.01619 11 6.50119 11C8.98719 11 11.0012 8.985 11.0012 6.5Z" fill="#7BB933"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M11.0012 12.502V11.708L10.7272 11.432C9.59019 12.407 8.11619 13 6.50119 13C2.91119 13 0.00118828 10.09 0.00118828 6.5C0.00118828 2.91 2.91119 0 6.50119 0C10.0912 0 13.0012 2.91 13.0012 6.5C13.0012 8.115 12.4092 9.588 11.4352 10.725L11.7092 11.001H12.5012L17.4922 15.999L16.0012 17.49L11.0012 12.502ZM11.0012 6.5C11.0012 4.014 8.98719 2 6.50119 2C4.01619 2 2.00119 4.014 2.00119 6.5C2.00119 8.985 4.01619 11 6.50119 11C8.98719 11 11.0012 8.985 11.0012 6.5Z"
+                                fill="#7BB933" />
                         </svg>
                     </button>
                     <button class="header__search-closeBtn" type="button"></button>
                 </form>
             </div>
-        
+
             <div class="header__row">
-                <a class="logo" href="/"><img class="logo__img" src="img/logo/logo.svg" alt="Портал проектировщика">Портал проектировщика</a>
-                
+                <a class="logo" href="/"><img class="logo__img" src="img/logo/logo.svg"
+                        alt="Портал проектировщика">Портал проектировщика</a>
+
                 <nav class="nav">
                     <div class="nav__item nav__item--subnav">
                         <a class="nav__link" href="/materials.html">Полезные материалы</a>
                         <div class="subnav">
                             <div class="subnav__box subnav__box--grid">
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/solutions.svg" alt="Типовые решения">Типовые решения</a>
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/schemes.svg" alt="Схемы подключения">Схемы подключения</a>
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/docs.svg" alt="Нормативные документы">Нормативные документы</a>
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/examples.svg" alt="Примеры проектов">Примеры проектов</a>
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/drawings.svg" alt="Монтажные схемы / чертежи приборов">Монтажные схемы / чертежи приборов</a>
+                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/solutions.svg"
+                                        alt="Типовые решения">Типовые решения</a>
+                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/schemes.svg"
+                                        alt="Схемы подключения">Схемы подключения</a>
+                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/docs.svg"
+                                        alt="Нормативные документы">Нормативные документы</a>
+                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/examples.svg"
+                                        alt="Примеры проектов">Примеры проектов</a>
+                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/drawings.svg"
+                                        alt="Монтажные схемы / чертежи приборов">Монтажные схемы / чертежи приборов</a>
                             </div>
                         </div>
                     </div>
@@ -53,10 +61,15 @@
                     </div>
                 </nav>
 
-                <div class="header__profile">
-                    <a href="#" class="header__profile-auth">Войти</a>
-                    <a href="#" class="header__profile-signup">Зарегистрироваться</a>
-                </div>
+                <span class="header__profile header__profile--logged">
+                    <span class="header__profile-pic">И</span>
+                    <span href='/' class="header__profile-name">Иванов А.</span>
+                    <span class="profile">
+                        <a href="/" class="profile__link">Настройки профиля</a>
+                        <a href="/" class="profile__link">Отправленные проекты</a>
+                        <a href="/" class="profile__link">Выйти</a>
+                    </span>
+                </span>
             </div>
         </div>
     </div>

@@ -8,12 +8,12 @@
 	<meta name="description" content="Описание страницы для SEO и соцсетей">
 	<meta name="keywords" content="ключевые, слова, через, запятую">
 	<link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
-	<title>Заявка на проверку проекта</title>
-	<link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1621403606348" type="text/css">
-	<link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1621403606348" type="text/css">
-	<link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1621403606348" type="text/css">
+	<title>Войти</title>
+	<link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1621345075237" type="text/css">
+	<link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1621345075237" type="text/css">
+	<link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1621345075237" type="text/css">
 
-	<link rel="stylesheet" href="css/project.css?t=1621403606348" type="text/css">
+	<link rel="stylesheet" href="css/auth.css?t=1621345075237" type="text/css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
@@ -99,65 +99,29 @@
     </div>
 </header>
 	<main class="main">
-		<section class="project">
+		<section class="enter">
 			<div class="wrapper wrapper--detail">
-				<header class="project__header">
-					<h2 class="project__title">Заявка на проверку проекта</h2>
-					<span class="project__subhead">Специалисты НПК «RUBEZH» могут осуществить проверку технических
-						решений принятых в Вашем проекте на базе оборудования ТМ «RUBEZH», «SONAR», «RVi». Для проверки
-						своего проекта необходимо заполнить анкету:</span>
-					<span class="project__required">* Обязательные для заполнения поля</span>
+				<header class="enter__header">
+					<h2 class="enter__title">Настройка учетной записи:</h2>
+					<span class="enter__step">Шаг 1 из 3</span>
 				</header>
-				<form class="project__body">
-					<div class="project__block">
-						<h3 class="project__subtitle">Данные по проекту</h3>
-						<div class="project__field">
-							<span class="project__label">Вы можете прикрепить файл в формате dwg, doc, xlsx, pdf или zip</span>
-							<label for='project__load' class="project__label project__label--load">Прикрепить файлы</label>
-							<input type="file" class="project__load" id='project__load'>
-							<span class="project__file"></span>
-						</div>
-						<div class="project__field">
-							<label for="project__link" class="project__label">Либо скопируйте ссылку на файлы проекта в
-								облаке:</label>
-							<input type="text" class="project__input project__input--link" id='project__link'>
-						</div>
+				<div class="auth">
+					<div class="auth__body">
+						<form class="auth__form error" action='' method="POST">
+							<span class="auth__step-title">Представьтесь, пожалуйста</span>
+							<div class="auth__field">
+								<label for="auth__name" class="auth__label">Имя:</label>
+								<input type="text" class='auth__input' id='auth__name' name='auth__name'>
+							</div>
+							<div class="auth__field">
+								<label for="auth__surname" class="auth__label">Фамилия:</label>
+								<input type="password" class='auth__input' id='auth__surname' name='auth__surname'>
+							</div>
+							<button type='submit' class="auth__submit">Далее</button>
+						</form>
 					</div>
-					<div class="project__block">
-						<h3 class="project__subtitle">Информация об объекте</h3>
-						<div class="project__field">
-							<label for="project__name" class="project__label">Наименование объекта*:</label>
-							<input type="text" class="project__input error" id='project__name'>
-							<span class="project__error">Пожалуйста, заполните это поле</span>
-						</div>
-						<div class="project__field">
-							<label for='project__region' class="project__label">Регион*:</label>
-							<select name="project__region" class='project__select' id="project__region" aria-placeholder="Выберите регион">
-								<option value="" disabled selected>Выберите регион</option>
-								<option>Москва</option>
-								<option>Саратов</option>
-								<option>Нур-Султан</option>
-							</select>
-							<span class='project__arrow'></span>
-							<span class="project__error">Пожалуйста, заполните это поле</span>
-						</div>
-						
-					</div>
-					<div class="project__block">
-						<h3 class="project__subtitle">Контактная информация</h3>
-						<div class="project__field">
-							<label for="" class="project__label">Телефон*:</label>
-							<input type="number" class="project__input">
-							<span class="project__error">Пожалуйста, заполните это поле</span>
-						</div>
-					</div>
-					<button type='submit' class="project__submit">Отправить</button>
-				</form>
-				<div class="project__info">
-					При возникновении трудностей с подбором технического решения или необходимости получения нормативной консультации свяжитесь с нами по телефону <a href='tel:88006001212' class='project__phone'>8-800-600-12-12 (доб. 3)</a>.
 				</div>
 			</div>
-
 		</section>
 	</main>
 
@@ -227,10 +191,10 @@
     </div>
 </footer>
 
-	<script src="vendors/js/jquery-3.5.1.min.js?t=1621403606348"></script>
-	<script src="vendors/js/owl.carousel.min.js?t=1621403606348"></script>
-	<script src="vendors/js/jquery.fancybox.min.js?t=1621403606348"></script>
-	<script src="js/scripts.js?t=1621403606348"></script>
+	<script src="vendors/js/jquery-3.5.1.min.js?t=1621345075237"></script>
+	<script src="vendors/js/owl.carousel.min.js?t=1621345075237"></script>
+	<script src="vendors/js/jquery.fancybox.min.js?t=1621345075237"></script>
+	<script src="js/scripts.js?t=1621345075237"></script>
 </body>
 
 </html>
