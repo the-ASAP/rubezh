@@ -173,7 +173,7 @@ body::-webkit-scrollbar-thumb {
 
 .postItem__status {
   min-width: unset;
-  padding: .3125rem 1.1875rem;
+  padding: 0.3125rem 1.1875rem;
   border-color: #165AA2;
   background-color: #165AA2;
   line-height: 1;
@@ -248,6 +248,33 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   width: 100%;
   background-color: #6B7785;
+}
+
+.content__filter {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.content__filter + label {
+  padding: 0.5rem 1.875rem;
+  border: 1px solid #34353E;
+  border-radius: 20px;
+  font-size: 1.125rem;
+  font-family: "Exo 2", sans-serif;
+  background-color: transparent;
+  color: #34353E;
+  cursor: pointer;
+  transition: background-color .3s, color .3s;
+}
+
+.content__filter + label:hover,
+.content__filter:checked + label {
+  background-color: #165AA2;
+  color: #fff;
+  border-color: #165AA2;
 }
 
 .modal,
@@ -423,7 +450,7 @@ body::-webkit-scrollbar-thumb {
 
 .postItem__status {
   min-width: unset;
-  padding: .3125rem 1.1875rem;
+  padding: 0.3125rem 1.1875rem;
   border-color: #165AA2;
   background-color: #165AA2;
   line-height: 1;
@@ -498,6 +525,33 @@ body::-webkit-scrollbar-thumb {
   height: 100%;
   width: 100%;
   background-color: #6B7785;
+}
+
+.content__filter {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.content__filter + label {
+  padding: 0.5rem 1.875rem;
+  border: 1px solid #34353E;
+  border-radius: 20px;
+  font-size: 1.125rem;
+  font-family: "Exo 2", sans-serif;
+  background-color: transparent;
+  color: #34353E;
+  cursor: pointer;
+  transition: background-color .3s, color .3s;
+}
+
+.content__filter + label:hover,
+.content__filter:checked + label {
+  background-color: #165AA2;
+  color: #fff;
+  border-color: #165AA2;
 }
 
 html {
@@ -1334,6 +1388,40 @@ input:-webkit-autofill:focus {
 
 .account__link:hover {
   color: #7BB933;
+}
+
+.content__header {
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(52, 53, 62, 0.5);
+}
+
+.content__subtitle {
+  max-width: 53.125rem;
+  margin-top: 1.75rem;
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.5rem;
+}
+
+.content__filters {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 3.4375rem;
+}
+
+.content__filters > [class*='field'] {
+  display: flex;
+}
+
+.content__filters > *:not(:last-child) {
+  margin-right: 30px;
+}
+
+.content__search {
+  margin-top: 3.125rem;
+}
+
+.content__search input {
+  margin-right: 1.875rem;
 }
 
 .wrapper--detail {

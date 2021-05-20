@@ -202,7 +202,7 @@
     &-status {
         @extend %button-checkbox;
         min-width: unset;
-        padding: .3125rem 1.1875rem;
+        padding: 0.3125rem 1.1875rem;
         border-color: $blue;
         background-color: $blue;
         line-height: 1;
@@ -211,7 +211,7 @@
             background-color: $blue;
         }
     }
-
+   
     &-transparent {
         @extend %button;
         padding: 14px 30px;
@@ -334,6 +334,35 @@
     }
 }
 
+// экспортируем в <input type='radio'>
+// label должен находиться после инпута
+%input--filter {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    visibility: hidden;
+    overflow: hidden;
+    
+    & + label {
+        padding: 0.5rem 1.875rem;
+        border: 1px solid $gen;
+        border-radius: 20px;
+        font-size: 1.125rem;
+        font-family: $exo;
+        background-color: transparent;
+        color: $gen;
+        cursor: pointer;
+        transition: background-color .3s, color .3s;
+    }
+
+    & + label:hover,
+    &:checked + label {
+        background-color: $blue;
+        color: #fff;
+        border-color: $blue;
+    }
+}
+
 // экспортируем в <input type='checkbox'>
 // label должен находиться после инпута
 %checkbox {
@@ -342,6 +371,7 @@
     top: -9999px;
     visibility: hidden;
     overflow: hidden;
+
     & + label {
         position: relative;
         display: block;
@@ -351,6 +381,7 @@
         border-radius: 2px;
         background-color: #fff;
         cursor: pointer;
+
         &::after {
             content: '';
             position: absolute;
@@ -364,34 +395,8 @@
             background-size: contain;
         }
     }
+    
     &:checked + label {
         background-color: $accent;
-    }
-}
-
-%header {
-    padding-bottom: 28px;
-    border-bottom: 1px solid rgba($gen, .5);
-
-    & [class*='subtitle'] {
-        margin-top: 28px;
-    }
-
-    & [class*='filter'] {
-        margin-top: 55px;
-
-        & > * {
-            &:not(:last-child) {
-                margin-right: 30px;
-            }
-        }
-    }
-
-    & [class*='search'] {
-        margin-top: 50px;
-
-        & > input {
-            margin-right: 30px;
-        }
     }
 }
