@@ -29,7 +29,11 @@
         }
     }
     &__form {
+        display: none;
         margin-top: 50px;
+        &.active {
+            display: block;
+        }
         & * {
             font-family: $exo;
         }
@@ -40,6 +44,9 @@
     }
     &__field {
         margin-top: 30px;
+        &--flex {
+            @extend %flexbox;
+        }
     }
     &__label {
         font-weight: 400;
@@ -48,6 +55,23 @@
         @extend %input;
         margin-top: 10px;
     }
+    &__checkbox {
+        @extend %checkbox;
+        &:checked {
+            & + label {
+                background-color: $blue;
+                border-color: $blue;
+            }
+        }
+        & + label {
+            margin-right: 16px;
+            border-color: $gen;
+        }
+    }
+    &__subscribe {
+        cursor: pointer;
+        user-select: none;
+    }
     &__submit {
         @extend %button;
         margin-top: 50px;
@@ -55,5 +79,64 @@
         font-size: 14px;
         font-family: $raleway;
         font-weight: 500;
+        &--subscribe[disabled] {
+            background-color: $gray;
+        }
+    }
+    &__clarify {
+        display: block;
+        margin-top: 20px;
+    }
+}
+
+.projects {
+    & * {
+        font-family: $exo;
+    }
+    &__table {
+        margin-top: 78px;
+    }
+    &__header {
+        @extend %flexbox;
+        justify-content: space-between;
+        padding: 0 69px 20px 29px;
+        border-bottom: 1px solid rgba(52, 53, 62, 0.5);
+        font-size: 18px;
+        color: rgba(52, 53, 62, 0.7);
+    }
+    &__table-name, 
+    &__name {
+        width: 58%;
+    }
+    &__table-date,
+    &__date {
+        width: 12%;
+        text-align: center;
+    }
+    &__table-status,
+    &__status {
+        width: 13%;
+        text-align: center;
+    }
+    &__body {
+        padding: 0 69px 20px 29px;
+    }
+    
+    &__item {
+        @extend %flexbox;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    &__name {
+        font-size: 20px;
+    }
+    &__date {
+        font-size: 16px;
+    }
+    &__status {
+        color: #FF6562;
+        &--done {
+            color: $accent;
+        }
     }
 }

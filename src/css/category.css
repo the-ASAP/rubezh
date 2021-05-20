@@ -128,7 +128,7 @@ body::-webkit-scrollbar-thumb {
 .videos__link,
 .community__sliderLink {
   min-width: 10.9375rem;
-  padding: .9375rem;
+  padding: 0.9375rem;
   border-radius: 23px;
   font-size: .875rem;
 }
@@ -409,7 +409,7 @@ body::-webkit-scrollbar-thumb {
 .videos__link,
 .community__sliderLink {
   min-width: 10.9375rem;
-  padding: .9375rem;
+  padding: 0.9375rem;
   border-radius: 23px;
   font-size: .875rem;
 }

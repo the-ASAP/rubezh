@@ -147,7 +147,7 @@
     &-small {
         @extend %button;
         min-width: 10.9375rem;
-        padding: .9375rem;
+        padding: 0.9375rem;
         border-radius: 23px;
         font-size: .875rem;
     }
@@ -207,7 +207,6 @@
         background-color: $blue;
         line-height: 1;
         color: #ffffff;
-
         &:hover {
             background-color: $blue;
         }
@@ -221,6 +220,7 @@
         background-color: transparent;
         color: $accent;
         cursor: pointer;
+        
         &:hover {
             background-color: $accent;
             color: #fff;
@@ -335,14 +335,14 @@
 }
 
 // экспортируем в <input type='checkbox'>
-// label должен лежать после инпута
+// label должен находиться после инпута
 %checkbox {
     position: absolute;
     left: -9999px;
     top: -9999px;
     visibility: hidden;
     overflow: hidden;
-    & ~ label {
+    & + label {
         position: relative;
         display: block;
         width: 16px;
@@ -364,7 +364,34 @@
             background-size: contain;
         }
     }
-    &:checked ~ label {
+    &:checked + label {
         background-color: $accent;
+    }
+}
+
+%header {
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba($gen, .5);
+
+    & [class*='subtitle'] {
+        margin-top: 28px;
+    }
+
+    & [class*='filter'] {
+        margin-top: 55px;
+
+        & > * {
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+        }
+    }
+
+    & [class*='search'] {
+        margin-top: 50px;
+
+        & > input {
+            margin-right: 30px;
+        }
     }
 }

@@ -859,6 +859,7 @@ input {
     background-color: #fff;
     transition: opacity .3s, visibility .3s;
     z-index: 3;
+
     &::before {
         content: '';
         position: absolute;
@@ -867,8 +868,10 @@ input {
         border: 10px solid transparent;
         border-bottom: 10px solid #fff;
     }
+
     &__link {
         transition: color .3s;
+        
         &:not(:first-child) {
             margin-top: 30px;
         }

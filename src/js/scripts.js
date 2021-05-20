@@ -85,7 +85,20 @@ const closeSearch = (btn) => {
 };
 
 
-//детальные страницы
+const switchActive = (target, allElems, className) => {
+    $(allElems).removeClass(className);
+    $(target).addClass(className);
+}
+
+const tabs = (button, content, tabAttr) => {
+    $(content).each((i, el) => {
+        if ($(el).attr(tabAttr) === $(button).attr(tabAttr)) {
+            $(content).removeClass('active').hide();
+            $(el).fadeIn();
+        }
+    })
+}
+
 const buttonScroll = (mainTarget, appearTarget) => {
     if ($(window).scrollTop() > $(mainTarget).offset().top) {
         $(appearTarget).addClass('visible')
@@ -94,6 +107,13 @@ const buttonScroll = (mainTarget, appearTarget) => {
     }
 }
 
+const removeDisable = (button) => {
+   $(button).prop('disabled', false);
+}
+
+$('.profile__checkbox').on('change', e => {
+    removeDisable('.profile__submit--subscribe');
+});
 $().ready(() => {
     $(document).on("click", ".header__search-btn[type='button']", function () {
         openSearch($(this));
@@ -185,4 +205,12 @@ $().ready(() => {
             modal: '.modal--confirm'
         }
     ])
+
+    //табы в настройках профиля 
+    $('.profile__button').first().addClass('active');
+    $('.profile__form').first().addClass('active');
+    $('.profile__button').on('click', e => {
+        switchActive(e.target, '.profile__button', 'active');
+        tabs(e.target, '.profile__form', 'data-tab');
+    });
 });
