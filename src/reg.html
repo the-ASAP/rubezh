@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Описание страницы для SEO и соцсетей">
+	<meta name="keywords" content="ключевые, слова, через, запятую">
+	<link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
+	<title>Зарегистрироваться</title>
+	<link rel="stylesheet" href="vendors/css/owl.theme.default.min.css" type="text/css">
+	<link rel="stylesheet" href="vendors/css/owl.carousel.min.css" type="text/css">
+	<link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css" type="text/css">
+
+	<link rel="stylesheet" href="css/auth.css" type="text/css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
+		rel="stylesheet">
+</head>
+
+
+<body>
+	@import "header.html"
+	<main class="main">
+		<section class="enter">
+			<div class="wrapper wrapper--detail">
+				<header class="enter__header">
+					<h2 class="enter__title">Добро пожаловать на портал проектировщика!</h2>
+					<span class="enter__subhead">Удобный ресурс для проектировщиков систем безопасности</span>
+				</header>
+				<div class="auth">
+					<div class="auth__header">
+						<a href="/reg.html" class="auth__link active">Регистрация</a>
+						<a href="/login.html" class="auth__link">Вход на портал</a>
+					</div>
+					<div class="auth__body">
+						<form class="auth__form error" action='' method="POST">	
+							<div class="auth__field">
+								<label for="auth__reg" class="auth__label">Email:</label>
+								<input type="text" class='auth__input' id='auth__reg' name='auth__reg'>
+							</div> 
+							<div class="auth__field auth__field--confirm">
+								<input type="checkbox" class='auth__checkbox' name='auth__confirm' id='auth__confirm'>
+								<label for="auth__confirm"></label>
+								<span class="auth__confirm">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a href='/'>политики конфиденциальности</a></span>
+							</div>
+							<button type='submit' class="auth__submit auth__submit--reg">Зарегистрироваться</button>
+						</form>
+						<a href="/" class="auth__forgot">Забыли пароль?</a>
+						<div class="auth__new">
+							<span>У меня еще уже есть аккаунт</span>
+							<a href="/login.html" class="auth__reg">Войти</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	@import "footer.html"
+	@import "modal-confirm.html"
+	<script src="vendors/js/jquery-3.5.1.min.js"></script>
+	<script src="vendors/js/owl.carousel.min.js"></script>
+	<script src="vendors/js/jquery.fancybox.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>

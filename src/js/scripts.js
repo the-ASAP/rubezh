@@ -170,10 +170,19 @@ $().ready(() => {
         })
     }
 
-    bindModalListeners([
-        {
+    //отобразить название загружаемого файла
+    $('.project__load').on('change', function () {
+        let splittedFakePath = this.value.split('\\');
+        $('.project__file').text(splittedFakePath[splittedFakePath.length - 1]);
+    });
+
+    bindModalListeners([{
             trigger: '.detail__button--scroll',
             modal: '.modal--load'
+        },
+        {
+            trigger: '.auth__submit--reg',
+            modal: '.modal--confirm'
         }
     ])
 });
