@@ -258,3 +258,51 @@
         }
     }
 }
+
+.schedule {
+    @extend %flexbox;
+    justify-content: space-between;
+    padding: 1.875rem;
+    border-radius: 8px;
+    box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+    &:not(:first-child) {
+        margin-top: 1.875rem;
+    }
+    & * {
+        font-family: $exo;
+    }
+    &__date {
+        @extend %flexbox;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 100px;
+        width: 100px;
+        padding: 0.875rem 1.375rem;
+        border-radius: 10px;
+        background-color: $bgc;
+        color: $blue;
+    }
+    &__day {
+        font-size: 48px;
+        font-weight: 600;
+        line-height: 1;
+    }
+    &__month {
+        font-weight: 600;
+    }
+    &__content {
+        max-width: 46.375rem;
+    }
+    &__format {
+        font-weight: 500;
+        color: $blue;
+    }
+    &__text {
+        margin-top: 0.75rem;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    &__button {
+        @extend %button-small;
+    }
+}
