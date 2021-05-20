@@ -1387,7 +1387,7 @@ input:-webkit-autofill:focus {
   margin-top: 3.125rem;
 }
 
-.content__search > input {
+.content__search input {
   margin-right: 1.875rem;
 }
 
