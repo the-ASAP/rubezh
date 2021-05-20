@@ -1443,6 +1443,10 @@ input:-webkit-autofill:focus {
   margin-right: 1.875rem;
 }
 
+.content__body {
+  margin-top: 3.75rem;
+}
+
 .profile__header {
   padding-bottom: 40px;
   border-bottom: 1px solid rgba(52, 53, 62, 0.5);
