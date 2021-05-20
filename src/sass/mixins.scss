@@ -220,6 +220,7 @@
         background-color: transparent;
         color: $accent;
         cursor: pointer;
+        
         &:hover {
             background-color: $accent;
             color: #fff;
@@ -311,7 +312,6 @@
     }
 }
 
-
 %input {
     display: block;
     padding: 7px 19px;
@@ -336,13 +336,13 @@
 
 // экспортируем в <input type='radio'>
 // label должен находиться после инпута
-
 %input--filter {
     position: absolute;
     left: -9999px;
     top: -9999px;
     visibility: hidden;
     overflow: hidden;
+    
     & + label {
         padding: 0.5rem 1.875rem;
         border: 1px solid $gen;
@@ -354,6 +354,7 @@
         cursor: pointer;
         transition: background-color .3s, color .3s;
     }
+
     & + label:hover,
     &:checked + label {
         background-color: $blue;
@@ -370,6 +371,7 @@
     top: -9999px;
     visibility: hidden;
     overflow: hidden;
+
     & + label {
         position: relative;
         display: block;
@@ -379,6 +381,7 @@
         border-radius: 2px;
         background-color: #fff;
         cursor: pointer;
+
         &::after {
             content: '';
             position: absolute;
@@ -392,11 +395,8 @@
             background-size: contain;
         }
     }
+    
     &:checked + label {
         background-color: $accent;
     }
-}
-
-%header {
-  
 }

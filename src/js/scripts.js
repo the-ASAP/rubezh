@@ -1,4 +1,4 @@
-// удаляем прелодер при загрузке страницы
+//удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
     $('.preloader').fadeOut(150, () => {
         $('.preloader').remove();
@@ -38,7 +38,7 @@ const bindModalListeners = modalArr => {
     });
 };
 
-// Запрещаем скролл для body 
+//запрещаем скролл для body 
 function stopScroll(item = 'body') {
     let documentWidth = parseInt(document.documentElement.clientWidth),
         windowsWidth = parseInt(window.innerWidth),
@@ -46,7 +46,7 @@ function stopScroll(item = 'body') {
     $(item).attr("style", 'overflow: hidden; padding-right: ' + scrollbarWidth + 'px');
 }
 
-// возвращаем скролл для body
+//возвращаем скролл для body
 function freeScroll(item = 'body') {
     $(item).attr("style", '');
 }
@@ -107,7 +107,6 @@ const buttonScroll = (mainTarget, appearTarget) => {
     }
 }
 
-
 const removeDisable = (button) => {
    $(button).prop('disabled', false);
 }
@@ -115,6 +114,7 @@ const removeDisable = (button) => {
 $('.profile__checkbox').on('change', e => {
     removeDisable('.profile__submit--subscribe');
 });
+
 $().ready(() => {
     $(document).on("click", ".header__search-btn[type='button']", function () {
         openSearch($(this));
@@ -161,15 +161,14 @@ $().ready(() => {
 
     contentFadeInOnReady();
 
-    // детальные страницы
 
+    //детальные страницы
 
     //обертка для fancybox 
     if ($('[data-fancybox]').length) {
         $('.detail img').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
         })
-    
     
         //fancybox
         $('a[data-fancybox]').fancybox({
@@ -187,7 +186,7 @@ $().ready(() => {
         })
     }
    
-    //появелние кнопки при скролле 
+    //появление кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {
             buttonScroll('.detail__button--scroll', '.appears');
@@ -195,7 +194,6 @@ $().ready(() => {
     }
 
     //отобразить название загружаемого файла
-
     $('.project__load').on('change', function () {
         let splittedFakePath = this.value.split('\\');
         $('.project__file').text(splittedFakePath[splittedFakePath.length - 1]);
@@ -210,8 +208,8 @@ $().ready(() => {
             modal: '.modal--confirm'
         }
     ])
-    //табы в настройках профиля 
 
+    //табы в настройках профиля 
     $('.profile__button').first().addClass('active');
     $('.profile__form').first().addClass('active');
     $('.profile__button').on('click', e => {
@@ -220,9 +218,7 @@ $().ready(() => {
     });
 
     //очистка поиска 
-
     $('.content__searchClear').on('click', e => {
         $(e.target).siblings('input').val('');
     })
-
 });
