@@ -24,7 +24,7 @@
 <body>
     @import "header.html"
     <main class="main">
-        <section class="schedule">
+        <section class="content">
             <div class="wrapper">
                 <header class="content__header">
                     <h2 class="content__title">Расписание событий</h2>
@@ -33,18 +33,31 @@
                     <form action="" method="POST" class="content__filters">
                         <div class="content__field">
                             <input type='radio' name='schedule__filter' id='all' class='content__filter'></input>
-                            <label for='all' class="schedule__button">Все события</label>
+                            <label for='all'>Все события</label>
                         </div>
                         <div class="content__field">
                             <input type='radio' name='schedule__filter' id='online' class='content__filter'></input>
-                            <label for='online' class="schedule__button">Онлайн</label>
+                            <label for='online'>Онлайн</label>
                         </div>
                         <div class="content__field">
                             <input type='radio' name='schedule__filter' id='offline' class='content__filter'></input>
-                            <label for='offline' class="schedule__button">Оффлайн</label>
+                            <label for='offline'>Оффлайн</label>
                         </div>
                     </form>
                 </header>
+                <div class="content__body">
+                    <div class="schedule">
+                        <div class="schedule__date">
+                            <span class="schedule__day">29</span>
+                            <span class="schedule__month">января</span>
+                        </div>
+                        <div class="schedule__content">
+                            <span class="schedule__format">Онлайн</span>
+                            <span class="schedule__format">Видео-обучение по пуско-наладке ОПС ТМ RUBEZH на базе прибора ППКОПУ «РУБЕЖ-2ОП», протокол R3</span>
+                        </div>
+                        <button type='button' class="schedule__button">Зарегистрироваться</button>
+                    </div>
+                </div>
             </div>
         </section>
         <div class="points">
