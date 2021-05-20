@@ -207,12 +207,10 @@
         background-color: $blue;
         line-height: 1;
         color: #ffffff;
-
         &:hover {
             background-color: $blue;
         }
     }
-
     &-transparent {
         @extend %button;
         padding: 14px 30px;
@@ -368,5 +366,27 @@
     }
     &:checked + label {
         background-color: $accent;
+    }
+}
+
+%header {
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(52, 53, 62, 0.5);
+    & [class*='subtitle'] {
+        margin-top: 28px;
+    }
+    & [class*='filter'] {
+        margin-top: 55px;
+        & > * {
+            &:not(:first-child) {
+                margin-right: 30px;
+            }
+        }
+    }
+    & [class*='search'] {
+        margin-top: 50px;
+        & > input {
+            margin-right: 30px;
+        }
     }
 }
