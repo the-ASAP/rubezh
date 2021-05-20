@@ -161,7 +161,7 @@ body::-webkit-scrollbar-thumb {
 
 .postItem__status {
   min-width: unset;
-  padding: .3125rem 1.1875rem;
+  padding: 0.3125rem 1.1875rem;
   border-color: #165AA2;
   background-color: #165AA2;
   line-height: 1;
@@ -385,7 +385,7 @@ body::-webkit-scrollbar-thumb {
 
 .postItem__status {
   min-width: unset;
-  padding: .3125rem 1.1875rem;
+  padding: 0.3125rem 1.1875rem;
   border-color: #165AA2;
   background-color: #165AA2;
   line-height: 1;

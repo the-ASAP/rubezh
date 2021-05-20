@@ -211,10 +211,7 @@
             background-color: $blue;
         }
     }
-    &-filter {
-        @extend %button-status;
-        &
-    }
+   
     &-transparent {
         @extend %button;
         padding: 14px 30px;
@@ -337,6 +334,33 @@
     }
 }
 
+// экспортируем в <input type='radio'>
+// label должен находиться после инпута
+
+%input--filter {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    visibility: hidden;
+    overflow: hidden;
+    & + label {
+        padding: 0.5rem 1.875rem;
+        border: 1px solid $gen;
+        border-radius: 20px;
+        font-size: 1.125rem;
+        font-family: $exo;
+        background-color: transparent;
+        color: $gen;
+        cursor: pointer;
+        transition: background-color .3s, color .3s;
+    }
+    & + label:hover,
+    &:checked + label {
+        background-color: $blue;
+        color: #fff;
+        border-color: $blue;
+    }
+}
 
 // экспортируем в <input type='checkbox'>
 // label должен находиться после инпута
@@ -374,16 +398,22 @@
 }
 
 %header {
-    padding-bottom: 28px;
+    padding-bottom: 1.75rem;
     border-bottom: 1px solid rgba(52, 53, 62, 0.5);
     & [class*='subtitle'],
     & [class*='subhead'] {
-        margin-top: 28px;
+        max-width: 53.125rem;
+        margin-top: 1.75rem;
+        font-family: $exo;
+        font-size: 1.5rem;
     }
     & [class*='filter'] {
         display: flex;
         flex-wrap: wrap;
-        margin-top: 55px;
+        margin-top: 3.4375rem;
+        & > [class*='field'] {
+            display: flex;
+        }
         & > * {
             &:not(:last-child) {
                 margin-right: 30px;
@@ -391,9 +421,9 @@
         }
     }
     & [class*='search'] {
-        margin-top: 50px;
+        margin-top: 3.125rem;
         & > input {
-            margin-right: 30px;
+            margin-right: 1.875rem;
         }
     }
 }
