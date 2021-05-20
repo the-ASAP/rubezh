@@ -378,7 +378,7 @@
     & [class*='filter'] {
         margin-top: 55px;
         & > * {
-            &:not(:first-child) {
+            &:not(:last-child) {
                 margin-right: 30px;
             }
         }
