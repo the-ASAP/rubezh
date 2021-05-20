@@ -88,7 +88,6 @@
             text-decoration: underline;
             color: $accent;
             transition: color .3s;
-
             & span {
                 color: $gen;
                 text-decoration: none;
@@ -105,6 +104,7 @@
             font-family: $exo;
             font-weight: 300;
             line-height: 1.4;
+
             & strong {
                 font-weight: 400;
             }
@@ -113,8 +113,10 @@
         & ol {
             max-width: 800px;
             margin: 1.125rem auto 2.5rem auto;
-
             & li {
+                & a {
+                    display: inline;
+                }
                 &:not(:first-child) {
                     margin-top: 0.75rem;
                 }
@@ -142,9 +144,12 @@
             max-width: 47rem;
             margin: 1.25rem auto 2.5rem auto;
             font-size: 1.125rem;
+
             & li {
                 font-weight: 300;
-
+                & a {
+                    display: inline;
+                }
                 &:not(:first-child) {
                     margin-top: 0.75rem;
                 }
@@ -165,6 +170,7 @@
             padding: 1.875rem 1.875rem 2.1875rem 1.875rem;
             border-left: 4px solid $gray;
             background-color: $bgc;
+
             & h3,
             & h4,
             & h5 {
@@ -172,6 +178,7 @@
                 margin: 0;
                 text-transform: unset;
             }
+
             & p {
                 margin-top: 0.875rem;
                 font-family: $exo;
@@ -454,9 +461,114 @@
 
 
 
+.comments {
+    margin-top: 80px;
+    & * {
+        font-family: $exo;
+    }
+    &__count {
+        font-size: 24px;
+        font-weight: 400;
+    }
+    &__check {
+        margin-top: 20px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(52, 53, 62, 0.5);
+        & a {
+            color: $accent;
+            text-decoration: underline;
+            font-weight: 700;
+        }
+    }
+    &__container {
+        width: 790px;
+        margin: 40px auto 0 auto;
+    }
+    &__write {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin-bottom: 60px;
+    }
+    &__area {
+        width: 100%;
+        min-height: 150px;
+        padding: 8px 20px;
+        font-size: 16px;
+        border: 1px solid rgba(52, 53, 62, 0.5);
+        border-radius: 5px;
+        resize: none; 
+    }
+    &__send {
+        @extend %button-transparent;
+        margin-top: 30px;
+        font-family: $raleway;
+    }
+}
 
-
-
+.comment {
+    &__body {
+        display: flex;
+        align-items: flex-start;
+    }
+    margin-top: 40px;
+    & .comment {
+        margin-left: 60px;
+        margin-top: 30px;
+    }
+    &__pic {
+        @extend %flexbox;
+        flex-shrink: 0;
+        align-self: flex-start;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        margin-right: 16px;
+        font-family: $raleway;
+        font-size: 24px;
+        font-weight: 700;
+        border-radius: 50%;
+        background-color: $accent;
+        color: #fff;
+        &--admin {
+            background-color: $blue;
+        }
+    }
+    &__name {
+        font-family: $raleway;
+        font-weight: 600;
+    }
+    &__whom {
+        position: relative;
+        display: block;
+        font-family: $raleway;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(52, 53, 62, 0.5);
+        &:not(:empty) {
+            margin-top: 8px;
+            &::before {
+                display: inline-block;
+                content: '';
+                width: 10px;
+                height: 8px;
+                margin-right: 4px;
+                background-image: url('../img/icons/reply.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    &__text {
+        margin-top: 6px;
+    }
+    &__reply {
+        margin-top: 10px;
+        font-size: 16px;
+        opacity: 0.5;
+        text-decoration: underline;
+    }
+}
 
 
 

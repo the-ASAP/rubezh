@@ -9,11 +9,11 @@
 	<meta name="keywords" content="ключевые, слова, через, запятую">
 	<link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
 	<title>Настройки профиля</title>
-	<link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1621409138182" type="text/css">
-	<link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1621409138182" type="text/css">
-	<link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1621409138182" type="text/css">
+	<link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1621489307736" type="text/css">
+	<link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1621489307736" type="text/css">
+	<link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1621489307736" type="text/css">
 
-	<link rel="stylesheet" href="css/profile.css?t=1621409138182" type="text/css">
+	<link rel="stylesheet" href="css/profile.css?t=1621489307736" type="text/css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
@@ -89,8 +89,8 @@
                     <span class="header__profile-pic">И</span>
                     <span href='/' class="header__profile-name">Иванов А.</span>
                     <span class="account">
-                        <a href="/" class="account__link">Настройки профиля</a>
-                        <a href="/" class="account__link">Отправленные проекты</a>
+                        <a href="/profile-options.html" class="account__link">Настройки профиля</a>
+                        <a href="/sent-projects.html" class="account__link">Отправленные проекты</a>
                         <a href="/" class="account__link">Выйти</a>
                     </span>
                 </span>
@@ -104,72 +104,80 @@
                 <header class="profile__header">
                     <h2 class="profle__title">Настройки профиля</h2>
                     <div class="profile__options">
-                        <button type='button' class="profile__button active" data-tab='personal'>Персональные данные</button>
+                        <button type='button' class="profile__button" data-tab='personal'>Персональные данные</button>
                         <button type='button' class="profile__button" data-tab='password'>Смена пароля</button>
                         <button type='button' class="profile__button" data-tab='subscrib'>Управление подписками</button>
                     </div>
                    
                 </header>
-                <form action="" method="POST" class="profile__form" data-tab='personal'>
-                    <h4 class="profile__subtitle">Персональные данные</h4>
-                    <div class="profile__field">
-                        <label for="profile__name" class="profile__label">Имя:</label>
-                        <input type="text" class="profile__input" id='profile__name' name='profile__name'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__surname" class="profile__label">Фамилия:</label>
-                        <input type="text" class="profile__input" id='profile__surname' name='profile__surname'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__login" class="profile__label">Логин:</label>
-                        <input type="text" class="profile__input" id='profile__login' name='profile__login'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__email" class="profile__label">Email:</label>
-                        <input type="text" class="profile__input" id='profile__email' name='profile__email'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__phone" class="profile__label">Телефон:</label>
-                        <input type="number" class="profile__input" id='profile__phone' name='profile__phone'>
-                    </div>
-                    <button type='submit' class="profile__submit">Сохранить изменения</button>
-                </form>
-                <form action="" method="POST" class="profile__form" data-tab='password'>
-                    <h4 class="profile__subtitle">Смена пароля</h4>
-                    <div class="profile__field">
-                        <label for="password-new" class="profile__label">Новый пароль:</label>
-                        <input type="password" class="profile__input" id='password-new' name='password-old'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="password-repeat" class="profile__label">Повторите пароль:</label>
-                        <input type="password" class="profile__input" id='password-repeat' name='password-repeat'>
-                    </div>
-                    <button type='submit' class="profile__submit">Сохранить изменения</button>
-                </form>
-                <form action="" method="POST" class="profile__form" data-tab='subscrib'>
-                    <h4 class="profile__subtitle">Управление подписками</h4>
-                    <div class="profile__field">
-                        <label for="profile__name" class="profile__label">Имя:</label>
-                        <input type="text" class="profile__input" id='profile__name' name='profile__name'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__surname" class="profile__label">Фамилия:</label>
-                        <input type="text" class="profile__input" id='profile__surname' name='profile__surname'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__login" class="profile__label">Логин:</label>
-                        <input type="text" class="profile__input" id='profile__login' name='profile__login'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__email" class="profile__label">Email:</label>
-                        <input type="text" class="profile__input" id='profile__email' name='profile__email'>
-                    </div>
-                    <div class="profile__field">
-                        <label for="profile__phone" class="profile__label">Телефон:</label>
-                        <input type="number" class="profile__input" id='profile__phone' name='profile__phone'>
-                    </div>
-                    <button type='submit' class="profile__submit">Сохранить изменения</button>
-                </form>
+                <div class="profile__body">
+                    <form action="" method="POST" class="profile__form" data-tab='personal' id='personal'>
+                        <h4 class="profile__subtitle">Персональные данные</h4>
+                        <div class="profile__field">
+                            <label for="profile__name" class="profile__label">Имя:</label>
+                            <input type="text" class="profile__input" id='profile__name' name='profile__name'>
+                        </div>
+                        <div class="profile__field">
+                            <label for="profile__surname" class="profile__label">Фамилия:</label>
+                            <input type="text" class="profile__input" id='profile__surname' name='profile__surname'>
+                        </div>
+                        <div class="profile__field">
+                            <label for="profile__login" class="profile__label">Логин:</label>
+                            <input type="text" class="profile__input" id='profile__login' name='profile__login'>
+                        </div>
+                        <div class="profile__field">
+                            <label for="profile__email" class="profile__label">Email:</label>
+                            <input type="text" class="profile__input" id='profile__email' name='profile__email'>
+                        </div>
+                        <div class="profile__field">
+                            <label for="profile__phone" class="profile__label">Телефон:</label>
+                            <input type="number" class="profile__input" id='profile__phone' name='profile__phone'>
+                        </div>
+                        <button type='submit' class="profile__submit">Сохранить изменения</button>
+                    </form>
+                    <form action="" method="POST" class="profile__form" data-tab='password' id='password'>
+                        <h4 class="profile__subtitle">Смена пароля</h4>
+                        <div class="profile__field">
+                            <label for="password-new" class="profile__label">Новый пароль:</label>
+                            <input type="password" class="profile__input" id='password-new' name='password-old'>
+                        </div>
+                        <div class="profile__field">
+                            <label for="password-repeat" class="profile__label">Повторите пароль:</label>
+                            <input type="password" class="profile__input" id='password-repeat' name='password-repeat'>
+                        </div>
+                        <button type='submit' class="profile__submit">Сохранить изменения</button>
+                    </form>
+                    <form action="" method="POST" class="profile__form" data-tab='subscrib' id='subscrib'>
+                        <h4 class="profile__subtitle">Управление подписками</h4>
+                        <span class="profile__clarify">Отметьте о каких обновлениях вы хотите получать уведомления</span>
+                        <div class="profile__field profile__field--flex">
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__articles' name='subscribe__articles'>
+                            <label for="subscribe__articles"></label>
+                            <label for="subscribe__articles" class="profile__subscribe">Статьи</label>
+                        </div>
+                        <div class="profile__field profile__field--flex">
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__video' name='subscribe__video'>
+                            <label for="subscribe__video"></label>
+                            <label for="subscribe__video" class="profile__subscribe">Видеоматериалы</label>
+                        </div>
+                        <div class="profile__field profile__field--flex">
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__schedule' name='subscribe__schedule'>
+                            <label for="subscribe__schedule"></label>
+                            <label for="subscribe__schedule" class="profile__subscribe">Расписание событий</label>
+                        </div>
+                        <div class="profile__field profile__field--flex">
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__docs' name='subscribe__docs'>
+                            <label for="subscribe__docs"></label>
+                            <label for="subscribe__docs" class="profile__subscribe">Нормативные документы</label>
+                        </div>
+                        <div class="profile__field profile__field--flex">
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__digest' name='subscribe__digest'>
+                            <label for="subscribe__digest"></label>
+                            <label for="subscribe__digest" class="profile__subscribe">Дайджесты портала</label>
+                        </div>
+                        <button type='submit' class="profile__submit profile__submit--subscribe" disabled>Сохранить изменения</button>
+                    </form>
+                </div>
             </div>
         </section>
 	</main>
@@ -306,10 +314,10 @@
     </div>
 </footer>
 
-	<script src="vendors/js/jquery-3.5.1.min.js?t=1621409138182"></script>
-	<script src="vendors/js/owl.carousel.min.js?t=1621409138182"></script>
-	<script src="vendors/js/jquery.fancybox.min.js?t=1621409138182"></script>
-	<script src="js/scripts.js?t=1621409138182"></script>
+	<script src="vendors/js/jquery-3.5.1.min.js?t=1621489307736"></script>
+	<script src="vendors/js/owl.carousel.min.js?t=1621489307736"></script>
+	<script src="vendors/js/jquery.fancybox.min.js?t=1621489307736"></script>
+	<script src="js/scripts.js?t=1621489307736"></script>
 </body>
 
 </html>

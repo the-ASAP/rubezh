@@ -147,7 +147,7 @@
     &-small {
         @extend %button;
         min-width: 10.9375rem;
-        padding: .9375rem;
+        padding: 0.9375rem;
         border-radius: 23px;
         font-size: .875rem;
     }
@@ -337,14 +337,14 @@
 
 
 // экспортируем в <input type='checkbox'>
-// label должен лежать после инпута
+// label должен находиться после инпута
 %checkbox {
     position: absolute;
     left: -9999px;
     top: -9999px;
     visibility: hidden;
     overflow: hidden;
-    & ~ label {
+    & + label {
         position: relative;
         display: block;
         width: 16px;
@@ -366,7 +366,7 @@
             background-size: contain;
         }
     }
-    &:checked ~ label {
+    &:checked + label {
         background-color: $accent;
     }
 }

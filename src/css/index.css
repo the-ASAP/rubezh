@@ -129,7 +129,7 @@ body::-webkit-scrollbar-thumb {
 .promo__sliderLink,
 .articles__more {
   min-width: 10.9375rem;
-  padding: .9375rem;
+  padding: 0.9375rem;
   border-radius: 23px;
   font-size: .875rem;
 }
@@ -373,7 +373,7 @@ body::-webkit-scrollbar-thumb {
 .promo__sliderLink,
 .articles__more {
   min-width: 10.9375rem;
-  padding: .9375rem;
+  padding: 0.9375rem;
   border-radius: 23px;
   font-size: .875rem;
 }
