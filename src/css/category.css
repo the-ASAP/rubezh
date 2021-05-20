@@ -5,6 +5,8 @@
 .header__controls,
 .header__search,
 .header__row,
+.header__profile,
+.header__profile-pic,
 .logo,
 .subnav__link,
 .subnav__item,
@@ -90,6 +92,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more__btn,
+.modal__button,
 .header__profile-signup,
 .videoItem__btn,
 .events__link,
@@ -107,6 +110,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more__btn:hover,
+.modal__button:hover,
 .header__profile-signup:hover,
 .videoItem__btn:hover,
 .events__link:hover,
@@ -116,13 +120,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more__btn,
+.modal__button,
 .header__profile-signup,
 .videoItem__btn,
 .events__link,
 .videos__link,
 .community__sliderLink {
   min-width: 10.9375rem;
-  padding: .9375rem;
+  padding: 0.9375rem;
   border-radius: 23px;
   font-size: .875rem;
 }
@@ -280,6 +285,8 @@ body::-webkit-scrollbar-thumb {
 .header__controls,
 .header__search,
 .header__row,
+.header__profile,
+.header__profile-pic,
 .logo,
 .subnav__link,
 .subnav__item,
@@ -365,6 +372,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more__btn,
+.modal__button,
 .header__profile-signup,
 .videoItem__btn,
 .events__link,
@@ -382,6 +390,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more__btn:hover,
+.modal__button:hover,
 .header__profile-signup:hover,
 .videoItem__btn:hover,
 .events__link:hover,
@@ -391,13 +400,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 .more__btn,
+.modal__button,
 .header__profile-signup,
 .videoItem__btn,
 .events__link,
 .videos__link,
 .community__sliderLink {
   min-width: 10.9375rem;
-  padding: .9375rem;
+  padding: 0.9375rem;
   border-radius: 23px;
   font-size: .875rem;
 }
@@ -698,6 +708,9 @@ input:-webkit-autofill:focus {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .modal.active {
@@ -706,13 +719,45 @@ input:-webkit-autofill:focus {
 }
 
 .modal__box {
-  padding: 2rem 3rem;
-  box-sizing: border-box;
   position: relative;
-  background-color: #EFEFF1;
   overflow: auto;
   max-height: 100%;
   max-width: 100%;
+  padding: 4.625rem 3.125rem 3.125rem 3.125rem;
+  border-radius: 8px;
+  box-shadow: -1px 9px 20px rgba(116, 116, 188, 0.25);
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+.modal__close {
+  top: 1.5rem;
+  right: 2rem;
+}
+
+.modal__title {
+  display: block;
+  max-width: 25rem;
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.modal__button {
+  display: block;
+  width: fit-content;
+  margin: 1.875rem auto 0 auto;
+}
+
+.modal__already {
+  display: block;
+  margin-top: 1.25rem;
+}
+
+.modal__login {
+  color: #7BB933;
+  font-weight: 500;
+  text-decoration: underline;
 }
 
 .header__container {
@@ -814,6 +859,45 @@ input:-webkit-autofill:focus {
   margin: 0 .6875rem;
   border-radius: 50%;
   background-color: #6B7785;
+}
+
+.header__profile--logged {
+  position: relative;
+  cursor: default;
+}
+
+.header__profile--logged:hover .header__profile-pic {
+  background-color: #8CD23A;
+}
+
+.header__profile--logged:hover .header__profile-name {
+  color: #8CD23A;
+}
+
+.header__profile--logged:hover .account {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header__profile-pic {
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-right: 1rem;
+  background-color: #7BB933;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50%;
+  transition: background-color .3s;
+}
+
+.header__profile-name {
+  color: #7BB933;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color .3s;
 }
 
 .header__profile-auth {
@@ -1203,6 +1287,42 @@ input:-webkit-autofill:focus {
 
 .footer__policy {
   text-decoration: underline;
+}
+
+.account {
+  position: absolute;
+  top: 130%;
+  left: -100%;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 264px;
+  padding: 50px 30px;
+  border-radius: 4px;
+  box-shadow: -1px 9px 20px rgba(116, 116, 188, 0.25);
+  background-color: #fff;
+  transition: opacity .3s, visibility .3s;
+  z-index: 3;
+}
+
+.account::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: 54px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+
+.account__link {
+  transition: color .3s;
+}
+
+.account__link:not(:first-child) {
+  margin-top: 30px;
+}
+
+.account__link:hover {
+  color: #7BB933;
 }
 
 .category__header {

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="vendors/css/owl.carousel.min.css" type="text/css">
 	<link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css" type="text/css">
 
-	<link rel="stylesheet" href="css/contacts.css" type="text/css">
+	<link rel="stylesheet" href="css/project.css" type="text/css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link
 		href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
@@ -22,7 +22,7 @@
 
 
 <body>
-	@import "header.html"
+	@import "header--logged.html"
 	<main class="main">
 		<section class="project">
 			<div class="wrapper wrapper--detail">
@@ -37,29 +37,34 @@
 					<div class="project__block">
 						<h3 class="project__subtitle">Данные по проекту</h3>
 						<div class="project__field">
-							<label for='project__load' class="project__label">Вы можете прикрепить файл в формате dwg,
-								doc, xlsx, pdf или zip</label>
+							<span class="project__label">Вы можете прикрепить файл в формате dwg, doc, xlsx, pdf или zip</span>
+							<label for='project__load' class="project__label project__label--load">Прикрепить файлы</label>
 							<input type="file" class="project__load" id='project__load'>
+							<span class="project__file"></span>
 						</div>
 						<div class="project__field">
 							<label for="project__link" class="project__label">Либо скопируйте ссылку на файлы проекта в
 								облаке:</label>
-							<input type="text" class="project__load" id='project__input'>
+							<input type="text" class="project__input project__input--link" id='project__link'>
 						</div>
 					</div>
 					<div class="project__block">
 						<h3 class="project__subtitle">Информация об объекте</h3>
 						<div class="project__field">
-							<label for="project__name" class="project__label"></label>
-							<input type="text" class="project__input" id='project__name'>
+							<label for="project__name" class="project__label">Наименование объекта*:</label>
+							<input type="text" class="project__input error" id='project__name'>
 							<span class="project__error">Пожалуйста, заполните это поле</span>
 						</div>
 						<div class="project__field">
-							<select name="project__region" id="project__region" aria-placeholder="Выберите регион">
+							<label for='project__region' class="project__label">Регион*:</label>
+							<select name="project__region" class='project__select' id="project__region" aria-placeholder="Выберите регион">
+								<option value="" disabled selected>Выберите регион</option>
 								<option>Москва</option>
 								<option>Саратов</option>
 								<option>Нур-Султан</option>
 							</select>
+							<span class='project__arrow'></span>
+							<span class="project__error">Пожалуйста, заполните это поле</span>
 						</div>
 						
 					</div>
@@ -67,7 +72,7 @@
 						<h3 class="project__subtitle">Контактная информация</h3>
 						<div class="project__field">
 							<label for="" class="project__label">Телефон*:</label>
-							<input type="text" class="project__input">
+							<input type="number" class="project__input">
 							<span class="project__error">Пожалуйста, заполните это поле</span>
 						</div>
 					</div>
