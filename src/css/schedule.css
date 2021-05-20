@@ -1301,6 +1301,10 @@ input:-webkit-autofill:focus {
   margin-right: 1.875rem;
 }
 
+.content__body {
+  margin-top: 3.75rem;
+}
+
 @media (max-width: 1600px) {
   html {
     font-size: 16px;

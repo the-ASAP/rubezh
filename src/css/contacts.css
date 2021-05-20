@@ -1301,6 +1301,10 @@ input:-webkit-autofill:focus {
   margin-right: 1.875rem;
 }
 
+.content__body {
+  margin-top: 3.75rem;
+}
+
 .contacts * {
   font-family: "Exo 2", sans-serif;
 }
