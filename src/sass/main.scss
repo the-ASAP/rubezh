@@ -803,3 +803,42 @@ input {
         }
     }
 }
+
+.content {
+    &__header {
+        padding-bottom: 1.75rem;
+        border-bottom: 1px solid rgba(52, 53, 62, 0.5);
+    }
+    &__subtitle {
+        max-width: 53.125rem;
+        margin-top: 1.75rem;
+        font-family: $exo;
+        font-size: 1.5rem;
+    }
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 3.4375rem;
+        & > [class*='field'] {
+            display: flex;
+        }
+        & > * {
+            &:not(:last-child) {
+                margin-right: 30px;
+            }
+        }
+    }
+    &__filter {
+        @extend %input--filter;
+    }
+    &__search {
+        margin-top: 3.125rem;
+        & input {
+            margin-right: 1.875rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+     
+}
