@@ -202,7 +202,7 @@
     &-status {
         @extend %button-checkbox;
         min-width: unset;
-        padding: .3125rem 1.1875rem;
+        padding: 0.3125rem 1.1875rem;
         border-color: $blue;
         background-color: $blue;
         line-height: 1;
@@ -210,6 +210,10 @@
         &:hover {
             background-color: $blue;
         }
+    }
+    &-filter {
+        @extend %button-status;
+        &
     }
     &-transparent {
         @extend %button;
@@ -372,10 +376,13 @@
 %header {
     padding-bottom: 28px;
     border-bottom: 1px solid rgba(52, 53, 62, 0.5);
-    & [class*='subtitle'] {
+    & [class*='subtitle'],
+    & [class*='subhead'] {
         margin-top: 28px;
     }
     & [class*='filter'] {
+        display: flex;
+        flex-wrap: wrap;
         margin-top: 55px;
         & > * {
             &:not(:last-child) {
