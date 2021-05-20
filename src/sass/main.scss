@@ -815,6 +815,23 @@ input {
         font-family: $exo;
         font-size: 1.5rem;
     }
+    &__field {
+        position: relative;
+        &--search {
+            &::before {
+                content: '';
+                position: absolute;
+                left: 14px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                background-image: url('../img/icons/search.svg');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
     &__filters {
         display: flex;
         flex-wrap: wrap;
@@ -833,8 +850,18 @@ input {
     }
     &__search {
         margin-top: 3.125rem;
-        & input {
+        &Input {
             margin-right: 1.875rem;
+            width: 276px;
+            padding: 6px 14px 6px 44px;
+            border-radius: 15px;
+            background-color: $bgc;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+        &Clear {
+            font-size: 1rem;
+            text-decoration: underline;
         }
     }
     &__body {

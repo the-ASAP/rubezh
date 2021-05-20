@@ -165,26 +165,28 @@ $().ready(() => {
 
 
     //обертка для fancybox 
-    $('.detail img').each((i, el) => {
-        $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
-    })
-
-
-    //fancybox
-    $('a[data-fancybox]').fancybox({
-        buttons: [
-            "zoom",
-            "download",
-            "close",
-        ],
-        // clickContent: function (current, event) {
-        //     return "zoom";
-        // },
-        // dblclickContent: function (current, event) {
-        //     return "zoom";
-        // },
-    })
-
+    if ($('[data-fancybox]').length) {
+        $('.detail img').each((i, el) => {
+            $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
+        })
+    
+    
+        //fancybox
+        $('a[data-fancybox]').fancybox({
+            buttons: [
+                "zoom",
+                "download",
+                "close",
+            ],
+            // clickContent: function (current, event) {
+            //     return "zoom";
+            // },
+            // dblclickContent: function (current, event) {
+            //     return "zoom";
+            // },
+        })
+    }
+   
     //появелние кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {
@@ -217,5 +219,10 @@ $().ready(() => {
         tabs(e.target, '.profile__form', 'data-tab');
     });
 
+    //очистка поиска 
+
+    $('.content__searchClear').on('click', e => {
+        $(e.target).siblings('input').val('');
+    })
 
 });
