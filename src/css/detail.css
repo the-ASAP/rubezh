@@ -1407,6 +1407,23 @@ input:-webkit-autofill:focus {
   font-size: 1.5rem;
 }
 
+.content__field {
+  position: relative;
+}
+
+.content__field--search::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background-image: url("../img/icons/search.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .content__filters {
   display: flex;
   flex-wrap: wrap;
@@ -1425,8 +1442,19 @@ input:-webkit-autofill:focus {
   margin-top: 3.125rem;
 }
 
-.content__search input {
+.content__searchInput {
   margin-right: 1.875rem;
+  width: 276px;
+  padding: 6px 14px 6px 44px;
+  border-radius: 15px;
+  background-color: #EFEFF1;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.content__searchClear {
+  font-size: 1rem;
+  text-decoration: underline;
 }
 
 .content__body {

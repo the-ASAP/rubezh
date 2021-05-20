@@ -16,7 +16,9 @@
 .events,
 .videos,
 .community,
-.community__sliderDots {
+.community__sliderDots,
+.schedule,
+.schedule__date {
   display: flex;
   align-items: center;
   align-self: center;
@@ -98,7 +100,8 @@ body::-webkit-scrollbar-thumb {
 .videoItem__btn,
 .events__link,
 .videos__link,
-.community__sliderLink {
+.community__sliderLink,
+.schedule__button {
   box-sizing: border-box;
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
@@ -116,7 +119,8 @@ body::-webkit-scrollbar-thumb {
 .videoItem__btn:hover,
 .events__link:hover,
 .videos__link:hover,
-.community__sliderLink:hover {
+.community__sliderLink:hover,
+.schedule__button:hover {
   background-color: #8CD23A;
 }
 
@@ -126,7 +130,8 @@ body::-webkit-scrollbar-thumb {
 .videoItem__btn,
 .events__link,
 .videos__link,
-.community__sliderLink {
+.community__sliderLink,
+.schedule__button {
   min-width: 10.9375rem;
   padding: 0.9375rem;
   border-radius: 23px;
@@ -324,7 +329,9 @@ body::-webkit-scrollbar-thumb {
 .events,
 .videos,
 .community,
-.community__sliderDots {
+.community__sliderDots,
+.schedule,
+.schedule__date {
   display: flex;
   align-items: center;
   align-self: center;
@@ -406,7 +413,8 @@ body::-webkit-scrollbar-thumb {
 .videoItem__btn,
 .events__link,
 .videos__link,
-.community__sliderLink {
+.community__sliderLink,
+.schedule__button {
   box-sizing: border-box;
   padding: 1.25rem 2.25rem;
   border-radius: 31px;
@@ -424,7 +432,8 @@ body::-webkit-scrollbar-thumb {
 .videoItem__btn:hover,
 .events__link:hover,
 .videos__link:hover,
-.community__sliderLink:hover {
+.community__sliderLink:hover,
+.schedule__button:hover {
   background-color: #8CD23A;
 }
 
@@ -434,7 +443,8 @@ body::-webkit-scrollbar-thumb {
 .videoItem__btn,
 .events__link,
 .videos__link,
-.community__sliderLink {
+.community__sliderLink,
+.schedule__button {
   min-width: 10.9375rem;
   padding: 0.9375rem;
   border-radius: 23px;
@@ -1466,6 +1476,23 @@ input:-webkit-autofill:focus {
   font-size: 1.5rem;
 }
 
+.content__field {
+  position: relative;
+}
+
+.content__field--search::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background-image: url("../img/icons/search.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .content__filters {
   display: flex;
   flex-wrap: wrap;
@@ -1484,8 +1511,19 @@ input:-webkit-autofill:focus {
   margin-top: 3.125rem;
 }
 
-.content__search input {
+.content__searchInput {
   margin-right: 1.875rem;
+  width: 276px;
+  padding: 6px 14px 6px 44px;
+  border-radius: 15px;
+  background-color: #EFEFF1;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.content__searchClear {
+  font-size: 1rem;
+  text-decoration: underline;
 }
 
 .content__body {
@@ -1739,6 +1777,57 @@ input:-webkit-autofill:focus {
   bottom: 0;
   box-sizing: border-box;
   padding: .125rem;
+}
+
+.schedule {
+  justify-content: space-between;
+  padding: 1.875rem;
+  border-radius: 8px;
+  box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+}
+
+.schedule:not(:first-child) {
+  margin-top: 1.875rem;
+}
+
+.schedule * {
+  font-family: "Exo 2", sans-serif;
+}
+
+.schedule__date {
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100px;
+  width: 100px;
+  padding: 0.875rem 1.375rem;
+  border-radius: 10px;
+  background-color: #EFEFF1;
+  color: #165AA2;
+}
+
+.schedule__day {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.schedule__month {
+  font-weight: 600;
+}
+
+.schedule__content {
+  max-width: 46.375rem;
+}
+
+.schedule__format {
+  font-weight: 500;
+  color: #165AA2;
+}
+
+.schedule__text {
+  margin-top: 0.75rem;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 @media (max-width: 1600px) {

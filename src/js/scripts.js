@@ -114,6 +114,7 @@ const removeDisable = (button) => {
 $('.profile__checkbox').on('change', e => {
     removeDisable('.profile__submit--subscribe');
 });
+
 $().ready(() => {
     $(document).on("click", ".header__search-btn[type='button']", function () {
         openSearch($(this));
@@ -164,25 +165,27 @@ $().ready(() => {
     //детальные страницы
 
     //обертка для fancybox 
-    $('.detail img').each((i, el) => {
-        $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
-    })
-
-    //fancybox
-    $('a[data-fancybox]').fancybox({
-        buttons: [
-            "zoom",
-            "download",
-            "close",
-        ],
-        // clickContent: function (current, event) {
-        //     return "zoom";
-        // },
-        // dblclickContent: function (current, event) {
-        //     return "zoom";
-        // },
-    })
-
+    if ($('[data-fancybox]').length) {
+        $('.detail img').each((i, el) => {
+            $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
+        })
+    
+        //fancybox
+        $('a[data-fancybox]').fancybox({
+            buttons: [
+                "zoom",
+                "download",
+                "close",
+            ],
+            // clickContent: function (current, event) {
+            //     return "zoom";
+            // },
+            // dblclickContent: function (current, event) {
+            //     return "zoom";
+            // },
+        })
+    }
+   
     //появление кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {
@@ -213,4 +216,9 @@ $().ready(() => {
         switchActive(e.target, '.profile__button', 'active');
         tabs(e.target, '.profile__form', 'data-tab');
     });
+
+    //очистка поиска 
+    $('.content__searchClear').on('click', e => {
+        $(e.target).siblings('input').val('');
+    })
 });
