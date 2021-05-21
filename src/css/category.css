@@ -1465,7 +1465,6 @@ input:-webkit-autofill:focus {
 }
 
 .content__header {
-  padding-bottom: 1.75rem;
   border-bottom: 1px solid rgba(52, 53, 62, 0.5);
 }
 
@@ -1501,6 +1500,10 @@ input:-webkit-autofill:focus {
 
 .content__filters > [class*='field'] {
   display: flex;
+}
+
+.content__filters > * {
+  margin-bottom: 30px;
 }
 
 .content__filters > *:not(:last-child) {
@@ -1612,6 +1615,7 @@ input:-webkit-autofill:focus {
 }
 
 .subcategory__title {
+  font-family: "Exo 2", sans-serif;
   color: #165AA2;
   margin-bottom: 2.625rem;
 }

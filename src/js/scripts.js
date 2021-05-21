@@ -108,7 +108,7 @@ const buttonScroll = (mainTarget, appearTarget) => {
 }
 
 const removeDisable = (button) => {
-   $(button).prop('disabled', false);
+    $(button).prop('disabled', false);
 }
 
 $('.profile__checkbox').on('change', e => {
@@ -169,7 +169,7 @@ $().ready(() => {
         $('.detail img').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
         })
-    
+
         //fancybox
         $('a[data-fancybox]').fancybox({
             buttons: [
@@ -185,7 +185,7 @@ $().ready(() => {
             // },
         })
     }
-   
+
     //появление кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {

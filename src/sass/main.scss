@@ -81,7 +81,7 @@ h6 {
     &--middle {
         max-width: 1400px;
     }
-    
+
     &--detail {
         max-width: 850px;
     }
@@ -120,6 +120,7 @@ button {
 
 // убирает цвет автокомплита у инпута
 input {
+
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
@@ -165,10 +166,12 @@ input {
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
+
     &.active {
         opacity: 1;
         visibility: visible;
     }
+
     //Вложенное окно с контентом, необходимо задать фиксированные размерыж
     &__box {
         position: relative;
@@ -181,12 +184,14 @@ input {
         background-color: #FFFFFF;
         text-align: center;
     }
+
     // Кнопка закрытия
     &__close {
         @extend %close-btn;
         top: 1.5rem;
         right: 2rem;
     }
+
     &__title {
         display: block;
         max-width: 25rem;
@@ -239,11 +244,11 @@ input {
             right: 0;
             transform: translateY(-50%);
 
-            & > svg > path {
+            &>svg>path {
                 transition: fill .2s linear;
             }
-    
-            &:hover > svg > path {
+
+            &:hover>svg>path {
                 fill: $accent-lighten;
             }
         }
@@ -270,11 +275,11 @@ input {
         }
 
         &.active {
-            & > .header__search-btn {
+            &>.header__search-btn {
                 left: .8125rem;
             }
 
-            & > input {
+            &>input {
                 width: 28.125rem;
                 visibility: visible;
                 opacity: 1;
@@ -284,7 +289,7 @@ input {
                 border-radius: 15px;
             }
 
-            & > .header__search-closeBtn {
+            &>.header__search-closeBtn {
                 @extend %close-btn;
                 top: 50%;
                 right: .76375rem;
@@ -328,13 +333,16 @@ input {
         &--logged {
             position: relative;
             cursor: default;
+
             &:hover {
                 & .header__profile-pic {
                     background-color: $accent-lighten;
                 }
+
                 & .header__profile-name {
                     color: $accent-lighten;
                 }
+
                 & .account {
                     opacity: 1;
                     visibility: visible;
@@ -417,12 +425,12 @@ input {
             z-index: 2;
             padding-right: 1rem;
 
-            &:hover > .subnav {
+            &:hover>.subnav {
                 visibility: visible;
                 opacity: 1;
             }
 
-            &::before, 
+            &::before,
             &::after {
                 content: '';
                 position: absolute;
@@ -499,7 +507,7 @@ input {
         }
     }
 
-    &__link, 
+    &__link,
     &__item {
         @extend %flexbox;
         width: 100%;
@@ -523,7 +531,7 @@ input {
     position: relative;
     box-sizing: border-box;
     padding-top: 4.5rem;
-    padding-bottom: 9.375rem; 
+    padding-bottom: 9.375rem;
     overflow: hidden;
 
     &--p0 {
@@ -540,7 +548,7 @@ input {
     box-sizing: border-box;
     padding: 3.125rem;
     box-shadow: -1px 9px 20px rgba($gray-darken, .25);
-    
+
     &:not(:last-child) {
         margin-bottom: 3.125rem;
     }
@@ -552,7 +560,7 @@ input {
         height: 100%;
         width: 100%;
 
-        &:hover ~ .postItem__description > .postItem__title {
+        &:hover~.postItem__description>.postItem__title {
             color: $text;
         }
     }
@@ -596,7 +604,7 @@ input {
     &:hover {
         height: auto;
 
-        & > .videoItem__content {
+        &>.videoItem__content {
             height: auto;
             width: 100%;
             visibility: visible;
@@ -678,6 +686,7 @@ input {
 }
 
 .owl {
+
     &-prev,
     &-next {
         @extend %owl-btn;
@@ -836,9 +845,9 @@ input {
         }
     }
 
-    &__company, 
+    &__company,
     &__policy {
-        color:#ffffff;
+        color: #ffffff;
         font-size: .875rem;
     }
 
@@ -876,10 +885,11 @@ input {
 
     &__link {
         transition: color .3s;
-        
+
         &:not(:first-child) {
             margin-top: 30px;
         }
+
         &:hover {
             color: $accent;
         }
@@ -888,7 +898,6 @@ input {
 
 .content {
     &__header {
-        padding-bottom: 1.75rem;
         border-bottom: 1px solid rgba($gen, .5);
     }
 
@@ -901,6 +910,7 @@ input {
 
     &__field {
         position: relative;
+
         &--search {
             &::before {
                 content: '';
@@ -916,17 +926,19 @@ input {
             }
         }
     }
-    
+
     &__filters {
         display: flex;
         flex-wrap: wrap;
         margin-top: 3.4375rem;
 
-        & > [class*='field'] {
+        &>[class*='field'] {
             display: flex;
         }
 
-        & > * {
+        &>* {
+            margin-bottom: 30px;
+
             &:not(:last-child) {
                 margin-right: 30px;
             }
@@ -949,13 +961,13 @@ input {
             font-weight: 400;
             font-size: 1rem;
         }
-        
+
         &Clear {
             font-size: 1rem;
             text-decoration: underline;
         }
     }
-    
+
     &__body {
         margin-top: 3.75rem;
     }
