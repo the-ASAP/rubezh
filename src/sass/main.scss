@@ -816,6 +816,7 @@ input {
         font-size: 1.5rem;
     }
     &__field {
+        @extend %flexbox;
         position: relative;
         &--search {
             &::before {
@@ -830,6 +831,11 @@ input {
                 background-size: contain;
                 background-repeat: no-repeat;
             }
+        }
+        &--filter {
+            margin-top: 12px;
+            font-size: 18px;
+            font-family: $exo;
         }
     }
     &__filters {
@@ -866,6 +872,47 @@ input {
     }
     &__body {
         margin-top: 3.75rem;
+    }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__block {
+        &--narrow {
+            width: 210px;
+        }
+        &--wide {
+            width: 786px;
+        }
+    }
+    &__control {
+        margin-bottom: 60px;
+    }
+    &__heading {
+        display: block;
+        margin-bottom: 24px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    &__radio {
+        @extend %radio;
+        & + label {
+            margin-right: 16px;
+        }
+    }
+    &__checkbox {
+        @extend %checkbox;
+        & + label {
+            border-color: $gen;
+            margin-right: 16px;
+        }
+        &:checked + label {
+            border-color: $gray-darken;
+            background-color: $gray-darken;
+        }
+    }
+    & .bg-points:nth-child(odd) {
+        top: 25%;
     }
 }
 
