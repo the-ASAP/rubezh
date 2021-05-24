@@ -85,6 +85,13 @@
 }
 
 .subcategory {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2.625rem;
+    }
+
     &__section {
         display: flex;
         flex-direction: column;
@@ -97,7 +104,25 @@
     &__title {
         font-family: $exo;
         color: $blue;
-        margin-bottom: 2.625rem;
+    }
+}
+
+.schemes {
+    &:not(:last-child) {
+        margin-bottom: 3.125rem;
+    }
+
+    &__title {
+        font-family: $exo;
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+    }
+
+    &__box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 4%;
+        row-gap: 1.25rem;
     }
 }
 

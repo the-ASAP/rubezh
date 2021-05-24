@@ -668,6 +668,33 @@ input {
     }
 }
 
+.schemeItem {
+    position: relative;
+    height: fit-content;
+    box-sizing: border-box;
+    padding-left: 2rem;
+    color: $accent;
+    font-family: $exo;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.44;
+    text-decoration: underline;
+    transition: color .2s linear;
+
+    &:hover {
+        color: $accent-lighten;
+        text-decoration: none;
+    }
+
+    &>svg {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        height: 1rem;
+        width: 1.25rem;
+    }
+}
+
 .more {
     @extend %flexbox;
     flex-direction: column;
@@ -932,6 +959,10 @@ input {
         flex-wrap: wrap;
         margin-top: 3.4375rem;
 
+        form~& {
+            margin-top: 2.5rem;
+        }
+
         &>[class*='field'] {
             display: flex;
         }
@@ -950,7 +981,7 @@ input {
     }
 
     &__search {
-        margin-top: 3.125rem;
+        margin-top: 4.0625rem;
 
         &Input {
             margin-right: 1.875rem;

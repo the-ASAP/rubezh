@@ -1249,6 +1249,33 @@ input:-webkit-autofill:focus {
   font-weight: 500;
 }
 
+.schemeItem {
+  position: relative;
+  height: fit-content;
+  box-sizing: border-box;
+  padding-left: 2rem;
+  color: #7BB933;
+  font-family: "Exo 2", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.44;
+  text-decoration: underline;
+  transition: color .2s linear;
+}
+
+.schemeItem:hover {
+  color: #8CD23A;
+  text-decoration: none;
+}
+
+.schemeItem > svg {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 1rem;
+  width: 1.25rem;
+}
+
 .more {
   flex-direction: column;
   margin-top: 3.75rem;
@@ -1498,6 +1525,10 @@ input:-webkit-autofill:focus {
   margin-top: 3.4375rem;
 }
 
+form ~ .content__filters {
+  margin-top: 2.5rem;
+}
+
 .content__filters > [class*='field'] {
   display: flex;
 }
@@ -1511,7 +1542,7 @@ input:-webkit-autofill:focus {
 }
 
 .content__search {
-  margin-top: 3.125rem;
+  margin-top: 4.0625rem;
 }
 
 .content__searchInput {
@@ -1605,6 +1636,13 @@ input:-webkit-autofill:focus {
   gap: 2rem;
 }
 
+.subcategory__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.625rem;
+}
+
 .subcategory__section {
   display: flex;
   flex-direction: column;
@@ -1617,7 +1655,23 @@ input:-webkit-autofill:focus {
 .subcategory__title {
   font-family: "Exo 2", sans-serif;
   color: #165AA2;
-  margin-bottom: 2.625rem;
+}
+
+.schemes:not(:last-child) {
+  margin-bottom: 3.125rem;
+}
+
+.schemes__title {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.schemes__box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 4%;
+  row-gap: 1.25rem;
 }
 
 .events {
