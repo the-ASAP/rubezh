@@ -8,12 +8,12 @@
     <meta name="description" content="Описание страницы для SEO и соцсетей">
     <meta name="keywords" content="ключевые, слова, через, запятую">
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
-    <title>Часто задаваемые вопросы</title>
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1621602331094" type="text/css">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1621602331094" type="text/css">
-    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1621602331094" type="text/css">
+    <title>Примеры проектов</title>
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1621857902262" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1621857902262" type="text/css">
+    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1621857902262" type="text/css">
 
-    <link rel="stylesheet" href="css/category.css?t=1621602331094" type="text/css">
+    <link rel="stylesheet" href="css/category.css?t=1621857902262" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
@@ -53,9 +53,9 @@
                             <div class="subnav__box subnav__box--grid">
                                 <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/solutions.svg" alt="Типовые решения">Типовые решения</a>
                                 <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/schemes.svg" alt="Схемы подключения">Схемы подключения</a>
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/docs.svg" alt="Нормативные документы">Нормативные документы</a>
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/examples.svg" alt="Примеры проектов">Примеры проектов</a>
-                                <a class="subnav__item" href="#"><img class="subnav__icon" src="img/nav/drawings.svg" alt="Монтажные схемы / чертежи приборов">Монтажные схемы / чертежи приборов</a>
+                                <a class="subnav__item" href="/docs.html"><img class="subnav__icon" src="img/nav/docs.svg" alt="Нормативные документы">Нормативные документы</a>
+                                <a class="subnav__item" href="/projects.html"><img class="subnav__icon" src="img/nav/examples.svg" alt="Примеры проектов">Примеры проектов</a>
+                                <a class="subnav__item" href="/montazh.html"><img class="subnav__icon" src="img/nav/drawings.svg" alt="Монтажные схемы / чертежи приборов">Монтажные схемы / чертежи приборов</a>
                             </div>
                         </div>
                     </div>
@@ -66,11 +66,11 @@
                         <a class="nav__link" href="/automation.html">Автоматизация проектирования</a>
                         <div class="subnav">
                             <div class="subnav__box">
-                                <a class="subnav__link" href="#">LISP-программы для AutoCAD</a>
+                                <a class="subnav__link" href="/details--lisp.html">LISP-программы для AutoCAD</a>
                                 <a class="subnav__link" href="#">RubezhCAD</a>
-                                <a class="subnav__link" href="#">R-BIM</a>
-                                <a class="subnav__link" href="#">Материалы для Revit</a>
-                                <a class="subnav__link" href="#">Материалы для nanoCAD</a>
+                                <a class="subnav__link" href="/details--rbim.html">R-BIM</a>
+                                <a class="subnav__link" href="/details--revit.html">Материалы для Revit</a>
+                                <a class="subnav__link" href="/details--nanocad.html">Материалы для nanoCAD</a>
                                 <a class="subnav__link" href="#">Материалы для Renga</a>
                             </div>
                         </div>
@@ -90,15 +90,12 @@
         <section class="content">
             <div class="wrapper">
                 <header class="content__header">
-                    <h2 class="content__title">Нормативные документы</h2>
-                    <p class='content__subtitle'>В данном разделе вы найдете актуальные нормативные документы,
-                        относящиеся к область проектирования систем безопасности.</p>
-                    <form action="" method="GET" class="content__search">
-                        <div class="content__field content__field--search">
-                            <input type="text" class="content__searchInput" name='search' placeholder="Поиск">
-                            <button type='button' class="content__searchClear">Очистить</button>
-                        </div>
-                    </form>
+                    <h2 class="content__title">Примеры проектов</h2>
+                    <p class='content__subtitle'>На данной странице представлены примеры проектов</p>
+                    <div class="content__tags">
+                        <button type='button' class="content__tag">Все</button>
+                        <button type='button' class="content__clear">Очистить</button>
+                    </div>
                 </header>
                 <div class="content__body">
                     <div class="content__container">
@@ -106,81 +103,258 @@
                             <form method="GET" action="" class="content__control">
                                 <span class="content__heading">Тип документа</span>
                                 <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="anything" name="type"
+                                    <input type="radio" class="content__radio" id="anything" name="brand"
                                         value='anything' checked>
                                     <label for="anything"></label>
                                     <label for="anything">Любой</label>
                                 </div>
                                 <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="federal" name="type" value='federal'>
-                                    <label for="federal"></label>
-                                    <label for="federal">Федеральный закон</label>
+                                    <input type="radio" class="content__radio" id="RUBEZH_R3" name="brand"
+                                        value='RUBEZH_R3'>
+                                    <label for="RUBEZH_R3"></label>
+                                    <label for="RUBEZH_R3">RUBEZH R3</label>
                                 </div>
                                 <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="gost" value='gost' name="type">
-                                    <label for="gost"></label>
-                                    <label for="gost">ГОСТ</label>
+                                    <input type="radio" class="content__radio" id="SONAR" value='SONAR' name="brand">
+                                    <label for="SONAR"></label>
+                                    <label for="SONAR">SONAR</label>
                                 </div>
                                 <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="snip" value='snip' name="type">
-                                    <label for="snip"></label>
-                                    <label for="snip">СНиП</label>
+                                    <input type="radio" class="content__radio" id="STRAZH" value='STRAZH' name="brand">
+                                    <label for="STRAZH"></label>
+                                    <label for="STRAZH">STRAZH</label>
                                 </div>
                                 <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="sp" value='sp' name="type">
-                                    <label for="sp"></label>
-                                    <label for="sp">СП</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="other" value="other" name="type">
-                                    <label for="other"></label>
-                                    <label for="other">Другое</label>
+                                    <input type="radio" class="content__radio" id="SPZ_GLOBAL" value='SPZ_GLOBAL'
+                                        name="brand">
+                                    <label for='SPZ_GLOBAL'></label>
+                                    <label for='SPZ_GLOBAL'>СПЗ "GLOBAL"</label>
                                 </div>
                             </form>
                             <form action="" method="GET" class="content__control">
-                                <span class="content__heading">Сортировка</span>
+                                <span class="content__heading">Тип системы</span>
                                 <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="date" value="date" name="sort"
-                                        checked>
-                                    <label for="date"></label>
-                                    <label for="date">По дате публикации</label>
+                                    <input type="checkbox" class="content__checkbox" id="APS" value="APS" name="system">
+                                    <label for="APS"></label>
+                                    <label for="APS">АПС</label>
                                 </div>
                                 <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="alphabet" value="alphabet"
-                                        name="sort">
-                                    <label for="alphabet"></label>
-                                    <label for="alphabet">По алфавиту</label>
+                                    <input type="checkbox" class="content__checkbox" id="APT" value="APT" name="system">
+                                    <label for="APT"></label>
+                                    <label for="APT">АПТ</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="ADU" value="ADU" name="system">
+                                    <label for="ADU"></label>
+                                    <label for="ADU">АДУ</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="AVK" value="AVK" name="system">
+                                    <label for="AVK"></label>
+                                    <label for="AVK">АВК</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="SOUE" value="SOUE"
+                                        name="system">
+                                    <label for="SOUE"></label>
+                                    <label for="SOUE">СОУЭ</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="OS" value="OS" name="system">
+                                    <label for="OS"></label>
+                                    <label for="OS">ОС</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="SKUD" value="SKUD"
+                                        name="system">
+                                    <label for="SKUD"></label>
+                                    <label for="SKUD">СКУД</label>
+                                </div>
+                            </form>
+                            <form action="" method="GET" class="content__control">
+                                <span class="content__heading">Тип системы</span>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="administrative"
+                                        value="administrative" name="object">
+                                    <label for="administrative"></label>
+                                    <label for="administrative">Административные/общественные объекты</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="resident" value="resident"
+                                        name="object">
+                                    <label for="resident"></label>
+                                    <label for="resident">Жилые здания</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="medicine" value="medicine"
+                                        name="object">
+                                    <label for="medicine"></label>
+                                    <label for="medicine">Медицинские учреждения</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="edu" value="edu" name="object">
+                                    <label for="edu"></label>
+                                    <label for="edu">Образовательные учреждения</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="prom" value="prom"
+                                        name="object">
+                                    <label for="prom"></label>
+                                    <label for="prom">Промышленные объекты</label>
+                                </div>
+                                <div class="content__field content__field--filter">
+                                    <input type="checkbox" class="content__checkbox" id="trc" value="trc" name="object">
+                                    <label for="trc"></label>
+                                    <label for="trc">ТРЦ и Ритейл</label>
                                 </div>
                             </form>
                         </div>
-                        <div class="content__block content__block--wide">
-                            <div class="result">
-                                <span class="result__date">25 января 2021</span>
-                                <a href='/details--faq.html' class="result__title">ГОСТ 12.1.004-91 Система стандартов
-                                    безопасности труда. Пожарная безопасность. Общие требования</a>
-                                <p class="result__text">ФЗ 123 "Технический регламент о требованиях пожарной
-                                    безопасности" принят
-                                    Государственной Думой 4 июля 2008 года, одобрен
-                                    Советом Федерации
-                                    11 июля 2008 года, ред. от 23.06.2014</p>
+                        <div class="content__block content__block--wide content__block--grid">
+                            <div class="draft">
+                                <h4 class="draft__title">Жилой дом 15 секций</h4>
+                                <ul class="draft__list">
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Площадь:</span>
+                                        <span class="draft__value">15000</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Этажей:</span>
+                                        <span class="draft__value">8</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Системы:</span>
+                                        <span class="draft__value">АПС, СОУЭ, АДУ, АПТ, АГПТ</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Бренды:</span>
+                                        <span class="draft__value">RUBEZH R3, SONAR, STRAZH</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Особенности:</span>
+                                        <span class="draft__value">3000 извещателей, стойка оповещения на 5000 Вт
+                                            (применены радиоканальные громкоговорители), СКУД на 4000 точек
+                                            доступа.</span>
+                                    </li>
+                                </ul>
+                                <a href="/" class="draft__download">Скачать</a>
                             </div>
-                            <div class="result">
-                                <span class="result__date">20 января 2021</span>
-                                <a href='/details--faq.html' class="result__title">ГОСТ Р 12.3.047-2012 Система
-                                    стандартов безопасности труда. Пожарная безопасность технологических процессов.
-                                    Общие требования. Методы контроля</a>
-                                <p class="result__text">Комфортными для работы в RubezhCAD считаются следующие размеры
-                                    проектов*, в зависимости от характеристик ПК...</p>
+                            <div class="draft">
+                                <h4 class="draft__title">Производственный комплекс</h4>
+                                <ul class="draft__list">
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Системы:</span>
+                                        <span class="draft__value">АПС, СОУЭ, АДУ, АПТ, АГПТ</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Бренды:</span>
+                                        <span class="draft__value">RUBEZH R3, SONAR, STRAZH</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Особенности:</span>
+                                        <span class="draft__value">3000 извещателей, стойка оповещения на 5000 Вт</span>
+                                    </li>
+                                </ul>
+                                <a href="/" class="draft__download">Скачать</a>
                             </div>
-                            <div class="result">
-                                <span class="result__date">20 января 2021</span>
-                                <a href='/details--faq.html' class="result__title">СНиП 21-01-97* Пожарная безопасность
-                                    зданий и сооружений (СП 112.13330.2011)</a>
-                                <p class="result__text">ФЗ 123 "Технический регламент о требованиях пожарной
-                                    безопасности" принят
-                                    Государственной Думой 4 июля 2008 года, одобрен
-                                    Советом Федерации
-                                    11 июля 2008 года, ред. от 23.06.2014</p>
+                            <div class="draft">
+                                <h4 class="draft__title">Жилой дом 15 секций</h4>
+                                <ul class="draft__list">
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Площадь:</span>
+                                        <span class="draft__value">15000</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Этажей:</span>
+                                        <span class="draft__value">8</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Системы:</span>
+                                        <span class="draft__value">АПС, СОУЭ, АДУ, АПТ, АГПТ</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Бренды:</span>
+                                        <span class="draft__value">RUBEZH R3, SONAR, STRAZH</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Особенности:</span>
+                                        <span class="draft__value">3000 извещателей, стойка оповещения на 5000 Вт
+                                            (применены радиоканальные громкоговорители), СКУД на 4000 точек
+                                            доступа.</span>
+                                    </li>
+                                </ul>
+                                <a href="/" class="draft__download">Скачать</a>
+                            </div>
+                            <div class="draft">
+                                <h4 class="draft__title">Производственный комплекс</h4>
+                                <ul class="draft__list">
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Площадь:</span>
+                                        <span class="draft__value">15000</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Этажей:</span>
+                                        <span class="draft__value">8</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Системы:</span>
+                                        <span class="draft__value">АПС, СОУЭ, АДУ, АПТ, АГПТ</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Бренды:</span>
+                                        <span class="draft__value">RUBEZH R3, SONAR, STRAZH</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Особенности:</span>
+                                        <span class="draft__value">3000 извещателей, стойка оповещения на 5000 Вт</span>
+                                    </li>
+                                </ul>
+                                <a href="/" class="draft__download">Скачать</a>
+                            </div>
+                            <div class="draft">
+                                <h4 class="draft__title">Жилой дом 15 секций</h4>
+                                <ul class="draft__list">
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Площадь:</span>
+                                        <span class="draft__value">15000</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Этажей:</span>
+                                        <span class="draft__value">8</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Системы:</span>
+                                        <span class="draft__value">АПС, СОУЭ, АДУ, АПТ, АГПТ</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Бренды:</span>
+                                        <span class="draft__value">RUBEZH R3, SONAR, STRAZH</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Особенности:</span>
+                                        <span class="draft__value">3000 извещателей, стойка оповещения на 5000 Вт
+                                            (применены радиоканальные громкоговорители), СКУД на 4000 точек
+                                            доступа.</span>
+                                    </li>
+                                </ul>
+                                <a href="/" class="draft__download">Скачать</a>
+                            </div>
+                            <div class="draft">
+                                <h4 class="draft__title">Производственный комплекс</h4>
+                                <ul class="draft__list">
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Системы:</span>
+                                        <span class="draft__value">АПС, СОУЭ, АДУ, АПТ, АГПТ</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Бренды:</span>
+                                        <span class="draft__value">RUBEZH R3, SONAR, STRAZH</span>
+                                    </li>
+                                    <li class='draft__item'>
+                                        <span class="draft__name">Особенности:</span>
+                                        <span class="draft__value">3000 извещателей, стойка оповещения на 5000 Вт</span>
+                                    </li>
+                                </ul>
+                                <a href="/" class="draft__download">Скачать</a>
                             </div>
                             <div class="more">
     <button class="more__btn" type="button">Загрузить еще</button>
@@ -330,19 +504,6 @@
             </div>
         </section>
     </main>
-    <div class="support">
-        <div class="wrapper">
-            <div class="support__container">
-                <div class="support__content">
-                    <span class="support__title">Не нашли ответ на интересующий вопрос?</span>
-                    <div class="support__text">Обратитесь в службу поддержки по телефону <a class='support__phone'
-                            href='tel:88000000000'>8 800 000-00-00</a> или отправьте свой вопрос на наш email: <a
-                            class='support__mail' href='mailto:support@rproject.ru'>support@rproject.ru</a></div>
-                </div>
-                <img src="/img/category/support.png" alt="" class="support__image">
-            </div>
-        </div>
-    </div>
     <footer class="footer">
     <div class="wrapper wrapper--wide">
         <div class="footer__flex">
@@ -409,9 +570,9 @@
     </div>
 </footer>
 
-    <script src="vendors/js/jquery-3.5.1.min.js?t=1621602331094"></script>
-    <script src="vendors/js/owl.carousel.min.js?t=1621602331094"></script>
-    <script src="js/scripts.js?t=1621602331094"></script>
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1621857902262"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1621857902262"></script>
+    <script src="js/scripts.js?t=1621857902262"></script>
 </body>
 
 </html>

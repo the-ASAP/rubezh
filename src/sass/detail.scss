@@ -80,6 +80,7 @@
     }
 
     &__body {
+        padding-bottom: 35px;
         & * {
             font-family: $exo;
         }
@@ -403,16 +404,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .appears {
     position: fixed;
     left: 0;
@@ -569,19 +560,6 @@
         text-decoration: underline;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
