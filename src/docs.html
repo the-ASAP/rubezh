@@ -34,61 +34,126 @@
                         <div class="content__field content__field--search">
                             <input type="text" class="content__searchInput" name='search' placeholder="Поиск">
                             <button type='button' class="content__searchClear">Очистить</button>
+                            <button type='button' class="content__searchFilters"><svg width="16" height="13"
+                                    viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="1" width="16" height="1" rx="0.5" fill="#34353E" />
+                                    <rect y="6" width="16" height="1" rx="0.5" fill="#34353E" />
+                                    <rect y="11" width="16" height="1" rx="0.5" fill="#34353E" />
+                                    <circle cx="3.5" cy="6.5" r="1.5" fill="#34353E" />
+                                    <circle cx="12.5" cy="1.5" r="1.5" fill="#34353E" />
+                                    <circle cx="9.5" cy="11.5" r="1.5" fill="#34353E" />
+                                </svg>
+                                <span>Фильтры</span></button>
                         </div>
                     </form>
                 </header>
                 <div class="content__body">
                     <div class="content__container">
-                        <div class="content__block content__block--narrow">
+                        <div class="content__block content__block--narrow content__block--control">
+                            <div class="content__mobile">
+                                <span class="content__mobileTitle">Фильтр</span>
+                                <button type='button' class="content__mobileClose" data-close></button>
+                                <div class="content__mobileTags">
+                                    <button type='button' class="content__mobileTag content__mobileTag--default">Все</button>
+                                    <button type='button' class="content__mobileTag">RUBEZH R3</button>
+                                    <button type='button' class="content__mobileTag">АПС</button>
+                                    <button type='button' class="content__mobileTag">АПС</button>
+                                    <button type='button' class="content__mobileTag">АПС</button>
+                                </div>
+                            </div>
                             <form method="GET" action="" class="content__control">
                                 <span class="content__heading">Тип документа</span>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="anything" name="type"
-                                        value='anything' checked>
-                                    <label for="anything"></label>
-                                    <label for="anything">Любой</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="federal" name="type" value='federal'>
-                                    <label for="federal"></label>
-                                    <label for="federal">Федеральный закон</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="gost" value='gost' name="type">
-                                    <label for="gost"></label>
-                                    <label for="gost">ГОСТ</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="snip" value='snip' name="type">
-                                    <label for="snip"></label>
-                                    <label for="snip">СНиП</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="sp" value='sp' name="type">
-                                    <label for="sp"></label>
-                                    <label for="sp">СП</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="other" value="other" name="type">
-                                    <label for="other"></label>
-                                    <label for="other">Другое</label>
+                                <div class="content__fields">
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="anything" name="type"
+                                            value='anything' checked>
+                                        <label for="anything"></label>
+                                        <label for="anything">Любой</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="federal" name="type" value='federal'>
+                                        <label for="federal"></label>
+                                        <label for="federal">Федеральный закон</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="gost" value='gost' name="type">
+                                        <label for="gost"></label>
+                                        <label for="gost">ГОСТ</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="snip" value='snip' name="type">
+                                        <label for="snip"></label>
+                                        <label for="snip">СНиП</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="sp" value='sp' name="type">
+                                        <label for="sp"></label>
+                                        <label for="sp">СП</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="other" value="other" name="type">
+                                        <label for="other"></label>
+                                        <label for="other">Другое</label>
+                                    </div>
                                 </div>
                             </form>
                             <form action="" method="GET" class="content__control">
                                 <span class="content__heading">Сортировка</span>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="date" value="date" name="sort"
-                                        checked>
-                                    <label for="date"></label>
-                                    <label for="date">По дате публикации</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="alphabet" value="alphabet"
-                                        name="sort">
-                                    <label for="alphabet"></label>
-                                    <label for="alphabet">По алфавиту</label>
+                                <div class="content__fields">
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="date" value="date" name="sort"
+                                            checked>
+                                        <label for="date"></label>
+                                        <label for="date">По дате публикации</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="alphabet" value="alphabet"
+                                            name="sort">
+                                        <label for="alphabet"></label>
+                                        <label for="alphabet">По алфавиту</label>
+                                    </div>
                                 </div>
                             </form>
+                            <form method="GET" action="" class="content__control">
+                                <span class="content__heading">Тип документа</span>
+                                <div class="content__fields">
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="anything" name="type"
+                                            value='anything' checked>
+                                        <label for="anything"></label>
+                                        <label for="anything">Любой</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="federal" name="type" value='federal'>
+                                        <label for="federal"></label>
+                                        <label for="federal">Федеральный закон</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="gost" value='gost' name="type">
+                                        <label for="gost"></label>
+                                        <label for="gost">ГОСТ</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="snip" value='snip' name="type">
+                                        <label for="snip"></label>
+                                        <label for="snip">СНиП</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="sp" value='sp' name="type">
+                                        <label for="sp"></label>
+                                        <label for="sp">СП</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="radio" class="content__radio" id="other" value="other" name="type">
+                                        <label for="other"></label>
+                                        <label for="other">Другое</label>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="content__mobile content__mobile--submit">
+                                 <button type='button' class="content__mobileClear">Очистить</button>
+                                 <button type='button' class="content__mobileSubmit">Применить</button>
+                            </div>
                         </div>
                         <div class="content__block content__block--wide">
                             <div class="result">

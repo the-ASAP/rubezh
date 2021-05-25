@@ -23,7 +23,7 @@ const bindModalListeners = modalArr => {
             }
         });
 
-        jQModal.find('.modal__close').on('click', function () {
+        jQModal.find('.modal__close, [data-close]').on('click', function () {
             jQModal.removeClass('active');
             freeScroll();
         });
@@ -99,11 +99,13 @@ const tabs = (button, content, tabAttr) => {
     })
 }
 
-const buttonScroll = (mainTarget, appearTarget) => {
-    if ($(window).scrollTop() > $(mainTarget).offset().top) {
-        $(appearTarget).addClass('visible')
-    } else {
+const buttonScroll = appearTarget => {
+    const bottomControl = $(window).scrollTop() + 100 > $(document).height() - $(window).height();
+    console.log(bottomControl)
+    if (bottomControl) {
         $(appearTarget).removeClass('visible');
+    } else {
+        $(appearTarget).addClass('visible');
     }
 }
 
@@ -190,7 +192,7 @@ $().ready(() => {
     //появление кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {
-            buttonScroll('.detail__button--scroll', '.appears');
+            buttonScroll('.appears');
         })
     }
 
@@ -207,6 +209,10 @@ $().ready(() => {
         {
             trigger: '.auth__submit--reg',
             modal: '.modal--confirm'
+        },
+        {
+            trigger: '.content__searchFilters',
+            modal: '.content__block--control'
         }
     ])
 
@@ -221,5 +227,10 @@ $().ready(() => {
     //очистка поиска 
     $('.content__searchClear').on('click', e => {
         $(e.target).siblings('input').val('');
+    })
+
+    //раскрытие фильтров на мобильных 
+    $('.content__heading').on('click', e => {
+        $(e.target).toggleClass('open');
     })
 });
