@@ -11,6 +11,7 @@
 .subnav__link,
 .subnav__item,
 .more,
+.banner__box,
 .footer__social,
 .content__field,
 .content__tags,
@@ -404,6 +405,7 @@ body::-webkit-scrollbar-thumb {
 .subnav__link,
 .subnav__item,
 .more,
+.banner__box,
 .footer__social,
 .content__field,
 .content__tags,
@@ -798,6 +800,7 @@ html {
 
 body {
   font-family: "Raleway", sans-serif;
+  cursor: default;
   background-color: #fff;
   color: #34353E;
 }
@@ -829,6 +832,11 @@ h2 {
 }
 
 h3 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+h4 {
   font-size: 2.25rem;
   font-weight: 700;
 }
@@ -1343,7 +1351,7 @@ input:-webkit-autofill:focus {
   height: auto;
 }
 
-.videoItem:hover .videoItem__content {
+.videoItem:hover > .videoItem__content {
   height: auto;
   width: 100%;
   visibility: visible;
@@ -1443,6 +1451,73 @@ input:-webkit-autofill:focus {
 .bg-points:nth-child(even) {
   top: 68%;
   right: 0;
+}
+
+.banner {
+  position: relative;
+  background-color: #6B7785;
+}
+
+.banner__box {
+  position: relative;
+  box-sizing: border-box;
+  padding: 5rem 0;
+}
+
+.banner__description {
+  width: 52%;
+  margin-right: 8%;
+}
+
+.banner__title {
+  color: #ffffff;
+}
+
+.banner__icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 50%;
+}
+
+.subscribe {
+  z-index: 1;
+  display: flex;
+  height: 3.125rem;
+  width: 40%;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.subscribe__input {
+  height: 100%;
+  width: 70%;
+  box-sizing: border-box;
+  padding: 0 1.5625rem;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  background-color: #ffffff;
+  font-weight: inherit;
+}
+
+.subscribe__input::placeholder {
+  opacity: .5;
+}
+
+.subscribe__btn {
+  height: 100%;
+  width: 30%;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  background-color: #7BB933;
+  color: #ffffff;
+  font-weight: inherit;
+  transition: background-color .2s linear;
+}
+
+.subscribe__btn:hover {
+  background-color: #8CD23A;
 }
 
 .footer {
@@ -1795,6 +1870,20 @@ input:-webkit-autofill:focus {
   gap: 2rem;
 }
 
+.subcategory__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.subcategory__section:not(:last-child) {
+  margin-bottom: 6.25rem;
+}
+
+.subcategory__title {
+  color: #165AA2;
+  margin-bottom: 2.625rem;
+}
+
 .events {
   flex-direction: column;
 }
@@ -1954,6 +2043,8 @@ input:-webkit-autofill:focus {
   position: absolute;
   left: 50%;
   bottom: 0;
+  box-sizing: border-box;
+  padding: .125rem;
 }
 
 .schedule {

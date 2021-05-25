@@ -83,6 +83,22 @@
     }
 }
 
+.subcategory {
+    &__section {
+        display: flex;
+        flex-direction: column;
+
+        &:not(:last-child) {
+            margin-bottom: 6.25rem;
+        }
+    }
+
+    &__title {
+        color: $blue;
+        margin-bottom: 2.625rem;
+    }
+}
+
 .events {
     @extend %flexbox;
     flex-direction: column;
@@ -254,6 +270,8 @@
             position: absolute;
             left: 50%;
             bottom: 0;
+            box-sizing: border-box;
+            padding: .125rem;
             @extend %flexbox;
         }
     }
