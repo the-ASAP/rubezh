@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Описание страницы для SEO и соцсетей">
+    <meta name="keywords" content="ключевые, слова, через, запятую">
+    <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
+    <title>Поиск по сайту</title>
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css" type="text/css">
+
+    <link rel="stylesheet" href="css/category.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+
+<body>
+    @import "header.html"
+    <main class="main">
+        <section class="content">
+            <div class="wrapper">
+                <header class="content__header">
+                    <h2 class="content__title">Поиск по сайту</h2>
+                    <form action="" method="GET" class="content__search">
+                        <div class="content__field content__field--search">
+                            <input type="text" class="content__searchInput" placeholder="Поиск" name='search'>
+                            <button type='button' class="content__searchClear">Очистить</button>
+                        </div>
+                        <div class="content__filters">
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='all' class='content__filter'
+                                    value='all'></input>
+                                <label for='all'>Все</label>
+                            </div>
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='solutions' value='solutions'
+                                    class='content__filter'></input>
+                                <label for='solutions'>Типовые решения</label>
+                            </div>
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='video' value='video'
+                                    class='content__filter'></input>
+                                <label for='video'>Видеоматериалы</label>
+                            </div>
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='articles' value='articles'
+                                    class='content__filter'></input>
+                                <label for='articles'>Статьи</label>
+                            </div>
+                        </div>
+                    </form>
+
+                </header>
+                <div class="content__body">
+                    <div class="wrapper wrapper--detail">
+                        <div class="search">
+                            <div class="search__count">По запросу <span>"Проектирование адресной системы"</span> найдено
+                                <span>100 совпаданий</span></div>
+                            <div class="result">
+                                <a href='/details--solution.html' class="result__title">Пожарная сигнализация</a>
+                                <p class="result__text">... <span class='result__found'>проектирование адресной
+                                        системы</span> на основе протокола R3...</p>
+                                <span class="result__category">Типовые решения</span>
+                            </div>
+                            <div class="result">
+                                <a href='/videos.html' class="result__title"><span class='result__found'>Проектирование
+                                        адресной системы</span> тм "RUBEZH".Часть 1 [Вебинары]</a>
+                                <p class="result__text">... <span class='result__found'>проектирование адресной
+                                        системы</span> на основе протокола R3...</p>
+                                <span class="result__category">Видеоматериалы</span>
+                            </div>
+                            <div class="result">
+                                <a href='/videos.html' class="result__title"><span class='result__found'>Проектирование
+                                        адресной системы</span> тм "RUBEZH".Часть 2 [Вебинары]</a>
+                                <p class="result__text">... <span class='result__found'>проектирование адресной
+                                        системы</span> на основе протокола R3...</p>
+                                <span class="result__category">Видеоматериалы</span>
+                            </div>
+                            <div class="result">
+                                <a href='/videos.html' class="result__title"><span class='result__found'>Проектирование
+                                        адресной системы</span> тм "RUBEZH".Часть 3 [Вебинары]</a>
+                                <p class="result__text">... <span class='result__found'>проектирование адресной
+                                        системы</span> на основе протокола R3...</p>
+                                <span class="result__category">Видеоматериалы</span>
+                            </div>
+                            <div class="result">
+                                <a href='/videos.html' class="result__title"><span class='result__found'>Проектирование
+                                        адресной системы</span> тм "RUBEZH".Часть 4 [Вебинары]</a>
+                                <p class="result__text">... <span class='result__found'>проектирование адресной
+                                        системы</span> на основе протокола R3...</p>
+                                <span class="result__category">Видеоматериалы</span>
+                            </div>
+                            <div class="result">
+                                <a href='/details--articles.html' class="result__title">BIM и системы безопасности. Есть
+                                    ли связь?</a>
+                                <p class="result__text">Любое строительство начинается с проектирования и если
+                                    выгода для ... устоялась и решений по реализации <span
+                                        class='result__found'>проектирования</span> разделов АПС, СОУЭ, АДУ, ...
+                                    скрипт автоматической адресации устройств в адресной линии связи. </p>
+                                <span class="result__category">Статьи</span>
+                            </div>
+                        </div>
+                    </div>
+                    @import "more.html"
+                </div>
+            </div>
+        </section>
+        <div class="points">
+            @import "bg-points--single.html"
+        </div>
+    </main>
+    @import "footer.html"
+    <script src="vendors/js/jquery-3.5.1.min.js"></script>
+    <script src="vendors/js/owl.carousel.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>

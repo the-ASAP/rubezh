@@ -333,16 +333,18 @@
         -moz-appearance: textfield;
     }
 }
-
-// экспортируем в <input type='radio'>
-// label должен находиться после инпута
-%input--filter {
+%hidden {
     position: absolute;
     left: -9999px;
     top: -9999px;
     visibility: hidden;
     overflow: hidden;
-    
+}
+// экспортируем в <input type='radio'>
+// label должен находиться после инпута
+
+%input--filter {
+    @extend %hidden;
     & + label {
         padding: 0.5rem 1.875rem;
         border: 1px solid $gen;
@@ -366,22 +368,20 @@
 // экспортируем в <input type='checkbox'>
 // label должен находиться после инпута
 %checkbox {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-    visibility: hidden;
-    overflow: hidden;
-
+   @extend %hidden;
+    & ~ label {
+        cursor: pointer;
+        user-select: none;
+    }
     & + label {
         position: relative;
         display: block;
+        flex-shrink: 0;
         width: 16px;
         height: 16px;
         border: 1px solid $accent;
         border-radius: 2px;
         background-color: #fff;
-        cursor: pointer;
-
         &::after {
             content: '';
             position: absolute;
@@ -398,5 +398,49 @@
     
     &:checked + label {
         background-color: $accent;
+    }
+}
+
+// структура --> 
+// <input type="radio">
+// <label for></label> - для оформления кружка
+// <label for>Текст инпута</label> - для текста
+
+%radio {
+    @extend %hidden;
+    & ~ label {
+        user-select: none;
+        cursor: pointer;
+    }
+    & + label {
+        position: relative;
+        display: block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid $gen;
+        border-radius: 50%;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background-color: $gray-darken;
+            border-radius: 50%;
+            opacity: 0;
+        }
+    }
+    &:checked + label {
+        border-color: $gray-darken;
+        &::before {
+            opacity: 1;
+        }
+    }
+    &[disabled] {
+        & ~ label {
+            opacity: 0.55;
+        }
     }
 }

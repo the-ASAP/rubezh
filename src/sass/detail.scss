@@ -80,6 +80,7 @@
     }
 
     &__body {
+        padding-bottom: 35px;
         & * {
             font-family: $exo;
         }
@@ -90,7 +91,7 @@
             transition: color .3s;
             & span {
                 color: $gen;
-                text-decoration: none;
+                text-align: center;
             }
 
             &:hover {
@@ -231,7 +232,9 @@
         display: block;
         width: 600px;
         margin: 2.5rem auto;
-
+        &[data-fancybox] {
+            text-decoration: none;
+        }
         &:hover {
             &::after {
                 opacity: 1;
@@ -403,16 +406,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .appears {
     position: fixed;
     left: 0;
@@ -572,19 +565,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .bg-points:nth-child(odd) {
     top: 25rem;
 }
@@ -615,5 +595,36 @@
     box-shadow: -1px 5px 10px rgba(116, 116, 188, 0.25);
     border-radius: 20px;
     background-color: $accent;
-    ;
+}
+
+@media (max-width: 1024px) {
+    .header {
+        display: none;
+    }
+    .detail {
+        &__header {
+            padding: 40px 30px;
+        }
+        &__subhead {
+            font-size: 18px;
+        }
+        &__body {
+            p {
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            blockquote {
+                padding: 30px 20px 30px 30px;
+            }
+        }
+        &__image {
+            width: 100%;
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+   
 }

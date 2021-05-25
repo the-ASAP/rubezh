@@ -900,6 +900,7 @@ input {
     }
 
     &__field {
+        @extend %flexbox;
         position: relative;
         &--search {
             &::before {
@@ -914,6 +915,11 @@ input {
                 background-size: contain;
                 background-repeat: no-repeat;
             }
+        }
+        &--filter {
+            margin-top: 12px;
+            font-size: 18px;
+            font-family: $exo;
         }
     }
     
@@ -955,8 +961,122 @@ input {
             text-decoration: underline;
         }
     }
-    
+    &__tags {
+        @extend %flexbox;
+        flex-wrap: wrap;
+        margin-top: 82px;
+        font-family: $exo;
+    }
+    &__tag {
+        @extend %flexbox;
+        justify-content: center;
+        padding: 0 16px;
+        height: 30px;
+        background: $bgc;
+        border-radius: 15px;
+        margin-right: 30px;
+        font-size: 16px;
+
+    }
+    &__clear {
+        text-decoration: underline;
+        font-size: 16px;
+
+    }
     &__body {
         margin-top: 3.75rem;
     }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__block {
+        &--narrow {
+            width: 295px;
+        }
+        &--wide {
+            width: 786px;
+        }
+        &--grid {
+            column-count: 2;
+            column-gap: 38px;
+            & .more {
+                column-span: all;
+            }
+        }
+    }
+    &__control {
+        margin-bottom: 60px;
+    }
+    &__heading {
+        display: block;
+        margin-bottom: 24px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    &__radio {
+        @extend %radio;
+        & + label {
+            margin-right: 16px;
+        }
+    }
+    &__checkbox {
+        @extend %checkbox;
+        & + label {
+            border-color: $gen;
+            margin-right: 16px;
+        }
+        &:checked + label {
+            border-color: $gray-darken;
+            background-color: $gray-darken;
+        }
+    }
+    & .bg-points:nth-child(odd) {
+        top: 25%;
+    }
+}
+
+.not-found {
+    &__image {
+        display: block;
+        width: 960px;
+        height: 680px;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    &__text {
+        margin-top: 40px;
+
+        & p {
+            font-size: 24px;
+            text-align: center;
+            line-height: 1.3;
+            &:not(:first-child) {
+                margin-top: 16px;
+            }
+        }
+
+        & a {
+            color: $accent;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+    }
+}
+@media (max-width: 1024px) {
+    h2 {
+        font-size: 22px;
+    }
+    .wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 30px;
+    }
+    .bg-points {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+     
 }
