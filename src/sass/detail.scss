@@ -80,6 +80,8 @@
     }
 
     &__body {
+        padding-bottom: 35px;
+
         & * {
             font-family: $exo;
         }
@@ -88,9 +90,10 @@
             text-decoration: underline;
             color: $accent;
             transition: color .3s;
+
             & span {
                 color: $gen;
-                text-decoration: none;
+                text-align: center;
             }
 
             &:hover {
@@ -113,10 +116,12 @@
         & ol {
             max-width: 800px;
             margin: 1.125rem auto 2.5rem auto;
+
             & li {
                 & a {
                     display: inline;
                 }
+
                 &:not(:first-child) {
                     margin-top: 0.75rem;
                 }
@@ -147,9 +152,11 @@
 
             & li {
                 font-weight: 300;
+
                 & a {
                     display: inline;
                 }
+
                 &:not(:first-child) {
                     margin-top: 0.75rem;
                 }
@@ -231,6 +238,10 @@
         display: block;
         width: 600px;
         margin: 2.5rem auto;
+
+        &[data-fancybox] {
+            text-decoration: none;
+        }
 
         &:hover {
             &::after {
@@ -403,16 +414,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .appears {
     position: fixed;
     left: 0;
@@ -463,33 +464,40 @@
 
 .comments {
     margin-top: 80px;
+
     & * {
         font-family: $exo;
     }
+
     &__count {
         font-size: 24px;
         font-weight: 400;
     }
+
     &__check {
         margin-top: 20px;
         padding-top: 24px;
         border-top: 1px solid rgba(52, 53, 62, 0.5);
+
         & a {
             color: $accent;
             text-decoration: underline;
             font-weight: 700;
         }
     }
+
     &__container {
         width: 790px;
         margin: 40px auto 0 auto;
     }
+
     &__write {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
         margin-bottom: 60px;
     }
+
     &__area {
         width: 100%;
         min-height: 150px;
@@ -497,8 +505,9 @@
         font-size: 16px;
         border: 1px solid rgba(52, 53, 62, 0.5);
         border-radius: 5px;
-        resize: none; 
+        resize: none;
     }
+
     &__send {
         @extend %button-transparent;
         margin-top: 30px;
@@ -511,11 +520,14 @@
         display: flex;
         align-items: flex-start;
     }
+
     margin-top: 40px;
+
     & .comment {
         margin-left: 60px;
         margin-top: 30px;
     }
+
     &__pic {
         @extend %flexbox;
         flex-shrink: 0;
@@ -530,14 +542,17 @@
         border-radius: 50%;
         background-color: $accent;
         color: #fff;
+
         &--admin {
             background-color: $blue;
         }
     }
+
     &__name {
         font-family: $raleway;
         font-weight: 600;
     }
+
     &__whom {
         position: relative;
         display: block;
@@ -545,8 +560,10 @@
         font-size: 12px;
         font-weight: 600;
         color: rgba(52, 53, 62, 0.5);
+
         &:not(:empty) {
             margin-top: 8px;
+
             &::before {
                 display: inline-block;
                 content: '';
@@ -559,9 +576,11 @@
             }
         }
     }
+
     &__text {
         margin-top: 6px;
     }
+
     &__reply {
         margin-top: 10px;
         font-size: 16px;
@@ -569,19 +588,6 @@
         text-decoration: underline;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -615,5 +621,41 @@
     box-shadow: -1px 5px 10px rgba(116, 116, 188, 0.25);
     border-radius: 20px;
     background-color: $accent;
-    ;
 }
+
+@media (max-width: 1024px) {
+    .header {
+        display: none;
+    }
+
+    .detail {
+        &__header {
+            padding: 40px 30px;
+        }
+
+        &__subhead {
+            font-size: 18px;
+        }
+
+        &__body {
+            p {
+                font-size: 16px;
+                margin-top: 20px;
+            }
+
+            blockquote {
+                padding: 30px 20px 30px 30px;
+            }
+        }
+
+        &__image {
+            width: 100%;
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {}

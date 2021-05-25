@@ -163,8 +163,9 @@ $().ready(() => {
     //детальные страницы
 
     //обертка для fancybox 
-    if ($('[data-fancybox]').length) {
-        $('.detail img').each((i, el) => {
+
+    if ($('.detail img').length || $('[data-fancybox]').length) {
+        $('.detail img, img[data-fancybox]').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
         })
 
@@ -219,6 +220,7 @@ $().ready(() => {
     $('.content__searchClear').on('click', e => {
         $(e.target).siblings('input').val('');
     })
+
 
     //страницы категорий
 

@@ -28,23 +28,107 @@
             <div class="wrapper">
                 <header class="content__header">
                     <h2 class="content__title">Статьи</h2>
-                    <p class='content__subtitle'>Актуальные и интересные статьи на тему проектирования систем безопасности, релизы, результаты опросов и многое другое.</p>
-                    <form action="" method="POST" class="content__search">
+                    <p class='content__subtitle'>Актуальные и интересные статьи на тему проектирования систем
+                        безопасности, релизы, результаты опросов и многое другое.</p>
+                    <form action="" method="GET" class="content__search">
                         <div class="content__field content__field--search">
-                            <input type="text" class="content__searchInput" placeholder="Поиск">
+                            <input type="text" class="content__searchInput" placeholder="Поиск" name='search'>
                             <button type='button' class="content__searchClear">Очистить</button>
                         </div>
                     </form>
                 </header>
                 <div class="content__body">
-                   @import "schedule.html"
-                   @import "schedule.html"
-                   @import "schedule.html"
-                   @import "schedule.html"
-                   @import "schedule.html"
-                   @import "schedule.html"
-                   @import "schedule.html"
-                   @import "more.html"
+                    <a href='/details--articles.html' class="article">
+                        <div class="article__content article__content--digest">
+                            <span class="article__date">29 января 2021</span>
+                            <div class="article__title article__title--digest">Дайджест портала проектировщиков,
+                                <span>январь 2021</span></div>
+                            <div class="article__text">Дайджест собирает все обновления, которые публикуются на портале,
+                                чтобы вы смогли быстрее сориентироваться и найти для себя что-то новое.</div>
+                        </div>
+                        <div class="article__image article__image--digest">
+                            <img src="/img/category/digest_img.jpg" alt="">
+                            <span class="article__digest">январь 2021</span>
+                        </div>
+                    </a>
+                    <a href='/details--articles.html' class="article">
+                        <div class="article__image">
+                            <img src="/img/category/article_1.jpg" alt="">
+                        </div>
+                        <div class="article__content">
+                            <span class="article__date">13 января 2021</span>
+                            <div class="article__title">Типовой проект по СП 484.1311500.2020 и СП 486.1311500.2020
+                            </div>
+                            <div class="article__text">Разработан типовой шаблон проекта согласно новым СП
+                                484.1311500.2020 и СП 486.1311500.2020</div>
+                        </div>
+                    </a>
+                    <a href='/details--articles.html' class="article">
+                        <div class="article__image">
+                            <img src="/img/category/article_2.jpg" alt="">
+                        </div>
+                        <div class="article__content">
+                            <span class="article__date">30 ноября 2020</span>
+                            <div class="article__title">Сколько возьмешь денег за проект?</div>
+                            <div class="article__text">Мы уже подвели итоги опроса “Сколько возьмешь денег за проект?” и
+                                готовы предоставить результаты в данной статье.</div>
+                        </div>
+                    </a>
+                    <a href='/details--articles.html' class="article">
+                        <div class="article__image">
+                            <img src="/img/category/article_3.jpg" alt="">
+                        </div>
+                        <div class="article__content">
+                            <span class="article__date">11 ноября 2020</span>
+                            <div class="article__title">Основные ошибки у начинающих проектировать в RubezhCAD</div>
+                            <div class="article__text">Анализируя статистику и регулярно собирая обратную связь мы
+                                сумели выявить ряд ошибок, которые допускают начинающие пользователи RubezhCAD.</div>
+                        </div>
+                    </a>
+                    <a href='/details--articles.html' class="article">
+                        <div class="article__image">
+                            <img src="/img/category/article_4.jpg" alt="">
+                        </div>
+                        <div class="article__content">
+                            <span class="article__date">5 октября 2020</span>
+                            <div class="article__title">Обновленный свод правил</div>
+                            <div class="article__text">Что же нас ждет в обновленном своде правил? Мы решили облегчить
+                                Вам задачу по аналитике СП 484.1311500.2020 и показали основные изменения и обновления
+                                сравнив их с действующими нормами.</div>
+                        </div>
+                    </a>
+                    <a href='/details--articles.html' class="article">
+                        <div class="article__image">
+                            <img src="/img/category/article_5.jpg" alt="">
+                        </div>
+                        <div class="article__content">
+                            <span class="article__date">29 сентября 2020</span>
+                            <div class="article__title">Сколько ты тратишь времени на проект?</div>
+                            <div class="article__text">Не так давно проходил опрос среди инженеров-проектировщиков,
+                                посвященный скорости проектирования. Давайте вспомним сами задания для оценки и
+                                ознакомимся с результатами.</div>
+                        </div>
+                    </a>
+                    <div class="pagination">
+                        <a href="" class="pagination__link pagination__link--prev">
+                            <svg width="10" height="19" viewBox="0 0 10 19" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.89038 1L1 9.41533L8.89038 17.4299" stroke="#34353E" stroke-opacity="0.5"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                        <a href="" class="pagination__link current">1</a>
+                        <a href="" class="pagination__link">2</a>
+                        <a href="" class="pagination__link pagination__link--more">...</a>
+                        <a href="" class="pagination__link">5</a>
+                        <a href="" class="pagination__link pagination__link--next">
+                            <svg width="10" height="19"
+                                viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.10962 18L9 9.58467L1.10962 1.57007" stroke="#34353E" stroke-opacity="0.5"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

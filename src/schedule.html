@@ -30,17 +30,17 @@
                     <h2 class="content__title">Расписание событий</h2>
                     <p class='content__subtitle'>Актуальное расписание наших вебинаров, семинаров, обучающих курсов и
                         ближайших мероприятий для проектировщиков систем безопасности.</p>
-                    <form action="" method="POST" class="content__filters">
+                    <form action="" method="GET" class="content__filters">
                         <div class="content__field">
-                            <input type='radio' name='schedule__filter' id='all' class='content__filter'></input>
+                            <input type='radio' name='schedule__filter' id='all' value='all' class='content__filter'></input>
                             <label for='all'>Все события</label>
                         </div>
                         <div class="content__field">
-                            <input type='radio' name='schedule__filter' id='online' class='content__filter'></input>
+                            <input type='radio' name='schedule__filter' id='online' value='online' class='content__filter'></input>
                             <label for='online'>Онлайн</label>
                         </div>
                         <div class="content__field">
-                            <input type='radio' name='schedule__filter' id='offline' class='content__filter'></input>
+                            <input type='radio' name='schedule__filter' id='offline'  value='offline' class='content__filter'></input>
                             <label for='offline'>Оффлайн</label>
                         </div>
                     </form>
