@@ -6,7 +6,7 @@
     align-self: center;
 }
 
-// Стилизация скролбра
+//стилизация скролбра
 %scrollbar::-webkit-scrollbar {
     width: .5%;
     min-width: 8px;
@@ -21,7 +21,7 @@
     background: $accent;
 }
 
-// Крестик для кнопки закрытия
+//крестик для кнопки закрытия
 %close-btn {
     position: absolute;
     height: 20px;
@@ -53,8 +53,8 @@
     }
 }
 
-/*Кнопка меню*/
-/*В разметке обязательно должна иметь внутренний span */
+/*кнопка меню*/
+/*в разметке обязательно должна иметь внутренний span */
 /*<button class="burger"><span></span></button>*/
 %burger {
     overflow: visible;
@@ -207,11 +207,12 @@
         background-color: $blue;
         line-height: 1;
         color: #ffffff;
+
         &:hover {
             background-color: $blue;
         }
     }
-   
+
     &-transparent {
         @extend %button;
         padding: 14px 30px;
@@ -220,7 +221,7 @@
         background-color: transparent;
         color: $accent;
         cursor: pointer;
-        
+
         &:hover {
             background-color: $accent;
             color: #fff;
@@ -329,10 +330,12 @@
         -webkit-appearance: none;
         margin: 0;
     }
+
     &[type='number'] {
         -moz-appearance: textfield;
     }
 }
+
 %hidden {
     position: absolute;
     left: -9999px;
@@ -340,12 +343,13 @@
     visibility: hidden;
     overflow: hidden;
 }
-// экспортируем в <input type='radio'>
-// label должен находиться после инпута
 
+//экспортируем в <input type='radio'>
+//label должен находиться после инпута
 %input--filter {
     @extend %hidden;
-    & + label {
+
+    &+label {
         padding: 0.5rem 1.875rem;
         border: 1px solid $gen;
         border-radius: 20px;
@@ -357,23 +361,25 @@
         transition: background-color .3s, color .3s;
     }
 
-    & + label:hover,
-    &:checked + label {
+    &+label:hover,
+    &:checked+label {
         background-color: $blue;
         color: #fff;
         border-color: $blue;
     }
 }
 
-// экспортируем в <input type='checkbox'>
-// label должен находиться после инпута
+//экспортируем в <input type='checkbox'>
+//label должен находиться после инпута
 %checkbox {
-   @extend %hidden;
-    & ~ label {
+    @extend %hidden;
+
+    &~label {
         cursor: pointer;
         user-select: none;
     }
-    & + label {
+
+    &+label {
         position: relative;
         display: block;
         flex-shrink: 0;
@@ -382,6 +388,7 @@
         border: 1px solid $accent;
         border-radius: 2px;
         background-color: #fff;
+
         &::after {
             content: '';
             position: absolute;
@@ -395,30 +402,32 @@
             background-size: contain;
         }
     }
-    
-    &:checked + label {
+
+    &:checked+label {
         background-color: $accent;
     }
 }
 
-// структура --> 
-// <input type="radio">
-// <label for></label> - для оформления кружка
-// <label for>Текст инпута</label> - для текста
-
+//структура --> 
+//<input type="radio">
+//<label for></label> - для оформления кружка
+//<label for>Текст инпута</label> - для текста
 %radio {
     @extend %hidden;
-    & ~ label {
+
+    &~label {
         user-select: none;
         cursor: pointer;
     }
-    & + label {
+
+    &+label {
         position: relative;
         display: block;
         width: 16px;
         height: 16px;
         border: 1px solid $gen;
         border-radius: 50%;
+
         &::before {
             content: '';
             position: absolute;
@@ -432,14 +441,17 @@
             opacity: 0;
         }
     }
-    &:checked + label {
+
+    &:checked+label {
         border-color: $gray-darken;
+
         &::before {
             opacity: 1;
         }
     }
+
     &[disabled] {
-        & ~ label {
+        &~label {
             opacity: 0.55;
         }
     }

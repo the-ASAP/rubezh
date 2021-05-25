@@ -50,23 +50,24 @@
 
     &__item {
         display: block;
-        height: 100%;;
+        height: 100%;
+        ;
         width: calc(73% / 4);
 
         &:not(:last-child) {
             margin-right: 9%;
         }
 
-        & > svg {
+        &>svg {
             height: 100%;
             width: 100%;
 
-            & > path {
+            &>path {
                 transition: fill .2s linear;
             }
         }
 
-        &:hover > svg > path {
+        &:hover>svg>path {
             fill: $gen;
         }
     }
@@ -94,7 +95,7 @@
             padding: .5rem 1.25rem 9.375rem;
             overflow: hidden;
 
-            & > .owl-stage-outer {
+            &>.owl-stage-outer {
                 overflow: visible;
             }
         }
@@ -124,8 +125,8 @@
             &:hover {
                 position: absolute;
                 height: auto;
-                
-                & > .promo__sliderLink {
+
+                &>.promo__sliderLink {
                     visibility: visible;
                     opacity: 1;
                 }
@@ -221,19 +222,17 @@
     }
 
     &__box {
-        @extend %flexbox;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5%;
         margin-bottom: 3.125rem;
     }
 
     &__item {
-        width: calc(95% / 3);
-
-        &:not(:nth-child(3n)) {
-            margin-right: 2.5%;
-        }
+        width: 100%;
 
         &Link {
-            &:hover > .articles__itemTitle {
+            &:hover>.articles__itemTitle {
                 color: $accent;
             }
         }
