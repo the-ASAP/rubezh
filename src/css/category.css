@@ -2331,6 +2331,20 @@ input:-webkit-autofill:focus {
   html {
     font-size: 16px;
   }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 30px;
+  }
+
+  .bg-points {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {

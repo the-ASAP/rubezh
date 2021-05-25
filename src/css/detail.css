@@ -1734,7 +1734,7 @@ input:-webkit-autofill:focus {
 
 .detail__body a span {
   color: #34353E;
-  text-decoration: none;
+  text-align: center;
 }
 
 .detail__body a:hover {
@@ -1859,6 +1859,10 @@ input:-webkit-autofill:focus {
   display: block;
   width: 600px;
   margin: 2.5rem auto;
+}
+
+.detail__image[data-fancybox] {
+  text-decoration: none;
 }
 
 .detail__image:hover::after {
@@ -2267,6 +2271,49 @@ input:-webkit-autofill:focus {
 @media (max-width: 1024px) {
   html {
     font-size: 16px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 30px;
+  }
+
+  .bg-points {
+    display: none;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .detail__header {
+    padding: 40px 30px;
+  }
+
+  .detail__subhead {
+    font-size: 18px;
+  }
+
+  .detail__body p {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .detail__body blockquote {
+    padding: 30px 20px 30px 30px;
+  }
+
+  .detail__image {
+    width: 100%;
+  }
+
+  .detail__image::after {
+    opacity: 1;
   }
 }
 
