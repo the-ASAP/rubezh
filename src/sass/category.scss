@@ -203,12 +203,18 @@
 
     &__box {
         position: relative;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        display: flex;
 
         &--promo {
             margin-bottom: 3.125rem;
+        }
+    }
+
+    &__column {
+        width: calc(50% - 1rem);
+
+        &:first-child {
+            margin-right: 2rem;
         }
     }
 

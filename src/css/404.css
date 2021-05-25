@@ -797,6 +797,7 @@ input:-webkit-autofill:focus {
   font-size: .75rem;
   font-weight: 700;
   text-transform: uppercase;
+  transition: color .2s linear;
 }
 
 .header__menu-item:not(:last-child):after {
@@ -809,6 +810,10 @@ input:-webkit-autofill:focus {
   margin: 0 .6875rem;
   border-radius: 50%;
   background-color: #6B7785;
+}
+
+.header__menu-item:hover {
+  color: #7BB933;
 }
 
 .header__profile--logged {
@@ -892,14 +897,13 @@ input:-webkit-autofill:focus {
   margin-right: 3.125rem;
 }
 
+.nav__item:hover {
+  color: #7BB933;
+}
+
 .nav__item--subnav {
   z-index: 2;
   padding-right: 1rem;
-}
-
-.nav__item--subnav:hover > .subnav {
-  visibility: visible;
-  opacity: 1;
 }
 
 .nav__item--subnav::before,
@@ -911,7 +915,7 @@ input:-webkit-autofill:focus {
   width: 1.3px;
   border-radius: 5px;
   background-color: #34353E;
-  transition: transform .2s linear;
+  transition: transform .2s linear, background-color .2s linear;
 }
 
 .nav__item--subnav::before {
@@ -924,6 +928,16 @@ input:-webkit-autofill:focus {
   transform: rotate(-45deg);
 }
 
+.nav__item--subnav:hover > .subnav {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav__item--subnav:hover::before,
+.nav__item--subnav:hover::after {
+  background-color: #7BB933;
+}
+
 .nav__item--subnav:hover::before {
   transform: rotate(135deg);
 }
@@ -933,9 +947,10 @@ input:-webkit-autofill:focus {
 }
 
 .nav__link {
-  color: #34353E;
+  color: inherit;
   font-size: 1.125rem;
   font-weight: 500;
+  transition: color .2s linear;
 }
 
 .subnav {
@@ -979,21 +994,37 @@ input:-webkit-autofill:focus {
 
 .subnav__link,
 .subnav__item {
+  position: relative;
   width: 100%;
   color: #34353E;
   font-size: 1.125rem;
   font-weight: 500;
+  transition: color .2s linear;
+}
+
+.subnav__link:hover,
+.subnav__item:hover {
+  color: #7BB933;
+}
+
+.subnav__link > svg,
+.subnav__item > svg {
+  color: inherit;
+  margin-right: 1.25rem;
+  transition: color .2s linear;
+}
+
+.subnav__link > span,
+.subnav__item > span {
+  width: 70%;
 }
 
 .subnav__link:not(:last-child) {
   margin-bottom: 1.875rem;
 }
 
-.subnav__icon {
-  margin-right: 1.25rem;
-}
-
 .main {
+  z-index: 1;
   position: relative;
   box-sizing: border-box;
   padding-top: 4.5rem;
@@ -1055,12 +1086,17 @@ input:-webkit-autofill:focus {
 }
 
 .videoItem {
+  position: relative;
   height: 33.5625rem;
   width: 100%;
   box-sizing: border-box;
   padding: 1.875rem;
   border-radius: 8px;
   box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+}
+
+.videoItem:not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .videoItem:hover {
@@ -1116,6 +1152,15 @@ input:-webkit-autofill:focus {
   margin-bottom: 1.875rem;
 }
 
+.videoItem__text p:not(:last-child),
+.videoItem__text li:not(:last-child) {
+  margin-bottom: .7rem;
+}
+
+.videoItem__text li {
+  list-style-position: inside;
+}
+
 .videoItem__btn {
   align-self: center;
   margin-bottom: 1.875rem;
@@ -1146,12 +1191,20 @@ input:-webkit-autofill:focus {
   text-decoration: none;
 }
 
+.schemeItem:hover > svg > * {
+  stroke: #8CD23A;
+}
+
 .schemeItem > svg {
   position: absolute;
   top: 5px;
   left: 0;
   height: 1rem;
   width: 1.25rem;
+}
+
+.schemeItem > svg > * {
+  transition: stroke .2s linear;
 }
 
 .more {
@@ -1312,11 +1365,20 @@ input:-webkit-autofill:focus {
   color: #ffffff;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  transition: color .2s linear;
+}
+
+.footer__link:hover {
+  color: #7BB933;
 }
 
 .footer__link--title {
   font-weight: 500;
   margin-bottom: 1.0625rem;
+}
+
+.footer__link--title:hover {
+  color: #ffffff;
 }
 
 .footer__company,
@@ -1436,6 +1498,12 @@ form ~ .content__filters {
 .content__searchClear {
   font-size: 1rem;
   text-decoration: underline;
+  transition: color .2s linear;
+}
+
+.content__searchClear:hover {
+  color: #7BB933;
+  text-decoration: none;
 }
 
 .content__body {
