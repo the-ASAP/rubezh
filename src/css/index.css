@@ -1279,12 +1279,13 @@ input:-webkit-autofill:focus {
 
 .videoItem {
   position: relative;
-  height: 33.5625rem;
+  max-height: 33.5625rem;
   width: 100%;
   box-sizing: border-box;
   padding: 1.875rem;
   border-radius: 8px;
   box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+  transition: max-height .3s;
 }
 
 .videoItem:not(:last-child) {
@@ -1292,12 +1293,11 @@ input:-webkit-autofill:focus {
 }
 
 .videoItem:hover {
-  height: auto;
+  max-height: 67.125rem;
 }
 
 .videoItem:hover > .videoItem__content {
-  height: auto;
-  width: 100%;
+  max-height: 33.5625rem;
   visibility: visible;
   opacity: 1;
 }
@@ -1331,11 +1331,11 @@ input:-webkit-autofill:focus {
 .videoItem__content {
   display: flex;
   flex-direction: column;
-  height: 0;
-  width: 0;
+  max-height: 0;
+  width: 100%;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .2s linear;
+  transition: max-height .3s, visibility .3s, opacity .1s;
 }
 
 .videoItem__text {
