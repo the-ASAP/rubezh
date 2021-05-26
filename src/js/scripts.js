@@ -83,6 +83,22 @@ const closeSearch = (btn) => {
     btn.siblings('button').prop('type', 'button');
 };
 
+const closeMenu = (btn, menu) => {
+    btn.removeClass('active');
+    menu.removeClass('active');
+    freeScroll();
+};
+
+const toggleMenu = (btn, menu) => {
+    if (btn.hasClass('active')) {
+        closeMenu(btn, menu);
+    } else {
+        btn.addClass('active');
+        menu.addClass('active');
+        stopScroll();
+    }
+};
+
 const switchActive = (target, allElems, className) => {
     $(allElems).removeClass(className);
     $(target).addClass(className);
@@ -120,6 +136,10 @@ $().ready(() => {
 
     $('.header__search-closeBtn').on('click', function () {
         closeSearch($(this));
+    });
+
+    $('.header__burger').on('click', function () {
+        toggleMenu($(this), $('.menu'));
     });
 
     owlGallery('.promo__sliderBox', {
@@ -162,8 +182,7 @@ $().ready(() => {
 
     //детальные страницы
 
-    //обертка для fancybox 
-
+    //обертка для fancybox
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);

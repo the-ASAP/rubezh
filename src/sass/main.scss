@@ -118,7 +118,7 @@ button {
     cursor: pointer;
 }
 
-// убирает цвет автокомплита у инпута
+//убирает цвет автокомплита у инпута
 input {
 
     &:-webkit-autofill,
@@ -150,8 +150,8 @@ input {
     }
 }
 
-// Шаблон для модального окна
-// .modal Обязательный класс для всех модальных окон, для попапов используем класс .popup который экстендит(@extend) класс modal или описываем свой.
+//шаблон для модального окна
+//.modal Обязательный класс для всех модальных окон, для попапов используем класс .popup который экстендит(@extend) класс modal или описываем свой.
 .modal {
     position: fixed;
     top: 0;
@@ -172,7 +172,7 @@ input {
         visibility: visible;
     }
 
-    //Вложенное окно с контентом, необходимо задать фиксированные размерыж
+    //вложенное окно с контентом, необходимо задать фиксированные размерыж
     &__box {
         position: relative;
         overflow: auto;
@@ -185,7 +185,7 @@ input {
         text-align: center;
     }
 
-    // Кнопка закрытия
+    //кнопка закрытия
     &__close {
         @extend %close-btn;
         top: 1.5rem;
@@ -221,6 +221,7 @@ input {
 
 .header {
     &__container {
+        z-index: 2;
         position: relative;
         box-sizing: border-box;
         height: 6.875rem;
@@ -234,39 +235,20 @@ input {
     }
 
     &__search {
-        @extend %flexbox;
-        position: relative;
+        @extend %search;
         height: 1.875rem;
 
         &-btn {
-            position: absolute;
-            top: calc(50% + 2px);
+            @extend %search-btn;
             right: 0;
-            transform: translateY(-50%);
-
-            &>svg>path {
-                transition: fill .2s linear;
-            }
-
-            &:hover>svg>path {
-                fill: $accent-lighten;
-            }
         }
 
         &-input {
-            height: 100%;
+            @extend %search-input;
             width: 0;
             visibility: hidden;
             opacity: 0;
-            color: $text;
-            font-family: $exo;
-            font-size: .875rem;
-            font-weight: 300;
             transition: width .2s linear, visibility .2s linear, opacity .2s linear, padding .2s linear;
-
-            &::placeholder {
-                color: $gray-darken;
-            }
         }
 
         &-closeBtn {
@@ -300,6 +282,7 @@ input {
     }
 
     &__row {
+        position: relative;
         @extend %flexbox;
         justify-content: space-between;
     }
@@ -391,6 +374,11 @@ input {
 
     &__profile-signup {
         @extend %button-small;
+    }
+
+    &__burger {
+        @extend %burger;
+        display: none;
     }
 }
 
@@ -552,6 +540,56 @@ input {
     &__link {
         &:not(:last-child) {
             margin-bottom: 1.875rem;
+        }
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 0;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #ffffff;
+    transition: all .3s;
+
+    &::before {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -30px;
+        height: 100%;
+        width: calc(100% + 60px);
+        background-color: inherit;
+    }
+
+    &__container {
+        max-width: 576px;
+    }
+
+    &__search {
+        @extend %search;
+        height: 2.5rem;
+        margin-bottom: 3.125rem;
+
+        &-btn {
+            @extend %search-btn;
+            left: 1.125rem;
+        }
+
+        &-input {
+            @extend %search-input;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 2.9375rem;
+            padding-right: 1.125rem;
+            border: 1px solid $gray-darken;
+            border-radius: 20px;
         }
     }
 }
@@ -1196,15 +1234,35 @@ input {
     }
 }
 
-@media (max-width: 1024px) {
-    h2 {
-        font-size: 22px;
+@include desktop-large {
+    .wrapper {
+        width: calc(100% - 200px);
+    }
+}
+
+@include desktop {
+    .wrapper {
+        width: calc(100% - 150px);
     }
 
-    .wrapper {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 30px;
+    .header {
+        .logo {
+            width: fit-content;
+            font-size: 0;
+
+            &__img {
+                padding-right: 0;
+                border-right: none;
+            }
+        }
+    }
+
+    .nav {
+        &__item {
+            &:not(:last-child) {
+                margin-right: 3.125rem;
+            }
+        }
     }
 
     .bg-points {
@@ -1212,4 +1270,73 @@ input {
     }
 }
 
-@media (max-width: 768px) {}
+@include tablet {
+    h2 {
+        font-size: 22px;
+    }
+
+    .wrapper {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    .header {
+        &__container {
+            height: fit-content;
+            padding-top: 1.5625rem;
+            padding-bottom: .25rem;
+        }
+
+        &__controls {
+            display: none;
+        }
+
+        &__row {
+            height: 2rem;
+            justify-content: flex-end;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+
+            &__img {
+                height: inherit;
+            }
+        }
+
+        &__profile {
+            margin-right: 1.25rem;
+
+            &-auth {
+                color: $gray-darken;
+                font-size: .875rem;
+                font-weight: 400;
+                margin-right: 0;
+            }
+
+            &-signup {
+                display: none;
+            }
+        }
+
+        &__burger {
+            display: block;
+        }
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .menu {
+        &.active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+@include phone {}
