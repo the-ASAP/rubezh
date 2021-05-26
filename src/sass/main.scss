@@ -625,23 +625,23 @@ input {
 
 .videoItem {
     position: relative;
-    height: 33.5625rem;
+    max-height: 33.5625rem;
     width: 100%;
     box-sizing: border-box;
     padding: 1.875rem;
     border-radius: 8px;
     box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+    transition: max-height .3s;
 
     &:not(:last-child) {
         margin-bottom: 2rem;
     }
 
     &:hover {
-        height: auto;
+        max-height: 67.125rem;
 
         &>.videoItem__content {
-            height: auto;
-            width: 100%;
+            max-height: 33.5625rem;
             visibility: visible;
             opacity: 1;
         }
@@ -676,11 +676,11 @@ input {
     &__content {
         display: flex;
         flex-direction: column;
-        height: 0;
-        width: 0;
+        max-height: 0;
+        width: 100%;
         visibility: hidden;
         opacity: 0;
-        transition: opacity .2s linear;
+        transition: max-height .3s, visibility .3s, opacity .1s;
     }
 
     &__text {
