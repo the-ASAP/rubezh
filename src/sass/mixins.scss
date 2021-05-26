@@ -53,6 +53,37 @@
     }
 }
 
+%search {
+    @extend %flexbox;
+    position: relative;
+
+    &-btn {
+        position: absolute;
+        top: calc(50% + 2px);
+        transform: translateY(-50%);
+
+        &>svg>path {
+            transition: fill .2s linear;
+        }
+
+        &:hover>svg>path {
+            fill: $accent-lighten;
+        }
+    }
+
+    &-input {
+        height: 100%;
+        color: $text;
+        font-family: $exo;
+        font-size: .875rem;
+        font-weight: 300;
+
+        &::placeholder {
+            color: $gray-darken;
+        }
+    }
+}
+
 /*кнопка меню*/
 /*в разметке обязательно должна иметь внутренний span */
 /*<button class="burger"><span></span></button>*/
@@ -61,17 +92,18 @@
 
     &>span {
         position: relative;
-        margin-top: 7px;
-        margin-bottom: 7px;
+        margin-top: 5px;
+        margin-bottom: 5px;
         display: block;
-        width: 22px;
+        width: 16px;
 
         &,
         &::after,
         &::before {
-            background-color: $gen;
-            height: 1px;
-            transition: background-color .3s, transform .3s;
+            height: 2px;
+            border-radius: 1px;
+            background-color: $gray-darken;
+            transition: transform .3s;
         }
 
         &::after,
@@ -79,21 +111,15 @@
             position: absolute;
             content: '';
             left: 0;
-            top: 5px;
             width: 100%;
+        }
+
+        &::after {
+            top: 5px;
         }
 
         &::before {
             top: -5px;
-        }
-    }
-
-    &:hover span {
-
-        &,
-        &::after,
-        &::before {
-            background-color: $accent;
         }
     }
 
@@ -454,5 +480,29 @@
         &~label {
             opacity: 0.55;
         }
+    }
+}
+
+@mixin desktop-large {
+    @media (max-width: 1366px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (max-width: 1300px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media (max-width: 768px) {
+        @content;
     }
 }
