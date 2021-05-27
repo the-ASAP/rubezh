@@ -649,3 +649,33 @@
     }
   
 }
+
+@media (max-width: 768px) {
+    .result {
+        &__title {
+            font-size: 20px;
+        }
+        &__text {
+            font-size: 16px;
+        }
+        &__date {
+            font-size: 14px;
+        }
+    }
+    .support {
+        position: relative;
+        &__container {
+            flex-wrap: wrap;
+        }
+        &__title {
+            font-size: 24px;
+        }
+        &__text {
+            font-size: 16px;
+        }
+        &__image {
+            display: none;
+        }
+    }
+    
+}

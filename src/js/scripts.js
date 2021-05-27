@@ -1,3 +1,5 @@
+const mobile = $(window).width() < 768;
+
 //удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
     $('.preloader').fadeOut(150, () => {
@@ -55,18 +57,18 @@ const owlGallery = (selector, params) => {
     if (params == undefined) params = '';
     const owl = $(selector);
     owl.each((i, el) => {
-            $(el)
-                .addClass('owl-carousel owl-theme')
-                .owlCarousel(
-                    Object.assign(params, {
-                        smartSpeed: 1000,
-                        navText: [
-                            '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30057 1.12305L1.41016 10.553L9.30057 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-                            '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.69943 1.12305L9.58984 10.553L1.69943 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-                        ]
-                    })
-                );
-        })
+        $(el)
+            .addClass('owl-carousel owl-theme')
+            .owlCarousel(
+                Object.assign(params, {
+                    smartSpeed: 1000,
+                    navText: [
+                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30057 1.12305L1.41016 10.553L9.30057 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.69943 1.12305L9.58984 10.553L1.69943 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                    ]
+                })
+            );
+    })
         .trigger('refresh.owl.carousel');
 };
 
@@ -99,7 +101,6 @@ const tabs = (button, content, tabAttr) => {
 
 const buttonScroll = appearTarget => {
     const bottomControl = $(window).scrollTop() + 100 > $(document).height() - $(window).height();
-    console.log(bottomControl)
     if (bottomControl) {
         $(appearTarget).removeClass('visible');
     } else {
@@ -107,17 +108,63 @@ const buttonScroll = appearTarget => {
     }
 }
 
-const removeDisable = (button) => {
-    $(button).prop('disabled', false);
+const tagTemplate = (text, name = '') => (
+    `<button class='content__mobileTag' data-name='${name}'>${text}</button>`
+)
+
+const addFilters = (e, container) => {
+    const text = $(e.target).siblings('label:not(:empty)').text(),
+        that = $(e.target),
+        nameAttr = that.prop('name');
+    $('.content__mobileTag--default').remove();
+    if (that.attr('type') === 'radio') {
+        $(container).find(`[data-name=${nameAttr}]`).remove();
+        $(container).append(tagTemplate(text, nameAttr));
+    }
+    if (that.attr('type') === 'checkbox') {
+        if (that.prop('checked')) {
+            $(container).append(tagTemplate(text, nameAttr));
+        } else {
+            $(container).find('button').each((i, el) => $(el).text() === text ? $(el).remove() : 0);
+        }
+    }
 }
 
-$('.profile__checkbox').on('change', e => {
-    removeDisable('.profile__submit--subscribe');
-});
+const filtersCount = () => {
+    $('.content__searchCount').text(
+        $('.content__mobileTag').length ? $('.content__mobileTag').length : ''
+    )
+}
 
+const searchRequest = params => {
+    $('.content__block--control.active').removeClass('active');
+    freeScroll();
+    $.ajax({});
+}
+
+$('.content__field--filter input').on('change', e => {
+    addFilters(e, '.content__mobileTags');
+    filtersCount();
+})
+
+$('.content__mobileSubmit').on('click', e => searchRequest());
+
+$('body').on('click', '.content__mobileTag', e => {
+    $(e.currentTarget).remove();
+    $('.content__field input').each((i, el) => {
+        if ($(e.currentTarget).text() === $(el).siblings('label:not(:empty)').text()) $(el).prop('checked', false);
+        filtersCount();
+})
+})
 $().ready(() => {
     $(document).on('click', '.header__search-btn[type="button"]', function () {
         openSearch($(this));
+    });
+
+
+    // убираем дизейбл с кнопки на странице профиля
+    $('.profile__checkbox').on('change', e => {
+        $('.profile__submit--subscribe').prop('disabled', false);
     });
 
     $('.header__search-closeBtn').on('click', function () {
@@ -201,17 +248,21 @@ $().ready(() => {
     });
 
     bindModalListeners([{
-            trigger: '.detail__button--scroll',
-            modal: '.modal--load'
-        },
-        {
-            trigger: '.auth__submit--reg',
-            modal: '.modal--confirm'
-        },
-        {
-            trigger: '.content__searchFilters',
-            modal: '.content__block--control'
-        }
+        trigger: '.detail__button--scroll',
+        modal: '.modal--load'
+    },
+    {
+        trigger: '.auth__submit--reg',
+        modal: '.modal--confirm'
+    },
+    {
+        trigger: '.content__searchFilters',
+        modal: '.content__block--control'
+    },
+    {
+        trigger: '.content__searchInput--mobile',
+        modal: '.content__search--mobile'
+    }
     ])
 
     //табы в настройках профиля 
@@ -231,8 +282,6 @@ $().ready(() => {
     $('.content__heading').on('click', e => {
         $(e.target).toggleClass('open');
     })
-
-    //страницы категорий
 
     //сетка для видео
     if ($('.videos').length) {
