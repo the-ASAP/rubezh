@@ -1,5 +1,29 @@
 @import 'root';
 
+@mixin desktop-large {
+    @media (max-width: 1366px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (max-width: 1300px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
 %flexbox {
     display: flex;
     align-items: center;
@@ -50,6 +74,29 @@
     &:hover::after,
     &:hover::before {
         background-color: $accent-lighten;
+    }
+}
+
+%arrow {
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 1px);
+        height: 6px;
+        width: 1.3px;
+        border-radius: 5px;
+        background-color: $text;
+        transition: transform .2s linear, background-color .2s linear;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
     }
 }
 
@@ -146,6 +193,11 @@
     font-weight: 300;
 }
 
+%menu-link {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
 %button {
     box-sizing: border-box;
     padding: 1.25rem 2.25rem;
@@ -161,6 +213,12 @@
         background-color: $accent-lighten;
     }
 
+    @include tablet {
+        padding: 11px 14px;
+        font-size: 16px;
+        min-width: 155px;
+    }
+
     &-disabled {
         @extend %button;
         background-color: $gray;
@@ -173,7 +231,7 @@
     &-small {
         @extend %button;
         min-width: 10.9375rem;
-        padding: 0.9375rem;
+        padding: .9375rem;
         border-radius: 23px;
         font-size: .875rem;
     }
@@ -480,29 +538,5 @@
         &~label {
             opacity: 0.55;
         }
-    }
-}
-
-@mixin desktop-large {
-    @media (max-width: 1366px) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (max-width: 1300px) {
-        @content;
-    }
-}
-
-@mixin tablet {
-    @media (max-width: 1024px) {
-        @content;
-    }
-}
-
-@mixin phone {
-    @media (max-width: 768px) {
-        @content;
     }
 }

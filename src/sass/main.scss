@@ -85,6 +85,11 @@ h6 {
     &--detail {
         max-width: 850px;
     }
+
+    &--menu {
+        max-width: 576px;
+        margin: unset;
+    }
 }
 
 a {
@@ -421,27 +426,14 @@ input {
         &--subnav {
             z-index: 2;
             padding-right: 1rem;
-
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                height: 6px;
-                width: 1.3px;
-                border-radius: 5px;
-                background-color: $text;
-                transition: transform .2s linear, background-color .2s linear;
-            }
+            @extend %arrow;
 
             &::before {
-                right: calc(.5rem - 3.7px);
-                transform: rotate(45deg);
+                right: calc(.5rem - 3.8px);
             }
 
             &::after {
                 right: .5rem;
-                transform: rotate(-45deg);
             }
 
             &:hover {
@@ -468,8 +460,7 @@ input {
 
     &__link {
         color: inherit;
-        font-size: 1.125rem;
-        font-weight: 500;
+        @extend %menu-link;
         transition: color .2s linear;
     }
 }
@@ -509,6 +500,10 @@ input {
             display: grid;
             grid-template-columns: repeat(3, 17rem);
             gap: 3.0625rem;
+
+            &::after {
+                left: 21%;
+            }
         }
     }
 
@@ -518,8 +513,7 @@ input {
         @extend %flexbox;
         width: 100%;
         color: $text;
-        font-size: 1.125rem;
-        font-weight: 500;
+        @extend %menu-link;
         transition: color .2s linear;
 
         &:hover {
@@ -542,54 +536,122 @@ input {
             margin-bottom: 1.875rem;
         }
     }
+
+    &--grid {
+        left: -60%;
+        transform: none;
+    }
 }
 
 .menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    height: 100vh;
-    width: 100%;
+    @extend %hidden;
+    height: calc(100vh - 60px);
+    width: 100vw;
     box-sizing: border-box;
     padding: 30px 0;
-    visibility: hidden;
-    opacity: 0;
     background-color: #ffffff;
-    transition: all .3s;
-
-    &::before {
-        z-index: -1;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -30px;
-        height: 100%;
-        width: calc(100% + 60px);
-        background-color: inherit;
-    }
-
-    &__container {
-        max-width: 576px;
-    }
+    opacity: 0;
+    transition: opacity .3s;
 
     &__search {
         @extend %search;
-        height: 2.5rem;
-        margin-bottom: 3.125rem;
+        height: 40px;
+        margin-bottom: 50px;
 
         &-btn {
             @extend %search-btn;
-            left: 1.125rem;
+            left: 18px;
         }
 
         &-input {
             @extend %search-input;
             width: 100%;
             box-sizing: border-box;
-            padding-left: 2.9375rem;
-            padding-right: 1.125rem;
+            padding-left: 47px;
+            padding-right: 18px;
             border: 1px solid $gray-darken;
             border-radius: 20px;
+        }
+    }
+
+    &__box {
+        box-sizing: border-box;
+        margin-bottom: 40px;
+    }
+
+    &__item {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+
+        &Box {
+            position: relative;
+            @extend %flexbox;
+            justify-content: space-between;
+            max-width: 576px;
+        }
+    }
+
+    &__link {
+        @extend %menu-link;
+        margin-right: 20px;
+
+        &--bold {
+            font-weight: 700;
+        }
+    }
+
+    &__btn {
+        position: relative;
+        right: 6px;
+        height: 8px;
+        width: 8px;
+        @extend %arrow;
+
+        &::before,
+        &::after {
+            transition: transform .2s linear;
+        }
+
+        &::before {
+            right: 0;
+        }
+
+        &::after {
+            right: -3.8px;
+        }
+
+        &.active {
+            &::before {
+                transform: rotate(135deg);
+            }
+
+            &::after {
+                transform: rotate(-135deg);
+            }
+        }
+    }
+
+    &__profile {
+        box-sizing: border-box;
+        padding-top: 40px;
+        border-top: 1px solid rgba($gen, .5);
+    }
+}
+
+.submenu {
+    display: none;
+    box-sizing: border-box;
+    padding: 20px 0 0 20px;
+
+    &__link {
+        width: 60%;
+        font-weight: 500;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
         }
     }
 }
@@ -923,6 +985,8 @@ input {
     }
 
     &__contacts {
+        @extend %flexbox;
+        flex-direction: column;
         width: max-content;
         margin-top: 4.4375rem;
     }
@@ -937,7 +1001,12 @@ input {
     &__social {
         @extend %flexbox;
         justify-content: space-between;
-        width: 100%;
+
+        &Item {
+            &:not(:last-child) {
+                margin-right: .75rem;
+            }
+        }
     }
 
     &__nav {
@@ -1010,6 +1079,7 @@ input {
     }
 
     &__link {
+        display: block;
         transition: color .3s;
 
         &:not(:first-child) {
@@ -1268,9 +1338,19 @@ input {
     .bg-points {
         display: none;
     }
+
+    .footer {
+        &__column {
+            margin-right: 3.9375rem;
+        }
+    }
 }
 
 @include tablet {
+    h1 {
+        font-size: 28px;
+    }
+
     h2 {
         font-size: 22px;
     }
@@ -1283,8 +1363,8 @@ input {
     .header {
         &__container {
             height: fit-content;
-            padding-top: 1.5625rem;
-            padding-bottom: .25rem;
+            padding-top: 25px;
+            padding-bottom: 4px;
         }
 
         &__controls {
@@ -1292,7 +1372,7 @@ input {
         }
 
         &__row {
-            height: 2rem;
+            height: 31px;
             justify-content: flex-end;
         }
 
@@ -1308,16 +1388,20 @@ input {
         }
 
         &__profile {
-            margin-right: 1.25rem;
+            margin-right: 26px;
 
             &-auth {
                 color: $gray-darken;
-                font-size: .875rem;
+                font-size: 14px;
                 font-weight: 400;
                 margin-right: 0;
             }
 
             &-signup {
+                display: none;
+            }
+
+            &-pic {
                 display: none;
             }
         }
@@ -1333,8 +1417,59 @@ input {
 
     .menu {
         &.active {
+            top: 100%;
+            left: -30px;
+            overflow: auto;
             visibility: visible;
             opacity: 1;
+        }
+    }
+
+    .footer {
+        padding: 40px 0;
+
+        &__flex {
+            justify-content: center;
+            margin-bottom: 46px;
+        }
+
+        &__column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: unset;
+            margin-right: unset;
+        }
+
+        &__contacts {
+            margin-top: 50px;
+        }
+
+        &__social {
+            &Item {
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        &__nav {
+            display: none;
+        }
+
+        &__copyright {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__company {
+            order: 2;
+            margin-right: unset;
+        }
+
+        &__policy {
+            margin-bottom: 16px;
         }
     }
 }

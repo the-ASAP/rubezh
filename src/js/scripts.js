@@ -1,3 +1,6 @@
+const tablet = $(window).width() < 1025;
+const mobile = $(window).width() < 769;
+
 //удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
     $('.preloader').fadeOut(150, () => {
@@ -99,6 +102,17 @@ const toggleMenu = (btn, menu) => {
     }
 };
 
+const dropDownMenu = (btn) => {
+    btn.toggleClass('active');
+    if (!btn.hasClass('active')) {
+        btn.parent().siblings('div').slideUp(200);
+    } else {
+        btn.parent().siblings('div')
+            .slideDown(200)
+            .css('display', 'block');
+    }
+};
+
 const switchActive = (target, allElems, className) => {
     $(allElems).removeClass(className);
     $(target).addClass(className);
@@ -142,15 +156,44 @@ $().ready(() => {
         toggleMenu($(this), $('.menu'));
     });
 
+    $('.menu__btn').on('click', function () {
+        dropDownMenu($(this));
+    });
+
     owlGallery('.promo__sliderBox', {
+        margin: 40,
         loop: true,
         nav: true,
         dots: false,
         navContainer: '.promo__sliderNav',
         responsive: {
             0: {
+                items: 1
+            },
+            769: {
+                items: 2
+            },
+            1025: {
+                items: 3
+            }
+        }
+    });
+
+    owlGallery('.companies__box', {
+        nav: true,
+        dots: false,
+        responsive: {
+            0: {
+                items: 2,
+                margin: 58
+            },
+            769: {
                 items: 3,
-                margin: 40
+                margin: 30
+            },
+            1025: {
+                items: 4,
+                margin: 161
             }
         }
     });
