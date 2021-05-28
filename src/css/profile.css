@@ -1653,6 +1653,7 @@ input:-webkit-autofill:focus {
 
 .videoItem {
   position: relative;
+  display: block;
   height: 33.5625rem;
   width: 100%;
   box-sizing: border-box;
@@ -2446,8 +2447,17 @@ form ~ .content__filters {
     font-size: 24px;
   }
 
+  h4 {
+    font-size: 20px;
+  }
+
   h5 {
     font-size: 20px;
+  }
+
+  .main {
+    padding-top: 20px;
+    padding-bottom: 60px;
   }
 
   .wrapper {
@@ -2516,6 +2526,26 @@ form ~ .content__filters {
     opacity: 1;
   }
 
+  .postItem {
+    padding: 30px;
+  }
+
+  .postItem__img {
+    margin-right: 30px;
+  }
+
+  .postItem__status {
+    margin-bottom: 20px;
+  }
+
+  .postItem__title {
+    margin-bottom: 12px;
+  }
+
+  .videoItem {
+    height: 306px;
+  }
+
   .footer {
     padding: 40px 0;
   }
@@ -2558,5 +2588,33 @@ form ~ .content__filters {
 
   .footer__policy {
     margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .postItem {
+    flex-direction: column;
+    height: max-content;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .postItem__img {
+    height: 333px;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .postItem__status {
+    position: absolute;
+    top: 24px;
+    left: 9px;
+  }
+}
+
+@media (max-width: 576px) {
+  .postItem__img {
+    height: 185px;
   }
 }

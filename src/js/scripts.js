@@ -297,14 +297,12 @@ $().ready(() => {
     //видео
     if ($('.videos').length) {
         let col = $('.videos__column:first');
-        let video = $('.videoItem');
-        let h = video.css('height');
 
         col.children(':nth-child(even)').each(function () {
             col.siblings('.videos__column').append(this);
         });
 
-        video.hover(
+        $('.videoItem').hover(
             function () {
                 let content = $(this).find('.videoItem__content');
                 $(this).animate({
@@ -315,12 +313,13 @@ $().ready(() => {
                     .css('display', 'flex');
             },
             function () {
+                let content = $(this).find('.videoItem__content');
                 $(this).animate({
-                    height: h
+                    height: '-=' + content.innerHeight()
                 }, 200, function () {
                     $(this).removeAttr('style');
                 });
-                $(this).find('.videoItem__content').slideUp(200);
+                content.slideUp(200);
             }
         );
     }
