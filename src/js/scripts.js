@@ -179,20 +179,27 @@ $().ready(() => {
         }
     });
 
-    owlGallery('.companies__box', {
-        nav: true,
+    owlGallery('.companies__sliderBox', {
+        items: 4,
+        nav: false,
         dots: false,
+        navContainer: '.companies__sliderNav',
+        dotsContainer: '.community__sliderDots',
         responsive: {
             0: {
                 items: 2,
-                margin: 58
+                margin: 58,
+                nav: true
+            },
+            539: {
+                items: 3,
+                margin: 30,
+                nav: true
             },
             769: {
-                items: 3,
-                margin: 30
+                margin: 100
             },
             1025: {
-                items: 4,
                 margin: 161
             }
         }
@@ -286,11 +293,34 @@ $().ready(() => {
 
     //страницы категорий
 
-    //сетка для видео
+    //видео
     if ($('.videos').length) {
         let col = $('.videos__column:first');
+        let video = $('.videoItem');
+        let h = video.css('height');
+
         col.children(':nth-child(even)').each(function () {
             col.siblings('.videos__column').append(this);
         });
+
+        video.hover(
+            function () {
+                let content = $(this).find('.videoItem__content');
+                $(this).animate({
+                    height: '+=' + content.innerHeight()
+                }, 200);
+                content
+                    .slideDown(200)
+                    .css('display', 'flex');
+            },
+            function () {
+                $(this).animate({
+                    height: h
+                }, 200, function () {
+                    $(this).removeAttr('style');
+                });
+                $(this).find('.videoItem__content').slideUp(200);
+            }
+        );
     }
 });

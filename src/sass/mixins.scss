@@ -1,25 +1,31 @@
 @import 'root';
 
-@mixin desktop-large {
+@mixin x-large {
     @media (max-width: 1366px) {
         @content;
     }
 }
 
-@mixin desktop {
+@mixin large {
     @media (max-width: 1300px) {
         @content;
     }
 }
 
-@mixin tablet {
+@mixin medium {
     @media (max-width: 1024px) {
         @content;
     }
 }
 
-@mixin phone {
+@mixin small {
     @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin x-small {
+    @media (max-width: 576px) {
         @content;
     }
 }
@@ -213,7 +219,7 @@
         background-color: $accent-lighten;
     }
 
-    @include tablet {
+    @include medium {
         padding: 11px 14px;
         font-size: 16px;
         min-width: 155px;
