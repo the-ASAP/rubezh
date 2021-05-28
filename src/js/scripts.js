@@ -164,8 +164,8 @@ $().ready(() => {
         margin: 40,
         loop: true,
         nav: true,
-        dots: false,
         navContainer: '.promo__sliderNav',
+        dotsContainer: '.promo__sliderDots',
         responsive: {
             0: {
                 items: 1
@@ -174,26 +174,27 @@ $().ready(() => {
                 items: 2
             },
             1025: {
-                items: 3
+                items: 3,
+                dots: false
             }
         }
     });
 
     owlGallery('.companies__sliderBox', {
         items: 4,
-        nav: false,
         dots: false,
         navContainer: '.companies__sliderNav',
-        dotsContainer: '.community__sliderDots',
         responsive: {
             0: {
                 items: 2,
                 margin: 58,
+                loop: true,
                 nav: true
             },
             539: {
                 items: 3,
                 margin: 30,
+                loop: true,
                 nav: true
             },
             769: {

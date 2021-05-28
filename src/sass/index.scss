@@ -35,6 +35,7 @@
 
     &__img {
         width: 47%;
+        object-fit: contain;
     }
 }
 
@@ -91,12 +92,6 @@
                         &>path {
                             stroke: $gray-darken;
                             transition: stroke .3s;
-                        }
-                    }
-
-                    &.disabled {
-                        &>svg>path {
-                            stroke: $gray;
                         }
                     }
                 }
@@ -212,13 +207,34 @@
         }
 
         &Dots {
+            display: none;
             z-index: 1;
             position: absolute;
             left: 50%;
             bottom: 0;
+            transform: translateX(-50%);
             box-sizing: border-box;
             padding: .125rem;
             @extend %flexbox;
+
+            &>.owl-dot {
+                height: 12px;
+                width: 12px;
+
+                &>span {
+                    height: 9px;
+                    width: 9px;
+                    background-color: $gray-darken;
+                }
+
+                &.active {
+                    &>span {
+                        height: 100%;
+                        width: 100%;
+                        background-color: $accent;
+                    }
+                }
+            }
         }
     }
 }
@@ -335,6 +351,10 @@
         &__btn {
             margin-bottom: 30px;
         }
+
+        &__img {
+            height: 327px;
+        }
     }
 
     .companies {
@@ -345,8 +365,83 @@
         padding: 60px 0;
 
         &__title {
-            font-size: 24px;
             margin-bottom: 18px;
+        }
+
+        &__slider {
+            &Box {
+                padding-bottom: 28px;
+            }
+
+            &Item {
+                height: 420px;
+                padding: 25px 20px 50px;
+
+                &:hover {
+                    height: 420px;
+                }
+            }
+
+            &Img {
+                height: 113px;
+                margin-bottom: 25px;
+            }
+
+            &Title {
+                margin-bottom: 20px;
+            }
+
+            &Text {
+                font-size: 16px;
+            }
+
+            &Link {
+                position: absolute;
+                left: 50%;
+                bottom: 50px;
+                transform: translateX(-50%);
+                visibility: visible;
+                opacity: 1;
+            }
+
+            &Nav {
+                display: none;
+            }
+
+            &Dots {
+                display: block;
+            }
+        }
+    }
+
+    .project {
+        padding: 60px 0;
+
+        &__title {
+            margin-bottom: 16px;
+        }
+
+        &__text {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .articles {
+        padding: 60px 0;
+
+        &__item {
+            &Img {
+                margin-bottom: 20px;
+            }
+
+            &Date {
+                font-size: 14px;
+            }
+
+            &Title {
+                margin-bottom: 8px;
+            }
         }
     }
 }
@@ -361,6 +456,10 @@
         &__column,
         &__img {
             width: 100%;
+        }
+
+        &__img {
+            height: 218px;
         }
     }
 
@@ -377,19 +476,78 @@
             }
         }
     }
+
+    .project {
+        &__box {
+            justify-content: center;
+        }
+
+        &__column {
+            width: 100%;
+            text-align: center;
+        }
+
+        &__title,
+        &__text {
+            text-align: inherit;
+        }
+
+        &__img {
+            display: none;
+        }
+    }
+
+    .articles {
+        &__box {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        &__item {
+            &Img {
+                height: 333px;
+            }
+        }
+    }
 }
 
 @include x-small {
-    .companies__slider {
-        &Nav {
-            top: calc(50% - 9.5px);
+    .companies {
+        &__slider {
+            &Nav {
+                top: calc(50% - 9.5px);
 
-            &>.owl-prev,
-            &>.owl-next {
-                &>svg {
-                    height: 19px;
-                    width: 8px;
+                &>.owl-prev,
+                &>.owl-next {
+                    &>svg {
+                        height: 19px;
+                        width: 8px;
+                    }
                 }
+            }
+        }
+    }
+
+    .promo {
+        &__slider {
+            &Dots {
+                &>.owl-dot {
+                    height: 8px;
+                    width: 8px;
+
+                    &>span {
+                        height: 6px;
+                        width: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    .articles {
+        &__item {
+            &Img {
+                height: 187px;
             }
         }
     }
