@@ -372,6 +372,7 @@
 
 %nav-card {
     height: 15.125rem;
+    width: 100%;
     @extend %flexbox;
     flex-direction: column;
     justify-content: space-between;
@@ -382,6 +383,8 @@
     transition: background-color .2s ease-in-out;
 
     &>img {
+        height: 80px;
+        width: 100%;
         transition: filter .2s ease-in-out;
     }
 
