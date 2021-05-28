@@ -590,7 +590,6 @@ input {
             position: relative;
             @extend %flexbox;
             justify-content: space-between;
-            max-width: 576px;
         }
     }
 
@@ -725,26 +724,15 @@ input {
 
 .videoItem {
     position: relative;
-    max-height: 33.5625rem;
+    height: 33.5625rem;
     width: 100%;
     box-sizing: border-box;
     padding: 1.875rem;
     border-radius: 8px;
     box-shadow: -1px 9px 20px rgba($gray-darken, .25);
-    transition: max-height .3s;
 
     &:not(:last-child) {
         margin-bottom: 2rem;
-    }
-
-    &:hover {
-        max-height: 67.125rem;
-
-        &>.videoItem__content {
-            max-height: 33.5625rem;
-            visibility: visible;
-            opacity: 1;
-        }
     }
 
     &__img {
@@ -774,13 +762,9 @@ input {
     }
 
     &__content {
-        display: flex;
+        display: none;
         flex-direction: column;
-        max-height: 0;
         width: 100%;
-        visibility: hidden;
-        opacity: 0;
-        transition: max-height .3s, visibility .3s, opacity .1s;
     }
 
     &__text {
@@ -1304,13 +1288,13 @@ input {
     }
 }
 
-@include desktop-large {
+@include x-large {
     .wrapper {
         width: calc(100% - 200px);
     }
 }
 
-@include desktop {
+@include large {
     .wrapper {
         width: calc(100% - 150px);
     }
@@ -1346,7 +1330,7 @@ input {
     }
 }
 
-@include tablet {
+@include medium {
     h1 {
         font-size: 28px;
     }
@@ -1474,4 +1458,4 @@ input {
     }
 }
 
-@include phone {}
+@include small {}

@@ -43,21 +43,72 @@
     padding: 2.875rem 0;
     background-color: $bgc;
 
-    &__item {
-        @extend %flexbox;
-        justify-content: center;
+    &__slider {
+        position: relative;
 
-        &>svg {
-            height: 3.125rem;
-            width: fit-content;
+        &Item {
+            @extend %flexbox;
+            justify-content: center;
 
-            &>path {
-                transition: fill .2s linear;
+            &>svg {
+                height: 3.125rem;
+                width: fit-content;
+
+                &>path {
+                    transition: fill .2s linear;
+                }
+            }
+
+            &:hover>svg>path {
+                fill: $gen;
             }
         }
 
-        &:hover>svg>path {
-            fill: $gen;
+        &Nav {
+            display: none;
+            position: absolute;
+            top: calc(50% - 14.25px);
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+
+            &>.owl {
+
+                &-prev,
+                &-next {
+                    height: fit-content;
+                    width: fit-content;
+                    background-color: transparent;
+
+                    &:hover {
+                        background-color: transparent;
+                    }
+
+                    &>svg {
+                        height: 28.5px;
+                        width: 12px;
+
+                        &>path {
+                            stroke: $gray-darken;
+                            transition: stroke .3s;
+                        }
+                    }
+
+                    &.disabled {
+                        &>svg>path {
+                            stroke: $gray;
+                        }
+                    }
+                }
+
+                &-prev {
+                    left: -26px;
+                }
+
+                &-next {
+                    right: -26px;
+                }
+            }
         }
     }
 }
@@ -159,6 +210,16 @@
             transform: translateY(-50%);
             width: 100%;
         }
+
+        &Dots {
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            box-sizing: border-box;
+            padding: .125rem;
+            @extend %flexbox;
+        }
     }
 }
 
@@ -258,33 +319,16 @@
     }
 }
 
-@include tablet {
-    .welcome {
-        &__text {
-            font-size: 18px;
-        }
-    }
-}
-
-@include phone {
+@include medium {
     .welcome {
         padding: 30px 0;
-
-        &__box {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        &__column,
-        &__img {
-            width: 100%;
-        }
 
         &__title {
             margin-bottom: 20px;
         }
 
         &__text {
+            font-size: 18px;
             margin-bottom: 30px;
         }
 
@@ -295,10 +339,57 @@
 
     .companies {
         padding: 22px 0;
+    }
 
-        &__item {
-            &>svg {
-                height: 36px;
+    .promo {
+        padding: 60px 0;
+
+        &__title {
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+    }
+}
+
+@include small {
+    .welcome {
+        &__box {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__column,
+        &__img {
+            width: 100%;
+        }
+    }
+
+    .companies {
+        &__slider {
+            &Item {
+                &>svg {
+                    height: 36px;
+                }
+            }
+
+            &Nav {
+                display: block;
+            }
+        }
+    }
+}
+
+@include x-small {
+    .companies__slider {
+        &Nav {
+            top: calc(50% - 9.5px);
+
+            &>.owl-prev,
+            &>.owl-next {
+                &>svg {
+                    height: 19px;
+                    width: 8px;
+                }
             }
         }
     }

@@ -19,9 +19,10 @@
 .content__tags,
 .content__tag,
 .welcome__box,
-.companies__item,
+.companies__sliderItem,
 .promo__container,
 .promo__sliderItem,
+.promo__sliderDots,
 .project__box {
   display: flex;
   align-items: center;
@@ -491,9 +492,10 @@ body::-webkit-scrollbar-thumb {
 .content__tags,
 .content__tag,
 .welcome__box,
-.companies__item,
+.companies__sliderItem,
 .promo__container,
 .promo__sliderItem,
+.promo__sliderDots,
 .project__box {
   display: flex;
   align-items: center;
@@ -1488,7 +1490,6 @@ input:-webkit-autofill:focus {
 .menu__itemBox {
   position: relative;
   justify-content: space-between;
-  max-width: 576px;
 }
 
 .menu__link {
@@ -1612,27 +1613,16 @@ input:-webkit-autofill:focus {
 
 .videoItem {
   position: relative;
-  max-height: 33.5625rem;
+  height: 33.5625rem;
   width: 100%;
   box-sizing: border-box;
   padding: 1.875rem;
   border-radius: 8px;
   box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
-  transition: max-height .3s;
 }
 
 .videoItem:not(:last-child) {
   margin-bottom: 2rem;
-}
-
-.videoItem:hover {
-  max-height: 67.125rem;
-}
-
-.videoItem:hover > .videoItem__content {
-  max-height: 33.5625rem;
-  visibility: visible;
-  opacity: 1;
 }
 
 .videoItem__img {
@@ -1662,13 +1652,9 @@ input:-webkit-autofill:focus {
 }
 
 .videoItem__content {
-  display: flex;
+  display: none;
   flex-direction: column;
-  max-height: 0;
   width: 100%;
-  visibility: hidden;
-  opacity: 0;
-  transition: max-height .3s, visibility .3s, opacity .1s;
 }
 
 .videoItem__text {
@@ -2186,21 +2172,71 @@ form ~ .content__filters {
   background-color: #EFEFF1;
 }
 
-.companies__item {
+.companies__slider {
+  position: relative;
+}
+
+.companies__sliderItem {
   justify-content: center;
 }
 
-.companies__item > svg {
+.companies__sliderItem > svg {
   height: 3.125rem;
   width: fit-content;
 }
 
-.companies__item > svg > path {
+.companies__sliderItem > svg > path {
   transition: fill .2s linear;
 }
 
-.companies__item:hover > svg > path {
+.companies__sliderItem:hover > svg > path {
   fill: #34353E;
+}
+
+.companies__sliderNav {
+  display: none;
+  position: absolute;
+  top: calc(50% - 14.25px);
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.companies__sliderNav > .owl-prev,
+.companies__sliderNav > .owl-next {
+  height: fit-content;
+  width: fit-content;
+  background-color: transparent;
+}
+
+.companies__sliderNav > .owl-prev:hover,
+.companies__sliderNav > .owl-next:hover {
+  background-color: transparent;
+}
+
+.companies__sliderNav > .owl-prev > svg,
+.companies__sliderNav > .owl-next > svg {
+  height: 28.5px;
+  width: 12px;
+}
+
+.companies__sliderNav > .owl-prev > svg > path,
+.companies__sliderNav > .owl-next > svg > path {
+  stroke: #6B7785;
+  transition: stroke .3s;
+}
+
+.companies__sliderNav > .owl-prev.disabled > svg > path,
+.companies__sliderNav > .owl-next.disabled > svg > path {
+  stroke: #D7D8DC;
+}
+
+.companies__sliderNav > .owl-prev {
+  left: -26px;
+}
+
+.companies__sliderNav > .owl-next {
+  right: -26px;
 }
 
 .promo {
@@ -2297,6 +2333,15 @@ form ~ .content__filters {
   left: 0;
   transform: translateY(-50%);
   width: 100%;
+}
+
+.promo__sliderDots {
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: .125rem;
 }
 
 .project {
@@ -2614,24 +2659,8 @@ form ~ .content__filters {
     margin-bottom: 16px;
   }
 
-  .welcome__text {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 768px) {
   .welcome {
     padding: 30px 0;
-  }
-
-  .welcome__box {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .welcome__column,
-  .welcome__img {
-    width: 100%;
   }
 
   .welcome__title {
@@ -2639,6 +2668,7 @@ form ~ .content__filters {
   }
 
   .welcome__text {
+    font-size: 18px;
     margin-bottom: 30px;
   }
 
@@ -2650,7 +2680,44 @@ form ~ .content__filters {
     padding: 22px 0;
   }
 
-  .companies__item > svg {
+  .promo {
+    padding: 60px 0;
+  }
+
+  .promo__title {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome__box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .welcome__column,
+  .welcome__img {
+    width: 100%;
+  }
+
+  .companies__sliderItem > svg {
     height: 36px;
+  }
+
+  .companies__sliderNav {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .companies__sliderNav {
+    top: calc(50% - 9.5px);
+  }
+
+  .companies__sliderNav > .owl-prev > svg,
+  .companies__sliderNav > .owl-next > svg {
+    height: 19px;
+    width: 8px;
   }
 }
