@@ -2426,7 +2426,11 @@ form ~ .content__filters {
   }
 
   h2 {
-    font-size: 22px;
+    font-size: 24px;
+  }
+
+  h5 {
+    font-size: 20px;
   }
 
   .wrapper {

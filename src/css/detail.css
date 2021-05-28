@@ -2835,7 +2835,14 @@ form ~ .content__filters {
   }
 
   h2 {
-    font-size: 22px;
+    font-size: 24px;
+  }
+
+  h5,
+  .detail__body blockquote h3,
+  .detail__body blockquote h4,
+  .detail__body blockquote h5 {
+    font-size: 20px;
   }
 
   .wrapper {
