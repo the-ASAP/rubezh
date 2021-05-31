@@ -30,6 +30,12 @@
     }
 }
 
+@mixin xx-small {
+    @media (max-width: 374px) {
+        @content;
+    }
+}
+
 %flexbox {
     display: flex;
     align-items: center;
@@ -367,6 +373,35 @@
             width: 100%;
             background-color: $gray-darken;
         }
+
+        @include medium {
+            height: 12px;
+            width: 12px;
+
+            &>span {
+                height: 9px;
+                width: 9px;
+                background-color: $gray-darken;
+            }
+
+            &.active {
+                &>span {
+                    height: 100%;
+                    width: 100%;
+                    background-color: $accent;
+                }
+            }
+        }
+
+        @include x-small {
+            height: 8px;
+            width: 8px;
+
+            &>span {
+                height: 6px;
+                width: 6px;
+            }
+        }
     }
 }
 
@@ -384,7 +419,9 @@
 
     &>img {
         height: 80px;
-        width: 100%;
+        width: fit-content;
+        max-width: 100%;
+        object-fit: contain;
         transition: filter .2s ease-in-out;
     }
 

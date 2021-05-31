@@ -207,26 +207,35 @@ $().ready(() => {
     });
 
     owlGallery('.events__sliderBox', {
+        margin: 40,
         loop: true,
         nav: true,
-        dots: false,
         navContainer: '.events__sliderNav',
+        dotsContainer: '.events__sliderDots',
         responsive: {
             0: {
+                items: 1
+            },
+            769: {
+                items: 2
+            },
+            1025: {
                 items: 3,
-                margin: 40
+                dots: false
             }
         }
     });
 
-    owlGallery('.community__sliderBox', {
-        items: 1,
-        margin: 40,
-        loop: true,
-        nav: true,
-        navContainer: '.community__sliderNav',
-        dotsContainer: '.community__sliderDots'
-    });
+    if (!mobile) {
+        owlGallery('.community__sliderBox', {
+            items: 1,
+            margin: 40,
+            loop: true,
+            nav: true,
+            navContainer: '.community__sliderNav',
+            dotsContainer: '.community__sliderDots'
+        });
+    }
 
     contentFadeInOnReady();
 
@@ -296,31 +305,34 @@ $().ready(() => {
 
     //видео
     if ($('.videos').length) {
-        let col = $('.videos__column:first');
+        if (!mobile) {
+            let col = $('.videos__column:first');
+            col.children(':nth-child(even)').each(function () {
+                col.siblings('.videos__column').append(this);
+            });
+        }
 
-        col.children(':nth-child(even)').each(function () {
-            col.siblings('.videos__column').append(this);
-        });
-
-        $('.videoItem').hover(
-            function () {
-                let content = $(this).find('.videoItem__content');
-                $(this).animate({
-                    height: '+=' + content.innerHeight()
-                }, 200);
-                content
-                    .slideDown(200)
-                    .css('display', 'flex');
-            },
-            function () {
-                let content = $(this).find('.videoItem__content');
-                $(this).animate({
-                    height: '-=' + content.innerHeight()
-                }, 200, function () {
-                    $(this).removeAttr('style');
-                });
-                content.slideUp(200);
-            }
-        );
+        if (!tablet) {
+            $('.videoItem').hover(
+                function () {
+                    let content = $(this).find('.videoItem__content');
+                    $(this).animate({
+                        height: '+=' + content.innerHeight()
+                    }, 200);
+                    content
+                        .fadeIn(200)
+                        .css('display', 'flex');
+                },
+                function () {
+                    let content = $(this).find('.videoItem__content');
+                    $(this).animate({
+                        height: '-=' + content.innerHeight()
+                    }, 200, function () {
+                        $(this).removeAttr('style');
+                    });
+                    content.fadeOut(200);
+                }
+            );
+        }
     }
 });
