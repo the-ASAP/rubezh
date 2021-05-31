@@ -369,6 +369,24 @@
     }
 }
 
+%button--filter {
+    padding: 0.5rem 1.875rem;
+    border: 1px solid $gen;
+    border-radius: 20px;
+    font-size: 1.125rem;
+    font-family: $exo;
+    background-color: transparent;
+    color: $gen;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+    &:hover,
+    &.active {
+        background-color: $blue;
+        color: #fff;
+        border-color: $blue;
+    }
+}
+
 //экспортируем в <input type='checkbox'>
 //label должен находиться после инпута
 %checkbox {

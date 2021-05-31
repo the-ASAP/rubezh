@@ -32,13 +32,38 @@
                     <div class="content__tags">
                         <button type='button' class="content__tag">Все</button>
                         <button type='button' class="content__clear">Очистить</button>
+                        
+                    </div>
+                    <div class="content__mobile content__mobile--panel">
+                        <button type='button' class="content__searchFilters"><svg width="16" height="13"
+                            viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="1" width="16" height="1" rx="0.5" fill="#34353E" />
+                            <rect y="6" width="16" height="1" rx="0.5" fill="#34353E" />
+                            <rect y="11" width="16" height="1" rx="0.5" fill="#34353E" />
+                            <circle cx="3.5" cy="6.5" r="1.5" fill="#34353E" />
+                            <circle cx="12.5" cy="1.5" r="1.5" fill="#34353E" />
+                            <circle cx="9.5" cy="11.5" r="1.5" fill="#34353E" />
+                        </svg>
+                        <span>Фильтры</span><span class="content__searchCount"></span></button>
                     </div>
                 </header>
                 <div class="content__body">
                     <div class="content__container">
-                        <div class="content__block content__block--narrow">
+                        <div class="content__block content__block--narrow content__block--control">
+                            <div class="content__mobile">
+                                <div class="content__mobileHeader">
+                                    <span class="content__mobileTitle">Фильтр</span>
+                                    <button type='button' class="content__mobileClose" data-close></button>
+    
+                                    <div class="content__mobileTags">
+                                        <button type='button'
+                                            class="content__mobileTag content__mobileTag--default">Все</button>
+                                    </div>
+                                </div>
+                            </div>
                             <form method="GET" action="" class="content__control">
-                                <span class="content__heading">Тип документа</span>
+                                <div class="content__controlBlock">
+                                    <span class="content__heading">Тип документа</span>
                                 <div class="content__field content__field--filter">
                                     <input type="radio" class="content__radio" id="anything" name="brand"
                                         value='anything' checked>
@@ -67,9 +92,9 @@
                                     <label for='SPZ_GLOBAL'></label>
                                     <label for='SPZ_GLOBAL'>СПЗ "GLOBAL"</label>
                                 </div>
-                            </form>
-                            <form action="" method="GET" class="content__control">
-                                <span class="content__heading">Тип системы</span>
+                                </div>
+                                <div class="content__controlBlock">
+                                    <span class="content__heading">Тип системы</span>
                                 <div class="content__field content__field--filter">
                                     <input type="checkbox" class="content__checkbox" id="APS" value="APS" name="system">
                                     <label for="APS"></label>
@@ -107,44 +132,51 @@
                                     <label for="SKUD"></label>
                                     <label for="SKUD">СКУД</label>
                                 </div>
+                                </div>
+                                <div class="content__controlBlock">
+                                    <span class="content__heading">Тип системы</span>
+                                    <div class="content__field content__field--filter">
+                                        <input type="checkbox" class="content__checkbox" id="administrative"
+                                            value="administrative" name="object">
+                                        <label for="administrative"></label>
+                                        <label for="administrative">Административные/общественные объекты</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="checkbox" class="content__checkbox" id="resident" value="resident"
+                                            name="object">
+                                        <label for="resident"></label>
+                                        <label for="resident">Жилые здания</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="checkbox" class="content__checkbox" id="medicine" value="medicine"
+                                            name="object">
+                                        <label for="medicine"></label>
+                                        <label for="medicine">Медицинские учреждения</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="checkbox" class="content__checkbox" id="edu" value="edu" name="object">
+                                        <label for="edu"></label>
+                                        <label for="edu">Образовательные учреждения</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="checkbox" class="content__checkbox" id="prom" value="prom"
+                                            name="object">
+                                        <label for="prom"></label>
+                                        <label for="prom">Промышленные объекты</label>
+                                    </div>
+                                    <div class="content__field content__field--filter">
+                                        <input type="checkbox" class="content__checkbox" id="trc" value="trc" name="object">
+                                        <label for="trc"></label>
+                                        <label for="trc">ТРЦ и Ритейл</label>
+                                    </div>
+                                </div>
                             </form>
-                            <form action="" method="GET" class="content__control">
-                                <span class="content__heading">Тип системы</span>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id="administrative"
-                                        value="administrative" name="object">
-                                    <label for="administrative"></label>
-                                    <label for="administrative">Административные/общественные объекты</label>
+                            <div class="content__mobile">
+                                <div class="content__mobileFooter">
+                                    <button type='button' class="content__mobileClear">Очистить</button>
+                                    <button type='button' class="content__mobileSubmit">Применить</button>
                                 </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id="resident" value="resident"
-                                        name="object">
-                                    <label for="resident"></label>
-                                    <label for="resident">Жилые здания</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id="medicine" value="medicine"
-                                        name="object">
-                                    <label for="medicine"></label>
-                                    <label for="medicine">Медицинские учреждения</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id="edu" value="edu" name="object">
-                                    <label for="edu"></label>
-                                    <label for="edu">Образовательные учреждения</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id="prom" value="prom"
-                                        name="object">
-                                    <label for="prom"></label>
-                                    <label for="prom">Промышленные объекты</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id="trc" value="trc" name="object">
-                                    <label for="trc"></label>
-                                    <label for="trc">ТРЦ и Ритейл</label>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                         <div class="content__block content__block--wide content__block--grid">
                             <div class="draft">

@@ -57,18 +57,18 @@ const owlGallery = (selector, params) => {
     if (params == undefined) params = '';
     const owl = $(selector);
     owl.each((i, el) => {
-        $(el)
-            .addClass('owl-carousel owl-theme')
-            .owlCarousel(
-                Object.assign(params, {
-                    smartSpeed: 1000,
-                    navText: [
-                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30057 1.12305L1.41016 10.553L9.30057 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-                        '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.69943 1.12305L9.58984 10.553L1.69943 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-                    ]
-                })
-            );
-    })
+            $(el)
+                .addClass('owl-carousel owl-theme')
+                .owlCarousel(
+                    Object.assign(params, {
+                        smartSpeed: 1000,
+                        navText: [
+                            '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.30057 1.12305L1.41016 10.553L9.30057 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+                            '<svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.69943 1.12305L9.58984 10.553L1.69943 19.534" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+                        ]
+                    })
+                );
+        })
         .trigger('refresh.owl.carousel');
 };
 
@@ -108,7 +108,7 @@ const buttonScroll = appearTarget => {
     }
 }
 
-const tagTemplate = (text, name = '') => (
+const tagTemplate = (text, name = '', type = '') => (
     `<button class='content__mobileTag' data-name='${name}'>${text}</button>`
 )
 
@@ -154,13 +154,51 @@ $('body').on('click', '.content__mobileTag', e => {
     $('.content__field input').each((i, el) => {
         if ($(e.currentTarget).text() === $(el).siblings('label:not(:empty)').text()) $(el).prop('checked', false);
         filtersCount();
+    })
 })
-})
+
+
+// const mobileSelectWrapper = parent => {
+//     const buttons = $(parent).children();
+//     $(parent).append('<div class="mobile-select"></div>');
+//     buttons.appendTo($(parent).find('.mobile-select'));
+//     const height = Array.from(buttons)
+//         .reduce((total, curr, i) => total + $(curr).outerHeight(), 0);
+//     $(parent).find('.mobile-select').on('click', e => {
+//         $(e.delegateTarget).toggleClass('open');
+//         $(e.delegateTarget).css('height', $(e.delegateTarget).hasClass('open') ? height : '');
+//     });
+// }
+
+const mobileFilterHorizontal = parent => {
+    const buttons = $(parent).children();
+    $(parent).append(buttons.eq(0).clone().addClass('filter-current'), '<div class="mobile-select"><div class="mobile-select__box"></div></div>');
+    buttons.not('.filter-current').appendTo($(parent).find('.mobile-select__box'));
+    $(parent).on('click', e => {
+        const that = $(e.target);
+        switch (true) {
+            case that.hasClass('filter-current'):
+                $(parent).find('.mobile-select').addClass('active');
+                stopScroll();
+                break;
+            case that.is('button:not(.filter-current)'):
+                $(parent).find('.filter-current').text(that.text());
+                // ajax request
+                break;
+            case that.hasClass('mobile-select'):
+                $(parent).find('.mobile-select').removeClass('active');
+                freeScroll();
+                break;
+        }
+    })
+}
+
+
+
 $().ready(() => {
     $(document).on('click', '.header__search-btn[type="button"]', function () {
         openSearch($(this));
     });
-
 
     // убираем дизейбл с кнопки на странице профиля
     $('.profile__checkbox').on('change', e => {
@@ -248,21 +286,21 @@ $().ready(() => {
     });
 
     bindModalListeners([{
-        trigger: '.detail__button--scroll',
-        modal: '.modal--load'
-    },
-    {
-        trigger: '.auth__submit--reg',
-        modal: '.modal--confirm'
-    },
-    {
-        trigger: '.content__searchFilters',
-        modal: '.content__block--control'
-    },
-    {
-        trigger: '.content__searchInput--mobile',
-        modal: '.content__search--mobile'
-    }
+            trigger: '.detail__button--scroll',
+            modal: '.modal--load'
+        },
+        {
+            trigger: '.auth__submit--reg',
+            modal: '.modal--confirm'
+        },
+        {
+            trigger: '.content__searchFilters',
+            modal: '.content__block--control'
+        },
+        {
+            trigger: '.content__searchInput--mobile',
+            modal: '.content__search--mobile'
+        }
     ])
 
     //табы в настройках профиля 
@@ -272,10 +310,23 @@ $().ready(() => {
         switchActive(e.target, '.profile__button', 'active');
         tabs(e.target, '.profile__form', 'data-tab');
     });
+    $('.content__filter').on('click', e => switchActive(e.target, '.content__filter', 'active'));
+    if (mobile && $('.content__filter').length) {
+        mobileFilterHorizontal('.content__filters');
+    }
+    if (mobile && $('.profile__options').length) mobileFilterHorizontal('.profile__options');
+    // if (mobile && $('.content__filters').length) mobileSelectWrapper('.content__filters');
+
 
     //очистка поиска 
     $('.content__searchClear').on('click', e => {
         $(e.target).siblings('input').val('');
+        location.search = '';
+    })
+
+    $('.content__mobileClear').on('click', e => {
+        $('.content__mobileSearch').val('');
+        location.search = '';
     })
 
     //раскрытие фильтров на мобильных 
