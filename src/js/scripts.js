@@ -145,9 +145,10 @@ const searchRequest = params => {
 $('.content__field--filter input').on('change', e => {
     addFilters(e, '.content__mobileTags');
     filtersCount();
+    //ajax request;
 })
 
-$('.content__mobileSubmit').on('click', e => searchRequest());
+$('.content__mobileSubmit').on('click', () => searchRequest());
 
 $('body').on('click', '.content__mobileTag', e => {
     $(e.currentTarget).remove();
@@ -169,6 +170,27 @@ $('body').on('click', '.content__mobileTag', e => {
 //         $(e.delegateTarget).css('height', $(e.delegateTarget).hasClass('open') ? height : '');
 //     });
 // }
+
+
+const formValidator = form => {
+    form = document.querySelector(form);
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        formValidate({
+            form,
+            url: form.getAttribute('action'),
+            onLoadStart: () => {
+                console.log('load start');
+            },
+            onSuccess: () => {
+                console.log('success');
+            },
+            onError: () => {
+                console.log('error')
+            }
+        });
+    })
+}
 
 const mobileFilterHorizontal = parent => {
     const buttons = $(parent).children();
@@ -201,7 +223,7 @@ $().ready(() => {
     });
 
     // убираем дизейбл с кнопки на странице профиля
-    $('.profile__checkbox').on('change', e => {
+    $('.profile__checkbox').on('change', () => {
         $('.profile__submit--subscribe').prop('disabled', false);
     });
 
@@ -341,4 +363,14 @@ $().ready(() => {
             col.siblings('.videos__column').append(this);
         });
     }
+
+    //валидация формы
+    if ($('.project__body').length) formValidator('.project__body');
+
+    //фикс для валидации селекта 
+    $('.project__select').on('change', e => {
+        const that = $(e.target);
+        that.siblings('input[type="hidden"]').val(that.val());
+        console.log(that.siblings('input[type="hidden"]').val());
+    })
 });

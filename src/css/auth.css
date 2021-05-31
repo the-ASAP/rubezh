@@ -2119,7 +2119,8 @@ input:-webkit-autofill:focus {
     content: '';
     position: absolute;
     right: 20px;
-    top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 16px;
     height: 6px;
     background-image: url("../img/icons/arrow.svg");
