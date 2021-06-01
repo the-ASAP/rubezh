@@ -27,13 +27,28 @@
 					<h2 class="content__title">Видеоматериалы</h2>
 					<p class='content__subtitle'>Мы собрали в одном месте бесплатные видеоуроки и записи вебинаров,
 						связанных с проектированием систем безопасности.</p>
-					<div class="content__filters">
-						<button type='button' class="content__filter">Все</button>
-						<button type='button' class="content__filter">Оборудование</button>
-						<button type='button' class="content__filter">Автоматизация</button>
-						<button type='button' class="content__filter">Проектирование</button>
-						<button type='button' class="content__filter">Нормативные документы</button>
-					</div>
+					<form action="" method="POST" class="content__filters">
+						<div class="content__field">
+							<input type='radio' name='videos__filter' id='all' class='content__filter'></input>
+							<label for='all'>Все</label>
+						</div>
+						<div class="content__field">
+							<input type='radio' name='videos__filter' id='equipment' class='content__filter'></input>
+							<label for='equipment'>Оборудование</label>
+						</div>
+						<div class="content__field">
+							<input type='radio' name='videos__filter' id='automation' class='content__filter'></input>
+							<label for='automation'>Автоматизация</label>
+						</div>
+						<div class="content__field">
+							<input type='radio' name='videos__filter' id='design' class='content__filter'></input>
+							<label for='design'>Проектирование</label>
+						</div>
+						<div class="content__field">
+							<input type='radio' name='videos__filter' id='docs' class='content__filter'></input>
+							<label for='docs'>Нормативные документы</label>
+						</div>
+					</form>
 				</header>
 				<div class="content__body">
 					<div class="videos">
