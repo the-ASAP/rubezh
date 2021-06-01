@@ -1,0 +1,115 @@
+@import "main";
+
+.project {
+    & * {
+        font-family: $exo;
+    }
+    &__subhead {
+        margin-top: 27px;
+    }
+    &__required {
+        display: block;
+        margin-top: 30px;
+        font-weight: 300;
+    }
+    &__header {
+        padding-bottom: 50px;
+        border-bottom: 1px solid rgba(52, 53, 62, 0.5);
+    }
+    &__subhead {
+        display: block;
+        margin-top: 26px;
+        font-size: 24px;
+        line-height: 1.3;
+    }
+    &__block {
+        margin-top: 60px;
+        &:last-of-type {
+            margin-top: 30px;
+        }
+    }
+    &__subtitle {
+        color: $blue;
+    }
+    &__field {
+        position: relative;
+        width: fit-content;
+        margin-top: 30px;
+    }
+    &__label {
+        display: block;
+        font-weight: 400;
+        &--load {
+            @extend %button-transparent;
+            display: inline-block;
+            margin-top: 24px;
+        }
+    }
+    &__load {
+        position: absolute;
+        left: -9999px;
+        bottom: -9999px;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    &__file {
+        display: block;
+        &:not(:empty) {
+            margin-top: 10px;
+        }
+    }
+    &__input,
+    &__select {
+        @extend %input;
+        width: 390px;
+        margin-top: 10px;
+        &.error ~ .project__error {
+            visibility: visible;
+            opacity: 1;
+        }
+        &--link {
+            margin-top: 24px;
+        }
+    }
+    &__select {
+
+        & option[disabled] {
+            color: rgba(52, 53, 62, 0.5);
+        }
+    }
+    &__arrow {
+        position: absolute;
+        right: 10px;
+        top: 45px;
+        width: 18px;
+        height: 8px;
+        background-image: url('../img/icons/arrow.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 1;
+    }
+    &__error {
+        display: block;
+        margin-top: 8px;
+        opacity: 0;
+        visibility: hidden;
+        color: #FF6562;
+        transition: opacity .3s, visibility .3s;
+    }
+    &__submit {
+        @extend %button;
+        margin-top: 60px;
+        padding: 15px 63px;
+        font-size: 14px;
+        background: rgba(52, 53, 62, 0.5);
+    }
+    &__info {
+        margin-top: 30px;
+        line-height: 1.4;
+        & a {
+            color: $accent;
+            text-decoration: underline;
+        }
+    }
+}
