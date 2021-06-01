@@ -28,18 +28,35 @@
             <div class="wrapper">
                 <header class="content__header">
                     <h2 class="content__title">Поиск по сайту</h2>
-                    <form action="" method="GET" class="content__search content__search--main">
+                    <form action="" method="GET" class="content__search">
                         <div class="content__field content__field--search">
                             <input type="text" class="content__searchInput" placeholder="Поиск" name='search'>
                             <button type='button' class="content__searchClear">Очистить</button>
                         </div>
+                        <div class="content__filters">
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='all' class='content__filter'
+                                    value='all'></input>
+                                <label for='all'>Все</label>
+                            </div>
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='solutions' value='solutions'
+                                    class='content__filter'></input>
+                                <label for='solutions'>Типовые решения</label>
+                            </div>
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='video' value='video'
+                                    class='content__filter'></input>
+                                <label for='video'>Видеоматериалы</label>
+                            </div>
+                            <div class="content__field">
+                                <input type='radio' name='schedule__filter' id='articles' value='articles'
+                                    class='content__filter'></input>
+                                <label for='articles'>Статьи</label>
+                            </div>
+                        </div>
                     </form>
-                    <div class="content__filters">
-                        <button type='button' class="content__filter active">Все</button>
-                        <button type='button' class="content__filter">Типовые решения</button>
-                        <button type='button' class="content__filter">Видеоматериалы</button>
-                        <button type='button' class="content__filter">Статьи</button>
-                    </div>
+
                 </header>
                 <div class="content__body">
                     <div class="wrapper wrapper--detail">

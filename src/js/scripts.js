@@ -25,7 +25,7 @@ const bindModalListeners = modalArr => {
             }
         });
 
-        jQModal.find('.modal__close, [data-close]').on('click', function () {
+        jQModal.find('.modal__close').on('click', function () {
             jQModal.removeClass('active');
             freeScroll();
         });
@@ -99,136 +99,25 @@ const tabs = (button, content, tabAttr) => {
     })
 }
 
-const buttonScroll = appearTarget => {
-    const bottomControl = $(window).scrollTop() + 100 > $(document).height() - $(window).height();
-    if (bottomControl) {
-        $(appearTarget).removeClass('visible');
+const buttonScroll = (mainTarget, appearTarget) => {
+    if ($(window).scrollTop() > $(mainTarget).offset().top) {
+        $(appearTarget).addClass('visible')
     } else {
-        $(appearTarget).addClass('visible');
+        $(appearTarget).removeClass('visible');
     }
 }
 
-const tagTemplate = (text, name = '', type = '') => (
-    `<button class='content__tag custom' data-name='${name}'>${text}</button>`
-)
-
-const addFilters = (e, container) => {
-    const text = $(e.target).siblings('label:not(:empty)').text(),
-        that = $(e.target),
-        nameAttr = that.prop('name');
-    $('.default').remove();
-    if (that.attr('type') === 'radio') {
-        $(container).find(`[data-name=${nameAttr}]`).remove();
-        $(container).append(tagTemplate(text, nameAttr));
-    }
-    if (that.attr('type') === 'checkbox') {
-        if (that.prop('checked')) {
-            $(container).append(tagTemplate(text, nameAttr));
-        } else {
-            $(container).find('button').each((i, el) => $(el).text() === text ? $(el).remove() : 0);
-        }
-    }
+const removeDisable = (button) => {
+    $(button).prop('disabled', false);
 }
 
-const filtersCount = () => {
-    $('.content__searchCount').text(
-        $('button.custom').length ? $('button.custom').length : ''
-    )
-}
-
-const searchRequest = params => {
-    $('.content__block--control.active').removeClass('active');
-    freeScroll();
-    //ajax request;
-}
-
-$('.content__field--filter input').on('change', e => {
-    if ($('.content__tags').length > 0 ||
-        ($('.content__mobileTags').length > 0 && mobile)) {
-        addFilters(e, mobile ? '.content__mobileTags' : '.content__tags');
-        filtersCount();
-    }
-    //ajax request;
-})
-
-$('.content__mobileSubmit').on('click', () => searchRequest());
-
-$('body').on('click', '.content__tag.custom', e => {
-    $(e.currentTarget).remove();
-    $('.content__field input').each((i, el) => {
-        if ($(e.currentTarget).text() === $(el).siblings('label:not(:empty)').text()) $(el).prop('checked', false);
-        filtersCount();
-    })
-    //ajax request
-})
-
-
-// const mobileSelectWrapper = parent => {
-//     const buttons = $(parent).children();
-//     $(parent).append('<div class="mobile-select"></div>');
-//     buttons.appendTo($(parent).find('.mobile-select'));
-//     const height = Array.from(buttons)
-//         .reduce((total, curr, i) => total + $(curr).outerHeight(), 0);
-//     $(parent).find('.mobile-select').on('click', e => {
-//         $(e.delegateTarget).toggleClass('open');
-//         $(e.delegateTarget).css('height', $(e.delegateTarget).hasClass('open') ? height : '');
-//     });
-// }
-
-
-const formValidator = form => {
-    form = document.querySelector(form);
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        formValidate({
-            form,
-            url: form.getAttribute('action'),
-            onLoadStart: () => {
-                console.log('load start');
-            },
-            onSuccess: () => {
-                console.log('success');
-            },
-            onError: () => {
-                console.log('error')
-            }
-        });
-    })
-}
-
-const mobileFilterHorizontal = parent => {
-    const buttons = $(parent).children();
-    $(parent).append(buttons.eq(0).clone().addClass('filter-current'), '<div class="mobile-select"><div class="mobile-select__box"></div></div>');
-    buttons.not('.filter-current').appendTo($(parent).find('.mobile-select__box'));
-    $(parent).on('click', e => {
-        const that = $(e.target);
-        switch (true) {
-            case that.hasClass('filter-current'):
-                $(parent).find('.mobile-select').addClass('active');
-                stopScroll();
-                break;
-            case that.is('button:not(.filter-current)'):
-                $(parent).find('.filter-current').text(that.text());
-                // ajax request
-                break;
-            case that.hasClass('mobile-select'):
-                $(parent).find('.mobile-select').removeClass('active');
-                freeScroll();
-                break;
-        }
-    })
-}
-
-
+$('.profile__checkbox').on('change', e => {
+    removeDisable('.profile__submit--subscribe');
+});
 
 $().ready(() => {
     $(document).on('click', '.header__search-btn[type="button"]', function () {
         openSearch($(this));
-    });
-
-    // убираем дизейбл с кнопки на странице профиля
-    $('.profile__checkbox').on('change', () => {
-        $('.profile__submit--subscribe').prop('disabled', false);
     });
 
     $('.header__search-closeBtn').on('click', function () {
@@ -301,7 +190,7 @@ $().ready(() => {
     //появление кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {
-            buttonScroll('.appears');
+            buttonScroll('.detail__button--scroll', '.appears');
         })
     }
 
@@ -318,14 +207,6 @@ $().ready(() => {
         {
             trigger: '.auth__submit--reg',
             modal: '.modal--confirm'
-        },
-        {
-            trigger: '.content__searchFilters',
-            modal: '.content__block--control'
-        },
-        {
-            trigger: '.content__searchInput--mobile',
-            modal: '.content__search--mobile'
         }
     ])
 
@@ -351,22 +232,10 @@ $().ready(() => {
     //очистка поиска 
     $('.content__searchClear').on('click', e => {
         $(e.target).siblings('input').val('');
-        location.search = '';
     })
 
-    $('.content__mobileClear').on('click', e => {
-        $('.content__mobileSearch').val('');
-        location.search = '';
-    })
 
-    $('.content__clear').on('click', e => {
-        location.search = '';
-    })
-
-    //раскрытие фильтров на мобильных 
-    $('.content__heading').on('click', e => {
-        $(e.target).toggleClass('open');
-    })
+    //страницы категорий
 
     //сетка для видео
     if ($('.videos').length) {
@@ -375,13 +244,4 @@ $().ready(() => {
             col.siblings('.videos__column').append(this);
         });
     }
-
-    //валидация формы
-    if ($('.project__body').length) formValidator('.project__body');
-
-    //фикс для валидации селекта 
-    $('.project__select').on('change', e => {
-        const that = $(e.target);
-        that.siblings('input[type="hidden"]').val(that.val());
-    })
 });
