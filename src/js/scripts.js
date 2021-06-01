@@ -337,5 +337,6 @@ $().ready(() => {
                 }
             );
         }
+        console.log("GUCHI")
     }
 });
