@@ -330,7 +330,7 @@ $().ready(() => {
     ])
 
     //табы в настройках профиля 
-    $('.profile__button').first().addClass('active');
+    if (!mobile) $('.profile__button').first().addClass('active');
     $('.profile__form').first().addClass('active');
     $('.profile__button').on('click', e => {
         switchActive(e.target, '.profile__button', 'active');
@@ -340,7 +340,11 @@ $().ready(() => {
     if (mobile && $('.content__filter').length > 0) {
         mobileFilterHorizontal('.content__filters');
     }
-    if (mobile && $('.profile__options').length > 0) mobileFilterHorizontal('.profile__options');
+    if (mobile && $('.profile__options').length > 0) {
+        mobileFilterHorizontal('.profile__options');
+        $('.profile__button:not(.filter-current)').first().addClass('active');
+    }
+        
     // if (mobile && $('.content__filters').length) mobileSelectWrapper('.content__filters');
 
 
