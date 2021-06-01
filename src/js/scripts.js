@@ -161,21 +161,14 @@ $().ready(() => {
     });
 
     owlGallery('.promo__sliderBox', {
-        margin: 40,
         loop: true,
         nav: true,
+        dots: false,
         navContainer: '.promo__sliderNav',
-        dotsContainer: '.promo__sliderDots',
         responsive: {
             0: {
-                items: 1
-            },
-            769: {
-                items: 2
-            },
-            1025: {
                 items: 3,
-                dots: false
+                margin: 40
             }
         }
     });
@@ -207,21 +200,14 @@ $().ready(() => {
     });
 
     owlGallery('.events__sliderBox', {
-        margin: 40,
         loop: true,
         nav: true,
+        dots: false,
         navContainer: '.events__sliderNav',
-        dotsContainer: '.events__sliderDots',
         responsive: {
             0: {
-                items: 1
-            },
-            769: {
-                items: 2
-            },
-            1025: {
                 items: 3,
-                dots: false
+                margin: 40
             }
         }
     });
@@ -237,12 +223,14 @@ $().ready(() => {
         });
     }
 
+
     contentFadeInOnReady();
 
 
     //детальные страницы
 
-    //обертка для fancybox
+    //обертка для fancybox 
+
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
@@ -284,6 +272,14 @@ $().ready(() => {
         {
             trigger: '.auth__submit--reg',
             modal: '.modal--confirm'
+        },
+        {
+            trigger: '.content__searchFilters',
+            modal: '.content__block--control'
+        },
+        {
+            trigger: '.content__searchInput--mobile',
+            modal: '.content__search--mobile'
         }
     ])
 
@@ -294,6 +290,12 @@ $().ready(() => {
         switchActive(e.target, '.profile__button', 'active');
         tabs(e.target, '.profile__form', 'data-tab');
     });
+    $('.content__filter').on('click', e => switchActive(e.target, '.content__filter', 'active'));
+    if (mobile && $('.content__filter').length) {
+        mobileFilterHorizontal('.content__filters');
+    }
+    if (mobile && $('.profile__options').length) mobileFilterHorizontal('.profile__options');
+
 
     //очистка поиска 
     $('.content__searchClear').on('click', e => {
@@ -306,7 +308,7 @@ $().ready(() => {
     console.log()
     //страницы категори
 
-    //видео
+    //сетка для видео
     if ($('.videos').length) {
         if (!mobile) {
             let col = $('.videos__column:first');

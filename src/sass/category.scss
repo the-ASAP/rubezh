@@ -121,7 +121,8 @@
     &__box {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
+        column-gap: 4%;
+        row-gap: 1.25rem;
     }
 }
 
@@ -189,18 +190,6 @@
             transform: translateY(-50%);
             width: 100%;
         }
-
-        &Dots {
-            display: none;
-            z-index: 1;
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            box-sizing: border-box;
-            padding: .125rem;
-            @extend %flexbox;
-        }
     }
 
     &__link {
@@ -252,7 +241,7 @@
             }
 
             .owl-item img {
-                width: 48%;
+                width: unset;
             }
         }
 
@@ -266,6 +255,7 @@
             box-shadow: -1px 9px 20px rgba($gray-darken, .25);
         }
 
+        &Img,
         &Content {
             width: 48%;
         }
@@ -313,7 +303,6 @@
             position: absolute;
             left: 50%;
             bottom: 0;
-            transform: translateX(-50%);
             box-sizing: border-box;
             padding: .125rem;
             @extend %flexbox;
@@ -649,269 +638,6 @@
         opacity: 0;
         visibility: hidden;
         transition: none;
-    }
-}
 
-@include medium {
-    .category {
-        &__header {
-            height: max-content;
-            min-height: 250px;
-            padding: 30px;
-
-            &::after {
-                content: none;
-            }
-        }
-
-        &__icon {
-            height: 144px;
-        }
-
-        &__title {
-            margin-bottom: 20px;
-        }
-
-        &__text {
-            font-size: 18px;
-        }
-
-        &__nav {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-
-        &__section {
-            &:not(:last-child) {
-                margin-bottom: 100px;
-            }
-
-            &Title,
-            &Text {
-                width: 100%;
-                text-align: center;
-            }
-
-            &Title {
-                &:not(:last-child) {
-                    margin-bottom: 20px;
-                }
-            }
-
-            &Text {
-                font-size: 18px;
-            }
-        }
-    }
-
-    .subcategory {
-        &__section {
-            &:not(:last-child) {
-                margin-bottom: 80px;
-            }
-        }
-
-        &__header {
-            display: block;
-
-            &>.schemeItem {
-                margin-top: 20px;
-            }
-        }
-    }
-
-    .videos {
-        &__column {
-            width: calc(50% - 12px);
-
-            &:first-child {
-                margin-right: 24px;
-            }
-        }
-    }
-
-    .schemes {
-        &:not(:last-child) {
-            margin-bottom: 30px;
-        }
-    }
-
-    .events {
-        &__slider {
-            &Box {
-                padding-bottom: 32px;
-            }
-
-            &Item {
-                height: 333px;
-                padding: 25px 18px;
-            }
-
-            &Dots {
-                display: block;
-            }
-        }
-
-        &__link {
-            margin-top: 20px;
-        }
-    }
-
-    .community {
-        &__slider {
-            &Box {
-                padding-bottom: 32px;
-
-                .owl-item img {
-                    height: fit-content;
-                    width: 48%;
-                }
-            }
-
-            &Item {
-                height: 391px;
-                padding: 15px;
-            }
-
-            &Img {
-                object-fit: cover;
-            }
-
-            &Content {
-                width: 48%;
-            }
-
-            &Title {
-                margin-bottom: 12px;
-            }
-
-            &Text {
-                font-size: 16px;
-                line-height: 1.375;
-                margin-bottom: 20px;
-            }
-
-            &Link {
-                position: relative;
-            }
-
-            &Nav {
-                display: none;
-            }
-        }
-
-        &__link {
-            margin-top: 20px;
-        }
-    }
-}
-
-@include small {
-    .category {
-        &__nav {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-    }
-
-    .videos {
-        flex-direction: column;
-        align-items: unset;
-
-        &__box {
-            flex-direction: column;
-        }
-
-        &__column {
-            width: 100%;
-
-            &:first-child {
-                margin-right: 0;
-            }
-        }
-
-        &__link {
-            align-self: center;
-        }
-    }
-
-    .schemes {
-        &__box {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .community {
-        &__slider {
-            &Item {
-                flex-direction: column;
-                height: auto;
-                padding: 0;
-                box-shadow: none;
-
-                &:not(:last-child) {
-                    margin-bottom: 60px;
-                }
-            }
-
-            &Content,
-            &Img {
-                width: 100%;
-            }
-
-            &Img {
-                margin-bottom: 20px;
-            }
-
-            &Dots {
-                display: none;
-            }
-        }
-    }
-}
-
-@include x-small {
-    .category {
-        &__nav {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .subcategory {
-        &--solutions {
-            .category {
-                &__nav {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 20px;
-
-                    &Item {
-                        height: 131px;
-                        padding: 20px 13px;
-                    }
-
-                    &Icon {
-                        height: 40px;
-                    }
-
-                    &Title {
-                        font-size: 14px;
-                    }
-                }
-            }
-        }
-    }
-
-    .schemes {
-        &__box {
-            grid-template-columns: 1fr;
-        }
-    }
-}
-
-@include xx-small {
-    .category {
-        &__header {
-            padding: 15px;
-        }
     }
 }
