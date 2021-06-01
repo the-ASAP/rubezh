@@ -1675,7 +1675,9 @@ input {
             margin-right: 0;
         }
         &.active,
-        &:hover {
+        &:hover,
+        &:not(.active),
+        &:not(.active):hover {
             background-color: transparent;
             color: $gen;
             border-color: $gen;
