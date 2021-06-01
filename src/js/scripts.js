@@ -1,5 +1,4 @@
-const tablet = $(window).width() < 1025;
-const mobile = $(window).width() < 769;
+const mobile = $(window).width() < 768;
 
 //удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
@@ -84,33 +83,6 @@ const openSearch = (btn) => {
 const closeSearch = (btn) => {
     btn.parent().removeClass('active');
     btn.siblings('button').prop('type', 'button');
-};
-
-const closeMenu = (btn, menu) => {
-    btn.removeClass('active');
-    menu.removeClass('active');
-    freeScroll();
-};
-
-const toggleMenu = (btn, menu) => {
-    if (btn.hasClass('active')) {
-        closeMenu(btn, menu);
-    } else {
-        btn.addClass('active');
-        menu.addClass('active');
-        stopScroll();
-    }
-};
-
-const dropDownMenu = (btn) => {
-    btn.toggleClass('active');
-    if (!btn.hasClass('active')) {
-        btn.parent().siblings('div').slideUp(200);
-    } else {
-        btn.parent().siblings('div')
-            .slideDown(200)
-            .css('display', 'block');
-    }
 };
 
 const switchActive = (target, allElems, className) => {
@@ -230,6 +202,7 @@ const mobileFilterHorizontal = parent => {
     buttons.not('.filter-current').appendTo($(parent).find('.mobile-select__box'));
     $(parent).on('click', e => {
         const that = $(e.target);
+        console.log(that)
         switch (true) {
             case that.hasClass('filter-current'):
                 $(parent).find('.mobile-select').addClass('active');
@@ -263,97 +236,48 @@ $().ready(() => {
         closeSearch($(this));
     });
 
-    $('.header__burger').on('click', function () {
-        toggleMenu($(this), $('.menu'));
-    });
-
-    $('.menu__btn').on('click', function () {
-        dropDownMenu($(this));
-    });
-
     owlGallery('.promo__sliderBox', {
-        margin: 40,
         loop: true,
         nav: true,
-        navContainer: '.promo__sliderNav',
-        dotsContainer: '.promo__sliderDots',
-        responsive: {
-            0: {
-                items: 1
-            },
-            769: {
-                items: 2
-            },
-            1025: {
-                items: 3,
-                dots: false
-            }
-        }
-    });
-
-    owlGallery('.companies__sliderBox', {
-        items: 4,
         dots: false,
-        navContainer: '.companies__sliderNav',
+        navContainer: '.promo__sliderNav',
         responsive: {
             0: {
-                items: 2,
-                margin: 58,
-                loop: true,
-                nav: true
-            },
-            539: {
                 items: 3,
-                margin: 30,
-                loop: true,
-                nav: true
-            },
-            769: {
-                margin: 100
-            },
-            1025: {
-                margin: 161
+                margin: 40
             }
         }
     });
 
     owlGallery('.events__sliderBox', {
-        margin: 40,
         loop: true,
         nav: true,
+        dots: false,
         navContainer: '.events__sliderNav',
-        dotsContainer: '.events__sliderDots',
         responsive: {
             0: {
-                items: 1
-            },
-            769: {
-                items: 2
-            },
-            1025: {
                 items: 3,
-                dots: false
+                margin: 40
             }
         }
     });
 
-    if (!mobile) {
-        owlGallery('.community__sliderBox', {
-            items: 1,
-            margin: 40,
-            loop: true,
-            nav: true,
-            navContainer: '.community__sliderNav',
-            dotsContainer: '.community__sliderDots'
-        });
-    }
+    owlGallery('.community__sliderBox', {
+        items: 1,
+        margin: 40,
+        loop: true,
+        nav: true,
+        navContainer: '.community__sliderNav',
+        dotsContainer: '.community__sliderDots'
+    });
 
     contentFadeInOnReady();
 
 
     //детальные страницы
 
-    //обертка для fancybox
+    //обертка для fancybox 
+
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
@@ -414,11 +338,11 @@ $().ready(() => {
         tabs(e.target, '.profile__form', 'data-tab');
     });
     $('.content__filter').on('click', e => switchActive(e.target, '.content__filter', 'active'));
-    if (mobile && $('.content__filter').length) {
+    if (mobile && $('.content__filter').length > 0) {
         mobileFilterHorizontal('.content__filters');
     }
-    if (mobile && $('.profile__options').length) mobileFilterHorizontal('.profile__options');
-
+    if (mobile && $('.profile__options').length > 0) mobileFilterHorizontal('.profile__options');
+    // if (mobile && $('.content__filters').length) mobileSelectWrapper('.content__filters');
 
 
     //очистка поиска 
@@ -441,37 +365,12 @@ $().ready(() => {
         $(e.target).toggleClass('open');
     })
 
-    //видео
+    //сетка для видео
     if ($('.videos').length) {
-        if (!mobile) {
-            let col = $('.videos__column:first');
-            col.children(':nth-child(even)').each(function () {
-                col.siblings('.videos__column').append(this);
-            });
-        }
-
-        if (!tablet) {
-            $('.videoItem').hover(
-                function () {
-                    let content = $(this).find('.videoItem__content');
-                    $(this).animate({
-                        height: '+=' + content.innerHeight()
-                    }, 200);
-                    content
-                        .fadeIn(200)
-                        .css('display', 'flex');
-                },
-                function () {
-                    let content = $(this).find('.videoItem__content');
-                    $(this).animate({
-                        height: '-=' + content.innerHeight()
-                    }, 200, function () {
-                        $(this).removeAttr('style');
-                    });
-                    content.fadeOut(200);
-                }
-            );
-        }
+        let col = $('.videos__column:first');
+        col.children(':nth-child(even)').each(function () {
+            col.siblings('.videos__column').append(this);
+        });
     }
 
     //валидация формы
