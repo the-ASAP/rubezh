@@ -109,14 +109,14 @@ const buttonScroll = appearTarget => {
 }
 
 const tagTemplate = (text, name = '', type = '') => (
-    `<button class='content__mobileTag' data-name='${name}'>${text}</button>`
+    `<button class='content__tag custom' data-name='${name}'>${text}</button>`
 )
 
 const addFilters = (e, container) => {
     const text = $(e.target).siblings('label:not(:empty)').text(),
         that = $(e.target),
         nameAttr = that.prop('name');
-    $('.content__mobileTag--default').remove();
+    $('.default').remove();
     if (that.attr('type') === 'radio') {
         $(container).find(`[data-name=${nameAttr}]`).remove();
         $(container).append(tagTemplate(text, nameAttr));
@@ -132,30 +132,34 @@ const addFilters = (e, container) => {
 
 const filtersCount = () => {
     $('.content__searchCount').text(
-        $('.content__mobileTag').length ? $('.content__mobileTag').length : ''
+        $('button.custom').length ? $('button.custom').length : ''
     )
 }
 
 const searchRequest = params => {
     $('.content__block--control.active').removeClass('active');
     freeScroll();
-    $.ajax({});
+    //ajax request;
 }
 
 $('.content__field--filter input').on('change', e => {
-    addFilters(e, '.content__mobileTags');
-    filtersCount();
+    if ($('.content__tags').length > 0 ||
+        ($('.content__mobileTags').length > 0 && mobile)) {
+        addFilters(e, mobile ? '.content__mobileTags' : '.content__tags');
+        filtersCount();
+    }
     //ajax request;
 })
 
 $('.content__mobileSubmit').on('click', () => searchRequest());
 
-$('body').on('click', '.content__mobileTag', e => {
+$('body').on('click', '.content__tag.custom', e => {
     $(e.currentTarget).remove();
     $('.content__field input').each((i, el) => {
         if ($(e.currentTarget).text() === $(el).siblings('label:not(:empty)').text()) $(el).prop('checked', false);
         filtersCount();
     })
+    //ajax request
 })
 
 
@@ -174,7 +178,7 @@ $('body').on('click', '.content__mobileTag', e => {
 
 const formValidator = form => {
     form = document.querySelector(form);
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
         formValidate({
             form,
@@ -351,6 +355,10 @@ $().ready(() => {
         location.search = '';
     })
 
+    $('.content__clear').on('click', e => {
+        location.search = '';
+    })
+
     //раскрытие фильтров на мобильных 
     $('.content__heading').on('click', e => {
         $(e.target).toggleClass('open');
@@ -371,6 +379,5 @@ $().ready(() => {
     $('.project__select').on('change', e => {
         const that = $(e.target);
         that.siblings('input[type="hidden"]').val(that.val());
-        console.log(that.siblings('input[type="hidden"]').val());
     })
 });

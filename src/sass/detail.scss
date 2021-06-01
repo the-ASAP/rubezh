@@ -573,10 +573,6 @@
 }
 
 @media (max-width: 1024px) {
-  .header,
-  .footer {
-    display: none;
-  }
   .detail {
     &__header {
       margin-bottom: 40px;

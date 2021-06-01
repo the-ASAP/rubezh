@@ -8,12 +8,12 @@
     <meta name="description" content="Описание страницы для SEO и соцсетей">
     <meta name="keywords" content="ключевые, слова, через, запятую">
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
-    <title>Часто задаваемые вопросы</title>
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1622465138448" type="text/css">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1622465138448" type="text/css">
-    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1622465138448" type="text/css">
+    <title>Документы</title>
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1622529683714" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1622529683714" type="text/css">
+    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1622529683714" type="text/css">
 
-    <link rel="stylesheet" href="css/category.css?t=1622465138448" type="text/css">
+    <link rel="stylesheet" href="css/category.css?t=1622529683714" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
@@ -167,17 +167,17 @@
                     </form>
                     <div class="content__mobile content__mobile--panel">
                         <button type="button"
-                        class="content__searchInput content__field--search content__searchInput--mobile">Поиск</button>
+                            class="content__searchInput content__field--search content__searchInput--mobile">Поиск</button>
                         <button type='button' class="content__searchFilters"><svg width="16" height="13"
-                            viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect y="1" width="16" height="1" rx="0.5" fill="#34353E" />
-                            <rect y="6" width="16" height="1" rx="0.5" fill="#34353E" />
-                            <rect y="11" width="16" height="1" rx="0.5" fill="#34353E" />
-                            <circle cx="3.5" cy="6.5" r="1.5" fill="#34353E" />
-                            <circle cx="12.5" cy="1.5" r="1.5" fill="#34353E" />
-                            <circle cx="9.5" cy="11.5" r="1.5" fill="#34353E" />
-                        </svg>
-                        <span>Фильтры</span><span class="content__searchCount"></span></button>
+                                viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="1" width="16" height="1" rx="0.5" fill="#34353E" />
+                                <rect y="6" width="16" height="1" rx="0.5" fill="#34353E" />
+                                <rect y="11" width="16" height="1" rx="0.5" fill="#34353E" />
+                                <circle cx="3.5" cy="6.5" r="1.5" fill="#34353E" />
+                                <circle cx="12.5" cy="1.5" r="1.5" fill="#34353E" />
+                                <circle cx="9.5" cy="11.5" r="1.5" fill="#34353E" />
+                            </svg>
+                            <span>Фильтры</span><span class="content__searchCount"></span></button>
                         <form action="" method="GET" class="content__search content__search--mobile">
                             <div class="content__mobileHeader">
                                 <span class="content__mobileTitle">Поиск</span>
@@ -192,7 +192,7 @@
                             </div>
                         </form>
                     </div>
-                 
+
                 </header>
                 <div class="content__body">
                     <div class="content__container">
@@ -201,14 +201,12 @@
                                 <div class="content__mobileHeader">
                                     <span class="content__mobileTitle">Фильтр</span>
                                     <button type='button' class="content__mobileClose" data-close></button>
-    
                                     <div class="content__mobileTags">
-                                        <button type='button'
-                                            class="content__mobileTag content__mobileTag--default">Все</button>
+                                        <button type='button' class="content__tag default">Все</button>
                                     </div>
                                 </div>
                             </div>
-                            <form method="GET" action="" class="content__control">
+                            <div class="content__control">
                                 <div class="content__controlBlock">
                                     <span class="content__heading">Тип документа</span>
                                     <div class="content__fields">
@@ -225,12 +223,14 @@
                                             <label for="federal">Федеральный закон</label>
                                         </div>
                                         <div class="content__field content__field--filter">
-                                            <input type="radio" class="content__radio" id="gost" value='gost' name="type">
+                                            <input type="radio" class="content__radio" id="gost" value='gost'
+                                                name="type">
                                             <label for="gost"></label>
                                             <label for="gost">ГОСТ</label>
                                         </div>
                                         <div class="content__field content__field--filter">
-                                            <input type="radio" class="content__radio" id="snip" value='snip' name="type">
+                                            <input type="radio" class="content__radio" id="snip" value='snip'
+                                                name="type">
                                             <label for="snip"></label>
                                             <label for="snip">СНиП</label>
                                         </div>
@@ -240,7 +240,8 @@
                                             <label for="sp">СП</label>
                                         </div>
                                         <div class="content__field content__field--filter">
-                                            <input type="radio" class="content__radio" id="other" value="other" name="type">
+                                            <input type="radio" class="content__radio" id="other" value="other"
+                                                name="type">
                                             <label for="other"></label>
                                             <label for="other">Другое</label>
                                         </div>
@@ -250,7 +251,8 @@
                                     <span class="content__heading">Сортировка</span>
                                     <div class="content__fields">
                                         <div class="content__field content__field--filter">
-                                            <input type="radio" class="content__radio" id="date" value="date" name="sort">
+                                            <input type="radio" class="content__radio" id="date" value="date"
+                                                name="sort">
                                             <label for="date"></label>
                                             <label for="date">По дате публикации</label>
                                         </div>
@@ -309,7 +311,7 @@
                                         <button type='button' class="content__mobileSubmit">Применить</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                         <div class="content__block content__block--wide content__block--result">
                             <div class="result">
@@ -567,9 +569,9 @@
     </div>
 </footer>
 
-    <script src="vendors/js/jquery-3.5.1.min.js?t=1622465138448"></script>
-    <script src="vendors/js/owl.carousel.min.js?t=1622465138448"></script>
-    <script src="js/scripts.js?t=1622465138448"></script>
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1622529683714"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1622529683714"></script>
+    <script src="js/scripts.js?t=1622529683714"></script>
 </body>
 
 </html>

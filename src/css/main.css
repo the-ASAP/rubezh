@@ -1355,21 +1355,45 @@ input:-webkit-autofill:focus {
 
 .content__tags {
   flex-wrap: wrap;
-  margin-top: 82px;
+  margin-top: 65px;
   font-family: "Exo 2", sans-serif;
 }
 
 .content__tag {
   justify-content: center;
+  position: relative;
   padding: 0 16px;
   height: 30px;
   background: #EFEFF1;
   border-radius: 15px;
   margin-right: 30px;
+  margin-bottom: 10px;
   font-size: 16px;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 300;
+}
+
+.content__tag.custom {
+  text-align: left;
+  padding-right: 48px;
+}
+
+.content__tag.custom::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  background-image: url("../img/icons/close.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .content__clear {
+  order: 1;
+  margin-bottom: 10px;
   text-decoration: underline;
   font-size: 16px;
 }
@@ -1542,11 +1566,6 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 768px) {
-  .header,
-  .footer {
-    display: none;
-  }
-
   .content__mobile {
     display: flex;
     align-items: center;
@@ -1599,37 +1618,10 @@ input:-webkit-autofill:focus {
   }
 
   .content__mobileTags {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     margin-top: 30px;
-  }
-
-  .content__mobileTag {
-    margin-right: 9px;
-    margin-bottom: 20px;
-    padding: 5px 16px;
-    border-radius: 15px;
-    font-family: "Exo 2", sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    background-color: #EFEFF1;
-  }
-
-  .content__mobileTag:not(.content__mobileTag--default) {
-    position: relative;
-    padding-right: 46px;
-  }
-
-  .content__mobileTag:not(.content__mobileTag--default)::after {
-    content: '';
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    background-image: url("../img/icons/close.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
   }
 
   .content__mobileClear {
@@ -1654,6 +1646,22 @@ input:-webkit-autofill:focus {
 
   .content__mobileSearch:focus {
     border-color: #34353E;
+  }
+
+  .content__tag {
+    margin-right: 9px;
+    margin-bottom: 20px;
+    height: fit-content;
+    padding: 5px 16px;
+    border-radius: 15px;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: #EFEFF1;
+  }
+
+  .content__tag:not(.default) {
+    padding-right: 46px;
   }
 
   .content__block--control {
@@ -1857,9 +1865,9 @@ input:-webkit-autofill:focus {
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
-    transition: height .3s;
     opacity: 0;
     visibility: hidden;
+    transition: opacity .3s, visibility .3s;
   }
 
   .mobile-select.active {
