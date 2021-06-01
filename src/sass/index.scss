@@ -11,6 +11,7 @@
     }
 
     &__column {
+        z-index: 1;
         width: 47%;
         margin-right: 6%;
     }
@@ -34,6 +35,7 @@
 
     &__img {
         width: 47%;
+        object-fit: contain;
     }
 }
 
@@ -42,33 +44,66 @@
     padding: 2.875rem 0;
     background-color: $bgc;
 
-    &__box {
-        height: 3.125rem;
-        @extend %flexbox;
-        justify-content: space-between;
-    }
+    &__slider {
+        position: relative;
 
-    &__item {
-        display: block;
-        height: 100%;
-        ;
-        width: calc(73% / 4);
+        &Item {
+            @extend %flexbox;
+            justify-content: center;
 
-        &:not(:last-child) {
-            margin-right: 9%;
-        }
+            &>svg {
+                height: 3.125rem;
+                width: fit-content;
 
-        &>svg {
-            height: 100%;
-            width: 100%;
+                &>path {
+                    transition: fill .2s linear;
+                }
+            }
 
-            &>path {
-                transition: fill .2s linear;
+            &:hover>svg>path {
+                fill: $gen;
             }
         }
 
-        &:hover>svg>path {
-            fill: $gen;
+        &Nav {
+            display: none;
+            position: absolute;
+            top: calc(50% - 14.25px);
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+
+            &>.owl {
+
+                &-prev,
+                &-next {
+                    height: fit-content;
+                    width: fit-content;
+                    background-color: transparent;
+
+                    &:hover {
+                        background-color: transparent;
+                    }
+
+                    &>svg {
+                        height: 28.5px;
+                        width: 12px;
+
+                        &>path {
+                            stroke: $gray-darken;
+                            transition: stroke .3s;
+                        }
+                    }
+                }
+
+                &-prev {
+                    left: -20px;
+                }
+
+                &-next {
+                    right: -20px;
+                }
+            }
         }
     }
 }
@@ -83,6 +118,7 @@
     }
 
     &__title {
+        text-align: center;
         margin-bottom: 3.625rem;
     }
 
@@ -168,6 +204,18 @@
             left: 0;
             transform: translateY(-50%);
             width: 100%;
+        }
+
+        &Dots {
+            display: none;
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            box-sizing: border-box;
+            padding: .125rem;
+            @extend %flexbox;
         }
     }
 }
@@ -265,5 +313,207 @@
     &__more {
         @extend %button-small;
         align-self: center;
+    }
+}
+
+@include medium {
+    .welcome {
+        padding: 30px 0;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__text {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        &__btn {
+            margin-bottom: 30px;
+        }
+
+        &__img {
+            height: 327px;
+        }
+    }
+
+    .companies {
+        padding: 22px 0;
+    }
+
+    .promo {
+        padding: 60px 0;
+
+        &__title {
+            margin-bottom: 18px;
+        }
+
+        &__slider {
+            &Box {
+                padding-bottom: 32px;
+            }
+
+            &Item {
+                height: 420px;
+                padding: 25px 20px 50px;
+
+                &:hover {
+                    height: 420px;
+                }
+            }
+
+            &Img {
+                height: 113px;
+                margin-bottom: 25px;
+            }
+
+            &Title {
+                margin-bottom: 20px;
+            }
+
+            &Text {
+                font-size: 16px;
+            }
+
+            &Link {
+                position: absolute;
+                left: 50%;
+                bottom: 50px;
+                transform: translateX(-50%);
+                visibility: visible;
+                opacity: 1;
+            }
+
+            &Nav {
+                display: none;
+            }
+
+            &Dots {
+                display: block;
+            }
+        }
+    }
+
+    .project {
+        padding: 60px 0;
+
+        &__title {
+            margin-bottom: 16px;
+        }
+
+        &__text {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .articles {
+        padding: 60px 0;
+
+        &__item {
+            &Img {
+                margin-bottom: 20px;
+            }
+
+            &Date {
+                font-size: 14px;
+            }
+
+            &Title {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+@include small {
+    .welcome {
+        &__box {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__column,
+        &__img {
+            width: 100%;
+        }
+
+        &__img {
+            height: 218px;
+        }
+    }
+
+    .companies {
+        &__slider {
+            &Item {
+                &>svg {
+                    height: 36px;
+                }
+            }
+
+            &Nav {
+                display: block;
+            }
+        }
+    }
+
+    .project {
+        &__box {
+            justify-content: center;
+        }
+
+        &__column {
+            width: 100%;
+            text-align: center;
+        }
+
+        &__title,
+        &__text {
+            text-align: inherit;
+        }
+
+        &__img {
+            display: none;
+        }
+    }
+
+    .articles {
+        &__box {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        &__item {
+            &Img {
+                height: 333px;
+            }
+        }
+    }
+}
+
+@include x-small {
+    .companies {
+        &__slider {
+            &Nav {
+                top: calc(50% - 9.5px);
+
+                &>.owl-prev,
+                &>.owl-next {
+                    &>svg {
+                        height: 19px;
+                        width: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    .articles {
+        &__item {
+            &Img {
+                height: 187px;
+            }
+        }
     }
 }

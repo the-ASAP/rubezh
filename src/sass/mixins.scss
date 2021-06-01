@@ -1,5 +1,41 @@
 @import 'root';
 
+@mixin x-large {
+    @media (max-width: 1366px) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (max-width: 1300px) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin small {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin x-small {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin xx-small {
+    @media (max-width: 374px) {
+        @content;
+    }
+}
+
 %flexbox {
     display: flex;
     align-items: center;
@@ -53,6 +89,60 @@
     }
 }
 
+%arrow {
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 1px);
+        height: 6px;
+        width: 1.3px;
+        border-radius: 5px;
+        background-color: $text;
+        transition: transform .2s linear, background-color .2s linear;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+%search {
+    @extend %flexbox;
+    position: relative;
+
+    &-btn {
+        position: absolute;
+        top: calc(50% + 2px);
+        transform: translateY(-50%);
+
+        &>svg>path {
+            transition: fill .2s linear;
+        }
+
+        &:hover>svg>path {
+            fill: $accent-lighten;
+        }
+    }
+
+    &-input {
+        height: 100%;
+        color: $text;
+        font-family: $exo;
+        font-size: .875rem;
+        font-weight: 300;
+
+        &::placeholder {
+            color: $gray-darken;
+        }
+    }
+}
+
 /*кнопка меню*/
 /*в разметке обязательно должна иметь внутренний span */
 /*<button class="burger"><span></span></button>*/
@@ -61,17 +151,18 @@
 
     &>span {
         position: relative;
-        margin-top: 7px;
-        margin-bottom: 7px;
+        margin-top: 5px;
+        margin-bottom: 5px;
         display: block;
-        width: 22px;
+        width: 16px;
 
         &,
         &::after,
         &::before {
-            background-color: $gen;
-            height: 1px;
-            transition: background-color .3s, transform .3s;
+            height: 2px;
+            border-radius: 1px;
+            background-color: $gray-darken;
+            transition: transform .3s;
         }
 
         &::after,
@@ -79,21 +170,15 @@
             position: absolute;
             content: '';
             left: 0;
-            top: 5px;
             width: 100%;
+        }
+
+        &::after {
+            top: 5px;
         }
 
         &::before {
             top: -5px;
-        }
-    }
-
-    &:hover span {
-
-        &,
-        &::after,
-        &::before {
-            background-color: $accent;
         }
     }
 
@@ -120,6 +205,11 @@
     font-weight: 300;
 }
 
+%menu-link {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
 %button {
     box-sizing: border-box;
     padding: 1.25rem 2.25rem;
@@ -135,6 +225,12 @@
         background-color: $accent-lighten;
     }
 
+    @include medium {
+        padding: 11px 14px;
+        font-size: 16px;
+        min-width: 155px;
+    }
+
     &-disabled {
         @extend %button;
         background-color: $gray;
@@ -147,7 +243,7 @@
     &-small {
         @extend %button;
         min-width: 10.9375rem;
-        padding: 0.9375rem;
+        padding: .9375rem;
         border-radius: 23px;
         font-size: .875rem;
     }
@@ -277,11 +373,41 @@
             width: 100%;
             background-color: $gray-darken;
         }
+
+        @include medium {
+            height: 12px;
+            width: 12px;
+
+            &>span {
+                height: 9px;
+                width: 9px;
+                background-color: $gray-darken;
+            }
+
+            &.active {
+                &>span {
+                    height: 100%;
+                    width: 100%;
+                    background-color: $accent;
+                }
+            }
+        }
+
+        @include x-small {
+            height: 8px;
+            width: 8px;
+
+            &>span {
+                height: 6px;
+                width: 6px;
+            }
+        }
     }
 }
 
 %nav-card {
     height: 15.125rem;
+    width: 100%;
     @extend %flexbox;
     flex-direction: column;
     justify-content: space-between;
@@ -292,6 +418,10 @@
     transition: background-color .2s ease-in-out;
 
     &>img {
+        height: 80px;
+        width: fit-content;
+        max-width: 100%;
+        object-fit: contain;
         transition: filter .2s ease-in-out;
     }
 
