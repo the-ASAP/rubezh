@@ -859,7 +859,7 @@ input:-webkit-autofill:focus {
 }
 
 .main {
-  z-index: 2;
+  z-index: 1;
   position: relative;
   box-sizing: border-box;
   padding-top: 4.5rem;
@@ -1897,13 +1897,8 @@ input:-webkit-autofill:focus {
   }
 
   .mobile-select__box > button.active,
-  .mobile-select__box > button:hover,
-  .mobile-select__box > button.active:hover {
+  .mobile-select__box > button:hover {
     background-color: transparent;
-    color: #34353E;
-  }
-
-  .mobile-select__box > button:not(.active) {
     color: #34353E;
   }
 
@@ -1937,9 +1932,7 @@ input:-webkit-autofill:focus {
   }
 
   .filter-current.active,
-  .filter-current:hover,
-  .filter-current:not(.active),
-  .filter-current:not(.active):hover {
+  .filter-current:hover {
     background-color: transparent;
     color: #34353E;
     border-color: #34353E;
