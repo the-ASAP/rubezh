@@ -601,6 +601,17 @@
 
 
 @media (max-width: 768px) {
+    .draft {
+        margin-right: 0;
+        margin-bottom: 30px;
+        padding: 30px;
+        &__title {
+            font-size: 20px;
+        }
+        &__list {
+            font-size: 16px;
+        }
+    }
     .support {
         position: relative;
         &__container {
@@ -670,22 +681,4 @@
         font-size: 24px;
     }
   }
-}
-
-@media (max-width: 1024px) {
-
-}
-
-@media (max-width: 768px) {
-    .draft {
-        margin-right: 0;
-        margin-bottom: 30px;
-        padding: 30px;
-        &__title {
-            font-size: 20px;
-        }
-        &__list {
-            font-size: 16px;
-        }
-    }
 }

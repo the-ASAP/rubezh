@@ -202,7 +202,6 @@ const mobileFilterHorizontal = parent => {
     buttons.not('.filter-current').appendTo($(parent).find('.mobile-select__box'));
     $(parent).on('click', e => {
         const that = $(e.target);
-        console.log(that)
         switch (true) {
             case that.hasClass('filter-current'):
                 $(parent).find('.mobile-select').addClass('active');
