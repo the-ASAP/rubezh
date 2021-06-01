@@ -9,24 +9,27 @@ const contentFadeInOnReady = () => {
 };
 
 //навешиваем  обработчики открытия и закрытия на модалки
-const bindModalListeners = modalArr => {
+const bindModalListeners = (modalArr, fixIndex = false) => {
     modalArr.forEach(obj => {
         let jQTrigger = $(obj.trigger);
         let jQModal = $(obj.modal);
 
         jQTrigger.on('click', function () {
+            fixIndex ? $('.main').css('z-index', '2') : $('.main').attr('style', '');
             stopScroll('body');
             jQModal.addClass('active');
         });
 
         jQModal.on('click', function (e) {
+            fixIndex ? $('.main').attr('style', ''): '';
             if ($(e.target).hasClass('modal')) {
                 $(this).removeClass('active');
                 freeScroll();
             }
         });
 
-        jQModal.find('.modal__close').on('click', function () {
+        jQModal.find('.modal__close, [data-close]').on('click', function () {
+            fixIndex ? $('.main').attr('style', ''): '';
             jQModal.removeClass('active');
             freeScroll();
         });
@@ -89,6 +92,7 @@ const closeSearch = (btn) => {
 const closeMenu = (btn, menu) => {
     btn.removeClass('active');
     menu.removeClass('active');
+    $('.header').css('z-index', '1'); // fix for correct visual
     freeScroll();
 };
 
@@ -98,6 +102,7 @@ const toggleMenu = (btn, menu) => {
     } else {
         btn.addClass('active');
         menu.addClass('active');
+        $('.header').css('z-index', '2'); // fix for correct visual
         stopScroll();
     }
 };
@@ -127,21 +132,101 @@ const tabs = (button, content, tabAttr) => {
     })
 }
 
-const buttonScroll = (mainTarget, appearTarget) => {
-    if ($(window).scrollTop() > $(mainTarget).offset().top) {
-        $(appearTarget).addClass('visible')
-    } else {
+const buttonScroll = appearTarget => {
+    const bottomControl = $(window).scrollTop() + 100 > $(document).height() - $(window).height();
+    if (bottomControl) {
         $(appearTarget).removeClass('visible');
+    } else {
+        $(appearTarget).addClass('visible');
     }
 }
+
+const tagTemplate = (text, name = '', type = '') => (
+    `<button class='content__tag custom' data-name='${name}'>${text}</button>`
+)
+
+const addFilters = (e, container) => {
+    const text = $(e.target).siblings('label:not(:empty)').text(),
+        that = $(e.target),
+        nameAttr = that.prop('name');
+    $('.default').remove();
+    if (that.attr('type') === 'radio') {
+        $(container).find(`[data-name=${nameAttr}]`).remove();
+        $(container).append(tagTemplate(text, nameAttr));
+    }
+    if (that.attr('type') === 'checkbox') {
+        if (that.prop('checked')) {
+            $(container).append(tagTemplate(text, nameAttr));
+        } else {
+            $(container).find('button').each((i, el) => $(el).text() === text ? $(el).remove() : 0);
+        }
+    }
+}
+
+const filtersCount = () => {
+    $('.content__searchCount').text(
+        $('button.custom').length ? $('button.custom').length : ''
+    )
+}
+
 
 const removeDisable = (button) => {
     $(button).prop('disabled', false);
 }
 
-$('.profile__checkbox').on('change', e => {
-    removeDisable('.profile__submit--subscribe');
-});
+
+const searchRequest = params => {
+    $('.content__block--control.active').removeClass('active');
+    freeScroll();
+    //ajax request;
+}
+
+
+const mobileFilterHorizontal = parent => {
+    const buttons = $(parent).children();
+    $(parent).append(buttons.eq(0).clone().addClass('filter-current'), '<div class="mobile-select"><div class="mobile-select__box"></div></div>');
+    buttons.not('.filter-current').appendTo($(parent).find('.mobile-select__box'));
+    $(parent).on('click', e => {
+        const that = $(e.target);
+        switch (true) {
+            case that.hasClass('filter-current'):
+                $(parent).find('.mobile-select').addClass('active');
+                stopScroll();
+                break;
+            case that.is('button:not(.filter-current)'):
+                $(parent).find('.filter-current').text(that.text());
+                // ajax request
+                break;
+            case that.hasClass('mobile-select'):
+                $(parent).find('.mobile-select').removeClass('active');
+                freeScroll();
+                break;
+        }
+    })
+}
+
+
+
+const formValidator = form => {
+    form = document.querySelector(form);
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        formValidate({
+            form,
+            url: form.getAttribute('action'),
+            onLoadStart: () => {
+                console.log('load start');
+            },
+            onSuccess: () => {
+                console.log('success');
+            },
+            onError: () => {
+                console.log('error')
+            }
+        });
+    })
+}
+
 
 $().ready(() => {
     $(document).on('click', '.header__search-btn[type="button"]', function () {
@@ -161,14 +246,21 @@ $().ready(() => {
     });
 
     owlGallery('.promo__sliderBox', {
+        margin: 40,
         loop: true,
         nav: true,
-        dots: false,
         navContainer: '.promo__sliderNav',
+        dotsContainer: '.promo__sliderDots',
         responsive: {
             0: {
+                items: 1
+            },
+            769: {
+                items: 2
+            },
+            1025: {
                 items: 3,
-                margin: 40
+                dots: false
             }
         }
     });
@@ -200,14 +292,21 @@ $().ready(() => {
     });
 
     owlGallery('.events__sliderBox', {
+        margin: 40,
         loop: true,
         nav: true,
-        dots: false,
         navContainer: '.events__sliderNav',
+        dotsContainer: '.events__sliderDots',
         responsive: {
             0: {
+                items: 1
+            },
+            769: {
+                items: 2
+            },
+            1025: {
                 items: 3,
-                margin: 40
+                dots: false
             }
         }
     });
@@ -223,8 +322,18 @@ $().ready(() => {
         });
     }
 
-
     contentFadeInOnReady();
+
+    $('.content__field--filter input').on('change', e => {
+        if ($('.content__tags').length > 0 ||
+            ($('.content__mobileTags').length > 0 && mobile)) {
+            addFilters(e, mobile ? '.content__mobileTags' : '.content__tags');
+            filtersCount();
+        }
+        //ajax request;
+    })
+
+    $('.content__mobileSubmit').on('click', () => searchRequest());
 
 
     //детальные страницы
@@ -255,9 +364,13 @@ $().ready(() => {
     //появление кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {
-            buttonScroll('.detail__button--scroll', '.appears');
+            buttonScroll('.appears');
         })
     }
+
+    $('.profile__checkbox').on('change', e => {
+        removeDisable('.profile__submit--subscribe');
+    });
 
     //отобразить название загружаемого файла
     $('.project__load').on('change', function () {
@@ -281,31 +394,39 @@ $().ready(() => {
             trigger: '.content__searchInput--mobile',
             modal: '.content__search--mobile'
         }
-    ])
-
-    //табы в настройках профиля 
-    $('.profile__button').first().addClass('active');
-    $('.profile__form').first().addClass('active');
-    $('.profile__button').on('click', e => {
-        switchActive(e.target, '.profile__button', 'active');
-        tabs(e.target, '.profile__form', 'data-tab');
-    });
-    $('.content__filter').on('click', e => switchActive(e.target, '.content__filter', 'active'));
+    ], true)
+    //раскрытие фильтров на мобильных 
+    if (mobile) {
+        $('.content__heading').on('click', e => {
+            $(e.target).toggleClass('open');
+        })
+    }
+    
     if (mobile && $('.content__filter').length) {
         mobileFilterHorizontal('.content__filters');
     }
     if (mobile && $('.profile__options').length) mobileFilterHorizontal('.profile__options');
 
+    //добавим активный класс для первой загрузки
+    $('.profile__button:not(.filter-current)').first().addClass('active');
+    $('.profile__form').first().addClass('active');
+    //табы в настройках профиля 
+    $('.profile__button:not(.filter-current)').on('click', e => {
+        switchActive(e.target, '.profile__button', 'active');
+        tabs(e.target, '.profile__form', 'data-tab');
+    });
+    $('.content__filter').on('click', e => switchActive(e.target, '.content__filter', 'active'));
+   
 
     //очистка поиска 
-    $('.content__searchClear').on('click', e => {
-        $(e.target).siblings('input').val('');
+    $('.content__searchClear, .content__mobileClear').on('click', e => {
+        // $(e.target).siblings('input').val('');
+        location.search = '';
     })
 
 
 
 
-    console.log()
     //страницы категори
 
     //сетка для видео
@@ -339,6 +460,14 @@ $().ready(() => {
                 }
             );
         }
-        console.log("GUCHI")
     }
+
+     //валидация формы
+     if ($('.project__body').length) formValidator('.project__body');
+
+     //фикс для валидации селекта 
+     $('.project__select').on('change', e => {
+         const that = $(e.target);
+         that.siblings('input[type="hidden"]').val(that.val());
+     })
 });

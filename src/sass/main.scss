@@ -1,4 +1,5 @@
 @import 'root';
+@import 'media';
 @import 'keyframes';
 @import 'mixins';
 
@@ -655,7 +656,7 @@ input {
 }
 
 .main {
-    z-index: 2;
+    z-index: 1;
     position: relative;
     box-sizing: border-box;
     padding-top: 4.5rem;
@@ -1151,7 +1152,7 @@ input {
     }
    
     &__filter {
-        @extend %input--filter;
+        @extend %button--filter;
     }
 
     &__search {
@@ -1505,7 +1506,10 @@ input {
             display: block;
         }
     }
-
+    .account {
+        top: 190%;
+        left: -250%;
+    }
     .nav {
         display: none;
     }
@@ -1846,7 +1850,7 @@ input {
             margin-top: 0;
 
             .wrapper--detail {
-                width: 100%;
+                padding: 0;
             }
         }
 
@@ -1906,6 +1910,7 @@ input {
                     transform: translateY(-50%);
                     width: 18px;
                     height: 18px;
+                    z-index: 1;
                     background-image: url('../img/icons/search--green.svg');
                     background-size: contain;
                     background-repeat: no-repeat;
@@ -2048,8 +2053,8 @@ input {
                 &:not(:first-child) {
                     margin-top: 24px;
                 }
-
                 &.active,
+                &.active:hover,
                 &:hover,
                 &:not(.active),
                 &:not(.active):hover {
