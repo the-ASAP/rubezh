@@ -80,6 +80,7 @@
 
   &__body {
     padding-bottom: 35px;
+
     & * {
       font-family: $exo;
     }
@@ -88,6 +89,7 @@
       text-decoration: underline;
       color: $accent;
       transition: color 0.3s;
+
       & span {
         color: $gen;
         text-align: center;
@@ -113,10 +115,12 @@
     & ol {
       max-width: 800px;
       margin: 1.125rem auto 2.5rem auto;
+
       & li {
         & a {
           display: inline;
         }
+
         &:not(:first-child) {
           margin-top: 0.75rem;
         }
@@ -147,9 +151,11 @@
 
       & li {
         font-weight: 300;
+
         & a {
           display: inline;
         }
+
         &:not(:first-child) {
           margin-top: 0.75rem;
         }
@@ -227,9 +233,11 @@
     display: block;
     width: 600px;
     margin: 2.5rem auto;
+
     &[data-fancybox] {
       text-decoration: none;
     }
+
     &:hover {
       &::after {
         opacity: 1;
@@ -441,33 +449,40 @@
 
 .comments {
   margin-top: 80px;
+
   & * {
     font-family: $exo;
   }
+
   &__count {
     font-size: 24px;
     font-weight: 400;
   }
+
   &__check {
     margin-top: 20px;
     padding-top: 24px;
     border-top: 1px solid rgba(52, 53, 62, 0.5);
+
     & a {
       color: $accent;
       text-decoration: underline;
       font-weight: 700;
     }
   }
+
   &__container {
     width: 790px;
     margin: 40px auto 0 auto;
   }
+
   &__write {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
     margin-bottom: 60px;
   }
+
   &__area {
     width: 100%;
     min-height: 150px;
@@ -477,6 +492,7 @@
     border-radius: 5px;
     resize: none;
   }
+
   &__send {
     @extend %button-transparent;
     margin-top: 30px;
@@ -489,11 +505,14 @@
     display: flex;
     align-items: flex-start;
   }
+
   margin-top: 40px;
+
   & .comment {
     margin-left: 60px;
     margin-top: 30px;
   }
+
   &__pic {
     @extend %flexbox;
     flex-shrink: 0;
@@ -508,14 +527,17 @@
     border-radius: 50%;
     background-color: $accent;
     color: #fff;
+
     &--admin {
       background-color: $blue;
     }
   }
+
   &__name {
     font-family: $raleway;
     font-weight: 600;
   }
+
   &__whom {
     position: relative;
     display: block;
@@ -523,8 +545,10 @@
     font-size: 12px;
     font-weight: 600;
     color: rgba(52, 53, 62, 0.5);
+
     &:not(:empty) {
       margin-top: 8px;
+
       &::before {
         display: inline-block;
         content: "";
@@ -537,9 +561,11 @@
       }
     }
   }
+
   &__text {
     margin-top: 6px;
   }
+
   &__reply {
     margin-top: 10px;
     font-size: 16px;
@@ -572,96 +598,117 @@
   background-color: $accent;
 }
 
-@media (max-width: 1024px) {
+@include medium {
   .detail {
     &__header {
       margin-bottom: 40px;
       padding: 40px 30px;
     }
+
     &__subhead {
       font-size: 18px;
       max-width: 100%;
     }
+
     &__body {
       p {
         font-size: 16px;
         margin-top: 20px;
       }
+
       blockquote {
         padding: 30px 20px 30px 30px;
+
         h5,
         h4,
         h3 {
           font-size: 20px;
         }
       }
+
       ul {
         margin-left: 20px;
         font-size: 16px;
       }
+
       h3 {
         font-size: 18px;
       }
+
       ol {
         margin-left: 16px;
       }
+
       iframe {
-          width: 100%;
-          height: 400px;
+        width: 100%;
+        height: 400px;
       }
     }
+
     &__image {
       width: 100%;
+
       &::after {
         opacity: 1;
       }
     }
   }
+
   .materials {
-      &__title {
-          font-size: 20px;
-      }
-      &__link {
-          font-size: 18px;
-      }
+    &__title {
+      font-size: 20px;
+    }
+
+    &__link {
+      font-size: 18px;
+    }
   }
 }
-@media (max-width: 768px) {
+
+@include small {
   .detail {
     &__header {
       transform: translateX(-30px);
       width: calc(100% + 60px);
     }
+
     &__next,
     &__back {
       margin-top: 12px;
       max-width: 49%;
       font-size: 14px;
     }
+
     &__body {
-        iframe {
-            height: 180px;
-            margin-bottom: 30px;
-        }
+      iframe {
+        height: 180px;
+        margin-bottom: 30px;
+      }
     }
   }
+
   .comments {
     margin-top: 40px;
+
     &__container {
       width: auto;
     }
+
     &__send {
       width: 100%;
     }
   }
+
   .comment {
     &__pic {
       display: none;
     }
+
     .comment {
       margin-left: 30px;
     }
   }
+
   .appears {
     &__container {
       flex-wrap: wrap;
@@ -669,6 +716,7 @@
       justify-content: center;
       width: 100%;
     }
+
     &__text {
       display: none;
     }

@@ -92,7 +92,6 @@ const closeSearch = (btn) => {
 const closeMenu = (btn, menu) => {
     btn.removeClass('active');
     menu.removeClass('active');
-    $('.header').css('z-index', '1'); //fix for correct visual
     freeScroll();
 };
 
@@ -102,7 +101,6 @@ const toggleMenu = (btn, menu) => {
     } else {
         btn.addClass('active');
         menu.addClass('active');
-        $('.header').css('z-index', '2'); //fix for correct visual
         stopScroll();
     }
 };
@@ -112,16 +110,14 @@ const dropDownMenu = (btn) => {
     if (!btn.hasClass('active')) {
         btn.parent().siblings('div').slideUp(200);
     } else {
-        btn.parent().siblings('div')
-            .slideDown(200)
-            .css('display', 'block');
+        btn.parent().siblings('div').slideDown(200);
     }
 };
 
 const switchActive = (target, allElems, className) => {
     $(allElems).removeClass(className);
     $(target).addClass(className);
-}
+};
 
 const tabs = (button, content, tabAttr) => {
     $(content).each((i, el) => {
@@ -130,7 +126,7 @@ const tabs = (button, content, tabAttr) => {
             $(el).fadeIn();
         }
     })
-}
+};
 
 const buttonScroll = appearTarget => {
     const bottomControl = $(window).scrollTop() + 100 > $(document).height() - $(window).height();
@@ -139,11 +135,11 @@ const buttonScroll = appearTarget => {
     } else {
         $(appearTarget).addClass('visible');
     }
-}
+};
 
 const tagTemplate = (text, name = '', type = '') => (
     `<button class='content__tag custom' data-name='${name}'>${text}</button>`
-)
+);
 
 const addFilters = (e, container) => {
     const text = $(e.target).siblings('label:not(:empty)').text(),
@@ -161,23 +157,23 @@ const addFilters = (e, container) => {
             $(container).find('button').each((i, el) => $(el).text() === text ? $(el).remove() : 0);
         }
     }
-}
+};
 
 const filtersCount = () => {
     $('.content__searchCount').text(
         $('button.custom').length ? $('button.custom').length : ''
-    )
-}
+    );
+};
 
 const removeDisable = (button) => {
     $(button).prop('disabled', false);
-}
+};
 
 const searchRequest = params => {
     $('.content__block--control.active').removeClass('active');
     freeScroll();
     //ajax request;
-}
+};
 
 const mobileFilterHorizontal = parent => {
     const buttons = $(parent).children();
@@ -199,8 +195,8 @@ const mobileFilterHorizontal = parent => {
                 freeScroll();
                 break;
         }
-    })
-}
+    });
+};
 
 const formValidator = form => {
     form = document.querySelector(form);
@@ -219,8 +215,8 @@ const formValidator = form => {
                 console.log('error')
             }
         });
-    })
-}
+    });
+};
 
 $().ready(() => {
     $(document).on('click', '.header__search-btn[type="button"]', function () {
@@ -323,7 +319,7 @@ $().ready(() => {
             filtersCount();
         }
         //ajax request;
-    })
+    });
 
     $('.content__mobileSubmit').on('click', () => searchRequest());
 
@@ -334,7 +330,7 @@ $().ready(() => {
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
-        })
+        });
 
         //fancybox
         $('a[data-fancybox]').fancybox({
@@ -349,14 +345,14 @@ $().ready(() => {
             // dblclickContent: function (current, event) {
             //     return "zoom";
             // },
-        })
+        });
     }
 
     //появление кнопки при скролле 
     if ($('.appears').length) {
         $(window).on('scroll', e => {
             buttonScroll('.appears');
-        })
+        });
     }
 
     $('.profile__checkbox').on('change', e => {
@@ -391,7 +387,7 @@ $().ready(() => {
     if (mobile) {
         $('.content__heading').on('click', e => {
             $(e.target).toggleClass('open');
-        })
+        });
     }
 
     if (mobile && $('.content__filter').length) {
@@ -436,7 +432,7 @@ $().ready(() => {
                 function () {
                     let content = $(this).find('.videoItem__content');
                     $(this).animate({
-                        height: '+=' + content.innerHeight()
+                        height: '+=' + (content.outerHeight() + parseInt($(this).css('padding')))
                     }, 200);
                     content
                         .fadeIn(200)
@@ -445,7 +441,7 @@ $().ready(() => {
                 function () {
                     let content = $(this).find('.videoItem__content');
                     $(this).animate({
-                        height: '-=' + content.innerHeight()
+                        height: '-=' + (content.outerHeight() + parseInt($(this).css('padding')))
                     }, 200, function () {
                         $(this).removeAttr('style');
                     });
