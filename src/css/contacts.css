@@ -3127,6 +3127,57 @@ input:-webkit-autofill:focus {
   .modal__button {
     padding: 12px 30px;
   }
+
+  .contacts__header {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .contacts__title {
+    font-size: 24px;
+  }
+
+  .contacts__subtitle {
+    font-size: 18px;
+  }
+
+  .contacts__text {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+
+  .contacts__cards {
+    flex-wrap: wrap;
+    padding: 40px 0 0 0;
+  }
+
+  .contacts__card {
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 30px;
+  }
+
+  .contacts__card:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  .contacts__social {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  .contacts__link:last-child {
+    margin-right: 0;
+  }
+
+  .contacts__block {
+    width: 100%;
+  }
+
+  .contacts__time {
+    display: block;
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 576px) {
