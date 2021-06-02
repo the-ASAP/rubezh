@@ -316,8 +316,6 @@ $().ready(() => {
         });
     }
 
-    contentFadeInOnReady();
-
     $('.content__field--filter input').on('change', e => {
         if ($('.content__tags').length > 0 ||
             ($('.content__mobileTags').length > 0 && mobile)) {
@@ -458,11 +456,15 @@ $().ready(() => {
     }
 
     //валидация формы
-    if ($('.project__body').length) formValidator('.project__body');
+    if ($('.project__body').length) {
+        formValidator('.project__body');
+    }
 
     //фикс для валидации селекта 
     $('.project__select').on('change', e => {
         const that = $(e.target);
         that.siblings('input[type="hidden"]').val(that.val());
-    })
+    });
+
+    contentFadeInOnReady();
 });
