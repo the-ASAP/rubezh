@@ -33,40 +33,34 @@
                             <button type='button' class="content__searchClear">Очистить</button>
                         </div>
                     </form>
-                    <form action="" method="POST" class="content__filters">
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='all' class='content__filter'></input>
-                            <label for='all'>Все продукты</label>
-                        </div>
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='r3link' class='content__filter'></input>
-                            <label for='r3link'>Rubezh R3-Link</label>
-                        </div>
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='r3' class='content__filter'></input>
-                            <label for='r3'>Rubezh R3</label>
-                        </div>
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='r1' class='content__filter'></input>
-                            <label for='r1'>Rubezh R1</label>
-                        </div>
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='spz' class='content__filter'></input>
-                            <label for='spz'>СПЗ "GLOBAL"</label>
-                        </div>
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='supplies' class='content__filter'></input>
-                            <label for='supplies'>Источники питания</label>
-                        </div>
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='cctv' class='content__filter'></input>
-                            <label for='cctv'>Системы охранного телевидения</label>
-                        </div>
-                        <div class="content__field">
-                            <input type='radio' name='solutions__filter' id='strazh' class='content__filter'></input>
-                            <label for='strazh'>RUBEZH STRAZH</label>
-                        </div>
-                    </form>
+                    <div class="content__mobile content__mobile--panel">
+                        <button type="button"
+                            class="content__searchInput content__field--search content__searchInput--mobile">Поиск по
+                            прибору</button>
+                        <form action="" method="GET" class="content__search content__search--mobile">
+                            <div class="content__mobileHeader">
+                                <span class="content__mobileTitle">Поиск</span>
+                                <button type='button' class="content__mobileClose" data-close></button>
+                                <div class="content__field content__field--mobile">
+                                    <input type="text" class='content__mobileSearch' name='search'>
+                                </div>
+                                <div class="content__mobileFooter">
+                                    <button type='button' class="content__mobileClear">Очистить</button>
+                                    <button type='submit' class="content__mobileSubmit">Найти</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="content__filters">
+                        <button type='button' class="content__filter">Все продукты</button>
+                        <button type='button' class="content__filter">Rubezh R3-Link</button>
+                        <button type='button' class="content__filter">Rubezh R3</button>
+                        <button type='button' class="content__filter">Rubezh R1</button>
+                        <button type='button' class="content__filter">СПЗ “GLOBAL”</button>
+                        <button type='button' class="content__filter">Источники питания</button>
+                        <button type='button' class="content__filter">Системы охранного телевидения</button>
+                        <button type='button' class="content__filter">RUBEZH STRAZH</button>
+                    </div>
                 </header>
                 <div class="content__body">
                     <div class="subcategory">
@@ -611,7 +605,6 @@
                 </div>
             </div>
         </section>
-
         @import "bg-points.html"
     </main>
 

@@ -9,11 +9,11 @@
     <meta name="keywords" content="ключевые, слова, через, запятую">
     <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
     <title>Часто задаваемые вопросы</title>
-    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1622617496244" type="text/css">
-    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1622617496244" type="text/css">
-    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1622617496244" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1622619655686" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1622619655686" type="text/css">
+    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1622619655686" type="text/css">
 
-    <link rel="stylesheet" href="css/category.css?t=1622617496244" type="text/css">
+    <link rel="stylesheet" href="css/category.css?t=1622619655686" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
@@ -213,108 +213,177 @@
             <div class="wrapper">
                 <header class="content__header">
                     <h2 class="content__title">Часто задаваемые вопросы </h2>
-                    <p class='content__subtitle'>Как установить RubezhCad,  где взять схемы типовых проектов и другие самые популярные вопросы</p>
+                    <p class='content__subtitle'>Как установить RubezhCad, где взять схемы типовых проектов и другие
+                        самые популярные вопросы</p>
                     <form action="" method="GET" class="content__search">
                         <div class="content__field content__field--search">
                             <input type="text" class="content__searchInput" name='search' placeholder="Поиск">
                             <button type='button' class="content__searchClear">Очистить</button>
                         </div>
                     </form>
+                    <div class="content__mobile content__mobile--panel">
+                        <button type="button"
+                            class="content__searchInput content__field--search content__searchInput--mobile">Поиск</button>
+                        <button type='button' class="content__searchFilters"><svg width="16" height="13"
+                                viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="1" width="16" height="1" rx="0.5" fill="#34353E" />
+                                <rect y="6" width="16" height="1" rx="0.5" fill="#34353E" />
+                                <rect y="11" width="16" height="1" rx="0.5" fill="#34353E" />
+                                <circle cx="3.5" cy="6.5" r="1.5" fill="#34353E" />
+                                <circle cx="12.5" cy="1.5" r="1.5" fill="#34353E" />
+                                <circle cx="9.5" cy="11.5" r="1.5" fill="#34353E" />
+                            </svg>
+                            <span>Фильтры</span><span class="content__searchCount"></span></button>
+                        <form action="" method="GET" class="content__search content__search--mobile">
+                            <div class="content__mobileHeader">
+                                <span class="content__mobileTitle">Поиск</span>
+                                <button type='button' class="content__mobileClose" data-close></button>
+                                <div class="content__field content__field--mobile">
+                                    <input type="text" class='content__mobileSearch' name='search'>
+                                </div>
+                                <div class="content__mobileFooter">
+                                    <button type='button' class="content__mobileClear">Очистить</button>
+                                    <button type='submit' class="content__mobileSubmit">Найти</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </header>
                 <div class="content__body">
                     <div class="content__container">
-                        <div class="content__block content__block--narrow">
-                            <form method="GET" action="" class="content__control">
-                                <span class="content__heading">Продукты</span>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="anyone" name="content__products" checked>
-                                    <label for="anyone"></label>
-                                    <label for="anyone">Любой</label>
+                        <div class="content__block content__block--narrow content__block--control">
+                            <div class="content__mobile">
+                                <div class="content__mobileHeader">
+                                    <span class="content__mobileTitle">Фильтр</span>
+                                    <button type='button' class="content__mobileClose" data-close></button>
+                                    <div class="content__mobileTags">
+                                        <button type='button' class="content__tag default">Все</button>
+                                    </div>
                                 </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="rubezhr3" name="content__products">
-                                    <label for="rubezhr3"></label>
-                                    <label for="rubezhr3">RUBEZH R3</label>
+                            </div>
+                            <div class="content__control">
+                                <div class="content__controlBlock">
+                                    <span class="content__heading">Продукты</span>
+                                    <div class="content__fields">
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="anyone"
+                                                name="content__products" checked>
+                                            <label for="anyone"></label>
+                                            <label for="anyone">Любой</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="rubezhr3"
+                                                name="content__products">
+                                            <label for="rubezhr3"></label>
+                                            <label for="rubezhr3">RUBEZH R3</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="strazh"
+                                                name="content__products">
+                                            <label for="strazh"></label>
+                                            <label for="strazh">STRAZH</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="rubezhr1"
+                                                name="content__products">
+                                            <label for="rubezhr1"></label>
+                                            <label for="rubezhr1">RUBEZH R1</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="global"
+                                                name="content__products">
+                                            <label for="global"></label>
+                                            <label for="global">СПЗ "GLOBAL"</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="Sonar1"
+                                                name="content__products">
+                                            <label for="Sonar1"></label>
+                                            <label for="Sonar1">Sonar</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="Rvi"
+                                                name="content__products">
+                                            <label for="Rvi"></label>
+                                            <label for="Rvi">RVi</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="radio" class="content__radio" id="RubezhCad"
+                                                name="content__products">
+                                            <label for="RubezhCad"></label>
+                                            <label for="RubezhCad">RubezhCad</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="strazh" name="content__products">
-                                    <label for="strazh"></label>
-                                    <label for="strazh">STRAZH</label>
+                                <div class="content__controlBlock">
+                                    <span class="content__heading">Фильтр 2</span>
+                                    <div class="content__fields">
+                                        <div class="content__field content__field--filter">
+                                            <input type="checkbox" class="content__checkbox" id='point-1'
+                                                name='content__filter'>
+                                            <label for="point-1"></label>
+                                            <label for="point-1">Пункт 1</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="checkbox" class="content__checkbox" id='point-2'
+                                                name='content__filter'>
+                                            <label for="point-2"></label>
+                                            <label for="point-2">Пункт 2</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="checkbox" class="content__checkbox" id='point-3'
+                                                name='content__filter'>
+                                            <label for="point-3"></label>
+                                            <label for="point-3">Пункт 3</label>
+                                        </div>
+                                        <div class="content__field content__field--filter">
+                                            <input type="checkbox" class="content__checkbox" id='point-4'
+                                                name='content__filter'>
+                                            <label for="point-4"></label>
+                                            <label for="point-4">Пункт 4</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="rubezhr1" name="content__products">
-                                    <label for="rubezhr1"></label>
-                                    <label for="rubezhr1">RUBEZH R1</label>
+                            </div>
+                            <div class="content__mobile">
+                                <div class="content__mobileFooter">
+                                    <button type='button' class="content__mobileClear">Очистить</button>
+                                    <button type='button' class="content__mobileSubmit">Применить</button>
                                 </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="global" name="content__products">
-                                    <label for="global"></label>
-                                    <label for="global">СПЗ "GLOBAL"</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="Sonar1" name="content__products">
-                                    <label for="Sonar1"></label>
-                                    <label for="Sonar1">Sonar</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="Rvi" name="content__products">
-                                    <label for="Rvi"></label>
-                                    <label for="Rvi">RVi</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="radio" class="content__radio" id="RubezhCad" name="content__products">
-                                    <label for="RubezhCad"></label>
-                                    <label for="RubezhCad">RubezhCad</label>
-                                </div>
-                            </form>
-                            <form method="GET" action="" class="content__control">
-                                <span class="content__heading">Фильтр 2</span>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id='point-1' name='content__filter'>
-                                    <label for="point-1"></label>
-                                    <label for="point-1">Пункт 1</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id='point-2' name='content__filter'>
-                                    <label for="point-2"></label>
-                                    <label for="point-2">Пункт 2</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id='point-3' name='content__filter'>
-                                    <label for="point-3"></label>
-                                    <label for="point-3">Пункт 3</label>
-                                </div>
-                                <div class="content__field content__field--filter">
-                                    <input type="checkbox" class="content__checkbox" id='point-4' name='content__filter'>
-                                    <label for="point-4"></label>
-                                    <label for="point-4">Пункт 4</label>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                         <div class="content__block content__block--wide">
                             <div class="result">
                                 <span class="result__date">25 января 2021</span>
                                 <span class="result__tag">RubezhCAD</span>
-                                <a href='/details--faq.html' class="result__title">Проекты какого размера комфортно выполнять с помощью RubezhCAD?</a>
-                                <p class="result__text">Комфортными для работы в RubezhCAD считаются следующие размеры проектов*, в зависимости от характеристик ПК...</p>
+                                <a href='/details--faq.html' class="result__title">Проекты какого размера комфортно
+                                    выполнять с помощью RubezhCAD?</a>
+                                <p class="result__text">Комфортными для работы в RubezhCAD считаются следующие размеры
+                                    проектов*, в зависимости от характеристик ПК...</p>
                             </div>
                             <div class="result">
                                 <span class="result__date">20 января 2021</span>
                                 <span class="result__tag">RubezhCAD</span>
-                                <a href='/details--faq.html' class="result__title">С увеличением размера проекта замедлилось черчение, удаление кабеля. Как ускорить эти операции?</a>
-                                <p class="result__text">Список рекомендаций для ускорения черчения, удаления кабеля...</p>
+                                <a href='/details--faq.html' class="result__title">С увеличением размера проекта
+                                    замедлилось черчение, удаление кабеля. Как ускорить эти операции?</a>
+                                <p class="result__text">Список рекомендаций для ускорения черчения, удаления кабеля...
+                                </p>
                             </div>
                             <div class="result">
                                 <span class="result__date">20 января 2021</span>
                                 <span class="result__tag">Rubezh R3</span>
-                                <a href='/details--faq.html' class="result__title">Проекты какого размера комфортно выполнять с помощью RubezhCAD?</a>
-                                <p class="result__text">Комфортными для работы в RubezhCAD считаются следующие размеры проектов*, в зависимости от характеристик ПК...</p>
+                                <a href='/details--faq.html' class="result__title">Проекты какого размера комфортно
+                                    выполнять с помощью RubezhCAD?</a>
+                                <p class="result__text">Комфортными для работы в RubezhCAD считаются следующие размеры
+                                    проектов*, в зависимости от характеристик ПК...</p>
                             </div>
                             <div class="result">
                                 <span class="result__date">20 января 2021</span>
                                 <span class="result__tag">Rubezh R3</span>
-                                <a href='/details--faq.html' class="result__title">С увеличением размера проекта замедлилось черчение, удаление кабеля. Как ускорить эти операции?</a>
-                                <p class="result__text">Список рекомендаций для ускорения черчения, удаления кабеля...</p>
+                                <a href='/details--faq.html' class="result__title">С увеличением размера проекта
+                                    замедлилось черчение, удаление кабеля. Как ускорить эти операции?</a>
+                                <p class="result__text">Список рекомендаций для ускорения черчения, удаления кабеля...
+                                </p>
                             </div>
                             <div class="more">
     <button class="more__btn" type="button">Загрузить еще</button>
@@ -323,7 +392,7 @@
 
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="points">
@@ -469,7 +538,9 @@
             <div class="support__container">
                 <div class="support__content">
                     <span class="support__title">Не нашли ответ на интересующий вопрос?</span>
-                    <div class="support__text">Обратитесь в службу поддержки по телефону <a class='support__phone' href='tel:88000000000'>8 800 000-00-00</a> или отправьте свой вопрос на наш email: <a class='support__mail' href='mailto:support@rproject.ru'>support@rproject.ru</a></div>
+                    <div class="support__text">Обратитесь в службу поддержки по телефону <a class='support__phone'
+                            href='tel:88000000000'>8 800 000-00-00</a> или отправьте свой вопрос на наш email: <a
+                            class='support__mail' href='mailto:support@rproject.ru'>support@rproject.ru</a></div>
                 </div>
                 <img src="/img/category/support.png" alt="" class="support__image">
             </div>
@@ -539,10 +610,9 @@
         </div>
     </div>
 </footer>
-
-    <script src="vendors/js/jquery-3.5.1.min.js?t=1622617496244"></script>
-    <script src="vendors/js/owl.carousel.min.js?t=1622617496244"></script>
-    <script src="js/scripts.js?t=1622617496244"></script>
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1622619655686"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1622619655686"></script>
+    <script src="js/scripts.js?t=1622619655686"></script>
 </body>
 
 </html>
