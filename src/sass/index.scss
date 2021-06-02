@@ -355,11 +355,12 @@
             }
 
             &Item {
-                height: 420px;
+                position: relative;
+                height: 380px;
                 padding: 25px 20px 50px;
 
                 &:hover {
-                    height: 420px;
+                    height: 380px;
                 }
             }
 
@@ -458,6 +459,18 @@
         }
     }
 
+    .promo {
+        &__slider {
+            &Item {
+                height: 370px;
+
+                &:hover {
+                    height: 370px;
+                }
+            }
+        }
+    }
+
     .project {
         &__box {
             justify-content: center;
@@ -504,6 +517,18 @@
                         height: 19px;
                         width: 8px;
                     }
+                }
+            }
+        }
+    }
+
+    .promo {
+        &__slider {
+            &Item {
+                height: 420px;
+
+                &:hover {
+                    height: 420px;
                 }
             }
         }

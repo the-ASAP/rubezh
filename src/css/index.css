@@ -2817,12 +2817,13 @@ form ~ .content__filters {
   }
 
   .promo__sliderItem {
-    height: 420px;
+    position: relative;
+    height: 380px;
     padding: 25px 20px 50px;
   }
 
   .promo__sliderItem:hover {
-    height: 420px;
+    height: 380px;
   }
 
   .promo__sliderImg {
@@ -2956,6 +2957,14 @@ form ~ .content__filters {
     display: block;
   }
 
+  .promo__sliderItem {
+    height: 370px;
+  }
+
+  .promo__sliderItem:hover {
+    height: 370px;
+  }
+
   .project__box {
     justify-content: center;
   }
@@ -3025,6 +3034,14 @@ form ~ .content__filters {
   .companies__sliderNav > .owl-next > svg {
     height: 19px;
     width: 8px;
+  }
+
+  .promo__sliderItem {
+    height: 420px;
+  }
+
+  .promo__sliderItem:hover {
+    height: 420px;
   }
 
   .articles__itemImg {
