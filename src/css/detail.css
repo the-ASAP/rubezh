@@ -213,7 +213,8 @@ body::-webkit-scrollbar-thumb {
 .nav__link,
 .subnav__link,
 .subnav__item,
-.menu__link {
+.menu__link,
+.account__link {
   font-size: 1.125rem;
   font-weight: 500;
 }
@@ -698,7 +699,8 @@ body::-webkit-scrollbar-thumb {
 .nav__link,
 .subnav__link,
 .subnav__item,
-.menu__link {
+.menu__link,
+.account__link {
   font-size: 1.125rem;
   font-weight: 500;
 }

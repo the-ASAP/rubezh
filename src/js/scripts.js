@@ -21,7 +21,7 @@ const bindModalListeners = (modalArr, fixIndex = false) => {
         });
 
         jQModal.on('click', function (e) {
-            fixIndex ? $('.main').attr('style', ''): '';
+            fixIndex ? $('.main').attr('style', '') : '';
             if ($(e.target).hasClass('modal')) {
                 $(this).removeClass('active');
                 freeScroll();
@@ -29,7 +29,7 @@ const bindModalListeners = (modalArr, fixIndex = false) => {
         });
 
         jQModal.find('.modal__close, [data-close]').on('click', function () {
-            fixIndex ? $('.main').attr('style', ''): '';
+            fixIndex ? $('.main').attr('style', '') : '';
             jQModal.removeClass('active');
             freeScroll();
         });
@@ -92,7 +92,7 @@ const closeSearch = (btn) => {
 const closeMenu = (btn, menu) => {
     btn.removeClass('active');
     menu.removeClass('active');
-    $('.header').css('z-index', '1'); // fix for correct visual
+    $('.header').css('z-index', '1'); //fix for correct visual
     freeScroll();
 };
 
@@ -102,7 +102,7 @@ const toggleMenu = (btn, menu) => {
     } else {
         btn.addClass('active');
         menu.addClass('active');
-        $('.header').css('z-index', '2'); // fix for correct visual
+        $('.header').css('z-index', '2'); //fix for correct visual
         stopScroll();
     }
 };
@@ -169,18 +169,15 @@ const filtersCount = () => {
     )
 }
 
-
 const removeDisable = (button) => {
     $(button).prop('disabled', false);
 }
-
 
 const searchRequest = params => {
     $('.content__block--control.active').removeClass('active');
     freeScroll();
     //ajax request;
 }
-
 
 const mobileFilterHorizontal = parent => {
     const buttons = $(parent).children();
@@ -205,8 +202,6 @@ const mobileFilterHorizontal = parent => {
     })
 }
 
-
-
 const formValidator = form => {
     form = document.querySelector(form);
     form.addEventListener('submit', function (e) {
@@ -226,7 +221,6 @@ const formValidator = form => {
         });
     })
 }
-
 
 $().ready(() => {
     $(document).on('click', '.header__search-btn[type="button"]', function () {
@@ -339,7 +333,6 @@ $().ready(() => {
     //детальные страницы
 
     //обертка для fancybox 
-
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
@@ -395,36 +388,38 @@ $().ready(() => {
             modal: '.content__search--mobile'
         }
     ], true)
+
     //раскрытие фильтров на мобильных 
     if (mobile) {
         $('.content__heading').on('click', e => {
             $(e.target).toggleClass('open');
         })
     }
-    
+
     if (mobile && $('.content__filter').length) {
         mobileFilterHorizontal('.content__filters');
     }
-    if (mobile && $('.profile__options').length) mobileFilterHorizontal('.profile__options');
+
+    if (mobile && $('.profile__options').length) {
+        mobileFilterHorizontal('.profile__options');
+    }
 
     //добавим активный класс для первой загрузки
     $('.profile__button:not(.filter-current)').first().addClass('active');
     $('.profile__form').first().addClass('active');
+
     //табы в настройках профиля 
     $('.profile__button:not(.filter-current)').on('click', e => {
         switchActive(e.target, '.profile__button', 'active');
         tabs(e.target, '.profile__form', 'data-tab');
     });
     $('.content__filter').on('click', e => switchActive(e.target, '.content__filter', 'active'));
-   
 
     //очистка поиска 
     $('.content__searchClear, .content__mobileClear').on('click', e => {
         // $(e.target).siblings('input').val('');
         location.search = '';
     })
-
-
 
 
     //страницы категори
@@ -462,12 +457,12 @@ $().ready(() => {
         }
     }
 
-     //валидация формы
-     if ($('.project__body').length) formValidator('.project__body');
+    //валидация формы
+    if ($('.project__body').length) formValidator('.project__body');
 
-     //фикс для валидации селекта 
-     $('.project__select').on('change', e => {
-         const that = $(e.target);
-         that.siblings('input[type="hidden"]').val(that.val());
-     })
+    //фикс для валидации селекта 
+    $('.project__select').on('change', e => {
+        const that = $(e.target);
+        that.siblings('input[type="hidden"]').val(that.val());
+    })
 });

@@ -1069,6 +1069,7 @@ input {
 
     &__link {
         display: block;
+        @extend %menu-link;
         transition: color .3s;
 
         &:not(:first-child) {
@@ -1120,15 +1121,19 @@ input {
             font-family: $exo;
         }
     }
+
     &__mobile {
         display: none;
+
         &Close {
             @extend .modal__close;
         }
+
         &Submit {
             @extend %button;
         }
     }
+
     &__filters {
         display: flex;
         flex-wrap: wrap;
@@ -1150,7 +1155,7 @@ input {
             }
         }
     }
-   
+
     &__filter {
         @extend %button--filter;
     }
@@ -1178,6 +1183,7 @@ input {
                 text-decoration: none;
             }
         }
+
         &Filters {
             display: none;
         }
@@ -1205,9 +1211,10 @@ input {
         font-weight: 300;
 
         &.custom {
-            
+
             text-align: left;
             padding-right: 48px;
+
             &::after {
                 content: '';
                 position: absolute;
@@ -1506,10 +1513,12 @@ input {
             display: block;
         }
     }
+
     .account {
         top: 190%;
         left: -250%;
     }
+
     .nav {
         display: none;
     }
@@ -1649,13 +1658,16 @@ input {
         &__title {
             font-size: 24px;
         }
+
         &__subtitle {
             margin-top: 15px;
             font-size: 18px;
         }
+
         &__search {
             margin-top: 30px;
         }
+
         &__block {
             &--arrow {
                 margin-right: 30px;
@@ -2053,6 +2065,7 @@ input {
                 &:not(:first-child) {
                     margin-top: 24px;
                 }
+
                 &.active,
                 &.active:hover,
                 &:hover,
