@@ -1584,7 +1584,9 @@ input:-webkit-autofill:focus {
 
 .videoItem {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 33.5625rem;
   width: 100%;
   box-sizing: border-box;
@@ -1652,7 +1654,7 @@ input:-webkit-autofill:focus {
 }
 
 .videoItem__date {
-  color: #35363f;
+  color: #b2b4bf;
   font-family: "Exo 2", sans-serif;
   font-weight: 500;
 }
