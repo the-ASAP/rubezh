@@ -58,7 +58,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include small {
     .contacts {
         &__header {
             padding-bottom: 0;
@@ -77,11 +77,13 @@
             margin-top: 15px;
             font-size: 18px;
         }
+
         &__cards {
             flex-wrap: wrap;
             padding: 40px 0 0 0;
 
         }
+
         &__card {
             flex-wrap: wrap;
             width: 100%;
@@ -102,10 +104,11 @@
                 margin-right: 0;
             }
         }
+
         &__block {
             width: 100%;
         }
-    
+
         &__time {
             display: block;
             font-size: 18px;
