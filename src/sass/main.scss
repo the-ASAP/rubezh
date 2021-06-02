@@ -226,7 +226,6 @@ input {
 
 .header {
     &__container {
-        z-index: 2;
         position: relative;
         box-sizing: border-box;
         height: 6.875rem;
@@ -410,6 +409,8 @@ input {
 }
 
 .nav {
+    z-index: 2;
+
     &__item {
         display: inline-block;
         position: relative;
@@ -544,6 +545,7 @@ input {
 }
 
 .menu {
+    z-index: 99;
     @extend %hidden;
     height: calc(100vh - 60px);
     width: 100vw;
