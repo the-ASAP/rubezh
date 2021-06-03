@@ -2,27 +2,26 @@
 <html lang="ru">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Описание страницы для SEO и соцсетей">
-	<meta name="keywords" content="ключевые, слова, через, запятую">
-	<link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
-	<title>Настройки профиля</title>
-	<link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1622710448009" type="text/css">
-	<link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1622710448009" type="text/css">
-	<link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1622710448009" type="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Описание страницы для SEO и соцсетей">
+    <meta name="keywords" content="ключевые, слова, через, запятую">
+    <link rel="shortcut icon" type='image/png' href="img/icons/favicon.ico" />
+    <title>Настройки профиля</title>
+    <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css?t=1622714368473" type="text/css">
+    <link rel="stylesheet" href="vendors/css/owl.carousel.min.css?t=1622714368473" type="text/css">
+    <link rel="stylesheet" href="vendors/css/jquery.fancybox.min.css?t=1622714368473" type="text/css">
 
-	<link rel="stylesheet" href="css/profile.css?t=1622710448009" type="text/css">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&display=swap"
-		rel="stylesheet">
+    <link rel="stylesheet" href="css/profile.css?t=1622714368473" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;700;800&family=Roboto:wght@300;500;700&display=swap"
+        rel="stylesheet">
 </head>
 
-
 <body>
-	<div class="preloader"></div>
+    <div class="preloader"></div>
 <header class="header">
     <div class="wrapper wrapper--wide">
         <div class="header__container">
@@ -135,7 +134,7 @@
                         <div class="subnav">
                             <div class="subnav__box">
                                 <a class="subnav__link" href="/rubezh/build/details--lisp.html">LISP-программы для AutoCAD</a>
-                                <a class="subnav__link" href="#">RubezhCAD</a>
+                                <a class="subnav__link" href="#" target="_blank">RubezhCAD</a>
                                 <a class="subnav__link" href="/rubezh/build/details--rbim.html">R-BIM</a>
                                 <a class="subnav__link" href="/rubezh/build/details--revit.html">Материалы для Revit</a>
                                 <a class="subnav__link" href="/rubezh/build/details--nanocad.html">Материалы для nanoCAD</a>
@@ -225,8 +224,8 @@
     </div>
 </header>
 
-	<main class="main">
-		<section class="profile">
+    <main class="main">
+        <section class="profile">
             <div class="wrapper wrapper--detail">
                 <header class="profile__header">
                     <h2 class="profle__title">Настройки профиля</h2>
@@ -235,7 +234,7 @@
                         <button type='button' class="profile__button" data-tab='password'>Смена пароля</button>
                         <button type='button' class="profile__button" data-tab='subscrib'>Управление подписками</button>
                     </div>
-                   
+
                 </header>
                 <div class="profile__body">
                     <form action="" method="POST" class="profile__form" data-tab='personal' id='personal'>
@@ -276,38 +275,45 @@
                     </form>
                     <form action="" method="POST" class="profile__form" data-tab='subscrib' id='subscrib'>
                         <h4 class="profile__subtitle">Управление подписками</h4>
-                        <span class="profile__clarify">Отметьте о каких обновлениях вы хотите получать уведомления</span>
+                        <span class="profile__clarify">Отметьте о каких обновлениях вы хотите получать
+                            уведомления</span>
                         <div class="profile__field profile__field--flex">
-                            <input type="checkbox" class="profile__checkbox" id='subscribe__articles' name='subscribe__articles'>
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__articles'
+                                name='subscribe__articles'>
                             <label for="subscribe__articles"></label>
                             <label for="subscribe__articles" class="profile__subscribe">Статьи</label>
                         </div>
                         <div class="profile__field profile__field--flex">
-                            <input type="checkbox" class="profile__checkbox" id='subscribe__video' name='subscribe__video'>
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__video'
+                                name='subscribe__video'>
                             <label for="subscribe__video"></label>
                             <label for="subscribe__video" class="profile__subscribe">Видеоматериалы</label>
                         </div>
                         <div class="profile__field profile__field--flex">
-                            <input type="checkbox" class="profile__checkbox" id='subscribe__schedule' name='subscribe__schedule'>
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__schedule'
+                                name='subscribe__schedule'>
                             <label for="subscribe__schedule"></label>
                             <label for="subscribe__schedule" class="profile__subscribe">Расписание событий</label>
                         </div>
                         <div class="profile__field profile__field--flex">
-                            <input type="checkbox" class="profile__checkbox" id='subscribe__docs' name='subscribe__docs'>
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__docs'
+                                name='subscribe__docs'>
                             <label for="subscribe__docs"></label>
                             <label for="subscribe__docs" class="profile__subscribe">Нормативные документы</label>
                         </div>
                         <div class="profile__field profile__field--flex">
-                            <input type="checkbox" class="profile__checkbox" id='subscribe__digest' name='subscribe__digest'>
+                            <input type="checkbox" class="profile__checkbox" id='subscribe__digest'
+                                name='subscribe__digest'>
                             <label for="subscribe__digest"></label>
                             <label for="subscribe__digest" class="profile__subscribe">Дайджесты портала</label>
                         </div>
-                        <button type='submit' class="profile__submit profile__submit--subscribe" disabled>Сохранить изменения</button>
+                        <button type='submit' class="profile__submit profile__submit--subscribe" disabled>Сохранить
+                            изменения</button>
                     </form>
                 </div>
             </div>
         </section>
-	</main>
+    </main>
 
     <svg class="bg-points" width="87" height="382" viewBox="0 0 87 382" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M5.74326 78.0044C5.74326 79.5296 4.43772 80.837 2.9146 80.837C1.39147 80.837 0.0859375 79.5296 0.0859375 78.0044C0.0859375 76.4792 1.39147 75.1719 2.9146 75.1719C4.43772 75.1719 5.74326 76.4792 5.74326 78.0044Z" fill="#D7D8DC"/>
@@ -375,7 +381,7 @@
     <path d="M86.5792 353.061C86.5792 354.586 85.2737 355.894 83.7505 355.894C82.2274 355.894 80.9219 354.586 80.9219 353.061C80.9219 351.536 82.2274 350.229 83.7505 350.229C85.2737 350.229 86.5792 351.536 86.5792 353.061Z" fill="#D7D8DC"/>
     <path d="M86.5792 378.228C86.5792 379.753 85.2737 381.06 83.7505 381.06C82.2274 381.06 80.9219 379.753 80.9219 378.228C80.9219 376.702 82.2274 375.395 83.7505 375.395C85.2737 375.395 86.5792 376.702 86.5792 378.228Z" fill="#D7D8DC"/>
 </svg>
-	<footer class="footer">
+    <footer class="footer">
     <div class="wrapper wrapper--wide">
         <div class="footer__flex">
             <div class="footer__column">
@@ -417,9 +423,9 @@
             </nav>
             <nav class="footer__nav">
                 <a class="footer__link footer__link--title" href="/rubezh/build/education.html">Обучение</a>
-                <a class="footer__link" href="#">BIM&Security</a>
-                <a class="footer__link" href="#">PROПРОЕКТ</a>
-                <a class="footer__link" href="#">Rubezh Quiz</a>
+                <a class="footer__link" href="#" target="_blank">BIM&Security</a>
+                <a class="footer__link" href="#" target="_blank">PROПРОЕКТ</a>
+                <a class="footer__link" href="#" target="_blank">Rubezh Quiz</a>
                 <a class="footer__link" href="#">Расписание событий</a>
                 <a class="footer__link" href="/rubezh/build/videos.html">Видеоматериалы</a>
             </nav>
@@ -439,10 +445,11 @@
         </div>
     </div>
 </footer>
-	<script src="vendors/js/jquery-3.5.1.min.js?t=1622710448009"></script>
-	<script src="vendors/js/owl.carousel.min.js?t=1622710448009"></script>
-	<script src="vendors/js/jquery.fancybox.min.js?t=1622710448009"></script>
-	<script src="js/scripts.js?t=1622710448009"></script>
+
+    <script src="vendors/js/jquery-3.5.1.min.js?t=1622714368473"></script>
+    <script src="vendors/js/owl.carousel.min.js?t=1622714368473"></script>
+    <script src="vendors/js/jquery.fancybox.min.js?t=1622714368473"></script>
+    <script src="js/scripts.js?t=1622714368473"></script>
 </body>
 
 </html>

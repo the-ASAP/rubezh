@@ -221,6 +221,25 @@
     font-weight: 500;
 }
 
+@mixin target-blank($background-image) {
+    &[target='_blank'] {
+        position: relative;
+        width: fit-content;
+        padding-right: 19px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            height: 13px;
+            width: 13px;
+            background-image: $background-image;
+        }
+    }
+}
+
 %button {
     box-sizing: border-box;
     padding: 1.25rem 2.25rem;
