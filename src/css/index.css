@@ -458,13 +458,13 @@ body::-webkit-scrollbar-thumb {
   transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  background-color: #6B7785;
+  background-color: #165AA2;
   border-radius: 50%;
   opacity: 0;
 }
 
 .content__radio:checked + label {
-  border-color: #6B7785;
+  border-color: #165AA2;
 }
 
 .content__radio:checked + label::before {
@@ -952,13 +952,13 @@ body::-webkit-scrollbar-thumb {
   transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
-  background-color: #6B7785;
+  background-color: #165AA2;
   border-radius: 50%;
   opacity: 0;
 }
 
 .content__radio:checked + label {
-  border-color: #6B7785;
+  border-color: #165AA2;
 }
 
 .content__radio:checked + label::before {
@@ -1572,18 +1572,20 @@ input:-webkit-autofill:focus {
 
 .menu__btn::before {
   right: 0;
+  transform: rotate(-45deg);
 }
 
 .menu__btn::after {
   right: -3.8px;
+  transform: rotate(45deg);
 }
 
 .menu__btn.active::before {
-  transform: rotate(135deg);
+  transform: rotate(-135deg);
 }
 
 .menu__btn.active::after {
-  transform: rotate(-135deg);
+  transform: rotate(135deg);
 }
 
 .menu__profile {
@@ -2186,13 +2188,12 @@ input:-webkit-autofill:focus {
   width: 786px;
 }
 
-.content__block--grid {
-  column-count: 2;
-  column-gap: 38px;
+.content__flex {
+  display: flex;
 }
 
-.content__block--grid .more {
-  column-span: all;
+.content__column:first-child {
+  margin-right: 2.375rem;
 }
 
 .content__control {
@@ -2220,8 +2221,8 @@ input:-webkit-autofill:focus {
 }
 
 .content__checkbox:checked + label {
-  border-color: #6B7785;
-  background-color: #6B7785;
+  border-color: #165AA2;
+  background-color: #165AA2;
 }
 
 .content .bg-points:nth-child(odd) {
@@ -2682,9 +2683,9 @@ input:-webkit-autofill:focus {
   .content__mobileSubmit,
   .welcome__btn,
   .project__btn {
-    padding: 11px 14px;
-    font-size: 16px;
     min-width: 155px;
+    padding: 12px 14px;
+    font-size: 16px;
   }
 
   .owl-dot {
@@ -2717,9 +2718,9 @@ input:-webkit-autofill:focus {
   .content__mobileSubmit,
   .welcome__btn,
   .project__btn {
-    padding: 11px 14px;
-    font-size: 16px;
     min-width: 155px;
+    padding: 12px 14px;
+    font-size: 16px;
   }
 
   .owl-dot {
@@ -2762,6 +2763,10 @@ input:-webkit-autofill:focus {
   .main {
     padding-top: 20px;
     padding-bottom: 60px;
+  }
+
+  .main--p0 {
+    padding: 0;
   }
 
   .wrapper {
@@ -2963,8 +2968,13 @@ input:-webkit-autofill:focus {
     margin-right: 30px;
   }
 
+  .content__column:first-child {
+    margin-right: 0;
+  }
+
   .welcome {
-    padding: 30px 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
   }
 
   .welcome__title {
@@ -3066,6 +3076,10 @@ input:-webkit-autofill:focus {
 
   .articles__itemTitle {
     margin-bottom: 8px;
+  }
+
+  .articles__more {
+    width: 160px;
   }
 }
 
@@ -3618,12 +3632,20 @@ input:-webkit-autofill:focus {
   .articles__itemImg {
     height: 333px;
   }
+
+  .articles__more {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 576px) {
   .owl-dot {
     height: 8px;
     width: 8px;
+  }
+
+  .owl-dot:not(:last-child) {
+    margin-right: 6px;
   }
 
   .owl-dot > span {
@@ -3634,6 +3656,10 @@ input:-webkit-autofill:focus {
   .owl-dot {
     height: 8px;
     width: 8px;
+  }
+
+  .owl-dot:not(:last-child) {
+    margin-right: 6px;
   }
 
   .owl-dot > span {
