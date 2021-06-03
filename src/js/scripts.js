@@ -87,6 +87,7 @@ const openSearch = (btn) => {
 const closeSearch = (btn) => {
     btn.parent().removeClass('active');
     btn.siblings('button').prop('type', 'button');
+    btn.siblings('input').val('');
 };
 
 const closeMenu = (btn, menu) => {
@@ -416,7 +417,7 @@ $().ready(() => {
     })
 
 
-    //страницы категори
+    //страницы категорий
 
     //сетка для видео
     if ($('.videos').length) {

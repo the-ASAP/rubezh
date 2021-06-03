@@ -205,6 +205,17 @@
     font-weight: 300;
 }
 
+%link {
+    color: $accent;
+    text-decoration: underline;
+    transition: color .2s linear;
+
+    &:hover {
+        color: $accent-lighten;
+        text-decoration: none;
+    }
+}
+
 %menu-link {
     font-size: 1.125rem;
     font-weight: 500;
