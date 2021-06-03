@@ -209,14 +209,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem,
-.not-found__text a {
+.not-found__text a,
+.auth__forgot,
+.auth__reg,
+.auth__new > a,
+.auth__confirm a {
   color: #7BB933;
   text-decoration: underline;
   transition: color .2s linear;
 }
 
 .schemeItem:hover,
-.not-found__text a:hover {
+.not-found__text a:hover,
+.auth__forgot:hover,
+.auth__reg:hover,
+.auth__new > a:hover,
+.auth__confirm a:hover {
   color: #8CD23A;
   text-decoration: none;
 }
@@ -714,14 +722,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem,
-.not-found__text a {
+.not-found__text a,
+.auth__forgot,
+.auth__reg,
+.auth__new > a,
+.auth__confirm a {
   color: #7BB933;
   text-decoration: underline;
   transition: color .2s linear;
 }
 
 .schemeItem:hover,
-.not-found__text a:hover {
+.not-found__text a:hover,
+.auth__forgot:hover,
+.auth__reg:hover,
+.auth__new > a:hover,
+.auth__confirm a:hover {
   color: #8CD23A;
   text-decoration: none;
 }
@@ -2390,7 +2406,6 @@ input:-webkit-autofill:focus {
   text-decoration: underline;
   font-size: 14px;
   font-weight: 500;
-  color: #7BB933;
 }
 
 .auth__new {
@@ -2401,7 +2416,6 @@ input:-webkit-autofill:focus {
 
 .auth__reg {
   margin-left: 5px;
-  color: #7BB933;
   text-decoration: underline;
   font-weight: 500;
 }
@@ -2413,12 +2427,6 @@ input:-webkit-autofill:focus {
 
 .auth__confirm {
   font-size: 14px;
-}
-
-.auth__confirm a {
-  display: inline;
-  color: #7BB933;
-  text-decoration: underline;
 }
 
 .auth__step-title {
