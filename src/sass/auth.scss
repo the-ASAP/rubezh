@@ -119,6 +119,11 @@
         font-weight: 500;
     }
 
+    &__forgot,
+    &__reg {
+        @extend %link;
+    }
+
     &__forgot {
         display: block;
         margin: 20px auto 0 auto;
@@ -126,18 +131,20 @@
         text-decoration: underline;
         font-size: 14px;
         font-weight: 500;
-        color: $accent;
     }
 
     &__new {
         width: fit-content;
         margin: 12px auto 0 auto;
         font-size: 14px;
+
+        &>a {
+            @extend %link;
+        }
     }
 
     &__reg {
         margin-left: 5px;
-        color: $accent;
         text-decoration: underline;
         font-weight: 500;
     }
@@ -155,9 +162,7 @@
         font-size: 14px;
 
         & a {
-            display: inline;
-            color: $accent;
-            text-decoration: underline;
+            @extend %link;
         }
     }
 

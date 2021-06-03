@@ -130,8 +130,7 @@
         line-height: 1.4;
 
         & a {
-            color: $accent;
-            text-decoration: underline;
+            @extend %link;
         }
     }
 }

@@ -208,14 +208,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem,
-.not-found__text a {
+.not-found__text a,
+.project__info a {
   color: #7BB933;
   text-decoration: underline;
   transition: color .2s linear;
 }
 
 .schemeItem:hover,
-.not-found__text a:hover {
+.not-found__text a:hover,
+.project__info a:hover {
   color: #8CD23A;
   text-decoration: none;
 }
@@ -727,14 +729,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem,
-.not-found__text a {
+.not-found__text a,
+.project__info a {
   color: #7BB933;
   text-decoration: underline;
   transition: color .2s linear;
 }
 
 .schemeItem:hover,
-.not-found__text a:hover {
+.not-found__text a:hover,
+.project__info a:hover {
   color: #8CD23A;
   text-decoration: none;
 }
@@ -2427,11 +2431,6 @@ input:-webkit-autofill:focus {
 .project__info {
   margin-top: 30px;
   line-height: 1.4;
-}
-
-.project__info a {
-  color: #7BB933;
-  text-decoration: underline;
 }
 
 @media (max-width: 1600px) {
