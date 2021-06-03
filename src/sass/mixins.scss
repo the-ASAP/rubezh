@@ -256,9 +256,9 @@
     }
 
     @include medium {
-        padding: 11px 14px;
-        font-size: 16px;
         min-width: 155px;
+        padding: 12px 14px;
+        font-size: 16px;
     }
 
     &-disabled {
@@ -426,6 +426,10 @@
         @include x-small {
             height: 8px;
             width: 8px;
+
+            &:not(:last-child) {
+                margin-right: 6px;
+            }
 
             &>span {
                 height: 6px;
@@ -596,14 +600,14 @@
             transform: translate(-50%, -50%);
             width: 10px;
             height: 10px;
-            background-color: $gray-darken;
+            background-color: $blue;
             border-radius: 50%;
             opacity: 0;
         }
     }
 
     &:checked+label {
-        border-color: $gray-darken;
+        border-color: $blue;
 
         &::before {
             opacity: 1;

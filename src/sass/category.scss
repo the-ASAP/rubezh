@@ -530,26 +530,29 @@
 
 .draft {
     position: relative;
-    display: inline-flex;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
-    padding: 35px 30px 38px 30px;
-    margin-right: 38px;
-    margin-bottom: 40px;
-    box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+    padding: 35px 30px;
+    box-shadow: -1px 9px 20px rgba($gray-darken, .25);
     border-radius: 8px;
     background: #FFFFFF;
-    page-break-inside: avoid;
-    break-inside: avoid;
     transition: padding-bottom .3s;
 
-    &:hover {
-        padding-bottom: 125px;
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
 
-        & .draft__download {
-            opacity: 1;
+    &:hover {
+        padding-bottom: 76px;
+
+        &>.draft__download {
+            @extend %button-small;
+            align-self: center;
+            font-size: 14px;
             visibility: visible;
-            transition: opacity .3s, visibility .3s;
+            opacity: 1;
         }
     }
 
@@ -584,19 +587,12 @@
     }
 
     &__download {
-        @extend %button;
-        position: absolute;
-        left: 50%;
-        bottom: 50px;
-        transform: translateX(-50%);
-        display: block;
-        width: fit-content;
-        margin: 30px auto 0 auto;
-        padding: 15px 62px;
-        font-size: 14px;
-        opacity: 0;
+        position: relative;
+        bottom: -30px;
+        font-size: 0;
         visibility: hidden;
-        transition: none;
+        opacity: 0;
+        transition: visibility .3s, opacity .3s;
     }
 }
 

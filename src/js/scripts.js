@@ -452,6 +452,16 @@ $().ready(() => {
         }
     }
 
+    //сетка для проектов
+    if ($('.draft').length) {
+        if (!tablet) {
+            let col = $('.content__column:first');
+            col.children(':nth-child(even)').each(function () {
+                col.siblings('.content__column').append(this);
+            });
+        }
+    }
+
     //валидация формы
     if ($('.project__body').length) {
         formValidator('.project__body');
