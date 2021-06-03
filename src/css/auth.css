@@ -1646,10 +1646,15 @@ input:-webkit-autofill:focus {
   box-sizing: border-box;
   padding: 3.125rem;
   box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+  transition: box-shadow .3s;
 }
 
 .postItem:not(:last-child) {
   margin-bottom: 3.125rem;
+}
+
+.postItem:hover {
+  box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.45);
 }
 
 .postItem__link {
@@ -1658,10 +1663,6 @@ input:-webkit-autofill:focus {
   left: 0;
   height: 100%;
   width: 100%;
-}
-
-.postItem__link:hover ~ .postItem__description > .postItem__title {
-  color: #34353E;
 }
 
 .postItem__img {

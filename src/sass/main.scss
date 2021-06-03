@@ -669,9 +669,14 @@ input {
     box-sizing: border-box;
     padding: 3.125rem;
     box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+    transition: box-shadow .3s;
 
     &:not(:last-child) {
         margin-bottom: 3.125rem;
+    }
+
+    &:hover {
+        box-shadow: -1px 9px 20px rgba($gray-darken, .45);
     }
 
     &__link {
@@ -680,10 +685,6 @@ input {
         left: 0;
         height: 100%;
         width: 100%;
-
-        &:hover~.postItem__description>.postItem__title {
-            color: $text;
-        }
     }
 
     &__img {
