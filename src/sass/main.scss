@@ -261,7 +261,7 @@ input {
                 opacity: 1;
                 box-sizing: border-box;
                 padding: 0 2.625rem;
-                border: 1px solid $gray-darken;
+                border: 1px solid rgba($gray-darken, .5);
                 border-radius: 15px;
             }
 
@@ -523,6 +523,9 @@ input {
     }
 
     &__link {
+        width: fit-content;
+        @include target-blank(url('../img/icons/target--green.svg'));
+
         &:not(:last-child) {
             margin-bottom: 1.875rem;
         }
@@ -669,9 +672,14 @@ input {
     box-sizing: border-box;
     padding: 3.125rem;
     box-shadow: -1px 9px 20px rgba($gray-darken, .25);
+    transition: box-shadow .3s;
 
     &:not(:last-child) {
         margin-bottom: 3.125rem;
+    }
+
+    &:hover {
+        box-shadow: -1px 9px 20px rgba($gray-darken, .45);
     }
 
     &__link {
@@ -680,10 +688,6 @@ input {
         left: 0;
         height: 100%;
         width: 100%;
-
-        &:hover~.postItem__description>.postItem__title {
-            color: $text;
-        }
     }
 
     &__img {
@@ -1012,6 +1016,7 @@ input {
         font-family: $roboto;
         font-weight: 300;
         transition: color .2s linear;
+        @include target-blank(url('../img/icons/target.svg'));
 
         &:hover {
             color: $accent;
@@ -1039,6 +1044,10 @@ input {
 
     &__policy {
         text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
 
@@ -1067,6 +1076,7 @@ input {
 
     &__link {
         display: block;
+        width: fit-content;
         @extend %menu-link;
         transition: color .3s;
 

@@ -1334,7 +1334,7 @@ input:-webkit-autofill:focus {
   opacity: 1;
   box-sizing: border-box;
   padding: 0 2.625rem;
-  border: 1px solid #6B7785;
+  border: 1px solid rgba(107, 119, 133, 0.5);
   border-radius: 15px;
 }
 
@@ -1575,6 +1575,27 @@ input:-webkit-autofill:focus {
   width: 70%;
 }
 
+.subnav__link {
+  width: fit-content;
+}
+
+.subnav__link[target='_blank'] {
+  position: relative;
+  width: fit-content;
+  padding-right: 19px;
+}
+
+.subnav__link[target='_blank']::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 13px;
+  width: 13px;
+  background-image: url("../img/icons/target--green.svg");
+}
+
 .subnav__link:not(:last-child) {
   margin-bottom: 1.875rem;
 }
@@ -1710,10 +1731,15 @@ input:-webkit-autofill:focus {
   box-sizing: border-box;
   padding: 3.125rem;
   box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
+  transition: box-shadow .3s;
 }
 
 .postItem:not(:last-child) {
   margin-bottom: 3.125rem;
+}
+
+.postItem:hover {
+  box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.45);
 }
 
 .postItem__link {
@@ -1722,10 +1748,6 @@ input:-webkit-autofill:focus {
   left: 0;
   height: 100%;
   width: 100%;
-}
-
-.postItem__link:hover ~ .postItem__description > .postItem__title {
-  color: #34353E;
 }
 
 .postItem__img {
@@ -2031,6 +2053,23 @@ input:-webkit-autofill:focus {
   transition: color .2s linear;
 }
 
+.footer__link[target='_blank'] {
+  position: relative;
+  width: fit-content;
+  padding-right: 19px;
+}
+
+.footer__link[target='_blank']::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 13px;
+  width: 13px;
+  background-image: url("../img/icons/target.svg");
+}
+
 .footer__link:hover {
   color: #7BB933;
 }
@@ -2056,6 +2095,10 @@ input:-webkit-autofill:focus {
 
 .footer__policy {
   text-decoration: underline;
+}
+
+.footer__policy:hover {
+  text-decoration: none;
 }
 
 .account {
@@ -2084,6 +2127,7 @@ input:-webkit-autofill:focus {
 
 .account__link {
   display: block;
+  width: fit-content;
   transition: color .3s;
 }
 
