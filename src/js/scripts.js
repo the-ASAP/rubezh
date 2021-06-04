@@ -219,6 +219,13 @@ const formValidator = form => {
     });
 };
 
+const grid = (col) => {
+    let firstCol = $(col).first();
+    firstCol.children(':nth-child(even)').each(function () {
+        firstCol.siblings(col).append(this);
+    });
+};
+
 $().ready(() => {
     $(document).on('click', '.header__search-btn[type="button"]', function () {
         openSearch($(this));
@@ -422,10 +429,7 @@ $().ready(() => {
     //сетка для видео
     if ($('.videos').length) {
         if (!mobile) {
-            let col = $('.videos__column:first');
-            col.children(':nth-child(even)').each(function () {
-                col.siblings('.videos__column').append(this);
-            });
+            grid('.videos__column');
         }
 
         if (!tablet) {
@@ -455,10 +459,7 @@ $().ready(() => {
     //сетка для проектов
     if ($('.draft').length) {
         if (!tablet) {
-            let col = $('.content__column:first');
-            col.children(':nth-child(even)').each(function () {
-                col.siblings('.content__column').append(this);
-            });
+            grid('.content__column');
         }
     }
 
