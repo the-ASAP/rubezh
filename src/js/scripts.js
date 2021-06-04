@@ -243,6 +243,10 @@ $().ready(() => {
         dropDownMenu($(this));
     });
 
+    $('.banner__closeBtn').on('click', function () {
+        $(this).closest('.banner').remove();
+    });
+
     owlGallery('.promo__sliderBox', {
         margin: 40,
         loop: true,
