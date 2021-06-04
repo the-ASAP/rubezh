@@ -530,9 +530,6 @@
 
 .draft {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 100%;
     padding: 35px 30px;
     box-shadow: -1px 9px 20px rgba($gray-darken, .25);
@@ -545,14 +542,12 @@
     }
 
     &:hover {
-        padding-bottom: 76px;
+        padding-bottom: 126px;
 
         &>.draft__download {
-            @extend %button-small;
-            align-self: center;
-            font-size: 14px;
-            visibility: visible;
-            opacity: 1;
+            display: block;
+            animation: fadeIn .2s forwards;
+            animation-delay: .2s;
         }
     }
 
@@ -587,12 +582,14 @@
     }
 
     &__download {
-        position: relative;
-        bottom: -30px;
-        font-size: 0;
-        visibility: hidden;
+        @extend %button-small;
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+        transform: translateX(-50%);
+        display: none;
+        font-size: 14px;
         opacity: 0;
-        transition: visibility .3s, opacity .3s;
     }
 }
 
@@ -904,8 +901,15 @@
 
     .draft {
         margin-right: 0;
-        margin-bottom: 30px;
         padding: 30px;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+
+        &:hover {
+            padding-bottom: 106px;
+        }
 
         &__title {
             font-size: 20px;
@@ -913,6 +917,10 @@
 
         &__list {
             font-size: 16px;
+        }
+
+        &__download {
+            bottom: 30px;
         }
     }
 }
