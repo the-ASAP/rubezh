@@ -646,6 +646,10 @@
       font-size: 14px;
     }
 
+    &__button {
+      font-size: 14px;
+    }
+
     &__body {
       iframe {
         height: 180px;
@@ -686,6 +690,10 @@
 
     &__text {
       display: none;
+    }
+
+    &__button {
+      font-size: 14px;
     }
   }
 }

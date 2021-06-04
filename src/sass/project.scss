@@ -41,6 +41,7 @@
 
     &__field {
         position: relative;
+        max-width: 100%;
         width: fit-content;
         margin-top: 30px;
     }
@@ -75,6 +76,7 @@
     &__input,
     &__select {
         @extend %input;
+        max-width: 100%;
         width: 390px;
         margin-top: 10px;
 
@@ -131,6 +133,20 @@
 
         & a {
             @extend %link;
+        }
+    }
+}
+
+@include small {
+    .project {
+        &__label {
+            &--load {
+                font-size: 14px;
+            }
+        }
+
+        &__submit {
+            font-size: 14px;
         }
     }
 }

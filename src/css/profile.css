@@ -1240,6 +1240,7 @@ input:-webkit-autofill:focus {
 }
 
 .modal {
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -1251,10 +1252,10 @@ input:-webkit-autofill:focus {
   visibility: hidden;
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
 }
 
 .modal.active {
+  z-index: 99;
   opacity: 1;
   visibility: visible;
 }
@@ -3640,6 +3641,7 @@ input:-webkit-autofill:focus {
   }
 
   .modal__title {
+    max-width: unset;
     font-size: 16px;
   }
 
@@ -3649,6 +3651,7 @@ input:-webkit-autofill:focus {
 
   .modal__button {
     padding: 12px 30px;
+    font-size: 14px;
   }
 
   .profile__options {
@@ -3678,6 +3681,10 @@ input:-webkit-autofill:focus {
   .profile__input {
     width: 100%;
     font-size: 18px;
+  }
+
+  .profile__submit {
+    font-size: 14px;
   }
 
   .projects__title {
