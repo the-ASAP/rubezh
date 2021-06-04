@@ -522,9 +522,8 @@
     }
 
     &__mail {
+        @extend %link;
         font-weight: 500;
-        color: $accent;
-        text-decoration: underline;
     }
 }
 
