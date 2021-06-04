@@ -148,6 +148,7 @@ input {
 //шаблон для модального окна
 //.modal Обязательный класс для всех модальных окон, для попапов используем класс .popup который экстендит(@extend) класс modal или описываем свой.
 .modal {
+    z-index: 1;
     position: fixed;
     top: 0;
     left: 0;
@@ -160,9 +161,9 @@ input {
     visibility: hidden;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
 
     &.active {
+        z-index: 99;
         opacity: 1;
         visibility: visible;
     }
@@ -2220,6 +2221,7 @@ input {
         }
 
         &__title {
+            max-width: unset;
             font-size: 16px;
         }
 
@@ -2229,6 +2231,7 @@ input {
 
         &__button {
             padding: 12px 30px;
+            font-size: 14px;
         }
     }
 }
