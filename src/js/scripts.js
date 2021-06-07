@@ -441,7 +441,7 @@ $().ready(() => {
                 function () {
                     let content = $(this).find('.videoItem__content');
                     $(this).animate({
-                        height: '+=' + (content.outerHeight() + parseInt($(this).css('padding')))
+                        height: '+=' + content.outerHeight()
                     }, 200);
                     content
                         .fadeIn(200)
@@ -450,7 +450,7 @@ $().ready(() => {
                 function () {
                     let content = $(this).find('.videoItem__content');
                     $(this).animate({
-                        height: '-=' + (content.outerHeight() + parseInt($(this).css('padding')))
+                        height: '-=' + content.outerHeight()
                     }, 200, function () {
                         $(this).removeAttr('style');
                     });
