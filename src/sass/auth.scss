@@ -54,18 +54,15 @@
             &::after {
                 content: '';
                 position: absolute;
-                left: -1px;
+                left: 0;
                 bottom: -15px;
-                width: 101%;
+                width: inherit;
                 height: 15px;
+                transform: scale(1.012);
                 background-color: #ffffff;
                 z-index: 1;
             }
         }
-
-        // &:first-child {
-        //     margin-right: 12px;
-        // }
     }
 
     &__body {
@@ -116,7 +113,7 @@
         @extend %button;
         display: block;
         width: fit-content;
-        margin: 55px auto 0;
+        margin: 40px auto 0;
         padding: 15px 78px;
         font-size: 14px;
         font-weight: 500;

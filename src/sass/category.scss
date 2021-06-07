@@ -17,7 +17,7 @@
             right: 1.1875rem;
             bottom: 0;
             height: 100%;
-            width: 100%;
+            width: calc(100% - 1.1875rem);
             background: url(../img/category/header-bg.svg) right bottom no-repeat;
             background-size: 12rem 23.875rem;
         }
@@ -232,6 +232,11 @@
     &__link {
         @extend %button-small;
     }
+}
+
+.calcs {
+    display: flex;
+    flex-direction: column;
 }
 
 .community {

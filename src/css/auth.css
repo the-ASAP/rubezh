@@ -349,6 +349,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .postItem__status:hover {
+  border-color: #165AA2;
   background-color: #165AA2;
 }
 
@@ -882,6 +883,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .postItem__status:hover {
+  border-color: #165AA2;
   background-color: #165AA2;
 }
 
@@ -1150,7 +1152,6 @@ h6 {
 }
 
 .wrapper--menu {
-  max-width: 576px;
   margin: unset;
 }
 
@@ -1287,6 +1288,7 @@ input:-webkit-autofill:focus {
 
 .header__search-btn {
   right: 0;
+  height: 100%;
 }
 
 .header__search-input {
@@ -1702,13 +1704,8 @@ input:-webkit-autofill:focus {
 }
 
 .postItem {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
   height: 18.75rem;
   width: 100%;
-  box-sizing: border-box;
-  padding: 3.125rem;
   box-shadow: -1px 9px 20px rgba(107, 119, 133, 0.25);
   transition: box-shadow .3s;
 }
@@ -1722,11 +1719,13 @@ input:-webkit-autofill:focus {
 }
 
 .postItem__link {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
+  padding: 3.125rem;
 }
 
 .postItem__img {
@@ -1738,6 +1737,7 @@ input:-webkit-autofill:focus {
 
 .postItem__status {
   position: relative;
+  display: inline-block;
   margin-bottom: 1.875rem;
 }
 
@@ -2488,10 +2488,11 @@ input:-webkit-autofill:focus {
 .auth__link.active::after {
   content: '';
   position: absolute;
-  left: -1px;
+  left: 0;
   bottom: -15px;
-  width: 101%;
+  width: inherit;
   height: 15px;
+  transform: scale(1.012);
   background-color: #ffffff;
   z-index: 1;
 }
@@ -2537,7 +2538,7 @@ input:-webkit-autofill:focus {
 .auth__submit {
   display: block;
   width: fit-content;
-  margin: 55px auto 0;
+  margin: 40px auto 0;
   padding: 15px 78px;
   font-size: 14px;
   font-weight: 500;
@@ -2837,7 +2838,7 @@ input:-webkit-autofill:focus {
     opacity: 1;
   }
 
-  .postItem {
+  .postItem__link {
     padding: 30px;
   }
 
@@ -2980,10 +2981,17 @@ input:-webkit-autofill:focus {
 
 @media (max-width: 768px) {
   .postItem {
-    flex-direction: column;
     height: max-content;
-    padding: 0;
     box-shadow: none;
+  }
+
+  .postItem:hover {
+    box-shadow: none;
+  }
+
+  .postItem__link {
+    flex-direction: column;
+    padding: 0;
   }
 
   .postItem__img {
