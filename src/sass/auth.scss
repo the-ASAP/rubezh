@@ -34,6 +34,7 @@
         border: 1px solid $accent;
         border-radius: 8px;
         color: $accent;
+        text-align: center;
         transition: color .2s, background-color .2s;
 
         &:not(.active):hover {
@@ -69,6 +70,8 @@
 
     &__body {
         position: relative;
+        @extend %flexbox;
+        flex-direction: column;
         margin-top: 6px;
         padding: 40px 40px 50px 40px;
         background-color: #fff;
@@ -113,7 +116,7 @@
         @extend %button;
         display: block;
         width: fit-content;
-        margin: 55px auto 0 auto;
+        margin: 55px auto 0;
         padding: 15px 78px;
         font-size: 14px;
         font-weight: 500;
@@ -126,7 +129,7 @@
 
     &__forgot {
         display: block;
-        margin: 20px auto 0 auto;
+        margin-top: 20px;
         width: fit-content;
         text-decoration: underline;
         font-size: 14px;
@@ -135,7 +138,7 @@
 
     &__new {
         width: fit-content;
-        margin: 12px auto 0 auto;
+        margin-top: 12px;
         font-size: 14px;
 
         &>a {
@@ -230,6 +233,18 @@
 
         &__subhead {
             font-size: 18px;
+        }
+    }
+}
+
+@include xx-small {
+    .auth {
+        &__link {
+            padding: 4px 12px;
+
+            &.active {
+                padding: 5.5px 7px;
+            }
         }
     }
 }
