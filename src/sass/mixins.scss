@@ -335,6 +335,7 @@
         color: #ffffff;
 
         &:hover {
+            border-color: $blue;
             background-color: $blue;
         }
     }

@@ -87,7 +87,6 @@ h6 {
     }
 
     &--menu {
-        max-width: 576px;
         margin: unset;
     }
 }
@@ -236,6 +235,7 @@ input {
         &-btn {
             @extend %search-btn;
             right: 0;
+            height: 100%;
         }
 
         &-input {
@@ -667,13 +667,8 @@ input {
 }
 
 .postItem {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
     height: 18.75rem;
     width: 100%;
-    box-sizing: border-box;
-    padding: 3.125rem;
     box-shadow: -1px 9px 20px rgba($gray-darken, .25);
     transition: box-shadow .3s;
 
@@ -686,11 +681,13 @@ input {
     }
 
     &__link {
-        position: absolute;
-        top: 0;
-        left: 0;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
         height: 100%;
         width: 100%;
+        box-sizing: border-box;
+        padding: 3.125rem;
     }
 
     &__img {
@@ -703,6 +700,7 @@ input {
     &__status {
         position: relative;
         @extend %button-status;
+        display: inline-block;
         margin-bottom: 1.875rem;
     }
 
@@ -1622,7 +1620,9 @@ input {
     }
 
     .postItem {
-        padding: 30px;
+        &__link {
+            padding: 30px;
+        }
 
         &__img {
             margin-right: 30px;
@@ -1780,10 +1780,17 @@ input {
 
 @include small {
     .postItem {
-        flex-direction: column;
         height: max-content;
-        padding: 0;
         box-shadow: none;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        &__link {
+            flex-direction: column;
+            padding: 0;
+        }
 
         &__img {
             height: 333px;
