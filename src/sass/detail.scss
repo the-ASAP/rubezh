@@ -33,12 +33,10 @@
   }
 
   &__title {
-    margin-top: 1.875rem;
+    font-size: 2.625rem;
+    font-weight: 700;
     line-height: 1.2;
-
-    // &--docs {
-    //   font-size: 2.25rem;
-    // }
+    margin-top: 1.875rem;
   }
 
   &__subhead {

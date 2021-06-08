@@ -226,7 +226,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem,
-.banner--reminder .banner__link,
+.banner__link,
 .not-found__text a,
 .auth__forgot,
 .auth__reg,
@@ -238,7 +238,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem:hover,
-.banner--reminder .banner__link:hover,
+.banner__link:hover,
 .not-found__text a:hover,
 .auth__forgot:hover,
 .auth__reg:hover,
@@ -759,7 +759,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem,
-.banner--reminder .banner__link,
+.banner__link,
 .not-found__text a,
 .auth__forgot,
 .auth__reg,
@@ -771,7 +771,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schemeItem:hover,
-.banner--reminder .banner__link:hover,
+.banner__link:hover,
 .not-found__text a:hover,
 .auth__forgot:hover,
 .auth__reg:hover,
@@ -1932,6 +1932,30 @@ input:-webkit-autofill:focus {
   width: 50%;
 }
 
+.banner__link {
+  position: relative;
+  box-sizing: border-box;
+  padding-right: 9px;
+  font-weight: 700;
+}
+
+.banner__link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 8px;
+  background: url(../img/index/arrow.svg) no-repeat;
+  background-size: contain;
+  transition: transform .3s;
+}
+
+.banner__link:hover::after {
+  transform: translateY(-50%) translateX(8px);
+}
+
 .banner__closeBtn {
   top: 1rem;
   right: 0;
@@ -1964,28 +1988,6 @@ input:-webkit-autofill:focus {
 .banner--reminder .banner__text > span {
   color: #ffffff;
   font-weight: 400;
-}
-
-.banner--reminder .banner__link {
-  position: relative;
-  font-weight: 700;
-}
-
-.banner--reminder .banner__link::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(8px, -50%);
-  height: 15px;
-  width: 8px;
-  background: url(../img/index/arrow.svg) no-repeat;
-  background-size: contain;
-  transition: transform .3s;
-}
-
-.banner--reminder .banner__link:hover::after {
-  transform: translate(16px, -50%);
 }
 
 .subscribe {
@@ -3329,6 +3331,7 @@ input:-webkit-autofill:focus {
     top: 0;
     width: 100%;
     height: 100%;
+    overflow: auto;
     margin: 0;
     padding: 83px 30px 30px 30px;
     border: 1px solid #34353E;
