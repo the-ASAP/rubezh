@@ -20,7 +20,6 @@
 .logo,
 .subnav__link,
 .subnav__item,
-.menu__itemBox,
 .more,
 .footer__contacts,
 .footer__social,
@@ -554,7 +553,6 @@ body::-webkit-scrollbar-thumb {
 .logo,
 .subnav__link,
 .subnav__item,
-.menu__itemBox,
 .more,
 .footer__contacts,
 .footer__social,
@@ -1151,10 +1149,6 @@ h6 {
   max-width: 850px;
 }
 
-.wrapper--menu {
-  margin: unset;
-}
-
 a {
   color: #34353E;
   display: inline-block;
@@ -1628,7 +1622,6 @@ input:-webkit-autofill:focus {
 
 .menu__itemBox {
   position: relative;
-  justify-content: space-between;
 }
 
 .menu__link {
@@ -1640,10 +1633,12 @@ input:-webkit-autofill:focus {
 }
 
 .menu__btn {
-  position: relative;
-  right: 6px;
-  height: 8px;
-  width: 8px;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+  height: 30px;
+  width: 30px;
 }
 
 .menu__btn::before,
@@ -1652,12 +1647,12 @@ input:-webkit-autofill:focus {
 }
 
 .menu__btn::before {
-  right: 0;
+  right: 16px;
   transform: rotate(-45deg);
 }
 
 .menu__btn::after {
-  right: -3.8px;
+  right: 12.2px;
   transform: rotate(45deg);
 }
 
@@ -1915,6 +1910,7 @@ input:-webkit-autofill:focus {
   z-index: 1;
   position: relative;
   display: flex;
+  align-items: center;
   box-sizing: border-box;
   padding: 5rem 0;
 }
@@ -1932,7 +1928,7 @@ input:-webkit-autofill:focus {
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 100%;
+  max-height: 100%;
   width: 50%;
 }
 
@@ -2419,8 +2415,11 @@ input:-webkit-autofill:focus {
   color: #6B7785;
 }
 
-.result__title {
+.result__link {
   margin-top: 16px;
+}
+
+.result__title {
   font-size: 24px;
   font-weight: 600;
 }
@@ -2488,11 +2487,10 @@ input:-webkit-autofill:focus {
 .auth__link.active::after {
   content: '';
   position: absolute;
-  left: 0;
+  left: -1px;
   bottom: -15px;
-  width: inherit;
+  width: calc(100% + 2px);
   height: 15px;
-  transform: scale(1.012);
   background-color: #ffffff;
   z-index: 1;
 }
@@ -3018,6 +3016,7 @@ input:-webkit-autofill:focus {
 
   .banner__box {
     flex-direction: column;
+    align-items: flex-start;
     padding: 30px 0;
   }
 
@@ -3032,6 +3031,7 @@ input:-webkit-autofill:focus {
   }
 
   .subscribe {
+    height: 40px;
     width: 100%;
   }
 

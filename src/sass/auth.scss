@@ -54,11 +54,10 @@
             &::after {
                 content: '';
                 position: absolute;
-                left: 0;
+                left: -1px;
                 bottom: -15px;
-                width: inherit;
+                width: calc(100% + 2px);
                 height: 15px;
-                transform: scale(1.012);
                 background-color: #ffffff;
                 z-index: 1;
             }
