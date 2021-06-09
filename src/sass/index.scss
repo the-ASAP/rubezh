@@ -316,6 +316,16 @@
     }
 }
 
+.bg-points {
+    &>svg:nth-child(odd) {
+        top: 90.5rem;
+    }
+
+    &>svg:nth-child(even) {
+        top: 133.75rem;
+    }
+}
+
 @include medium {
     .welcome {
         padding-top: 20px;

@@ -1648,6 +1648,7 @@ input:-webkit-autofill:focus {
 .main {
   z-index: 1;
   position: relative;
+  min-height: 100vh;
   box-sizing: border-box;
   padding-top: 4.5rem;
   padding-bottom: 9.375rem;
@@ -1849,15 +1850,24 @@ input:-webkit-autofill:focus {
 .bg-points {
   z-index: -1;
   position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
-.bg-points:nth-child(odd) {
-  top: 45%;
+.bg-points > svg:nth-child(odd),
+.bg-points > svg:nth-child(even) {
+  position: absolute;
+}
+
+.bg-points > svg:nth-child(odd) {
+  top: 24.375rem;
   left: 0;
 }
 
-.bg-points:nth-child(even) {
-  top: 68%;
+.bg-points > svg:nth-child(even) {
+  top: 75.6875rem;
   right: 0;
 }
 
@@ -1895,7 +1905,7 @@ input:-webkit-autofill:focus {
 .banner__link {
   position: relative;
   box-sizing: border-box;
-  padding-right: 9px;
+  padding-right: 10px;
   font-weight: 700;
 }
 
@@ -1905,15 +1915,15 @@ input:-webkit-autofill:focus {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  height: 15px;
-  width: 8px;
+  height: 14px;
+  width: 9px;
   background: url(../img/index/arrow.svg) no-repeat;
   background-size: contain;
   transition: transform .3s;
 }
 
 .banner__link:hover::after {
-  transform: translateY(-50%) translateX(8px);
+  transform: translateX(10px) translateY(-50%);
 }
 
 .banner__closeBtn {
@@ -2318,10 +2328,6 @@ input:-webkit-autofill:focus {
   background-color: #165AA2;
 }
 
-.content .bg-points:nth-child(odd) {
-  top: 25%;
-}
-
 .not-found__image {
   display: block;
   width: 960px;
@@ -2681,6 +2687,14 @@ input:-webkit-autofill:focus {
 
 .articles__more {
   align-self: center;
+}
+
+.bg-points > svg:nth-child(odd) {
+  top: 90.5rem;
+}
+
+.bg-points > svg:nth-child(even) {
+  top: 133.75rem;
 }
 
 @media (max-width: 1600px) {

@@ -221,7 +221,8 @@ body::-webkit-scrollbar-thumb {
 .postItem__status,
 .postItem__text,
 .videoItem__text,
-.more__text {
+.more__text,
+.detail__image figcaption {
   font-family: "Exo 2", sans-serif;
   font-weight: 300;
 }
@@ -230,7 +231,8 @@ body::-webkit-scrollbar-thumb {
 .banner__link,
 .not-found__text a,
 .detail__body a,
-.materials__info > a {
+.materials__info > a,
+.comments__check a {
   color: #7BB933;
   text-decoration: underline;
   transition: color .2s linear;
@@ -240,7 +242,8 @@ body::-webkit-scrollbar-thumb {
 .banner__link:hover,
 .not-found__text a:hover,
 .detail__body a:hover,
-.materials__info > a:hover {
+.materials__info > a:hover,
+.comments__check a:hover {
   color: #8CD23A;
   text-decoration: none;
 }
@@ -743,7 +746,8 @@ body::-webkit-scrollbar-thumb {
 .postItem__status,
 .postItem__text,
 .videoItem__text,
-.more__text {
+.more__text,
+.detail__image figcaption {
   font-family: "Exo 2", sans-serif;
   font-weight: 300;
 }
@@ -752,7 +756,8 @@ body::-webkit-scrollbar-thumb {
 .banner__link,
 .not-found__text a,
 .detail__body a,
-.materials__info > a {
+.materials__info > a,
+.comments__check a {
   color: #7BB933;
   text-decoration: underline;
   transition: color .2s linear;
@@ -762,7 +767,8 @@ body::-webkit-scrollbar-thumb {
 .banner__link:hover,
 .not-found__text a:hover,
 .detail__body a:hover,
-.materials__info > a:hover {
+.materials__info > a:hover,
+.comments__check a:hover {
   color: #8CD23A;
   text-decoration: none;
 }
@@ -1669,6 +1675,7 @@ input:-webkit-autofill:focus {
 .main {
   z-index: 1;
   position: relative;
+  min-height: 100vh;
   box-sizing: border-box;
   padding-top: 4.5rem;
   padding-bottom: 9.375rem;
@@ -1870,15 +1877,24 @@ input:-webkit-autofill:focus {
 .bg-points {
   z-index: -1;
   position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
-.bg-points:nth-child(odd) {
-  top: 45%;
+.bg-points > svg:nth-child(odd),
+.bg-points > svg:nth-child(even) {
+  position: absolute;
+}
+
+.bg-points > svg:nth-child(odd) {
+  top: 24.375rem;
   left: 0;
 }
 
-.bg-points:nth-child(even) {
-  top: 68%;
+.bg-points > svg:nth-child(even) {
+  top: 75.6875rem;
   right: 0;
 }
 
@@ -1916,7 +1932,7 @@ input:-webkit-autofill:focus {
 .banner__link {
   position: relative;
   box-sizing: border-box;
-  padding-right: 9px;
+  padding-right: 10px;
   font-weight: 700;
 }
 
@@ -1926,15 +1942,15 @@ input:-webkit-autofill:focus {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  height: 15px;
-  width: 8px;
+  height: 14px;
+  width: 9px;
   background: url(../img/index/arrow.svg) no-repeat;
   background-size: contain;
   transition: transform .3s;
 }
 
 .banner__link:hover::after {
-  transform: translateY(-50%) translateX(8px);
+  transform: translateX(10px) translateY(-50%);
 }
 
 .banner__closeBtn {
@@ -2339,10 +2355,6 @@ input:-webkit-autofill:focus {
   background-color: #165AA2;
 }
 
-.content .bg-points:nth-child(odd) {
-  top: 25%;
-}
-
 .not-found__image {
   display: block;
   width: 960px;
@@ -2494,7 +2506,7 @@ input:-webkit-autofill:focus {
   font-family: "Exo 2", sans-serif;
 }
 
-.detail__body a span {
+.detail__body a figcaption {
   color: #34353E;
   text-align: center;
 }
@@ -2630,7 +2642,7 @@ input:-webkit-autofill:focus {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 2.5rem;
+  bottom: 2.2rem;
   width: 2.5rem;
   height: 2.5rem;
   background-color: #7BB933;
@@ -2646,17 +2658,18 @@ input:-webkit-autofill:focus {
   transition: opacity 0.3s;
 }
 
-.detail__image span {
+.detail__image figcaption {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  font-size: .875rem;
 }
 
 .detail__image img {
   width: 100%;
   object-fit: contain;
   order: -1;
-  margin-bottom: 1.75rem;
+  margin-bottom: 3.4375rem;
 }
 
 .detail__description {
@@ -2812,8 +2825,6 @@ input:-webkit-autofill:focus {
 }
 
 .comments__check a {
-  color: #7BB933;
-  text-decoration: underline;
   font-weight: 700;
 }
 
@@ -2915,10 +2926,6 @@ input:-webkit-autofill:focus {
   font-size: 16px;
   opacity: 0.5;
   text-decoration: underline;
-}
-
-.bg-points:nth-child(odd) {
-  top: 25rem;
 }
 
 .fancybox-slide--image .fancybox-content {
@@ -3937,6 +3944,15 @@ input:-webkit-autofill:focus {
   .detail__body iframe {
     height: 180px;
     margin-bottom: 30px;
+  }
+
+  .detail__image::after {
+    left: 8px;
+    bottom: 48px;
+  }
+
+  .detail__image img {
+    margin-bottom: 20px;
   }
 
   .comments {
