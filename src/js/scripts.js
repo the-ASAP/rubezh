@@ -160,6 +160,21 @@ const addFilters = (e, container) => {
     }
 };
 
+const resizeFilters = (flag, mobile, mobFilters, descFilters, activeFilter) => {
+    if (flag && mobile) {
+        mobileFilterHorizontal(mobFilters);
+        flag = false;
+        if (activeFilter) {
+            $('.filter-current').text(activeFilter.text());
+        }
+    } else if (!flag && !mobile) {
+        $(mobFilters).html(descFilters);
+        flag = true;
+    }
+
+    return flag;
+};
+
 const filtersCount = () => {
     $('.content__searchCount').text(
         $('button.custom').length ? $('button.custom').length : ''
@@ -226,7 +241,53 @@ const grid = (col) => {
     });
 };
 
+const resize = (flag, contentFilters, profileFilters, activeFilter) => {
+    $(window).resize(() => {
+        let tablet = $(window).width() < 1025;
+        let mobile = $(window).width() < 769;
+
+        $('.content__field--filter input').on('change', e => {
+            if ($('.content__tags').length > 0 ||
+                ($('.content__mobileTags').length > 0 && mobile)) {
+                addFilters(e, mobile ? '.content__mobileTags' : '.content__tags');
+                filtersCount();
+            }
+            //ajax request;
+        });
+
+        //табы в настройках профиля 
+        $('.profile__button:not(.filter-current)').on('click', e => {
+            switchActive(e.target, '.profile__button', 'active');
+            tabs(e.target, '.profile__form', 'data-tab');
+        });
+
+        if (mobile) {
+            $('.content__heading').on('click', e => {
+                $(e.target).toggleClass('open');
+            });
+        }
+
+        //ресайз фильтров
+        if ($('.content__filters').length) {
+            flag = resizeFilters(flag, mobile, '.content__filters', contentFilters, activeFilter);
+        }
+
+        if ($('.profile__options').length) {
+            flag = resizeFilters(flag, mobile, '.profile__options', profileFilters, activeFilter);
+        }
+
+        $('.content__filter').on('click', function (e) {
+            switchActive(e.target, '.content__filter', 'active');
+            activeFilter = $(this);
+        });
+    });
+
+    $(window).trigger('resize');
+};
+
 $().ready(() => {
+    resize(true, $('.content__filters').html(), $('.profile__options').html(), false);
+
     $(document).on('click', '.header__search-btn[type="button"]', function () {
         openSearch($(this));
     });
@@ -324,15 +385,6 @@ $().ready(() => {
         });
     }
 
-    $('.content__field--filter input').on('change', e => {
-        if ($('.content__tags').length > 0 ||
-            ($('.content__mobileTags').length > 0 && mobile)) {
-            addFilters(e, mobile ? '.content__mobileTags' : '.content__tags');
-            filtersCount();
-        }
-        //ajax request;
-    });
-
     $('.content__mobileSubmit').on('click', () => searchRequest());
 
 
@@ -341,8 +393,7 @@ $().ready(() => {
     //обертка для fancybox 
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
-            $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><figure></figure></a>`);
-            $(el).after(`<figcaption>` + $(el).attr('alt') + `</figcaption>`);
+            $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
         });
 
         //fancybox
@@ -396,31 +447,12 @@ $().ready(() => {
         }
     ], true)
 
-    //раскрытие фильтров на мобильных 
-    if (mobile) {
-        $('.content__heading').on('click', e => {
-            $(e.target).toggleClass('open');
-        });
-    }
 
-    if (mobile && $('.content__filter').length) {
-        mobileFilterHorizontal('.content__filters');
-    }
-
-    if (mobile && $('.profile__options').length) {
-        mobileFilterHorizontal('.profile__options');
-    }
+    //табы в настройках профиля
 
     //добавим активный класс для первой загрузки
     $('.profile__button:not(.filter-current)').first().addClass('active');
     $('.profile__form').first().addClass('active');
-
-    //табы в настройках профиля 
-    $('.profile__button:not(.filter-current)').on('click', e => {
-        switchActive(e.target, '.profile__button', 'active');
-        tabs(e.target, '.profile__form', 'data-tab');
-    });
-    $('.content__filter').on('click', e => switchActive(e.target, '.content__filter', 'active'));
 
     //очистка поиска 
     $('.content__searchClear, .content__mobileClear').on('click', e => {

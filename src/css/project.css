@@ -1313,6 +1313,7 @@ input:-webkit-autofill:focus {
 
 .header__search.active > .header__search-btn {
   left: .8125rem;
+  right: unset;
 }
 
 .header__search.active > input {
@@ -2031,6 +2032,8 @@ input:-webkit-autofill:focus {
   padding: 0 1.5625rem;
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   background-color: #ffffff;
   font-weight: inherit;
 }
