@@ -6,6 +6,7 @@ const contentFadeInOnReady = () => {
     $('.preloader').fadeOut(150, () => {
         $('.preloader').remove();
     });
+    $('.preloader').remove(); //for explorer
 };
 
 //навешиваем  обработчики открытия и закрытия на модалки
@@ -161,16 +162,24 @@ const addFilters = (e, container) => {
 };
 
 const resizeFilters = (flag, mobile, mobFilters, descFilters, activeFilter) => {
+    const activeFilterClass = activeFilter[0].classList[0];
+
+    //ресайзим фильтры
     if (flag && mobile) {
         mobileFilterHorizontal(mobFilters);
         flag = false;
-        if (activeFilter) {
-            $('.filter-current').text(activeFilter.text());
-        }
     } else if (!flag && !mobile) {
         $(mobFilters).html(descFilters);
         flag = true;
     }
+
+    //вешаем класс на активные
+    $('.filter-current').text(activeFilter.text());
+    $(`.` + activeFilterClass).each(function () {
+        if ($(this).attr('id') === activeFilter.attr('id')) {
+            switchActive($(this), `.` + activeFilterClass, 'active');
+        }
+    });
 
     return flag;
 };
@@ -255,12 +264,6 @@ const resize = (flag, contentFilters, profileFilters, activeFilter) => {
             //ajax request;
         });
 
-        //табы в настройках профиля 
-        $('.profile__button:not(.filter-current)').on('click', e => {
-            switchActive(e.target, '.profile__button', 'active');
-            tabs(e.target, '.profile__form', 'data-tab');
-        });
-
         if (mobile) {
             $('.content__heading').on('click', e => {
                 $(e.target).toggleClass('open');
@@ -280,13 +283,20 @@ const resize = (flag, contentFilters, profileFilters, activeFilter) => {
             switchActive(e.target, '.content__filter', 'active');
             activeFilter = $(this);
         });
+
+        //табы в настройках профиля 
+        $('.profile__button:not(.filter-current)').on('click', function (e) {
+            switchActive(e.target, '.profile__button', 'active');
+            tabs(e.target, '.profile__form', 'data-tab');
+            activeFilter = $(this);
+        });
     });
 
     $(window).trigger('resize');
 };
 
 $().ready(() => {
-    resize(true, $('.content__filters').html(), $('.profile__options').html(), false);
+    resize(true, $('.content__filters').html(), $('.profile__options').html(), $('.content__filter:first').length ? $('.content__filter:first') : $('.profile__button:first'));
 
     $(document).on('click', '.header__search-btn[type="button"]', function () {
         openSearch($(this));
@@ -447,10 +457,8 @@ $().ready(() => {
         }
     ], true)
 
-
-    //табы в настройках профиля
-
     //добавим активный класс для первой загрузки
+    $('.content__filter:not(.filter-current)').first().addClass('active');
     $('.profile__button:not(.filter-current)').first().addClass('active');
     $('.profile__form').first().addClass('active');
 
@@ -458,7 +466,7 @@ $().ready(() => {
     $('.content__searchClear, .content__mobileClear').on('click', e => {
         // $(e.target).siblings('input').val('');
         location.search = '';
-    })
+    });
 
 
     //страницы категорий
