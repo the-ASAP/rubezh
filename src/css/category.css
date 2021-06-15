@@ -1371,7 +1371,7 @@ input:-webkit-autofill:focus {
 
 .header__search.active > .header__search-btn {
   left: .8125rem;
-  right: unset;
+  right: auto;
 }
 
 .header__search.active > input {
