@@ -239,6 +239,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .support__mail {
   color: #7BB933;
@@ -248,6 +249,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .support__mail:hover {
   color: #8CD23A;
@@ -806,6 +808,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .support__mail {
   color: #7BB933;
@@ -815,6 +818,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .support__mail:hover {
   color: #8CD23A;
@@ -2061,12 +2065,20 @@ input:-webkit-autofill:focus {
 
 .banner--reminder .banner__text {
   text-align: center;
+  color: #ffffff;
+  font-weight: 400;
   margin-right: 2rem;
 }
 
-.banner--reminder .banner__text > span {
-  color: #ffffff;
-  font-weight: 400;
+.banner--ie .banner__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner--ie .banner__text > h5 {
+  color: #7BB933;
+  line-height: 1;
+  margin-bottom: .375rem;
 }
 
 .subscribe {
@@ -3000,6 +3012,7 @@ input:-webkit-autofill:focus {
 }
 
 .support__mail {
+  font-size: 24px;
   font-weight: 500;
 }
 
@@ -4227,7 +4240,8 @@ input:-webkit-autofill:focus {
     font-size: 24px;
   }
 
-  .support__text {
+  .support__text,
+  .support__mail {
     font-size: 16px;
   }
 

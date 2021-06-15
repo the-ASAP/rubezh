@@ -6,7 +6,6 @@ const contentFadeInOnReady = () => {
     $('.preloader').fadeOut(150, () => {
         $('.preloader').remove();
     });
-    $('.preloader').remove(); //for explorer
 };
 
 //навешиваем  обработчики открытия и закрытия на модалки
@@ -403,7 +402,8 @@ $().ready(() => {
     //обертка для fancybox 
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
-            $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><span>${$(el).attr('alt')}</span></a>`);
+            $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><figure></figure></a>`);
+            $(el).after(`<figcaption>` + $(el).attr('alt') + `</figcaption>`);
         });
 
         //fancybox
@@ -518,6 +518,9 @@ $().ready(() => {
         const that = $(e.target);
         that.siblings('input[type="hidden"]').val(that.val());
     });
+});
 
+// IE 
+$(function () {
     contentFadeInOnReady();
 });

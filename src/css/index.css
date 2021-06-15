@@ -235,6 +235,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a {
   color: #7BB933;
   text-decoration: underline;
@@ -243,6 +244,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover {
   color: #8CD23A;
   text-decoration: none;
@@ -748,6 +750,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a {
   color: #7BB933;
   text-decoration: underline;
@@ -756,6 +759,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover {
   color: #8CD23A;
   text-decoration: none;
@@ -1953,12 +1957,20 @@ input:-webkit-autofill:focus {
 
 .banner--reminder .banner__text {
   text-align: center;
+  color: #ffffff;
+  font-weight: 400;
   margin-right: 2rem;
 }
 
-.banner--reminder .banner__text > span {
-  color: #ffffff;
-  font-weight: 400;
+.banner--ie .banner__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner--ie .banner__text > h5 {
+  color: #7BB933;
+  line-height: 1;
+  margin-bottom: .375rem;
 }
 
 .subscribe {

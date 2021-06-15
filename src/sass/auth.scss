@@ -121,15 +121,15 @@
     &__forgot,
     &__reg {
         @extend %link;
+        font-size: 14px;
     }
 
     &__forgot {
-        display: block;
-        margin-top: 20px;
         width: fit-content;
-        text-decoration: underline;
         font-size: 14px;
         font-weight: 500;
+        text-decoration: underline;
+        margin-top: 20px;
     }
 
     &__new {
@@ -139,6 +139,7 @@
 
         &>a {
             @extend %link;
+            font-size: 14px;
         }
     }
 
@@ -162,6 +163,7 @@
 
         & a {
             @extend %link;
+            font-size: 14px;
         }
     }
 
@@ -174,7 +176,6 @@
         color: $blue;
     }
 }
-
 
 @include small {
     .auth {

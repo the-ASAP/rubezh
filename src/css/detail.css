@@ -229,6 +229,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .detail__body a,
 .materials__info > a,
@@ -240,6 +241,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .detail__body a:hover,
 .materials__info > a:hover,
@@ -754,6 +756,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .detail__body a,
 .materials__info > a,
@@ -765,6 +768,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .detail__body a:hover,
 .materials__info > a:hover,
@@ -1980,12 +1984,25 @@ input:-webkit-autofill:focus {
 
 .banner--reminder .banner__text {
   text-align: center;
+  color: #ffffff;
+  font-weight: 400;
   margin-right: 2rem;
 }
 
-.banner--reminder .banner__text > span {
-  color: #ffffff;
-  font-weight: 400;
+.banner--ie .banner__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner--ie .banner__text > h5,
+.banner--ie .detail__body blockquote .banner__text > h3,
+.detail__body blockquote .banner--ie .banner__text > h3,
+.banner--ie .detail__body blockquote .banner__text > h4,
+.detail__body blockquote .banner--ie .banner__text > h4,
+.banner--ie .detail__body blockquote .banner__text > h5 {
+  color: #7BB933;
+  line-height: 1;
+  margin-bottom: .375rem;
 }
 
 .subscribe {

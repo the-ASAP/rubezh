@@ -982,11 +982,27 @@ input {
 
             &__text {
                 text-align: center;
+                color: #ffffff;
+                font-weight: 400;
                 margin-right: 2rem;
+            }
+        }
+    }
 
-                &>span {
-                    color: #ffffff;
-                    font-weight: 400;
+    &--ie {
+        & .banner {
+            &__text {
+                display: flex;
+                flex-direction: column;
+
+                &>h5 {
+                    color: $accent;
+                    line-height: 1;
+                    margin-bottom: .375rem;
+                }
+
+                & a {
+                    @extend %link;
                 }
             }
         }

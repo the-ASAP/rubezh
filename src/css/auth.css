@@ -227,6 +227,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .auth__forgot,
 .auth__reg,
@@ -239,6 +240,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .auth__forgot:hover,
 .auth__reg:hover,
@@ -760,6 +762,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem,
 .banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .auth__forgot,
 .auth__reg,
@@ -772,6 +775,7 @@ body::-webkit-scrollbar-thumb {
 
 .schemeItem:hover,
 .banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .auth__forgot:hover,
 .auth__reg:hover,
@@ -1993,12 +1997,20 @@ input:-webkit-autofill:focus {
 
 .banner--reminder .banner__text {
   text-align: center;
+  color: #ffffff;
+  font-weight: 400;
   margin-right: 2rem;
 }
 
-.banner--reminder .banner__text > span {
-  color: #ffffff;
-  font-weight: 400;
+.banner--ie .banner__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner--ie .banner__text > h5 {
+  color: #7BB933;
+  line-height: 1;
+  margin-bottom: .375rem;
 }
 
 .subscribe {
@@ -2553,18 +2565,26 @@ input:-webkit-autofill:focus {
   font-weight: 500;
 }
 
+.auth__forgot,
+.auth__reg {
+  font-size: 14px;
+}
+
 .auth__forgot {
-  display: block;
-  margin-top: 20px;
   width: fit-content;
-  text-decoration: underline;
   font-size: 14px;
   font-weight: 500;
+  text-decoration: underline;
+  margin-top: 20px;
 }
 
 .auth__new {
   width: fit-content;
   margin-top: 12px;
+  font-size: 14px;
+}
+
+.auth__new > a {
   font-size: 14px;
 }
 
@@ -2580,6 +2600,10 @@ input:-webkit-autofill:focus {
 }
 
 .auth__confirm {
+  font-size: 14px;
+}
+
+.auth__confirm a {
   font-size: 14px;
 }
 
