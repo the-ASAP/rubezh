@@ -2678,18 +2678,15 @@ input:-webkit-autofill:focus {
   transition: opacity 0.3s;
 }
 
-.detail__image figcaption {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: .875rem;
-}
-
 .detail__image img {
   width: 100%;
   object-fit: contain;
-  order: -1;
   margin-bottom: 3.4375rem;
+}
+
+.detail__image figcaption {
+  min-height: 1rem;
+  font-size: .875rem;
 }
 
 .detail__description {

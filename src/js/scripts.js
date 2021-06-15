@@ -404,6 +404,9 @@ $().ready(() => {
         $('.detail img, img[data-fancybox]').each((i, el) => {
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><figure></figure></a>`);
             $(el).after(`<figcaption>` + $(el).attr('alt') + `</figcaption>`);
+            if (!$(el).attr('alt').length) {
+                $(el).closest('a').css('margin-bottom', '0');
+            }
         });
 
         //fancybox

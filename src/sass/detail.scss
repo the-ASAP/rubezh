@@ -244,19 +244,16 @@
       transition: opacity 0.3s;
     }
 
-    & figcaption {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      @extend %exo-text;
-      font-size: .875rem;
-    }
-
     & img {
       width: 100%;
       object-fit: contain;
-      order: -1;
       margin-bottom: 3.4375rem;
+    }
+
+    & figcaption {
+      min-height: 1rem;
+      @extend %exo-text;
+      font-size: .875rem;
     }
   }
 
@@ -269,10 +266,8 @@
 
   &__subtitle {
     display: block;
-
     font-size: 1.5rem;
     font-weight: 600;
-
     text-transform: uppercase;
   }
 
