@@ -402,9 +402,10 @@ $().ready(() => {
     //обертка для fancybox 
     if ($('.detail img').length || $('[data-fancybox]').length) {
         $('.detail img, img[data-fancybox]').each((i, el) => {
+            const alt = $(el).attr('alt');
             $(el).wrap(`<a class='detail__image' href='${$(el).attr('src')}' data-fancybox><figure></figure></a>`);
-            $(el).after(`<figcaption>` + $(el).attr('alt') + `</figcaption>`);
-            if (!$(el).attr('alt').length) {
+            $(el).after(`<figcaption>` + alt + `</figcaption>`);
+            if (!alt) {
                 $(el).closest('a').css('margin-bottom', '0');
             }
         });
