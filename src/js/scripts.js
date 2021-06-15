@@ -1,5 +1,5 @@
-const tablet = $(window).width() < 1025;
-const mobile = $(window).width() < 769;
+const tablet = $(window).width() < 1025,
+    mobile = $(window).width() < 769;
 
 //удаляем прелодер при загрузке страницы
 const contentFadeInOnReady = () => {
@@ -172,7 +172,7 @@ const resizeFilters = (flag, mobile, mobFilters, descFilters, activeFilter) => {
         flag = true;
     }
 
-    //вешаем класс на активные
+    //вешаем класс на активный
     $('.filter-current').text(activeFilter.text());
     $(`.` + activeFilterClass).each(function () {
         if ($(this).attr('id') === activeFilter.attr('id')) {
@@ -249,19 +249,19 @@ const grid = (col) => {
     });
 };
 
-const resize = (flag, contentFilters, profileFilters, activeFilter) => {
-    $(window).resize(() => {
-        let tablet = $(window).width() < 1025;
-        let mobile = $(window).width() < 769;
+const resize = (init) => {
+    let flag = true,
+        initData = new Array(),
+        activeFilter;
 
-        $('.content__field--filter input').on('change', e => {
-            if ($('.content__tags').length > 0 ||
-                ($('.content__mobileTags').length > 0 && mobile)) {
-                addFilters(e, mobile ? '.content__mobileTags' : '.content__tags');
-                filtersCount();
-            }
-            //ajax request;
-        });
+    $.each(init, function (i, val) {
+        initData[i] = $(val).html();
+        $(val).length ? activeFilter = $(val).find('.active') : $(val).find('button:first-child');
+    });
+
+    $(window).resize(() => {
+        let tablet = $(window).width() < 1025,
+            mobile = $(window).width() < 769;
 
         if (mobile) {
             $('.content__heading').on('click', e => {
@@ -271,19 +271,19 @@ const resize = (flag, contentFilters, profileFilters, activeFilter) => {
 
         //ресайз фильтров
         if ($('.content__filters').length) {
-            flag = resizeFilters(flag, mobile, '.content__filters', contentFilters, activeFilter);
+            flag = resizeFilters(flag, mobile, init[0], initData[0], activeFilter);
         }
 
         if ($('.profile__options').length) {
-            flag = resizeFilters(flag, mobile, '.profile__options', profileFilters, activeFilter);
+            flag = resizeFilters(flag, mobile, init[1], initData[1], activeFilter);
         }
 
+        //реинит активного фильтра
         $('.content__filter').on('click', function (e) {
             switchActive(e.target, '.content__filter', 'active');
             activeFilter = $(this);
         });
 
-        //табы в настройках профиля 
         $('.profile__button:not(.filter-current)').on('click', function (e) {
             switchActive(e.target, '.profile__button', 'active');
             tabs(e.target, '.profile__form', 'data-tab');
@@ -295,8 +295,6 @@ const resize = (flag, contentFilters, profileFilters, activeFilter) => {
 };
 
 $().ready(() => {
-    resize(true, $('.content__filters').html(), $('.profile__options').html(), $('.content__filter:first').length ? $('.content__filter:first') : $('.profile__button:first'));
-
     $(document).on('click', '.header__search-btn[type="button"]', function () {
         openSearch($(this));
     });
@@ -393,6 +391,15 @@ $().ready(() => {
             dotsContainer: '.community__sliderDots'
         });
     }
+
+    $('.content__field--filter input').on('change', e => {
+        if ($('.content__tags').length > 0 ||
+            ($('.content__mobileTags').length > 0 && mobile)) {
+            addFilters(e, mobile ? '.content__mobileTags' : '.content__tags');
+            filtersCount();
+        }
+        //ajax request;
+    });
 
     $('.content__mobileSubmit').on('click', () => searchRequest());
 
@@ -522,6 +529,9 @@ $().ready(() => {
         const that = $(e.target);
         that.siblings('input[type="hidden"]').val(that.val());
     });
+
+    //ресайз
+    resize(['.content__filters', '.profile__options']);
 });
 
 // IE 
