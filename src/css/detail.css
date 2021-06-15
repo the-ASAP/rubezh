@@ -2678,6 +2678,12 @@ input:-webkit-autofill:focus {
   transition: opacity 0.3s;
 }
 
+.detail__image:focus,
+.detail__image:active,
+.detail__image:visited {
+  outline: 0;
+}
+
 .detail__image img {
   width: 100%;
   object-fit: contain;
