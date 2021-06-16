@@ -48,6 +48,13 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
+h2,
+.content__title,
+.detail__title {
+  font-size: 2.625rem;
+  font-weight: 700;
+}
+
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
@@ -575,6 +582,13 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
+h2,
+.content__title,
+.detail__title {
+  font-size: 2.625rem;
+  font-weight: 700;
+}
+
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
@@ -1090,11 +1104,6 @@ li {
 h1 {
   font-size: 4rem;
   font-weight: 800;
-}
-
-h2 {
-  font-size: 2.625rem;
-  font-weight: 700;
 }
 
 h3 {
@@ -2476,8 +2485,6 @@ input:-webkit-autofill:focus {
 }
 
 .detail__title {
-  font-size: 2.625rem;
-  font-weight: 700;
   line-height: 1.2;
   margin-top: 1.875rem;
 }
@@ -2558,8 +2565,8 @@ input:-webkit-autofill:focus {
 
 .detail__body iframe {
   display: block;
-  width: 37.5rem;
-  height: 21.0625rem;
+  min-width: 37.5rem;
+  min-height: 21.0625rem;
   margin: 2.375rem auto 3.75rem auto;
 }
 
@@ -3066,6 +3073,12 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 1024px) {
+  h2,
+  .content__title,
+  .detail__title {
+    font-size: 24px;
+  }
+
   .more__btn,
   .modal__button,
   .header__profile-signup,
@@ -3100,6 +3113,12 @@ input:-webkit-autofill:focus {
     font-size: 16px;
   }
 
+  h2,
+  .content__title,
+  .detail__title {
+    font-size: 24px;
+  }
+
   .more__btn,
   .modal__button,
   .header__profile-signup,
@@ -3132,10 +3151,6 @@ input:-webkit-autofill:focus {
 
   h1 {
     font-size: 28px;
-  }
-
-  h2 {
-    font-size: 24px;
   }
 
   h3 {
@@ -3348,10 +3363,6 @@ input:-webkit-autofill:focus {
     margin-bottom: 16px;
   }
 
-  .content__title {
-    font-size: 24px;
-  }
-
   .content__subtitle {
     margin-top: 15px;
     font-size: 18px;
@@ -3415,7 +3426,8 @@ input:-webkit-autofill:focus {
 
   .detail__body iframe {
     width: 100%;
-    height: 400px;
+    min-width: auto;
+    min-height: 400px;
   }
 
   .detail__image {
@@ -3965,7 +3977,7 @@ input:-webkit-autofill:focus {
   }
 
   .detail__body iframe {
-    height: 180px;
+    min-height: 180px;
     margin-bottom: 30px;
   }
 
@@ -4053,6 +4065,10 @@ input:-webkit-autofill:focus {
 
   .subscribe__btn {
     width: 40%;
+  }
+
+  .detail__body iframe {
+    max-height: 450px;
   }
 }
 

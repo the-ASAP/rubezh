@@ -43,8 +43,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.625rem;
-    font-weight: 700;
+    @extend %heading;
 }
 
 h3 {
@@ -1189,6 +1188,10 @@ input {
         border-bottom: 1px solid rgba($gen, .5);
     }
 
+    &__title {
+        @extend %heading;
+    }
+
     &__subtitle {
         max-width: 53.125rem;
         margin-top: 1.75rem;
@@ -1542,10 +1545,6 @@ input {
         font-size: 28px;
     }
 
-    h2 {
-        font-size: 24px;
-    }
-
     h3 {
         font-size: 20px;
     }
@@ -1770,10 +1769,6 @@ input {
     }
 
     .content {
-        &__title {
-            font-size: 24px;
-        }
-
         &__subtitle {
             margin-top: 15px;
             font-size: 18px;

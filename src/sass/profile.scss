@@ -6,6 +6,10 @@
         border-bottom: 1px solid rgba(52, 53, 62, 0.5);
     }
 
+    &__title {
+        @extend %heading;
+    }
+
     &__options {
         margin-top: 40px;
     }
@@ -128,6 +132,10 @@
     &__header {
         padding-bottom: 50px;
         border-bottom: 1px solid rgba(52, 53, 62, 0.5);
+    }
+
+    &__title {
+        @extend %heading;
     }
 
     &__subhead {
@@ -255,6 +263,10 @@
         margin-top: 78px;
     }
 
+    &__title {
+        @extend %heading;
+    }
+
     &__header {
         @extend %flexbox;
         justify-content: space-between;
@@ -312,10 +324,6 @@
     .project {
         &__header {
             padding-bottom: 34px;
-        }
-
-        &__title {
-            font-size: 24px;
         }
 
         &__subhead {
@@ -412,10 +420,6 @@
     }
 
     .projects {
-        &__title {
-            font-size: 24px;
-        }
-
         &__table {
             margin-top: 40px;
         }

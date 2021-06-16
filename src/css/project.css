@@ -45,6 +45,12 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
+h2,
+.content__title {
+  font-size: 2.625rem;
+  font-weight: 700;
+}
+
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
@@ -587,6 +593,12 @@ body::-webkit-scrollbar-thumb {
   background: #7BB933;
 }
 
+h2,
+.content__title {
+  font-size: 2.625rem;
+  font-weight: 700;
+}
+
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
@@ -1120,11 +1132,6 @@ li {
 h1 {
   font-size: 4rem;
   font-weight: 800;
-}
-
-h2 {
-  font-size: 2.625rem;
-  font-weight: 700;
 }
 
 h3 {
@@ -2692,6 +2699,11 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 1024px) {
+  h2,
+  .content__title {
+    font-size: 24px;
+  }
+
   .more__btn,
   .modal__button,
   .header__profile-signup,
@@ -2725,6 +2737,11 @@ input:-webkit-autofill:focus {
     font-size: 16px;
   }
 
+  h2,
+  .content__title {
+    font-size: 24px;
+  }
+
   .more__btn,
   .modal__button,
   .header__profile-signup,
@@ -2756,10 +2773,6 @@ input:-webkit-autofill:focus {
 
   h1 {
     font-size: 28px;
-  }
-
-  h2 {
-    font-size: 24px;
   }
 
   h3 {
@@ -2967,10 +2980,6 @@ input:-webkit-autofill:focus {
 
   .footer__policy {
     margin-bottom: 16px;
-  }
-
-  .content__title {
-    font-size: 24px;
   }
 
   .content__subtitle {
