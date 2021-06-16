@@ -162,7 +162,6 @@ const addFilters = (e, container) => {
 
 const resizeFilters = (flag, mobile, mobFilters, descFilters, activeFilter) => {
     const activeFilterClass = `.` + activeFilter[0].classList[0];
-
     //ресайзим фильтры
     if (flag && mobile) {
         mobileFilterHorizontal(mobFilters);
@@ -171,15 +170,13 @@ const resizeFilters = (flag, mobile, mobFilters, descFilters, activeFilter) => {
         $(mobFilters).html(descFilters);
         flag = true;
     }
-
-    //вешаем класс на активный
+    //добавляем класс на активный
     $('.filter-current').attr('id', activeFilter.attr('id')).text(activeFilter.text());
     $(activeFilterClass).each(function () {
         if ($(this).attr('id') === activeFilter.attr('id')) {
             switchActive($(this), activeFilterClass, 'active');
         }
     });
-
     return flag;
 };
 
@@ -253,7 +250,6 @@ const resize = (init) => {
     let flag = true,
         initData = new Array(),
         activeFilter;
-
     $.each(init, function (i, val) {
         initData[i] = $(val).html();
         $(val).length ? activeFilter = $(val).find('.active') : $(val).find('button:first-child');
@@ -273,7 +269,6 @@ const resize = (init) => {
         if ($('.content__filters').length) {
             flag = resizeFilters(flag, mobile, init[0], initData[0], activeFilter);
         }
-
         if ($('.profile__options').length) {
             flag = resizeFilters(flag, mobile, init[1], initData[1], activeFilter);
         }
@@ -283,7 +278,6 @@ const resize = (init) => {
             switchActive(e.target, '.content__filter', 'active');
             activeFilter = $(this);
         });
-
         $('.profile__button:not(.filter-current)').on('click', function (e) {
             switchActive(e.target, '.profile__button', 'active');
             tabs(e.target, '.profile__form', 'data-tab');
@@ -468,7 +462,7 @@ $().ready(() => {
         }
     ], true)
 
-    //добавим активный класс для первой загрузки
+    //добавляем активный класс для первой загрузки
     $('.content__filter:not(.filter-current)').first().addClass('active');
     $('.profile__button:not(.filter-current)').first().addClass('active');
     $('.profile__form').first().addClass('active');

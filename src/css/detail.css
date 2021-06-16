@@ -2691,7 +2691,7 @@ input:-webkit-autofill:focus {
 }
 
 .detail__image figcaption {
-  min-height: 1rem;
+  min-height: 1.096rem;
   font-size: .875rem;
 }
 
