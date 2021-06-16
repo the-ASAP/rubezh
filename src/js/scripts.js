@@ -161,7 +161,7 @@ const addFilters = (e, container) => {
 };
 
 const resizeFilters = (flag, mobile, mobFilters, descFilters, activeFilter) => {
-    const activeFilterClass = activeFilter[0].classList[0];
+    const activeFilterClass = `.` + activeFilter[0].classList[0];
 
     //ресайзим фильтры
     if (flag && mobile) {
@@ -173,10 +173,10 @@ const resizeFilters = (flag, mobile, mobFilters, descFilters, activeFilter) => {
     }
 
     //вешаем класс на активный
-    $('.filter-current').text(activeFilter.text());
-    $(`.` + activeFilterClass).each(function () {
+    $('.filter-current').attr('id', activeFilter.attr('id')).text(activeFilter.text());
+    $(activeFilterClass).each(function () {
         if ($(this).attr('id') === activeFilter.attr('id')) {
-            switchActive($(this), `.` + activeFilterClass, 'active');
+            switchActive($(this), activeFilterClass, 'active');
         }
     });
 
@@ -211,7 +211,7 @@ const mobileFilterHorizontal = parent => {
                 stopScroll();
                 break;
             case that.is('button:not(.filter-current)'):
-                $(parent).find('.filter-current').text(that.text());
+                $(parent).find('.filter-current').attr('id', that.attr('id')).text(that.text());
                 // ajax request
                 break;
             case that.hasClass('mobile-select'):
