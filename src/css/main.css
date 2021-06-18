@@ -54,7 +54,7 @@ h2,
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
-.banner__closeBtn {
+.bnr__closeBtn {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -63,11 +63,11 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.banner__closeBtn::after,
+.bnr__closeBtn::after,
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.banner__closeBtn::before {
+.bnr__closeBtn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -81,25 +81,25 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.banner__closeBtn::after {
+.bnr__closeBtn::after {
   transform: rotate(45deg);
 }
 
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.banner__closeBtn::before {
+.bnr__closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
 .content__mobileClose:hover::after,
 .header__search.active > .header__search-closeBtn:hover::after,
-.banner__closeBtn:hover::after,
+.bnr__closeBtn:hover::after,
 .modal__close:hover::before,
 .content__mobileClose:hover::before,
 .header__search.active > .header__search-closeBtn:hover::before,
-.banner__closeBtn:hover::before {
+.bnr__closeBtn:hover::before {
   background-color: #8CD23A;
 }
 
@@ -230,8 +230,8 @@ h2,
 }
 
 .schemeItem,
-.banner__link,
-.banner--ie .banner__text a,
+.bnr__link,
+.bnr--ie .bnr__text a,
 .not-found__text a {
   color: #7BB933;
   text-decoration: underline;
@@ -239,8 +239,8 @@ h2,
 }
 
 .schemeItem:hover,
-.banner__link:hover,
-.banner--ie .banner__text a:hover,
+.bnr__link:hover,
+.bnr--ie .bnr__text a:hover,
 .not-found__text a:hover {
   color: #8CD23A;
   text-decoration: none;
@@ -555,7 +555,7 @@ h2,
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
-.banner__closeBtn {
+.bnr__closeBtn {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -564,11 +564,11 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.banner__closeBtn::after,
+.bnr__closeBtn::after,
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.banner__closeBtn::before {
+.bnr__closeBtn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -582,25 +582,25 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.banner__closeBtn::after {
+.bnr__closeBtn::after {
   transform: rotate(45deg);
 }
 
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.banner__closeBtn::before {
+.bnr__closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
 .content__mobileClose:hover::after,
 .header__search.active > .header__search-closeBtn:hover::after,
-.banner__closeBtn:hover::after,
+.bnr__closeBtn:hover::after,
 .modal__close:hover::before,
 .content__mobileClose:hover::before,
 .header__search.active > .header__search-closeBtn:hover::before,
-.banner__closeBtn:hover::before {
+.bnr__closeBtn:hover::before {
   background-color: #8CD23A;
 }
 
@@ -731,8 +731,8 @@ h2,
 }
 
 .schemeItem,
-.banner__link,
-.banner--ie .banner__text a,
+.bnr__link,
+.bnr--ie .bnr__text a,
 .not-found__text a {
   color: #7BB933;
   text-decoration: underline;
@@ -740,8 +740,8 @@ h2,
 }
 
 .schemeItem:hover,
-.banner__link:hover,
-.banner--ie .banner__text a:hover,
+.bnr__link:hover,
+.bnr--ie .bnr__text a:hover,
 .not-found__text a:hover {
   color: #8CD23A;
   text-decoration: none;
@@ -1843,12 +1843,12 @@ input:-webkit-autofill:focus {
   right: 0;
 }
 
-.banner {
+.bnr {
   position: relative;
   background-color: #6B7785;
 }
 
-.banner__box {
+.bnr__box {
   z-index: 1;
   position: relative;
   display: flex;
@@ -1857,16 +1857,16 @@ input:-webkit-autofill:focus {
   padding: 5rem 0;
 }
 
-.banner__description {
+.bnr__description {
   width: 52%;
   margin-right: 8%;
 }
 
-.banner__title {
+.bnr__title {
   color: #ffffff;
 }
 
-.banner__icon {
+.bnr__icon {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -1874,14 +1874,14 @@ input:-webkit-autofill:focus {
   width: 50%;
 }
 
-.banner__link {
+.bnr__link {
   position: relative;
   box-sizing: border-box;
   padding-right: 10px;
   font-weight: 700;
 }
 
-.banner__link::after {
+.bnr__link::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -1894,47 +1894,47 @@ input:-webkit-autofill:focus {
   transition: transform .3s;
 }
 
-.banner__link:hover::after {
+.bnr__link:hover::after {
   transform: translateX(10px) translateY(-50%);
 }
 
-.banner__closeBtn {
+.bnr__closeBtn {
   top: 1rem;
   right: 0;
 }
 
-.banner__closeBtn::before,
-.banner__closeBtn::after {
+.bnr__closeBtn::before,
+.bnr__closeBtn::after {
   background-color: #ffffff;
 }
 
-.banner__closeBtn:hover::before,
-.banner__closeBtn:hover::after {
+.bnr__closeBtn:hover::before,
+.bnr__closeBtn:hover::after {
   background-color: #7BB933;
 }
 
-.banner--reminder {
+.bnr--reminder {
   margin-top: 1.1875rem;
 }
 
-.banner--reminder .banner__box {
+.bnr--reminder .bnr__box {
   justify-content: center;
   padding: 16px 0;
 }
 
-.banner--reminder .banner__text {
+.bnr--reminder .bnr__text {
   text-align: center;
   color: #ffffff;
   font-weight: 400;
   margin-right: 2rem;
 }
 
-.banner--ie .banner__text {
+.bnr--ie .bnr__text {
   display: flex;
   flex-direction: column;
 }
 
-.banner--ie .banner__text > h5 {
+.bnr--ie .bnr__text > h5 {
   color: #7BB933;
   line-height: 1;
   margin-bottom: .375rem;
@@ -2688,16 +2688,16 @@ input:-webkit-autofill:focus {
     font-size: 14px;
   }
 
-  .banner__box {
+  .bnr__box {
     padding: 40px 0;
   }
 
-  .banner__description {
+  .bnr__description {
     width: 48%;
     margin-right: 4%;
   }
 
-  .banner--reminder {
+  .bnr--reminder {
     margin-top: 9.5px;
   }
 
@@ -2816,19 +2816,19 @@ input:-webkit-autofill:focus {
     margin-bottom: 50px;
   }
 
-  .banner__box {
+  .bnr__box {
     flex-direction: column;
     align-items: flex-start;
     padding: 30px 0;
   }
 
-  .banner__description {
+  .bnr__description {
     width: 70%;
     margin-right: 0;
     margin-bottom: 40px;
   }
 
-  .banner__icon {
+  .bnr__icon {
     width: 100%;
   }
 
@@ -3326,7 +3326,7 @@ input:-webkit-autofill:focus {
     height: 185px;
   }
 
-  .banner__description {
+  .bnr__description {
     width: 100%;
   }
 
