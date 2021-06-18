@@ -2588,7 +2588,6 @@ input:-webkit-autofill:focus {
 }
 
 .auth__new {
-  display: inline-block;
   width: fit-content;
   margin-top: 12px;
   font-size: 14px;
@@ -2608,7 +2607,6 @@ input:-webkit-autofill:focus {
 }
 
 .auth__confirm {
-  display: inline-block;
   font-size: 14px;
 }
 
@@ -3615,6 +3613,10 @@ input:-webkit-autofill:focus {
   .owl-dot > span {
     height: 6px;
     width: 6px;
+  }
+
+  body {
+    -webkit-text-size-adjust: none;
   }
 
   .postItem__img {
