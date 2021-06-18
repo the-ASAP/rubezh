@@ -54,7 +54,7 @@ h2,
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
-.bnr__closeBtn {
+.banner__closeBtn {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -63,11 +63,11 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.bnr__closeBtn::after,
+.banner__closeBtn::after,
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.bnr__closeBtn::before {
+.banner__closeBtn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -81,25 +81,25 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.bnr__closeBtn::after {
+.banner__closeBtn::after {
   transform: rotate(45deg);
 }
 
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.bnr__closeBtn::before {
+.banner__closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
 .content__mobileClose:hover::after,
 .header__search.active > .header__search-closeBtn:hover::after,
-.bnr__closeBtn:hover::after,
+.banner__closeBtn:hover::after,
 .modal__close:hover::before,
 .content__mobileClose:hover::before,
 .header__search.active > .header__search-closeBtn:hover::before,
-.bnr__closeBtn:hover::before {
+.banner__closeBtn:hover::before {
   background-color: #8CD23A;
 }
 
@@ -230,8 +230,8 @@ h2,
 }
 
 .schemeItem,
-.bnr__link,
-.bnr--ie .bnr__text a,
+.banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .project__info a {
   color: #7BB933;
@@ -240,8 +240,8 @@ h2,
 }
 
 .schemeItem:hover,
-.bnr__link:hover,
-.bnr--ie .bnr__text a:hover,
+.banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .project__info a:hover {
   color: #8CD23A;
@@ -602,7 +602,7 @@ h2,
 .modal__close,
 .content__mobileClose,
 .header__search.active > .header__search-closeBtn,
-.bnr__closeBtn {
+.banner__closeBtn {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -611,11 +611,11 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.bnr__closeBtn::after,
+.banner__closeBtn::after,
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.bnr__closeBtn::before {
+.banner__closeBtn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -629,25 +629,25 @@ h2,
 .modal__close::after,
 .content__mobileClose::after,
 .header__search.active > .header__search-closeBtn::after,
-.bnr__closeBtn::after {
+.banner__closeBtn::after {
   transform: rotate(45deg);
 }
 
 .modal__close::before,
 .content__mobileClose::before,
 .header__search.active > .header__search-closeBtn::before,
-.bnr__closeBtn::before {
+.banner__closeBtn::before {
   transform: rotate(135deg);
 }
 
 .modal__close:hover::after,
 .content__mobileClose:hover::after,
 .header__search.active > .header__search-closeBtn:hover::after,
-.bnr__closeBtn:hover::after,
+.banner__closeBtn:hover::after,
 .modal__close:hover::before,
 .content__mobileClose:hover::before,
 .header__search.active > .header__search-closeBtn:hover::before,
-.bnr__closeBtn:hover::before {
+.banner__closeBtn:hover::before {
   background-color: #8CD23A;
 }
 
@@ -778,8 +778,8 @@ h2,
 }
 
 .schemeItem,
-.bnr__link,
-.bnr--ie .bnr__text a,
+.banner__link,
+.banner--ie .banner__text a,
 .not-found__text a,
 .project__info a {
   color: #7BB933;
@@ -788,8 +788,8 @@ h2,
 }
 
 .schemeItem:hover,
-.bnr__link:hover,
-.bnr--ie .bnr__text a:hover,
+.banner__link:hover,
+.banner--ie .banner__text a:hover,
 .not-found__text a:hover,
 .project__info a:hover {
   color: #8CD23A;
@@ -1937,12 +1937,12 @@ input:-webkit-autofill:focus {
   right: 0;
 }
 
-.bnr {
+.banner {
   position: relative;
   background-color: #6B7785;
 }
 
-.bnr__box {
+.banner__box {
   z-index: 1;
   position: relative;
   display: flex;
@@ -1951,16 +1951,16 @@ input:-webkit-autofill:focus {
   padding: 5rem 0;
 }
 
-.bnr__description {
+.banner__description {
   width: 52%;
   margin-right: 8%;
 }
 
-.bnr__title {
+.banner__title {
   color: #ffffff;
 }
 
-.bnr__icon {
+.banner__icon {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -1968,14 +1968,14 @@ input:-webkit-autofill:focus {
   width: 50%;
 }
 
-.bnr__link {
+.banner__link {
   position: relative;
   box-sizing: border-box;
   padding-right: 10px;
   font-weight: 700;
 }
 
-.bnr__link::after {
+.banner__link::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -1988,47 +1988,47 @@ input:-webkit-autofill:focus {
   transition: transform .3s;
 }
 
-.bnr__link:hover::after {
+.banner__link:hover::after {
   transform: translateX(10px) translateY(-50%);
 }
 
-.bnr__closeBtn {
+.banner__closeBtn {
   top: 1rem;
   right: 0;
 }
 
-.bnr__closeBtn::before,
-.bnr__closeBtn::after {
+.banner__closeBtn::before,
+.banner__closeBtn::after {
   background-color: #ffffff;
 }
 
-.bnr__closeBtn:hover::before,
-.bnr__closeBtn:hover::after {
+.banner__closeBtn:hover::before,
+.banner__closeBtn:hover::after {
   background-color: #7BB933;
 }
 
-.bnr--reminder {
+.banner--reminder {
   margin-top: 1.1875rem;
 }
 
-.bnr--reminder .bnr__box {
+.banner--reminder .banner__box {
   justify-content: center;
   padding: 16px 0;
 }
 
-.bnr--reminder .bnr__text {
+.banner--reminder .banner__text {
   text-align: center;
   color: #ffffff;
   font-weight: 400;
   margin-right: 2rem;
 }
 
-.bnr--ie .bnr__text {
+.banner--ie .banner__text {
   display: flex;
   flex-direction: column;
 }
 
-.bnr--ie .bnr__text > h5 {
+.banner--ie .banner__text > h5 {
   color: #7BB933;
   line-height: 1;
   margin-bottom: .375rem;
@@ -2913,16 +2913,16 @@ input:-webkit-autofill:focus {
     font-size: 14px;
   }
 
-  .bnr__box {
+  .banner__box {
     padding: 40px 0;
   }
 
-  .bnr__description {
+  .banner__description {
     width: 48%;
     margin-right: 4%;
   }
 
-  .bnr--reminder {
+  .banner--reminder {
     margin-top: 9.5px;
   }
 
@@ -3041,19 +3041,19 @@ input:-webkit-autofill:focus {
     margin-bottom: 50px;
   }
 
-  .bnr__box {
+  .banner__box {
     flex-direction: column;
     align-items: flex-start;
     padding: 30px 0;
   }
 
-  .bnr__description {
+  .banner__description {
     width: 70%;
     margin-right: 0;
     margin-bottom: 40px;
   }
 
-  .bnr__icon {
+  .banner__icon {
     width: 100%;
   }
 
@@ -3559,7 +3559,7 @@ input:-webkit-autofill:focus {
     height: 185px;
   }
 
-  .bnr__description {
+  .banner__description {
     width: 100%;
   }
 
