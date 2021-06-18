@@ -3448,6 +3448,10 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 768px) {
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
   .postItem {
     height: max-content;
     box-shadow: none;
@@ -4053,10 +4057,6 @@ input:-webkit-autofill:focus {
   .owl-dot > span {
     height: 6px;
     width: 6px;
-  }
-
-  body {
-    -webkit-text-size-adjust: none;
   }
 
   .postItem__img {

@@ -1797,6 +1797,10 @@ input {
 }
 
 @include small {
+    body {
+        -webkit-text-size-adjust: none;
+    }
+
     .postItem {
         height: max-content;
         box-shadow: none;
@@ -2332,10 +2336,6 @@ input {
 }
 
 @include x-small {
-    body {
-        -webkit-text-size-adjust: none;
-    }
-
     .postItem {
         &__img {
             height: 185px;
