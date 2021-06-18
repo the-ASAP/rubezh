@@ -137,6 +137,7 @@
     }
 
     &__new {
+        display: inline-block;
         width: fit-content;
         margin-top: 12px;
         font-size: 14px;
@@ -161,6 +162,7 @@
     }
 
     &__confirm {
+        display: inline-block;
         font-size: 14px;
 
         & a {
