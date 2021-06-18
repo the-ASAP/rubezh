@@ -164,6 +164,7 @@
         font-size: 14px;
 
         & a {
+            display: inline;
             @extend %link;
             font-size: 14px;
         }

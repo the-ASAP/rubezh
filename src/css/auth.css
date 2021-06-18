@@ -2611,6 +2611,7 @@ input:-webkit-autofill:focus {
 }
 
 .auth__confirm a {
+  display: inline;
   font-size: 14px;
 }
 
