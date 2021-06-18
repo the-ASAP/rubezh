@@ -3435,6 +3435,10 @@ input:-webkit-autofill:focus {
     width: 6px;
   }
 
+  body {
+    -webkit-text-size-adjust: none;
+  }
+
   .postItem__img {
     height: 185px;
   }
