@@ -310,8 +310,8 @@ $().ready(() => {
         dropDownMenu($(this));
     });
 
-    $('.bnr__closeBtn').on('click', function () {
-        $(this).closest('.bnr').remove();
+    $('.banner__closeBtn').on('click', function () {
+        $(this).closest('.banner').remove();
     });
 
     owlGallery('.promo__sliderBox', {
