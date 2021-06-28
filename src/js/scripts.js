@@ -248,11 +248,19 @@ const grid = (col) => {
 
 const resize = (init) => {
     let flag = true,
-        initData = new Array(),
         activeFilter;
-    $.each(init, function (i, val) {
-        initData[i] = $(val).html();
+
+    $.each(init, (i, val) => {
         $(val).length ? activeFilter = $(val).find('.active') : $(val).find('button:first-child');
+    });
+
+    init = $.map(init, (val) => {
+        if ($(val).length) {
+            return {
+                'class': val,
+                'data': $(val).html()
+            }
+        }
     });
 
     $(window).resize(() => {
@@ -266,12 +274,9 @@ const resize = (init) => {
         }
 
         //ресайз фильтров
-        if ($('.content__filters').length) {
-            flag = resizeFilters(flag, mobile, init[0], initData[0], activeFilter);
-        }
-        if ($('.profile__options').length) {
-            flag = resizeFilters(flag, mobile, init[1], initData[1], activeFilter);
-        }
+        init.forEach((el) => {
+            flag = resizeFilters(flag, mobile, el.class, el.data, activeFilter);
+        });
 
         //реинит активного фильтра
         $('.content__filter').on('click', function (e) {
